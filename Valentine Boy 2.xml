@@ -2594,7 +2594,6 @@ function inicjalizacja()
 		
 	}
 	
-
 	var t_game = document.getElementById('tululoogame');
 
 	var p_game = document.getElementById('punkty');
@@ -2606,7 +2605,7 @@ function inicjalizacja()
 		var divIdName = 'start';
 		start_div.setAttribute('id',divIdName);
 		start_div.setAttribute('name',divIdName);
-		start_div.setAttribute('style','position: absolute; top: 105px; left: 0px; width: 640px; background-color: transparent; font-size: 85px; color: blue; text-align: center;');
+		start_div.setAttribute('style','position: absolute; top: 105px; left: 0px; width: 640px; background-color: transparent; font-size: 95px; color: black; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;');
 		start_div.innerHTML = 'Start'+dedykacja;
 		
 		var tytul_div = document.createElement('div');
