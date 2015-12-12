@@ -1618,7 +1618,7 @@ function __niebo_ciemne() {
 __background_init__(this, niebo_ciemne, 'img/ciemne_niebo.png')}; var niebo_ciemne = new __niebo_ciemne();
 
 function __VALENTINE_TLO() { 
-__background_init__(this, VALENTINE_TLO, 'img/james_games.png')}; var VALENTINE_TLO = new __VALENTINE_TLO();
+__background_init__(this, VALENTINE_TLO, 'img/ValentineBoy_2.png')}; var VALENTINE_TLO = new __VALENTINE_TLO();
 
 function __poziom_tlo() { 
 __background_init__(this, poziom_tlo, 'img/level_tlo.png')}; var poziom_tlo = new __poziom_tlo();
