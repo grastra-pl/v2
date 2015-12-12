@@ -2591,19 +2591,7 @@ function inicjalizacja()
 	dedykacja='';
 	if (typeof kongregate != 'undefined')
 	{
-		// alert(kongregate.services.getUserId());
-		// kongregate.services.getUsername();
 		
-		usn=kongregate.services.getUsername();
-		usn=usn.toLowerCase();
-		if  ((usn=='mortysja') || (usn=='*'))
-		{
-				dedykacja='&lt;br&gt;&lt;span style="color:black; font-size:36px;"&gt;Dla &lt;b&gt;Mortysji&lt;/b&gt; na Walentynki&lt;/span&gt;';
-		}
-		if (usn=='lenka_tigra')
-		{
-				dedykacja='&lt;br&gt;&lt;span style="color:black; font-size:36px;"&gt;gdzie &lt;b&gt;kopytko&lt;/b&gt;? ;)&lt;/span&gt;';
-		}
 	}
 	
 

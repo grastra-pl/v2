@@ -5666,19 +5666,7 @@ function inicjalizacja()
 	dedykacja='';
 	if (typeof kongregate != 'undefined')
 	{
-		// alert(kongregate.services.getUserId());
-		// kongregate.services.getUsername();
 		
-		usn=kongregate.services.getUsername();
-		usn=usn.toLowerCase();
-		if  ((usn=='mortysja') || (usn=='*'))
-		{
-				dedykacja='<br><span style="color:black; font-size:36px;">Dla <b>Mortysji</b> na Walentynki</span>';
-		}
-		if (usn=='lenka_tigra')
-		{
-				dedykacja='<br><span style="color:black; font-size:36px;">gdzie <b>kopytko</b>? ;)</span>';
-		}
 	}
 	
 
