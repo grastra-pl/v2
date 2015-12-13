@@ -1472,10 +1472,6 @@ function __kladka_sprite() {
 __sprite_init__(this, kladka_sprite, 53, 53, 0, 0, 'Box', 26, 0, 53, 24, 34, ['img/kladka_sprite_0.png']);
 }; var kladka_sprite = new __kladka_sprite();
 
-function __sprite_ryuk() { 
-__sprite_init__(this, sprite_ryuk, 48, 64, 24, 32, 'Box', 24, 0, 48, 0, 64, ['img/sprite_ryuk_0.png','img/sprite_ryuk_1.png','img/sprite_ryuk_2.png','img/sprite_ryuk_3.png','img/sprite_ryuk_4.png','img/sprite_ryuk_5.png','img/sprite_ryuk_6.png','img/sprite_ryuk_7.png','img/sprite_ryuk_8.png','img/sprite_ryuk_9.png','img/sprite_ryuk_10.png','img/sprite_ryuk_11.png','img/sprite_ryuk_12.png','img/sprite_ryuk_13.png','img/sprite_ryuk_14.png','img/sprite_ryuk_15.png']);
-}; var sprite_ryuk = new __sprite_ryuk();
-
 function __sprite_2181() { 
 __sprite_init__(this, sprite_2181, 48, 48, 0, 0, 'Box', 24, 0, 48, 0, 48, ['img/sprite_2181_0.png','img/sprite_2181_1.png','img/sprite_2181_2.png','img/sprite_2181_3.png','img/sprite_2181_4.png','img/sprite_2181_5.png','img/sprite_2181_6.png','img/sprite_2181_7.png','img/sprite_2181_8.png','img/sprite_2181_9.png','img/sprite_2181_10.png','img/sprite_2181_11.png','img/sprite_2181_12.png','img/sprite_2181_13.png','img/sprite_2181_14.png','img/sprite_2181_15.png']);
 }; var sprite_2181 = new __sprite_2181();
