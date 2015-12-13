@@ -1392,10 +1392,6 @@ function __sprite_563() {
 __sprite_init__(this, sprite_563, 16, 16, 0, 0, 'Box', 8, 0, 16, 0, 16, ['img/sprite_563_0.png']);
 }; var sprite_563 = new __sprite_563();
 
-function __sprite_637() { 
-__sprite_init__(this, sprite_637, 187, 60, 0, 0, 'Box', 93, 0, 187, 0, 60, ['img/sprite_637_0.png']);
-}; var sprite_637 = new __sprite_637();
-
 function __sprite_650() { 
 __sprite_init__(this, sprite_650, 35, 64, 0, 0, 'Box', 17, 0, 35, 0, 64, ['img/sprite_650_0.png']);
 }; var sprite_650 = new __sprite_650();
@@ -1452,10 +1448,6 @@ function __sprite_2078() {
 __sprite_init__(this, sprite_2078, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/sprite_2078_0.png','img/sprite_2078_1.png','img/sprite_2078_2.png','img/sprite_2078_3.png','img/sprite_2078_4.png','img/sprite_2078_5.png','img/sprite_2078_6.png','img/sprite_2078_7.png','img/sprite_2078_8.png','img/sprite_2078_9.png','img/sprite_2078_10.png','img/sprite_2078_11.png','img/sprite_2078_12.png','img/sprite_2078_13.png','img/sprite_2078_14.png','img/sprite_2078_15.png','img/sprite_2078_16.png','img/sprite_2078_17.png','img/sprite_2078_18.png','img/sprite_2078_19.png','img/sprite_2078_20.png','img/sprite_2078_21.png','img/sprite_2078_22.png','img/sprite_2078_23.png','img/sprite_2078_24.png','img/sprite_2078_25.png','img/sprite_2078_26.png','img/sprite_2078_27.png','img/sprite_2078_28.png','img/sprite_2078_29.png','img/sprite_2078_30.png','img/sprite_2078_31.png','img/sprite_2078_32.png','img/sprite_2078_33.png','img/sprite_2078_34.png','img/sprite_2078_35.png','img/sprite_2078_36.png','img/sprite_2078_37.png','img/sprite_2078_38.png','img/sprite_2078_39.png','img/sprite_2078_40.png','img/sprite_2078_41.png','img/sprite_2078_42.png','img/sprite_2078_43.png','img/sprite_2078_44.png','img/sprite_2078_45.png','img/sprite_2078_46.png','img/sprite_2078_47.png','img/sprite_2078_48.png','img/sprite_2078_49.png','img/sprite_2078_50.png','img/sprite_2078_51.png','img/sprite_2078_52.png','img/sprite_2078_53.png','img/sprite_2078_54.png','img/sprite_2078_55.png','img/sprite_2078_56.png','img/sprite_2078_57.png','img/sprite_2078_58.png','img/sprite_2078_59.png','img/sprite_2078_60.png','img/sprite_2078_61.png','img/sprite_2078_62.png','img/sprite_2078_63.png','img/sprite_2078_64.png','img/sprite_2078_65.png','img/sprite_2078_66.png','img/sprite_2078_67.png','img/sprite_2078_68.png','img/sprite_2078_69.png','img/sprite_2078_70.png','img/sprite_2078_71.png','img/sprite_2078_72.png','img/sprite_2078_73.png','img/sprite_2078_74.png','img/sprite_2078_75.png','img/sprite_2078_76.png','img/sprite_2078_77.png','img/sprite_2078_78.png','img/sprite_2078_79.png','img/sprite_2078_80.png','img/sprite_2078_81.png','img/sprite_2078_82.png','img/sprite_2078_83.png','img/sprite_2078_84.png','img/sprite_2078_85.png','img/sprite_2078_86.png','img/sprite_2078_87.png','img/sprite_2078_88.png','img/sprite_2078_89.png','img/sprite_2078_90.png','img/sprite_2078_91.png','img/sprite_2078_92.png','img/sprite_2078_93.png','img/sprite_2078_94.png','img/sprite_2078_95.png']);
 }; var sprite_2078 = new __sprite_2078();
 
-function __sprite_2092() { 
-__sprite_init__(this, sprite_2092, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/sprite_2092_0.png','img/sprite_2092_1.png','img/sprite_2092_2.png','img/sprite_2092_3.png','img/sprite_2092_4.png','img/sprite_2092_5.png','img/sprite_2092_6.png','img/sprite_2092_7.png','img/sprite_2092_8.png','img/sprite_2092_9.png','img/sprite_2092_10.png','img/sprite_2092_11.png','img/sprite_2092_12.png','img/sprite_2092_13.png','img/sprite_2092_14.png','img/sprite_2092_15.png','img/sprite_2092_16.png','img/sprite_2092_17.png','img/sprite_2092_18.png','img/sprite_2092_19.png','img/sprite_2092_20.png','img/sprite_2092_21.png','img/sprite_2092_22.png','img/sprite_2092_23.png','img/sprite_2092_24.png','img/sprite_2092_25.png','img/sprite_2092_26.png','img/sprite_2092_27.png','img/sprite_2092_28.png','img/sprite_2092_29.png','img/sprite_2092_30.png','img/sprite_2092_31.png','img/sprite_2092_32.png','img/sprite_2092_33.png','img/sprite_2092_34.png','img/sprite_2092_35.png','img/sprite_2092_36.png','img/sprite_2092_37.png','img/sprite_2092_38.png','img/sprite_2092_39.png','img/sprite_2092_40.png','img/sprite_2092_41.png','img/sprite_2092_42.png','img/sprite_2092_43.png','img/sprite_2092_44.png','img/sprite_2092_45.png','img/sprite_2092_46.png','img/sprite_2092_47.png','img/sprite_2092_48.png','img/sprite_2092_49.png','img/sprite_2092_50.png','img/sprite_2092_51.png','img/sprite_2092_52.png','img/sprite_2092_53.png','img/sprite_2092_54.png','img/sprite_2092_55.png','img/sprite_2092_56.png','img/sprite_2092_57.png','img/sprite_2092_58.png','img/sprite_2092_59.png','img/sprite_2092_60.png','img/sprite_2092_61.png','img/sprite_2092_62.png','img/sprite_2092_63.png','img/sprite_2092_64.png','img/sprite_2092_65.png','img/sprite_2092_66.png','img/sprite_2092_67.png','img/sprite_2092_68.png','img/sprite_2092_69.png','img/sprite_2092_70.png','img/sprite_2092_71.png','img/sprite_2092_72.png','img/sprite_2092_73.png','img/sprite_2092_74.png','img/sprite_2092_75.png','img/sprite_2092_76.png','img/sprite_2092_77.png','img/sprite_2092_78.png','img/sprite_2092_79.png','img/sprite_2092_80.png','img/sprite_2092_81.png','img/sprite_2092_82.png','img/sprite_2092_83.png','img/sprite_2092_84.png','img/sprite_2092_85.png','img/sprite_2092_86.png','img/sprite_2092_87.png','img/sprite_2092_88.png','img/sprite_2092_89.png','img/sprite_2092_90.png','img/sprite_2092_91.png','img/sprite_2092_92.png','img/sprite_2092_93.png','img/sprite_2092_94.png','img/sprite_2092_95.png','img/sprite_2092_96.png','img/sprite_2092_97.png','img/sprite_2092_98.png','img/sprite_2092_99.png','img/sprite_2092_100.png','img/sprite_2092_101.png','img/sprite_2092_102.png','img/sprite_2092_103.png','img/sprite_2092_104.png','img/sprite_2092_105.png','img/sprite_2092_106.png','img/sprite_2092_107.png','img/sprite_2092_108.png','img/sprite_2092_109.png','img/sprite_2092_110.png','img/sprite_2092_111.png','img/sprite_2092_112.png','img/sprite_2092_113.png','img/sprite_2092_114.png','img/sprite_2092_115.png','img/sprite_2092_116.png','img/sprite_2092_117.png','img/sprite_2092_118.png','img/sprite_2092_119.png','img/sprite_2092_120.png','img/sprite_2092_121.png','img/sprite_2092_122.png','img/sprite_2092_123.png','img/sprite_2092_124.png','img/sprite_2092_125.png','img/sprite_2092_126.png','img/sprite_2092_127.png','img/sprite_2092_128.png','img/sprite_2092_129.png','img/sprite_2092_130.png','img/sprite_2092_131.png','img/sprite_2092_132.png','img/sprite_2092_133.png','img/sprite_2092_134.png','img/sprite_2092_135.png','img/sprite_2092_136.png','img/sprite_2092_137.png','img/sprite_2092_138.png','img/sprite_2092_139.png','img/sprite_2092_140.png','img/sprite_2092_141.png','img/sprite_2092_142.png','img/sprite_2092_143.png','img/sprite_2092_144.png','img/sprite_2092_145.png','img/sprite_2092_146.png','img/sprite_2092_147.png','img/sprite_2092_148.png','img/sprite_2092_149.png','img/sprite_2092_150.png','img/sprite_2092_151.png','img/sprite_2092_152.png','img/sprite_2092_153.png','img/sprite_2092_154.png','img/sprite_2092_155.png','img/sprite_2092_156.png','img/sprite_2092_157.png','img/sprite_2092_158.png','img/sprite_2092_159.png','img/sprite_2092_160.png','img/sprite_2092_161.png','img/sprite_2092_162.png','img/sprite_2092_163.png','img/sprite_2092_164.png','img/sprite_2092_165.png','img/sprite_2092_166.png','img/sprite_2092_167.png','img/sprite_2092_168.png','img/sprite_2092_169.png','img/sprite_2092_170.png','img/sprite_2092_171.png','img/sprite_2092_172.png','img/sprite_2092_173.png','img/sprite_2092_174.png','img/sprite_2092_175.png','img/sprite_2092_176.png','img/sprite_2092_177.png','img/sprite_2092_178.png','img/sprite_2092_179.png','img/sprite_2092_180.png','img/sprite_2092_181.png','img/sprite_2092_182.png','img/sprite_2092_183.png','img/sprite_2092_184.png','img/sprite_2092_185.png','img/sprite_2092_186.png','img/sprite_2092_187.png','img/sprite_2092_188.png','img/sprite_2092_189.png','img/sprite_2092_190.png','img/sprite_2092_191.png','img/sprite_2092_192.png','img/sprite_2092_193.png','img/sprite_2092_194.png','img/sprite_2092_195.png','img/sprite_2092_196.png','img/sprite_2092_197.png','img/sprite_2092_198.png','img/sprite_2092_199.png','img/sprite_2092_200.png','img/sprite_2092_201.png','img/sprite_2092_202.png','img/sprite_2092_203.png','img/sprite_2092_204.png','img/sprite_2092_205.png','img/sprite_2092_206.png','img/sprite_2092_207.png','img/sprite_2092_208.png','img/sprite_2092_209.png','img/sprite_2092_210.png','img/sprite_2092_211.png','img/sprite_2092_212.png','img/sprite_2092_213.png','img/sprite_2092_214.png','img/sprite_2092_215.png','img/sprite_2092_216.png','img/sprite_2092_217.png','img/sprite_2092_218.png','img/sprite_2092_219.png','img/sprite_2092_220.png','img/sprite_2092_221.png','img/sprite_2092_222.png','img/sprite_2092_223.png','img/sprite_2092_224.png','img/sprite_2092_225.png','img/sprite_2092_226.png','img/sprite_2092_227.png','img/sprite_2092_228.png','img/sprite_2092_229.png','img/sprite_2092_230.png','img/sprite_2092_231.png','img/sprite_2092_232.png','img/sprite_2092_233.png','img/sprite_2092_234.png','img/sprite_2092_235.png','img/sprite_2092_236.png','img/sprite_2092_237.png','img/sprite_2092_238.png','img/sprite_2092_239.png','img/sprite_2092_240.png','img/sprite_2092_241.png','img/sprite_2092_242.png','img/sprite_2092_243.png','img/sprite_2092_244.png','img/sprite_2092_245.png','img/sprite_2092_246.png','img/sprite_2092_247.png','img/sprite_2092_248.png','img/sprite_2092_249.png','img/sprite_2092_250.png','img/sprite_2092_251.png','img/sprite_2092_252.png','img/sprite_2092_253.png','img/sprite_2092_254.png','img/sprite_2092_255.png']);
-}; var sprite_2092 = new __sprite_2092();
-
 function __sprite_2093() { 
 __sprite_init__(this, sprite_2093, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/sprite_2093_0.png']);
 }; var sprite_2093 = new __sprite_2093();
@@ -1487,10 +1479,6 @@ __sprite_init__(this, sprite_2214, 32, 25, 0, 0, 'Box', 16, 0, 32, 0, 25, ['img/
 function __grastra_logo() { 
 __sprite_init__(this, grastra_logo, 110, 88, 0, 0, 'Box', 55, 0, 110, 0, 88, ['img/grastra_logo_0.png']);
 }; var grastra_logo = new __grastra_logo();
-
-function __napis_girl() { 
-__sprite_init__(this, napis_girl, 410, 118, 0, 0, 'Box', 205, 0, 410, 0, 118, ['img/napis_girl_0.png']);
-}; var napis_girl = new __napis_girl();
 
 function __american_girl() { 
 __sprite_init__(this, american_girl, 80, 87, 0, 0, 'Box', 40, 0, 80, 0, 87, ['img/american_girl_0.png']);
@@ -2187,33 +2175,8 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var podloze_skos_prawy = new __podloze_skos_prawy();
 
-function __chmura() {
-__instance_init__(this, chmura, null, 1, 0, sprite_637, 1, 33);
-this.on_creation = function() {
-with(this) {
-direction=180;
-speed=0.25;
-
-}
-};
-this.on_destroy = on_destroy_i;
-this.on_step = function() {
-with(this) {
-if 	(global.game_paused) return;
-
-if (x < -250 ) x = room_width + 250;
-}
-};
-this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
-this.on_roomstart = on_roomstart_i;
-this.on_roomend = on_roomend_i;
-this.on_animationend = on_animationend_i;
-this.on_draw = on_draw_i;
-}; var chmura = new __chmura();
-
 function __na_zakupach() {
-__instance_init__(this, na_zakupach, null, 1, 0, sprite_650, 1, 35);
+__instance_init__(this, na_zakupach, null, 1, 0, sprite_650, 1, 33);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -2306,7 +2269,7 @@ this.on_draw = on_draw_i;
 }; var na_zakupach = new __na_zakupach();
 
 function __chmurka_myslenia() {
-__instance_init__(this, chmurka_myslenia, null, 1, 0, sprite_1188, 1, 36);
+__instance_init__(this, chmurka_myslenia, null, 1, 0, sprite_1188, 1, 34);
 this.on_creation = function() {
 with(this) {
 pier = instance_create(x+15,y +5 ,co_moze_miec[co_wymagane][0]);
@@ -2325,7 +2288,7 @@ this.on_draw = on_draw_i;
 }; var chmurka_myslenia = new __chmurka_myslenia();
 
 function __pierscien_do_wziecia() {
-__instance_init__(this, pierscien_do_wziecia, null, 1, 0, sprite_1196, 1, 37);
+__instance_init__(this, pierscien_do_wziecia, null, 1, 0, sprite_1196, 1, 35);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2346,7 +2309,7 @@ this.on_draw = on_draw_i;
 }; var pierscien_do_wziecia = new __pierscien_do_wziecia();
 
 function __pierscien_pomyslany() {
-__instance_init__(this, pierscien_pomyslany, null, 1, 0, sprite_1196, 0, 38);
+__instance_init__(this, pierscien_pomyslany, null, 1, 0, sprite_1196, 0, 36);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2359,7 +2322,7 @@ this.on_draw = on_draw_i;
 }; var pierscien_pomyslany = new __pierscien_pomyslany();
 
 function __but_do_wziecia() {
-__instance_init__(this, but_do_wziecia, null, 1, 0, sprite_1216, 1, 39);
+__instance_init__(this, but_do_wziecia, null, 1, 0, sprite_1216, 1, 37);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2380,7 +2343,7 @@ this.on_draw = on_draw_i;
 }; var but_do_wziecia = new __but_do_wziecia();
 
 function __but_pomyslany() {
-__instance_init__(this, but_pomyslany, null, 1, 0, sprite_1216, 0, 40);
+__instance_init__(this, but_pomyslany, null, 1, 0, sprite_1216, 0, 38);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2393,7 +2356,7 @@ this.on_draw = on_draw_i;
 }; var but_pomyslany = new __but_pomyslany();
 
 function __cenzura() {
-__instance_init__(this, cenzura, null, 1, 0, sprite_1224, 0, 41);
+__instance_init__(this, cenzura, null, 1, 0, sprite_1224, 0, 39);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2406,7 +2369,7 @@ this.on_draw = on_draw_i;
 }; var cenzura = new __cenzura();
 
 function __wrog1() {
-__instance_init__(this, wrog1, null, 1, 0, sprite_1228, 1, 42);
+__instance_init__(this, wrog1, null, 1, 0, sprite_1228, 1, 40);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2473,7 +2436,7 @@ this.on_draw = on_draw_i;
 }; var wrog1 = new __wrog1();
 
 function __wrog2() {
-__instance_init__(this, wrog2, null, 1, 0, sprite_1229, 1, 43);
+__instance_init__(this, wrog2, null, 1, 0, sprite_1229, 1, 41);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2556,7 +2519,7 @@ this.on_draw = on_draw_i;
 }; var wrog2 = new __wrog2();
 
 function __explozja() {
-__instance_init__(this, explozja, null, 1, 0, sprite_1240, 1, 44);
+__instance_init__(this, explozja, null, 1, 0, sprite_1240, 1, 42);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2575,7 +2538,7 @@ this.on_draw = on_draw_i;
 }; var explozja = new __explozja();
 
 function __kula_wroga() {
-__instance_init__(this, kula_wroga, null, 1, 0, sprite_1322, 1, 71);
+__instance_init__(this, kula_wroga, null, 1, 0, sprite_1322, 1, 69);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -2592,7 +2555,7 @@ this.on_draw = on_draw_i;
 }; var kula_wroga = new __kula_wroga();
 
 function __Niemka() {
-__instance_init__(this, Niemka, null, 1, 0, sprite_1399, 1, 72);
+__instance_init__(this, Niemka, null, 1, 0, sprite_1399, 1, 70);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2711,7 +2674,7 @@ this.on_draw = on_draw_i;
 }; var Niemka = new __Niemka();
 
 function __tasma_lewo() {
-__instance_init__(this, tasma_lewo, null, 1, 0, sprite_2025, 1, 197);
+__instance_init__(this, tasma_lewo, null, 1, 0, sprite_2025, 1, 190);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2754,7 +2717,7 @@ this.on_draw = on_draw_i;
 }; var tasma_lewo = new __tasma_lewo();
 
 function __tasma_prawo() {
-__instance_init__(this, tasma_prawo, null, 1, 0, sprite_2025, 1, 203);
+__instance_init__(this, tasma_prawo, null, 1, 0, sprite_2025, 1, 196);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2799,7 +2762,7 @@ this.on_draw = on_draw_i;
 }; var tasma_prawo = new __tasma_prawo();
 
 function __tasma_skraj() {
-__instance_init__(this, tasma_skraj, null, 1, 0, sprite_2025, 1, 204);
+__instance_init__(this, tasma_skraj, null, 1, 0, sprite_2025, 1, 197);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2818,7 +2781,7 @@ this.on_draw = on_draw_i;
 }; var tasma_skraj = new __tasma_skraj();
 
 function __tasma_skraj_prawy() {
-__instance_init__(this, tasma_skraj_prawy, null, 1, 0, sprite_2025, 1, 212);
+__instance_init__(this, tasma_skraj_prawy, null, 1, 0, sprite_2025, 1, 205);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2839,7 +2802,7 @@ this.on_draw = on_draw_i;
 }; var tasma_skraj_prawy = new __tasma_skraj_prawy();
 
 function __egipska_krolewna() {
-__instance_init__(this, egipska_krolewna, null, 1, 0, sprite_2067, 1, 227);
+__instance_init__(this, egipska_krolewna, null, 1, 0, sprite_2067, 1, 220);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2987,7 +2950,7 @@ this.on_draw = on_draw_i;
 }; var egipska_krolewna = new __egipska_krolewna();
 
 function __kot_pomyslany() {
-__instance_init__(this, kot_pomyslany, null, 1, 0, sprite_2078, 0, 228);
+__instance_init__(this, kot_pomyslany, null, 1, 0, sprite_2078, 0, 221);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3005,7 +2968,7 @@ this.on_draw = on_draw_i;
 }; var kot_pomyslany = new __kot_pomyslany();
 
 function __kot_do_wziecia() {
-__instance_init__(this, kot_do_wziecia, null, 1, 0, sprite_2078, 1, 229);
+__instance_init__(this, kot_do_wziecia, null, 1, 0, sprite_2078, 1, 222);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3060,7 +3023,7 @@ this.on_draw = on_draw_i;
 }; var kot_do_wziecia = new __kot_do_wziecia();
 
 function __serduszko() {
-__instance_init__(this, serduszko, null, 1, 0, sprite_469, 1, 231);
+__instance_init__(this, serduszko, null, 1, 0, sprite_469, 1, 224);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3098,7 +3061,7 @@ this.on_draw = on_draw_i;
 }; var serduszko = new __serduszko();
 
 function __klocek() {
-__instance_init__(this, klocek, null, 1, 0, sprite_2093, 1, 232);
+__instance_init__(this, klocek, null, 1, 0, sprite_2093, 1, 225);
 this.on_creation = function() {
 with(this) {
 this.air = 0;
@@ -3158,7 +3121,7 @@ this.on_draw = on_draw_i;
 }; var klocek = new __klocek();
 
 function __klocek_ciemny() {
-__instance_init__(this, klocek_ciemny, null, 1, 0, sprite_2094, 1, 233);
+__instance_init__(this, klocek_ciemny, null, 1, 0, sprite_2094, 1, 226);
 this.on_creation = on_creation_i;
 this.on_destroy = function() {
 with(this) {
@@ -3190,7 +3153,7 @@ this.on_draw = on_draw_i;
 }; var klocek_ciemny = new __klocek_ciemny();
 
 function __kawalek() {
-__instance_init__(this, kawalek, null, 1, 0, sprite_2106, 1, 239);
+__instance_init__(this, kawalek, null, 1, 0, sprite_2106, 1, 232);
 this.on_creation = function() {
 with(this) {
 speed = irandom(2) + 2;
@@ -3215,7 +3178,7 @@ this.on_draw = on_draw_i;
 }; var kawalek = new __kawalek();
 
 function __kladka() {
-__instance_init__(this, kladka, null, 1, 0, kladka_sprite, 1, 254);
+__instance_init__(this, kladka, null, 1, 0, kladka_sprite, 1, 247);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -3236,7 +3199,7 @@ this.on_draw = on_draw_i;
 }; var kladka = new __kladka();
 
 function __HUD() {
-__instance_init__(this, HUD, null, 1, 0, null, 1, 263);
+__instance_init__(this, HUD, null, 1, 0, null, 1, 256);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -3352,7 +3315,7 @@ draw_sprite(sprite_pause,0,x+520,y-20);
 }; var HUD = new __HUD();
 
 function __filizanka_do_wziecia() {
-__instance_init__(this, filizanka_do_wziecia, null, 1, 0, sprite_2214, 1, 265);
+__instance_init__(this, filizanka_do_wziecia, null, 1, 0, sprite_2214, 1, 257);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3373,7 +3336,7 @@ this.on_draw = on_draw_i;
 }; var filizanka_do_wziecia = new __filizanka_do_wziecia();
 
 function __filizanka_pomyslana() {
-__instance_init__(this, filizanka_pomyslana, null, 1, 0, sprite_2214, 1, 266);
+__instance_init__(this, filizanka_pomyslana, null, 1, 0, sprite_2214, 1, 258);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3386,7 +3349,7 @@ this.on_draw = on_draw_i;
 }; var filizanka_pomyslana = new __filizanka_pomyslana();
 
 function __zlozona_dziewczyna() {
-__instance_init__(this, zlozona_dziewczyna, null, 1, 0, sprite_1400, 1, 268);
+__instance_init__(this, zlozona_dziewczyna, null, 1, 0, sprite_1400, 1, 260);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3573,7 +3536,7 @@ this.on_draw = on_draw_i;
 }; var zlozona_dziewczyna = new __zlozona_dziewczyna();
 
 function __chmurka_myslenia_dup() {
-__instance_init__(this, chmurka_myslenia_dup, null, 1, 0, sprite_1188, 1, 269);
+__instance_init__(this, chmurka_myslenia_dup, null, 1, 0, sprite_1188, 1, 261);
 this.on_creation = function() {
 with(this) {
 
@@ -3593,7 +3556,7 @@ this.on_draw = on_draw_i;
 }; var chmurka_myslenia_dup = new __chmurka_myslenia_dup();
 
 function __zlozona_dziewczyna_or() {
-__instance_init__(this, zlozona_dziewczyna_or, null, 1, 0, sprite_1400, 1, 272);
+__instance_init__(this, zlozona_dziewczyna_or, null, 1, 0, sprite_1400, 1, 264);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3754,7 +3717,7 @@ this.on_draw = on_draw_i;
 }; var zlozona_dziewczyna_or = new __zlozona_dziewczyna_or();
 
 function __serce_tile() {
-__instance_init__(this, serce_tile, null, 1, 0, sprite_469, 1, 273);
+__instance_init__(this, serce_tile, null, 1, 0, sprite_469, 1, 265);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3821,7 +3784,7 @@ this.on_draw = on_draw_i;
 }; var serce_tile = new __serce_tile();
 
 function __girl_tile() {
-__instance_init__(this, girl_tile, null, 1, 0, sprite_etipoka, 1, 286);
+__instance_init__(this, girl_tile, null, 1, 0, sprite_etipoka, 1, 278);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3846,7 +3809,7 @@ this.on_draw = on_draw_i;
 }; var girl_tile = new __girl_tile();
 
 function __logo_grastry() {
-__instance_init__(this, logo_grastry, null, 1, 0, grastra_logo, 1, 288);
+__instance_init__(this, logo_grastry, null, 1, 0, grastra_logo, 1, 280);
 this.on_creation = function() {
 with(this) {
 
@@ -3881,98 +3844,8 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var logo_grastry = new __logo_grastry();
 
-function __girl_napis() {
-__instance_init__(this, girl_napis, null, 1, 0, napis_girl, 1, 289);
-this.on_creation = function() {
-with(this) {
-image_xscale=0.1;
-image_yscale=0.1;
-
-this.start_x=x;
-this.odliczanie=0;
-
-}
-};
-this.on_destroy = on_destroy_i;
-this.on_step = function() {
-with(this) {
-this.odliczanie++;
-if (this.odliczanie<10)
-{
-	y+=this.odliczanie;
-	image_xscale+=0.1;
-	image_yscale+=0.1;
-	x-=image_xscale*64;
-	
-	
-	e_game = document.getElementById('nazwa_poziomu');
-	//e_game.setAttribute('style','position: absolute; top: '+30+15*this_odliczanie+'px; left: 20px; background-color: red; padding: 5px; font-size: 25px; color: pink; text-align: center;');
-	
-	//e_game.style.position = "absolute";
-	//e_game.style.left = x_pos;
-	//e_game.style.top=30+15*this.odliczanie;
-	//e_game.style.top = 30+15*this_odliczanie;
-	e_game.innerHTML = '* '+poziomu_nazwa+' *';
-
-	e_next = document.getElementById('next_poziom');
-	
-	e_next.style.left=400-39*this.odliczanie;
-	e_next.innerHTML = 'Level: '+poziomu_nr+'';
-	
-}
-
-}
-};
-this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
-this.on_roomstart = function() {
-with(this) {
-var t_game = document.getElementById('tululoogame');
-
-var e_game = document.getElementById('nazwa_poziomu');
-
-var e_next = document.getElementById('next_poziom');
-// jeśli obiekt punkty nie istnieje:
-
-if (e_game===null)
-{
-	var nazwa_poziomu_div = document.createElement('div');
-	divIdName = 'nazwa_poziomu';
-
-	nazwa_poziomu_div.setAttribute('id',divIdName);
-	nazwa_poziomu_div.setAttribute('name',divIdName);
-	nazwa_poziomu_div.setAttribute('style','position: absolute; top: 134px; left: 20px; background-color: red; padding: 5px; font-size: 25px; color: pink; text-align: center;');
-
-	nazwa_poziomu_div.innerHTML = '* '+poziomu_nazwa+' *';
-
-	t_game.appendChild(nazwa_poziomu_div);
-	
-	
-	var next_poziomu_div = document.createElement('div');
-	divIdName = 'next_poziom';
-
-	next_poziomu_div.setAttribute('id',divIdName);
-	next_poziomu_div.setAttribute('name',divIdName);
-	next_poziomu_div.setAttribute('style','position: absolute; top: 30px; left: 20px; background-color: red; padding: 5px; font-size: 48px; color: pink; text-align: center;');
-
-	next_poziomu_div.innerHTML = ' Level: '+poziomu_nr;
-
-	t_game.appendChild(next_poziomu_div);
-	
-	next_poziomu_div.addEventListener("click",room_goto_next,false);
-	nazwa_poziomu_div.addEventListener("click",room_goto_next,false);
-	
-}
-
-}
-};
-this.on_roomend = on_roomend_i;
-this.on_animationend = on_animationend_i;
-this.on_draw = on_draw_i;
-}; var girl_napis = new __girl_napis();
-
 function __girl_american() {
-__instance_init__(this, girl_american, null, 1, 0, american_girl, 1, 290);
+__instance_init__(this, girl_american, null, 1, 0, american_girl, 1, 281);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4057,7 +3930,7 @@ this.on_draw = on_draw_i;
 }; var girl_american = new __girl_american();
 
 function __dzwieki_wlaczone() {
-__instance_init__(this, dzwieki_wlaczone, null, 1, 0, dzwieki_on_sprite, 1, 291);
+__instance_init__(this, dzwieki_wlaczone, null, 1, 0, dzwieki_on_sprite, 1, 282);
 this.on_creation = function() {
 with(this) {
 dzwieki_on_bool=true;
@@ -4083,7 +3956,7 @@ this.on_draw = on_draw_i;
 }; var dzwieki_wlaczone = new __dzwieki_wlaczone();
 
 function __kwiatek_do_wziecia() {
-__instance_init__(this, kwiatek_do_wziecia, null, 1, 0, kwiatek, 1, 352);
+__instance_init__(this, kwiatek_do_wziecia, null, 1, 0, kwiatek, 1, 343);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4109,7 +3982,7 @@ this.on_draw = on_draw_i;
 }; var kwiatek_do_wziecia = new __kwiatek_do_wziecia();
 
 function __kwiatek_pomyslany() {
-__instance_init__(this, kwiatek_pomyslany, null, 1, 0, kwiatek, 1, 353);
+__instance_init__(this, kwiatek_pomyslany, null, 1, 0, kwiatek, 1, 344);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4122,7 +3995,7 @@ this.on_draw = on_draw_i;
 }; var kwiatek_pomyslany = new __kwiatek_pomyslany();
 
 function __burger_do_wziecia() {
-__instance_init__(this, burger_do_wziecia, null, 1, 0, burger, 1, 354);
+__instance_init__(this, burger_do_wziecia, null, 1, 0, burger, 1, 345);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4143,7 +4016,7 @@ this.on_draw = on_draw_i;
 }; var burger_do_wziecia = new __burger_do_wziecia();
 
 function __burger_pomyslany() {
-__instance_init__(this, burger_pomyslany, null, 1, 0, burger, 1, 355);
+__instance_init__(this, burger_pomyslany, null, 1, 0, burger, 1, 346);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4156,7 +4029,7 @@ this.on_draw = on_draw_i;
 }; var burger_pomyslany = new __burger_pomyslany();
 
 function __wrogAniol() {
-__instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 357);
+__instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 348);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -4238,7 +4111,7 @@ this.on_draw = on_draw_i;
 }; var wrogAniol = new __wrogAniol();
 
 function __niewidzialny_obiekt() {
-__instance_init__(this, niewidzialny_obiekt, null, 1, 0, null, 1, 384);
+__instance_init__(this, niewidzialny_obiekt, null, 1, 0, null, 1, 375);
 this.on_creation = function() {
 with(this) {
 this.wz = 0;
@@ -4327,7 +4200,7 @@ this.on_draw = on_draw_i;
 }; var niewidzialny_obiekt = new __niewidzialny_obiekt();
 
 function __skrzydla() {
-__instance_init__(this, skrzydla, null, 1, 0, skrzydla_sprite, 1, 394);
+__instance_init__(this, skrzydla, null, 1, 0, skrzydla_sprite, 1, 385);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4352,7 +4225,7 @@ this.on_draw = on_draw_i;
 }; var skrzydla = new __skrzydla();
 
 function __skrzydlo_obj() {
-__instance_init__(this, skrzydlo_obj, null, 1, 0, skrzydlo_ludzika, 1, 879);
+__instance_init__(this, skrzydlo_obj, null, 1, 0, skrzydlo_ludzika, 1, 870);
 this.on_creation = function() {
 with(this) {
 image_speed = 0;
@@ -4370,7 +4243,7 @@ this.on_draw = on_draw_i;
 }; var skrzydlo_obj = new __skrzydlo_obj();
 
 function __konggobj() {
-__instance_init__(this, konggobj, null, 1, 0, kongg, 1, 978);
+__instance_init__(this, konggobj, null, 1, 0, kongg, 1, 969);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4383,7 +4256,7 @@ this.on_draw = on_draw_i;
 }; var konggobj = new __konggobj();
 
 function __kongbigobj() {
-__instance_init__(this, kongbigobj, null, 1, 0, konggbig, 1, 984);
+__instance_init__(this, kongbigobj, null, 1, 0, konggbig, 1, 975);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4396,7 +4269,7 @@ this.on_draw = on_draw_i;
 }; var kongbigobj = new __kongbigobj();
 
 function __jablko_pomyslane() {
-__instance_init__(this, jablko_pomyslane, null, 1, 0, sprite_jablko, 1, 1020);
+__instance_init__(this, jablko_pomyslane, null, 1, 0, sprite_jablko, 1, 1011);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4409,7 +4282,7 @@ this.on_draw = on_draw_i;
 }; var jablko_pomyslane = new __jablko_pomyslane();
 
 function __jablko_do_wziecia() {
-__instance_init__(this, jablko_do_wziecia, null, 1, 0, sprite_jablko, 1, 1021);
+__instance_init__(this, jablko_do_wziecia, null, 1, 0, sprite_jablko, 1, 1012);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4434,7 +4307,7 @@ this.on_draw = on_draw_i;
 }; var jablko_do_wziecia = new __jablko_do_wziecia();
 
 function __slon_pomyslany() {
-__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 1022);
+__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 1013);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4447,7 +4320,7 @@ this.on_draw = on_draw_i;
 }; var slon_pomyslany = new __slon_pomyslany();
 
 function __slon_do_wziecia_dup() {
-__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 1023);
+__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 1014);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4727,7 +4600,6 @@ this.objects = [
 [{o:bonus, x:480, y:32}],
 [{o:bonus, x:256, y:208}],
 [{o:bonus, x:320, y:208}],
-[{o:chmura, x:720, y:256}],
 [{o:podloze_skos_prawy, x:560, y:240}],
 [{o:podloze_skos_prawy, x:576, y:256}],
 [{o:podloze_skos_prawy, x:592, y:272}],
@@ -4873,11 +4745,6 @@ this.objects = [
 [{o:podloze_ziemia, x:624, y:320}],
 [{o:podloze_ziemia, x:640, y:336}],
 [{o:podloze_ziemia, x:464, y:336}],
-[{o:chmura, x:1280, y:336}],
-[{o:chmura, x:1520, y:272}],
-[{o:chmura, x:960, y:288}],
-[{o:chmura, x:640, y:224}],
-[{o:chmura, x:368, y:384}],
 [{o:tasma_lewo, x:120, y:40}],
 [{o:tasma_lewo, x:140, y:40}],
 [{o:tasma_lewo, x:160, y:40}],
@@ -4932,7 +4799,6 @@ this.objects = [
 [{o:podloze_ziemia, x:1344, y:304}],
 [{o:podloze_ziemia, x:784, y:240}],
 [{o:podloze_ziemia, x:768, y:240}],
-[{o:chmura, x:40, y:300}],
 [{o:filizanka_do_wziecia, x:1460, y:0}],
 [{o:zlozona_dziewczyna, x:400, y:120}],
 [{o:zlozona_dziewczyna, x:540, y:160}],
