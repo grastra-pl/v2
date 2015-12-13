@@ -4024,7 +4024,7 @@ this.on_draw = on_draw_i;
 }; var girl_napis = new __girl_napis();
 
 function __girl_american() {
-__instance_init__(this, girl_american, null, 1, 0, american_girl, 1, 698);
+__instance_init__(this, girl_american, null, 1, 0, american_girl, 1, 691);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4109,7 +4109,7 @@ this.on_draw = on_draw_i;
 }; var girl_american = new __girl_american();
 
 function __dzwieki_wlaczone() {
-__instance_init__(this, dzwieki_wlaczone, null, 1, 0, dzwieki_on_sprite, 1, 725);
+__instance_init__(this, dzwieki_wlaczone, null, 1, 0, dzwieki_on_sprite, 1, 718);
 this.on_creation = function() {
 with(this) {
 dzwieki_on_bool=true;
@@ -4135,7 +4135,7 @@ this.on_draw = on_draw_i;
 }; var dzwieki_wlaczone = new __dzwieki_wlaczone();
 
 function __kwiatek_do_wziecia() {
-__instance_init__(this, kwiatek_do_wziecia, null, 1, 0, kwiatek, 1, 787);
+__instance_init__(this, kwiatek_do_wziecia, null, 1, 0, kwiatek, 1, 779);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4161,7 +4161,7 @@ this.on_draw = on_draw_i;
 }; var kwiatek_do_wziecia = new __kwiatek_do_wziecia();
 
 function __kwiatek_pomyslany() {
-__instance_init__(this, kwiatek_pomyslany, null, 1, 0, kwiatek, 1, 788);
+__instance_init__(this, kwiatek_pomyslany, null, 1, 0, kwiatek, 1, 780);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4174,7 +4174,7 @@ this.on_draw = on_draw_i;
 }; var kwiatek_pomyslany = new __kwiatek_pomyslany();
 
 function __burger_do_wziecia() {
-__instance_init__(this, burger_do_wziecia, null, 1, 0, burger, 1, 789);
+__instance_init__(this, burger_do_wziecia, null, 1, 0, burger, 1, 781);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4195,7 +4195,7 @@ this.on_draw = on_draw_i;
 }; var burger_do_wziecia = new __burger_do_wziecia();
 
 function __burger_pomyslany() {
-__instance_init__(this, burger_pomyslany, null, 1, 0, burger, 1, 790);
+__instance_init__(this, burger_pomyslany, null, 1, 0, burger, 1, 782);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4208,7 +4208,7 @@ this.on_draw = on_draw_i;
 }; var burger_pomyslany = new __burger_pomyslany();
 
 function __wrogAniol() {
-__instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 904);
+__instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 895);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -4290,7 +4290,7 @@ this.on_draw = on_draw_i;
 }; var wrogAniol = new __wrogAniol();
 
 function __niewidzialny_obiekt() {
-__instance_init__(this, niewidzialny_obiekt, null, 1, 0, null, 1, 933);
+__instance_init__(this, niewidzialny_obiekt, null, 1, 0, null, 1, 924);
 this.on_creation = function() {
 with(this) {
 this.wz = 0;
@@ -4300,7 +4300,7 @@ this.wz = 0;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
-if  ( (abs(x_gracza-x)<16) && (abs(y_gracza-y+30)<16) )
+if  ( (abs(x_gracza-x)<32) && (abs(y_gracza-y+30)<32) )
 {
 	//alert(x_gracza+' '+x+' '+y_gracza+' '+y);
 	
@@ -4350,7 +4350,7 @@ if  ( (abs(x_gracza-x)<16) && (abs(y_gracza-y+30)<16) )
 }
 
 
-if  ( (abs(x_gracza-x-200)<16) && (abs(y_gracza-y+30)<16) )
+if  ( (abs(x_gracza-x-200)<32) && (abs(y_gracza-y+30)<32) )
 {
 	//alert(x_gracza+' '+x+' '+y_gracza+' '+y);
 	
@@ -4379,7 +4379,7 @@ this.on_draw = on_draw_i;
 }; var niewidzialny_obiekt = new __niewidzialny_obiekt();
 
 function __skrzydla() {
-__instance_init__(this, skrzydla, null, 1, 0, skrzydla_sprite, 1, 943);
+__instance_init__(this, skrzydla, null, 1, 0, skrzydla_sprite, 1, 934);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4404,7 +4404,7 @@ this.on_draw = on_draw_i;
 }; var skrzydla = new __skrzydla();
 
 function __skrzydlo_obj() {
-__instance_init__(this, skrzydlo_obj, null, 1, 0, skrzydlo_ludzika, 1, 1428);
+__instance_init__(this, skrzydlo_obj, null, 1, 0, skrzydlo_ludzika, 1, 1419);
 this.on_creation = function() {
 with(this) {
 image_speed = 0;
@@ -4422,7 +4422,7 @@ this.on_draw = on_draw_i;
 }; var skrzydlo_obj = new __skrzydlo_obj();
 
 function __konggobj() {
-__instance_init__(this, konggobj, null, 1, 0, kongg, 1, 1527);
+__instance_init__(this, konggobj, null, 1, 0, kongg, 1, 1518);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4435,7 +4435,7 @@ this.on_draw = on_draw_i;
 }; var konggobj = new __konggobj();
 
 function __kongbigobj() {
-__instance_init__(this, kongbigobj, null, 1, 0, konggbig, 1, 1541);
+__instance_init__(this, kongbigobj, null, 1, 0, konggbig, 1, 1532);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4448,7 +4448,7 @@ this.on_draw = on_draw_i;
 }; var kongbigobj = new __kongbigobj();
 
 function __jablko_pomyslane() {
-__instance_init__(this, jablko_pomyslane, null, 1, 0, sprite_jablko, 1, 1577);
+__instance_init__(this, jablko_pomyslane, null, 1, 0, sprite_jablko, 1, 1568);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4461,7 +4461,7 @@ this.on_draw = on_draw_i;
 }; var jablko_pomyslane = new __jablko_pomyslane();
 
 function __jablko_do_wziecia() {
-__instance_init__(this, jablko_do_wziecia, null, 1, 0, sprite_jablko, 1, 1578);
+__instance_init__(this, jablko_do_wziecia, null, 1, 0, sprite_jablko, 1, 1569);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4486,7 +4486,7 @@ this.on_draw = on_draw_i;
 }; var jablko_do_wziecia = new __jablko_do_wziecia();
 
 function __japonka() {
-__instance_init__(this, japonka, null, 1, 0, sprite_japonka, 1, 1593);
+__instance_init__(this, japonka, null, 1, 0, sprite_japonka, 1, 1584);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -4634,7 +4634,7 @@ this.on_draw = on_draw_i;
 }; var japonka = new __japonka();
 
 function __bialorusinka2() {
-__instance_init__(this, bialorusinka2, null, 1, 0, sprite_bialorus2, 1, 1594);
+__instance_init__(this, bialorusinka2, null, 1, 0, sprite_bialorus2, 1, 1585);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -4782,7 +4782,7 @@ this.on_draw = on_draw_i;
 }; var bialorusinka2 = new __bialorusinka2();
 
 function __kenijka() {
-__instance_init__(this, kenijka, null, 1, 0, sprite_kenijka, 1, 1595);
+__instance_init__(this, kenijka, null, 1, 0, sprite_kenijka, 1, 1586);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -4930,7 +4930,7 @@ this.on_draw = on_draw_i;
 }; var kenijka = new __kenijka();
 
 function __etiopka() {
-__instance_init__(this, etiopka, null, 1, 0, sprite_etipoka, 1, 1596);
+__instance_init__(this, etiopka, null, 1, 0, sprite_etipoka, 1, 1587);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5078,7 +5078,7 @@ this.on_draw = on_draw_i;
 }; var etiopka = new __etiopka();
 
 function __hinduska() {
-__instance_init__(this, hinduska, null, 1, 0, sprite_hinduska, 1, 1597);
+__instance_init__(this, hinduska, null, 1, 0, sprite_hinduska, 1, 1588);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5226,7 +5226,7 @@ this.on_draw = on_draw_i;
 }; var hinduska = new __hinduska();
 
 function __chinka() {
-__instance_init__(this, chinka, null, 1, 0, sprite_chinka1, 1, 1598);
+__instance_init__(this, chinka, null, 1, 0, sprite_chinka1, 1, 1589);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5374,7 +5374,7 @@ this.on_draw = on_draw_i;
 }; var chinka = new __chinka();
 
 function __chinka3() {
-__instance_init__(this, chinka3, null, 1, 0, sprite_chinka3, 1, 1599);
+__instance_init__(this, chinka3, null, 1, 0, sprite_chinka3, 1, 1590);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5522,7 +5522,7 @@ this.on_draw = on_draw_i;
 }; var chinka3 = new __chinka3();
 
 function __ryuk() {
-__instance_init__(this, ryuk, null, 1, 0, sprite_ryuk, 1, 1601);
+__instance_init__(this, ryuk, null, 1, 0, sprite_ryuk, 1, 1592);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5589,7 +5589,7 @@ this.on_draw = on_draw_i;
 }; var ryuk = new __ryuk();
 
 function __slon_pomyslany() {
-__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 2151);
+__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 2141);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -5602,7 +5602,7 @@ this.on_draw = on_draw_i;
 }; var slon_pomyslany = new __slon_pomyslany();
 
 function __slon_do_wziecia_dup() {
-__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 2152);
+__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 2142);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -5747,20 +5747,6 @@ function inicjalizacja()
 }
 var EkranStartowy = new __EkranStartowy();
 tu_scenes.push(EkranStartowy);
-function __Tlo_Tutorial1() { 
-this.tiles = [
-];
-this.objects = [
-[{o:girl_napis, x:420, y:200}]];
-this.start = function() {
-__room_start__(this, Tlo_Tutorial1, 640, 480, 30, 0, 0, 0, poziom_tlo.image, 0, 0, 0, 640, 480, null, 50, 50);
-
-poziomu_nazwa='TUTORIAL';
-poziomu_nr=1;
-};
-}
-var Tlo_Tutorial1 = new __Tlo_Tutorial1();
-tu_scenes.push(Tlo_Tutorial1);
 function __tutorial() { 
 this.tiles = [
 [1000000,
@@ -5974,6 +5960,9 @@ this.objects = [
 this.start = function() {
 __room_start__(this, tutorial, 1660, 480, 30, 128, 0, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
+poziomu_nazwa='Tutorial';
+poziomu_nr=1;
+
 co_wymagane='kwiat';// kwiatek_pomyslany
 
 
@@ -5993,20 +5982,6 @@ co_wymagane='kwiat';// kwiatek_pomyslany
 }
 var tutorial = new __tutorial();
 tu_scenes.push(tutorial);
-function __tlo_Material_2et() { 
-this.tiles = [
-];
-this.objects = [
-[{o:girl_napis, x:340, y:200}]];
-this.start = function() {
-__room_start__(this, tlo_Material_2et, 640, 480, 30, 0, 0, 0, poziom_tlo.image, 0, 0, 0, 640, 480, null, 50, 50);
-
-poziomu_nazwa='Material';
-poziomu_nr=2;
-};
-}
-var tlo_Material_2et = new __tlo_Material_2et();
-tu_scenes.push(tlo_Material_2et);
 function __GaleriaHandlowa() { 
 this.tiles = [
 [1000000,
@@ -6553,7 +6528,7 @@ this.objects = [
 [{o:bonus, x:1568, y:32}],
 [{o:bonus, x:1616, y:0}]];
 this.start = function() {
-__room_start__(this, GaleriaHandlowa, 1660, 480, 30, 0, 0, 0, niebo_szare.image, 0, 0, 1, 640, 480, Walenty, 200, 200);
+__room_start__(this, GaleriaHandlowa, 1660, 480, 30, 0, 0, 0, niebo_szare.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='pierścień';
 };
@@ -6895,31 +6870,13 @@ this.objects = [
 [{o:bonus, x:1408, y:16}],
 [{o:klocek, x:464, y:112}]];
 this.start = function() {
-__room_start__(this, Buty, 1660, 480, 30, 0, 0, 0, niebo_szare.image, 0, 0, 1, 640, 480, Walenty, 200, 200);
+__room_start__(this, Buty, 1660, 480, 30, 0, 0, 0, niebo_szare.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='but';
 };
 }
 var Buty = new __Buty();
 tu_scenes.push(Buty);
-function __tlo_Africa_et3() { 
-this.tiles = [
-];
-this.objects = [
-[{o:girl_tile, x:600, y:420}],
-[{o:girl_napis, x:420, y:180}],
-[{o:girl_tile, x:560, y:420}],
-[{o:girl_tile, x:520, y:420}],
-[{o:girl_tile, x:480, y:420}]];
-this.start = function() {
-__room_start__(this, tlo_Africa_et3, 640, 480, 30, 0, 0, 0, poziom_tlo.image, 0, 0, 0, 640, 480, null, 50, 50);
-
-poziomu_nazwa='African';
-poziomu_nr=3;
-};
-}
-var tlo_Africa_et3 = new __tlo_Africa_et3();
-tu_scenes.push(tlo_Africa_et3);
 function __Piramidy() { 
 this.tiles = [
 [1000000,
@@ -8512,7 +8469,7 @@ this.objects = [
 [{o:podloze_ziemia, x:2752, y:464}],
 [{o:podloze_ziemia, x:2768, y:464}]];
 this.start = function() {
-__room_start__(this, Sfinks, 3320, 480, 30, 0, 0, 0, niebo_ciemne.image, 0, 0, 1, 640, 480, Walenty, 200, 200);
+__room_start__(this, Sfinks, 3320, 480, 30, 0, 0, 0, niebo_ciemne.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='pierścień';
 };
@@ -8944,27 +8901,13 @@ this.objects = [
 [{o:podloze_ziemia, x:1248, y:64}],
 [{o:podloze_ziemia, x:1248, y:16}]];
 this.start = function() {
-__room_start__(this, skrzynki, 1280, 480, 30, 0, 0, 0, poziom_tlo.image, 1, 0, 0, 640, 480, Walenty, 200, 200);
+__room_start__(this, skrzynki, 1280, 480, 30, 0, 0, 0, poziom_tlo.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='jablko';
 };
 }
 var skrzynki = new __skrzynki();
 tu_scenes.push(skrzynki);
-function __tlo_Azja_et4() { 
-this.tiles = [
-];
-this.objects = [
-[{o:girl_napis, x:336, y:144}]];
-this.start = function() {
-__room_start__(this, tlo_Azja_et4, 640, 480, 30, 0, 0, 0, poziom_tlo.image, 0, 0, 0, 640, 480, null, 50, 50);
-
-poziomu_nazwa='Asian';
-poziomu_nr=4;
-};
-}
-var tlo_Azja_et4 = new __tlo_Azja_et4();
-tu_scenes.push(tlo_Azja_et4);
 function __Japonskie_Jablka() { 
 this.tiles = [
 [1000000,
@@ -9157,7 +9100,7 @@ this.objects = [
 [{o:chmura, x:880, y:80}],
 [{o:chmura, x:1456, y:160}]];
 this.start = function() {
-__room_start__(this, Japonskie_Jablka, 1660, 480, 30, 0, 0, 0, niebo_szare.image, 0, 0, 1, 640, 480, Walenty, 200, 200);
+__room_start__(this, Japonskie_Jablka, 1660, 480, 30, 0, 0, 0, niebo_szare.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='jablko';
 //co_wymagane='pierścień';
@@ -9692,7 +9635,7 @@ this.objects = [
 [{o:klocek, x:1248, y:384}],
 [{o:klocek, x:1216, y:368}]];
 this.start = function() {
-__room_start__(this, Indie, 1280, 480, 30, 255, 255, 255, niebo_szare.image, 0, 0, 1, 640, 480, Walenty, 200, 200);
+__room_start__(this, Indie, 1280, 480, 30, 255, 255, 255, niebo_szare.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='slon';
 };
@@ -9959,27 +9902,13 @@ this.objects = [
 [{o:wrog1, x:880, y:16}],
 [{o:hinduska, x:32, y:400}]];
 this.start = function() {
-__room_start__(this, Indie2, 1280, 480, 30, 255, 255, 255, niebo_szare.image, 0, 0, 1, 640, 480, Walenty, 200, 200);
+__room_start__(this, Indie2, 1280, 480, 30, 255, 255, 255, niebo_szare.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='slon';
 };
 }
 var Indie2 = new __Indie2();
 tu_scenes.push(Indie2);
-function __American_girl() { 
-this.tiles = [
-];
-this.objects = [
-[{o:girl_napis, x:368, y:208}]];
-this.start = function() {
-__room_start__(this, American_girl, 640, 480, 30, 0, 0, 0, poziom_tlo.image, 0, 0, 0, 640, 480, null, 50, 50);
-
-poziomu_nazwa='AMERICAN';
-poziomu_nr=5;
-};
-}
-var American_girl = new __American_girl();
-tu_scenes.push(American_girl);
 function __AmerykanskiDream() { 
 this.tiles = [
 [1000000,
@@ -10272,27 +10201,13 @@ this.objects = [
 [{o:klocek, x:256, y:240}],
 [{o:klocek, x:240, y:240}]];
 this.start = function() {
-__room_start__(this, AmerykanskiDream, 1660, 480, 30, 0, 0, 0, niebo_ciemne.image, 0, 0, 1, 640, 480, Walenty, 200, 200);
+__room_start__(this, AmerykanskiDream, 1660, 480, 30, 0, 0, 0, niebo_ciemne.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='burg';
 };
 }
 var AmerykanskiDream = new __AmerykanskiDream();
 tu_scenes.push(AmerykanskiDream);
-function __tlo_Europe_et6() { 
-this.tiles = [
-];
-this.objects = [
-[{o:girl_napis, x:360, y:180}]];
-this.start = function() {
-__room_start__(this, tlo_Europe_et6, 640, 480, 30, 0, 0, 0, poziom_tlo.image, 0, 0, 0, 640, 480, null, 50, 50);
-
-poziomu_nazwa='European';
-poziomu_nr=6;
-};
-}
-var tlo_Europe_et6 = new __tlo_Europe_et6();
-tu_scenes.push(tlo_Europe_et6);
 function __europe_europe() { 
 this.tiles = [
 [1000000,
@@ -10520,7 +10435,7 @@ this.objects = [
 [{o:klocek, x:256, y:0}],
 [{o:klocek, x:608, y:0}]];
 this.start = function() {
-__room_start__(this, europe_europe, 1280, 480, 30, 0, 0, 0, niebo_ciemne.image, 0, 0, 1, 640, 480, Walenty, 200, 200);
+__room_start__(this, europe_europe, 1280, 480, 30, 0, 0, 0, niebo_ciemne.image, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='kwiat';// kwiatek_pomyslany
 };
