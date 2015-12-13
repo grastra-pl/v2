@@ -3247,6 +3247,7 @@ __handle_sprite__(this);
 with(this) {
 
 draw_set_font(F_Arial);
+draw_set_color(255,255,0);
 draw_text(x+35 , y , punkty);
 draw_text(x+130 , y , zycia);
 draw_text(x+200 , y , (10-bity)*10+'%');
