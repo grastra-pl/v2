@@ -1480,33 +1480,9 @@ function __sprite_2181() {
 __sprite_init__(this, sprite_2181, 48, 48, 0, 0, 'Box', 24, 0, 48, 0, 48, ['img/sprite_2181_0.png','img/sprite_2181_1.png','img/sprite_2181_2.png','img/sprite_2181_3.png','img/sprite_2181_4.png','img/sprite_2181_5.png','img/sprite_2181_6.png','img/sprite_2181_7.png','img/sprite_2181_8.png','img/sprite_2181_9.png','img/sprite_2181_10.png','img/sprite_2181_11.png','img/sprite_2181_12.png','img/sprite_2181_13.png','img/sprite_2181_14.png','img/sprite_2181_15.png']);
 }; var sprite_2181 = new __sprite_2181();
 
-function __sprite_bialorus2() { 
-__sprite_init__(this, sprite_bialorus2, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_bialorus2_0.png','img/sprite_bialorus2_1.png','img/sprite_bialorus2_2.png','img/sprite_bialorus2_3.png','img/sprite_bialorus2_4.png','img/sprite_bialorus2_5.png','img/sprite_bialorus2_6.png','img/sprite_bialorus2_7.png','img/sprite_bialorus2_8.png','img/sprite_bialorus2_9.png','img/sprite_bialorus2_10.png','img/sprite_bialorus2_11.png','img/sprite_bialorus2_12.png','img/sprite_bialorus2_13.png','img/sprite_bialorus2_14.png','img/sprite_bialorus2_15.png']);
-}; var sprite_bialorus2 = new __sprite_bialorus2();
-
-function __sprite_kenijka() { 
-__sprite_init__(this, sprite_kenijka, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_kenijka_0.png','img/sprite_kenijka_1.png','img/sprite_kenijka_2.png','img/sprite_kenijka_3.png','img/sprite_kenijka_4.png','img/sprite_kenijka_5.png','img/sprite_kenijka_6.png','img/sprite_kenijka_7.png','img/sprite_kenijka_8.png','img/sprite_kenijka_9.png','img/sprite_kenijka_10.png','img/sprite_kenijka_11.png','img/sprite_kenijka_12.png','img/sprite_kenijka_13.png','img/sprite_kenijka_14.png','img/sprite_kenijka_15.png']);
-}; var sprite_kenijka = new __sprite_kenijka();
-
 function __sprite_etipoka() { 
 __sprite_init__(this, sprite_etipoka, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_etipoka_0.png','img/sprite_etipoka_1.png','img/sprite_etipoka_2.png','img/sprite_etipoka_3.png','img/sprite_etipoka_4.png','img/sprite_etipoka_5.png','img/sprite_etipoka_6.png','img/sprite_etipoka_7.png','img/sprite_etipoka_8.png','img/sprite_etipoka_9.png','img/sprite_etipoka_10.png','img/sprite_etipoka_11.png','img/sprite_etipoka_12.png','img/sprite_etipoka_13.png','img/sprite_etipoka_14.png','img/sprite_etipoka_15.png']);
 }; var sprite_etipoka = new __sprite_etipoka();
-
-function __sprite_hinduska() { 
-__sprite_init__(this, sprite_hinduska, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_hinduska_0.png','img/sprite_hinduska_1.png','img/sprite_hinduska_2.png','img/sprite_hinduska_3.png','img/sprite_hinduska_4.png','img/sprite_hinduska_5.png','img/sprite_hinduska_6.png','img/sprite_hinduska_7.png','img/sprite_hinduska_8.png','img/sprite_hinduska_9.png','img/sprite_hinduska_10.png','img/sprite_hinduska_11.png','img/sprite_hinduska_12.png','img/sprite_hinduska_13.png','img/sprite_hinduska_14.png','img/sprite_hinduska_15.png']);
-}; var sprite_hinduska = new __sprite_hinduska();
-
-function __sprite_chinka1() { 
-__sprite_init__(this, sprite_chinka1, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_chinka1_0.png','img/sprite_chinka1_1.png','img/sprite_chinka1_2.png','img/sprite_chinka1_3.png','img/sprite_chinka1_4.png','img/sprite_chinka1_5.png','img/sprite_chinka1_6.png','img/sprite_chinka1_7.png','img/sprite_chinka1_8.png','img/sprite_chinka1_9.png','img/sprite_chinka1_10.png','img/sprite_chinka1_11.png','img/sprite_chinka1_12.png','img/sprite_chinka1_13.png','img/sprite_chinka1_14.png','img/sprite_chinka1_15.png']);
-}; var sprite_chinka1 = new __sprite_chinka1();
-
-function __sprite_chinka3() { 
-__sprite_init__(this, sprite_chinka3, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_chinka3_0.png','img/sprite_chinka3_1.png','img/sprite_chinka3_2.png','img/sprite_chinka3_3.png','img/sprite_chinka3_4.png','img/sprite_chinka3_5.png','img/sprite_chinka3_6.png','img/sprite_chinka3_7.png','img/sprite_chinka3_8.png','img/sprite_chinka3_9.png','img/sprite_chinka3_10.png','img/sprite_chinka3_11.png','img/sprite_chinka3_12.png','img/sprite_chinka3_13.png','img/sprite_chinka3_14.png','img/sprite_chinka3_15.png']);
-}; var sprite_chinka3 = new __sprite_chinka3();
-
-function __sprite_japonka() { 
-__sprite_init__(this, sprite_japonka, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_japonka_0.png','img/sprite_japonka_1.png','img/sprite_japonka_2.png','img/sprite_japonka_3.png','img/sprite_japonka_4.png','img/sprite_japonka_5.png','img/sprite_japonka_6.png','img/sprite_japonka_7.png','img/sprite_japonka_8.png','img/sprite_japonka_9.png','img/sprite_japonka_10.png','img/sprite_japonka_11.png','img/sprite_japonka_12.png','img/sprite_japonka_13.png','img/sprite_japonka_14.png','img/sprite_japonka_15.png']);
-}; var sprite_japonka = new __sprite_japonka();
 
 function __sprite_2214() { 
 __sprite_init__(this, sprite_2214, 32, 25, 0, 0, 'Box', 16, 0, 32, 0, 25, ['img/sprite_2214_0.png']);
