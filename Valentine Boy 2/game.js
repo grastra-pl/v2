@@ -4461,304 +4461,8 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var jablko_do_wziecia = new __jablko_do_wziecia();
 
-function __japonka() {
-__instance_init__(this, japonka, null, 1, 0, sprite_japonka, 1, 1022);
-this.on_creation = function() {
-with(this) {
-image_speed=0;
-this.xss=xstart;
-this.yss=ystart;
-}
-};
-this.on_destroy = on_destroy_i;
-this.on_step = function() {
-with(this) {
-if 	(global.game_paused) return;
-
-if (jestem_juz==1)
-{
-	mysl = instance_create(x+15,y - 55 ,chmurka_myslenia);
-	mysl.image_alpha=0;
-	jestem_juz=2;
-}
-
-
-
-		
-
-			if ( place_meeting(x, y+8, tasma_lewo) != null)
-				{
-					this.xss--;
-				}
-				
-				if ( place_meeting(x, y+8, tasma_prawo) != null)
-				{
-					this.xss++;
-				}
-				
-
-
-			if (co_ma[co_wymagane]==0)
-			{
-				if (odliczanie % 10 <5)
-				{
-					image_angle++;
-				}
-				else
-				{
-					image_angle--;
-				}
-
-				przes=Math.sin((xstart+ystart+odliczanie)/45*Math.PI)*10;
-				x=this.xss+przes;
-				mysl.x=x+15;
-				mysl.y=y - 55;
-				pier.x=mysl.x+15;
-				pier.y=mysl.y +5;
-				
-				if (przes>4)
-				{	
-					image_index=4+(Math.floor(x/4) % 4);
-				}
-				else if (przes<-4)
-				{
-					image_index=8+(Math.floor(x/4) % 4);
-				}
-				else
-				{
-					image_index=(Math.floor(x/4) % 4);
-				}
-			}
-			else if (co_ma[co_wymagane]==1)
-			{
-				
-				przes=Math.sin((xstart+ystart+odliczanie)/15*Math.PI)*10;
-				y=this.yss+przes;
-				mysl.x=x+15;
-				mysl.y=y - 55;
-				pier.x=mysl.x+15;
-				pier.y=mysl.y +5;
-			}
-			else
-			{
-				if (gra_wstepna>18)
-				{
-					image_angle=-90;
-					
-					przes=Math.sin((xstart+ystart+odliczanie)/10*Math.PI)*5;
-					x=this.xss+przes+35;
-					y=this.yss+przes+10;
-				
-				
-				}
-			}
-			
-if  (( place_meeting(x, y+4, podloze_ziemia) != null)
-		|| ( place_meeting(x, y+4, podloze_trawa) != null)
-		|| ( place_meeting(x, y+4, podloze_skos_lewy) != null)
-		|| ( place_meeting(x, y+4, podloze_skos_prawy) != null)
-		|| ( place_meeting(x, y+4, tasma_lewo) != null)
-		|| ( place_meeting(x, y+4, tasma_prawo) != null)
-		)
-		{
-		}
-		else
-		{
-			if (co_ma[co_wymagane]<1) y+=6;
-		}
-	
-	
-}
-};
-this.on_end_step = on_end_step_i;
-this.on_collision = function() {
-with(this) {
-this.other = this.place_meeting(this.x, this.y, Walenty);
-if(this.other != null) {
-mysl.x=x+15;
-mysl.y=y - 55;
-pier.x=mysl.x+15;
-pier.y=mysl.y +5;
-
-
-if (co_ma[co_wymagane]==0)
-{
-	pier.image_alpha=1;
-	mysl.image_alpha=1;
-}
-else if (co_ma[co_wymagane]==1)
-{
-	co_ma[co_wymagane]=2;
-	pier.image_alpha=0;
-	mysl.image_alpha=0;
-	
-	
-	
-	loze = instance_create(x-15,this.yss - 180 ,obj_drzwi);
-}
-}
-}
-};
-this.on_roomstart = function() {
-with(this) {
-jestem_juz=1;
-}
-};
-this.on_roomend = on_roomend_i;
-this.on_animationend = on_animationend_i;
-this.on_draw = on_draw_i;
-}; var japonka = new __japonka();
-
-function __bialorusinka2() {
-__instance_init__(this, bialorusinka2, null, 1, 0, sprite_bialorus2, 1, 1023);
-this.on_creation = function() {
-with(this) {
-image_speed=0;
-this.xss=xstart;
-this.yss=ystart;
-}
-};
-this.on_destroy = on_destroy_i;
-this.on_step = function() {
-with(this) {
-if 	(global.game_paused) return;
-
-if (jestem_juz==1)
-{
-	mysl = instance_create(x+15,y - 55 ,chmurka_myslenia);
-	mysl.image_alpha=0;
-	jestem_juz=2;
-}
-
-
-
-		
-
-			if ( place_meeting(x, y+8, tasma_lewo) != null)
-				{
-					this.xss--;
-				}
-				
-				if ( place_meeting(x, y+8, tasma_prawo) != null)
-				{
-					this.xss++;
-				}
-				
-
-
-			if (co_ma[co_wymagane]==0)
-			{
-				if (odliczanie % 10 <5)
-				{
-					image_angle++;
-				}
-				else
-				{
-					image_angle--;
-				}
-
-				przes=Math.sin((xstart+ystart+odliczanie)/45*Math.PI)*10;
-				x=this.xss+przes;
-				mysl.x=x+15;
-				mysl.y=y - 55;
-				pier.x=mysl.x+15;
-				pier.y=mysl.y +5;
-				
-				if (przes>4)
-				{	
-					image_index=4+(Math.floor(x/4) % 4);
-				}
-				else if (przes<-4)
-				{
-					image_index=8+(Math.floor(x/4) % 4);
-				}
-				else
-				{
-					image_index=(Math.floor(x/4) % 4);
-				}
-			}
-			else if (co_ma[co_wymagane]==1)
-			{
-				
-				przes=Math.sin((xstart+ystart+odliczanie)/15*Math.PI)*10;
-				y=this.yss+przes;
-				mysl.x=x+15;
-				mysl.y=y - 55;
-				pier.x=mysl.x+15;
-				pier.y=mysl.y +5;
-			}
-			else
-			{
-				if (gra_wstepna>18)
-				{
-					image_angle=-90;
-					
-					przes=Math.sin((xstart+ystart+odliczanie)/10*Math.PI)*5;
-					x=this.xss+przes+35;
-					y=this.yss+przes+10;
-				
-				
-				}
-			}
-			
-if  (( place_meeting(x, y+4, podloze_ziemia) != null)
-		|| ( place_meeting(x, y+4, podloze_trawa) != null)
-		|| ( place_meeting(x, y+4, podloze_skos_lewy) != null)
-		|| ( place_meeting(x, y+4, podloze_skos_prawy) != null)
-		|| ( place_meeting(x, y+4, tasma_lewo) != null)
-		|| ( place_meeting(x, y+4, tasma_prawo) != null)
-		)
-		{
-		}
-		else
-		{
-			if (co_ma[co_wymagane]<1) y+=6;
-		}
-	
-	
-}
-};
-this.on_end_step = on_end_step_i;
-this.on_collision = function() {
-with(this) {
-this.other = this.place_meeting(this.x, this.y, Walenty);
-if(this.other != null) {
-mysl.x=x+15;
-mysl.y=y - 55;
-pier.x=mysl.x+15;
-pier.y=mysl.y +5;
-
-
-if (co_ma[co_wymagane]==0)
-{
-	pier.image_alpha=1;
-	mysl.image_alpha=1;
-}
-else if (co_ma[co_wymagane]==1)
-{
-	co_ma[co_wymagane]=2;
-	pier.image_alpha=0;
-	mysl.image_alpha=0;
-	
-	
-	
-	loze = instance_create(x-15,this.yss - 180 ,obj_drzwi);
-}
-}
-}
-};
-this.on_roomstart = function() {
-with(this) {
-jestem_juz=1;
-}
-};
-this.on_roomend = on_roomend_i;
-this.on_animationend = on_animationend_i;
-this.on_draw = on_draw_i;
-}; var bialorusinka2 = new __bialorusinka2();
-
 function __kenijka() {
-__instance_init__(this, kenijka, null, 1, 0, sprite_kenijka, 1, 1024);
+__instance_init__(this, kenijka, null, 1, 0, sprite_kenijka, 1, 1022);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -4906,7 +4610,7 @@ this.on_draw = on_draw_i;
 }; var kenijka = new __kenijka();
 
 function __etiopka() {
-__instance_init__(this, etiopka, null, 1, 0, sprite_etipoka, 1, 1025);
+__instance_init__(this, etiopka, null, 1, 0, sprite_etipoka, 1, 1023);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5054,7 +4758,7 @@ this.on_draw = on_draw_i;
 }; var etiopka = new __etiopka();
 
 function __hinduska() {
-__instance_init__(this, hinduska, null, 1, 0, sprite_hinduska, 1, 1026);
+__instance_init__(this, hinduska, null, 1, 0, sprite_hinduska, 1, 1024);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5202,7 +4906,7 @@ this.on_draw = on_draw_i;
 }; var hinduska = new __hinduska();
 
 function __chinka() {
-__instance_init__(this, chinka, null, 1, 0, sprite_chinka1, 1, 1027);
+__instance_init__(this, chinka, null, 1, 0, sprite_chinka1, 1, 1025);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5350,7 +5054,7 @@ this.on_draw = on_draw_i;
 }; var chinka = new __chinka();
 
 function __chinka3() {
-__instance_init__(this, chinka3, null, 1, 0, sprite_chinka3, 1, 1028);
+__instance_init__(this, chinka3, null, 1, 0, sprite_chinka3, 1, 1026);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5498,7 +5202,7 @@ this.on_draw = on_draw_i;
 }; var chinka3 = new __chinka3();
 
 function __ryuk() {
-__instance_init__(this, ryuk, null, 1, 0, sprite_ryuk, 1, 1029);
+__instance_init__(this, ryuk, null, 1, 0, sprite_ryuk, 1, 1027);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5565,7 +5269,7 @@ this.on_draw = on_draw_i;
 }; var ryuk = new __ryuk();
 
 function __slon_pomyslany() {
-__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 1030);
+__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 1028);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -5578,7 +5282,7 @@ this.on_draw = on_draw_i;
 }; var slon_pomyslany = new __slon_pomyslany();
 
 function __slon_do_wziecia_dup() {
-__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 1031);
+__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 1029);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
