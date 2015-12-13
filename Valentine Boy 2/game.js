@@ -1469,7 +1469,7 @@ __sprite_init__(this, sprite_2181, 48, 48, 0, 0, 'Box', 24, 0, 48, 0, 48, ['img/
 }; var sprite_2181 = new __sprite_2181();
 
 function __sprite_etipoka() { 
-__sprite_init__(this, sprite_etipoka, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_etipoka_0.png','img/sprite_etipoka_1.png','img/sprite_etipoka_2.png','img/sprite_etipoka_3.png','img/sprite_etipoka_4.png','img/sprite_etipoka_5.png','img/sprite_etipoka_6.png','img/sprite_etipoka_7.png','img/sprite_etipoka_8.png','img/sprite_etipoka_9.png','img/sprite_etipoka_10.png','img/sprite_etipoka_11.png','img/sprite_etipoka_12.png','img/sprite_etipoka_13.png','img/sprite_etipoka_14.png','img/sprite_etipoka_15.png']);
+__sprite_init__(this, sprite_etipoka, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_etipoka_4.png','img/sprite_etipoka_5.png','img/sprite_etipoka_6.png','img/sprite_etipoka_7.png']);
 }; var sprite_etipoka = new __sprite_etipoka();
 
 function __sprite_2214() { 
@@ -3789,7 +3789,7 @@ __instance_init__(this, girl_tile, null, 1, 0, sprite_etipoka, 1, 278);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
-image_index=4;
+image_index=0;
 }
 };
 this.on_destroy = on_destroy_i;
@@ -3797,7 +3797,7 @@ this.on_step = function() {
 with(this) {
 if 	(global.game_paused) return;
 
-image_index=4+(Math.floor(x/4) % 4);
+image_index=0+(Math.floor(x/4) % 4);
 x--;
 }
 };
