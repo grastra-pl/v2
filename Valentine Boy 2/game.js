@@ -4546,7 +4546,7 @@ this.objects = [
 [{o:podloze_ziemia, x:1600, y:224}],
 [{o:podloze_ziemia, x:1616, y:224}]];
 this.start = function() {
-__room_start__(this, tutorial, 1660, 480, 30, 128, 0, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+__room_start__(this, tutorial, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 poziomu_nazwa='Tutorial';
 poziomu_nr=1;
@@ -4807,7 +4807,7 @@ this.objects = [
 [{o:klocek, x:640, y:448}],
 [{o:zlozona_dziewczyna, x:500, y:20}]];
 this.start = function() {
-__room_start__(this, Piramidy, 1660, 480, 30, 0, 255, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+__room_start__(this, Piramidy, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane=['filizanka','kot','but'];
 };
@@ -5472,7 +5472,7 @@ this.tiles = [
 this.objects = [
 ];
 this.start = function() {
-__room_start__(this, ekran_koncowy, 640, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, null, 50, 50);
+__room_start__(this, ekran_koncowy, 640, 480, 30, 0, 0, 0, VALENTINE_TLO.image, 0, 0, 0, 640, 480, null, 50, 50);
 
 end_text="Now, after pick up all the girls...";
 end_text2="try the same in the real world";

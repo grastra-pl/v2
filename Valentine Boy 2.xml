@@ -1751,7 +1751,7 @@ function inicjalizacja()
 		start_div.addEventListener("click",room_goto_next,false);
 		
 	}
-}</scene><scene name="tutorial" width="1660" height="480" speed="30" red="128" green="0" blue="255" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nazwa='Tutorial';
+}</scene><scene name="tutorial" width="1660" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nazwa='Tutorial';
 poziomu_nr=1;
 
 co_wymagane='kwiat';// kwiatek_pomyslany
@@ -1768,7 +1768,7 @@ co_wymagane='kwiat';// kwiatek_pomyslany
 		tut_div.innerHTML = 'Use [D] to go right';
 		
 		t_game.appendChild(tut_div);
- </scene><scene name="Piramidy" width="1660" height="480" speed="30" red="0" green="255" blue="255" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">co_wymagane=['filizanka','kot','but'];</scene><scene name="Sfinks" width="3320" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">co_wymagane='pierścień';</scene><scene name="ekran_koncowy" width="640" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject="">end_text="Now, after pick up all the girls...";
+ </scene><scene name="Piramidy" width="1660" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">co_wymagane=['filizanka','kot','but'];</scene><scene name="Sfinks" width="3320" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">co_wymagane='pierścień';</scene><scene name="ekran_koncowy" width="640" height="480" speed="30" red="0" green="0" blue="0" background="VALENTINE_TLO" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject="">end_text="Now, after pick up all the girls...";
 end_text2="try the same in the real world";
 
 
