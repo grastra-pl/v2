@@ -1413,7 +1413,7 @@ __sprite_init__(this, sprite_1224, 64, 23, 0, 0, 'Box', 32, 0, 64, 0, 23, ['img/
 }; var sprite_1224 = new __sprite_1224();
 
 function __sprite_1228() { 
-__sprite_init__(this, sprite_1228, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_1228_0.png','img/sprite_1228_1.png','img/sprite_1228_2.png','img/sprite_1228_3.png','img/sprite_1228_4.png','img/sprite_1228_5.png','img/sprite_1228_6.png','img/sprite_1228_7.png','img/sprite_1228_8.png','img/sprite_1228_9.png','img/sprite_1228_10.png','img/sprite_1228_11.png','img/sprite_1228_12.png','img/sprite_1228_13.png','img/sprite_1228_14.png','img/sprite_1228_15.png']);
+__sprite_init__(this, sprite_1228, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_1228_4.png','img/sprite_1228_5.png','img/sprite_1228_6.png','img/sprite_1228_7.png','img/sprite_1228_8.png','img/sprite_1228_9.png','img/sprite_1228_10.png','img/sprite_1228_11.png']);
 }; var sprite_1228 = new __sprite_1228();
 
 function __sprite_1229() { 
@@ -1429,7 +1429,7 @@ __sprite_init__(this, sprite_1322, 8, 8, 0, 0, 'Box', 4, 0, 8, 0, 8, ['img/sprit
 }; var sprite_1322 = new __sprite_1322();
 
 function __sprite_1399() { 
-__sprite_init__(this, sprite_1399, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_1399_0.png','img/sprite_1399_1.png','img/sprite_1399_2.png','img/sprite_1399_3.png','img/sprite_1399_4.png','img/sprite_1399_5.png','img/sprite_1399_6.png','img/sprite_1399_7.png','img/sprite_1399_8.png','img/sprite_1399_9.png','img/sprite_1399_10.png','img/sprite_1399_11.png','img/sprite_1399_12.png','img/sprite_1399_13.png','img/sprite_1399_14.png','img/sprite_1399_15.png']);
+__sprite_init__(this, sprite_1399, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_1399_0.png']);
 }; var sprite_1399 = new __sprite_1399();
 
 function __sprite_1400() { 
@@ -2405,11 +2405,11 @@ if  (( place_meeting(x, y+4, podloze_ziemia) != null)
 			x+=this.kier;
 			if (kier<0)
 			{
-				image_index=4+(x/8+y/8) % 4;
+				image_index=0+(x/8+y/8) % 4;
 			}
 			else
 			{
-				image_index=8+(x/8+y/8) % 4;
+				image_index=4+(x/8+y/8) % 4;
 			}
 		}
 		else
@@ -4545,9 +4545,10 @@ this.objects = [
 [{o:klocek, x:608, y:64}],
 [{o:podloze_ziemia, x:1580, y:220}],
 [{o:podloze_ziemia, x:1600, y:224}],
-[{o:podloze_ziemia, x:1616, y:224}]];
+[{o:podloze_ziemia, x:1616, y:224}],
+[{o:wrog1, x:460, y:40}]];
 this.start = function() {
-__room_start__(this, tutorial, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+__room_start__(this, tutorial, 1660, 480, 30, 0, 255, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 poziomu_nazwa='Tutorial';
 poziomu_nr=1;
