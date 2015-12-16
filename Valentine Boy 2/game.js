@@ -1445,7 +1445,7 @@ __sprite_init__(this, sprite_2067, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/
 }; var sprite_2067 = new __sprite_2067();
 
 function __sprite_2078() { 
-__sprite_init__(this, sprite_2078, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/sprite_2078_0.png','img/sprite_2078_1.png','img/sprite_2078_2.png','img/sprite_2078_3.png','img/sprite_2078_4.png','img/sprite_2078_5.png','img/sprite_2078_6.png','img/sprite_2078_7.png','img/sprite_2078_8.png','img/sprite_2078_9.png','img/sprite_2078_10.png','img/sprite_2078_11.png','img/sprite_2078_12.png','img/sprite_2078_13.png','img/sprite_2078_14.png','img/sprite_2078_15.png','img/sprite_2078_16.png','img/sprite_2078_17.png','img/sprite_2078_18.png','img/sprite_2078_19.png','img/sprite_2078_20.png','img/sprite_2078_21.png','img/sprite_2078_22.png','img/sprite_2078_23.png','img/sprite_2078_24.png','img/sprite_2078_25.png','img/sprite_2078_26.png','img/sprite_2078_27.png','img/sprite_2078_28.png','img/sprite_2078_29.png','img/sprite_2078_30.png','img/sprite_2078_31.png','img/sprite_2078_32.png','img/sprite_2078_33.png','img/sprite_2078_34.png','img/sprite_2078_35.png','img/sprite_2078_36.png','img/sprite_2078_37.png','img/sprite_2078_38.png','img/sprite_2078_39.png','img/sprite_2078_40.png','img/sprite_2078_41.png','img/sprite_2078_42.png','img/sprite_2078_43.png','img/sprite_2078_44.png','img/sprite_2078_45.png','img/sprite_2078_46.png','img/sprite_2078_47.png','img/sprite_2078_48.png','img/sprite_2078_49.png','img/sprite_2078_50.png','img/sprite_2078_51.png','img/sprite_2078_52.png','img/sprite_2078_53.png','img/sprite_2078_54.png','img/sprite_2078_55.png','img/sprite_2078_56.png','img/sprite_2078_57.png','img/sprite_2078_58.png','img/sprite_2078_59.png','img/sprite_2078_60.png','img/sprite_2078_61.png','img/sprite_2078_62.png','img/sprite_2078_63.png','img/sprite_2078_64.png','img/sprite_2078_65.png','img/sprite_2078_66.png','img/sprite_2078_67.png','img/sprite_2078_68.png','img/sprite_2078_69.png','img/sprite_2078_70.png','img/sprite_2078_71.png','img/sprite_2078_72.png','img/sprite_2078_73.png','img/sprite_2078_74.png','img/sprite_2078_75.png','img/sprite_2078_76.png','img/sprite_2078_77.png','img/sprite_2078_78.png','img/sprite_2078_79.png','img/sprite_2078_80.png','img/sprite_2078_81.png','img/sprite_2078_82.png','img/sprite_2078_83.png','img/sprite_2078_84.png','img/sprite_2078_85.png','img/sprite_2078_86.png','img/sprite_2078_87.png','img/sprite_2078_88.png','img/sprite_2078_89.png','img/sprite_2078_90.png','img/sprite_2078_91.png','img/sprite_2078_92.png','img/sprite_2078_93.png','img/sprite_2078_94.png','img/sprite_2078_95.png']);
+__sprite_init__(this, sprite_2078, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/sprite_2078_21.png','img/sprite_2078_22.png','img/sprite_2078_23.png','img/sprite_2078_33.png','img/sprite_2078_34.png','img/sprite_2078_35.png']);
 }; var sprite_2078 = new __sprite_2078();
 
 function __sprite_2093() { 
@@ -2958,7 +2958,7 @@ __instance_init__(this, kot_pomyslany, null, 1, 0, sprite_2078, 0, 221);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
-image_index=13;
+image_index=0;
 }
 };
 this.on_destroy = on_destroy_i;
@@ -2976,7 +2976,7 @@ __instance_init__(this, kot_do_wziecia, null, 1, 0, sprite_2078, 1, 222);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
-image_index=13;
+image_index=0;
 this.opoznienie=10;
 }
 };
@@ -2988,23 +2988,14 @@ this.opoznienie--;
 if (this.opoznienie<0)
 {
 this.opoznienie=10;
-	image_index++;
-	if (image_index<15)
+	image_index =(image_index+1) % 6;
+	if (image_index<3)
 	{
 		x-=2;
 	}
-	else if (image_index==15)
-	{
-		image_index=24;
-	}
-	else if ((image_index>23) && (image_index<27))
-	{
-		
-		x+=2;
-	}
 	else
 	{
-		image_index=12;
+		x+=2;
 	}
 	
 }
@@ -4550,7 +4541,8 @@ this.objects = [
 [{o:podloze_ziemia, x:1580, y:220}],
 [{o:podloze_ziemia, x:1600, y:224}],
 [{o:podloze_ziemia, x:1616, y:224}],
-[{o:wrogAniol, x:600, y:120}]];
+[{o:wrogAniol, x:600, y:120}],
+[{o:kot_do_wziecia, x:160, y:240}]];
 this.start = function() {
 __room_start__(this, tutorial, 1660, 480, 30, 0, 255, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
