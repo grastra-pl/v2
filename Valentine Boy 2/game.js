@@ -4546,7 +4546,8 @@ this.objects = [
 [{o:podloze_ziemia, x:1580, y:220}],
 [{o:podloze_ziemia, x:1600, y:224}],
 [{o:podloze_ziemia, x:1616, y:224}],
-[{o:wrog1, x:460, y:40}]];
+[{o:wrog1, x:460, y:40}],
+[{o:wrog2, x:500, y:20}]];
 this.start = function() {
 __room_start__(this, tutorial, 1660, 480, 30, 0, 255, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
