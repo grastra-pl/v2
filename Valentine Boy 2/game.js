@@ -1465,7 +1465,7 @@ __sprite_init__(this, kladka_sprite, 53, 53, 0, 0, 'Box', 26, 0, 53, 24, 34, ['i
 }; var kladka_sprite = new __kladka_sprite();
 
 function __sprite_2181() { 
-__sprite_init__(this, sprite_2181, 48, 48, 0, 0, 'Box', 24, 0, 48, 0, 48, ['img/sprite_2181_0.png','img/sprite_2181_1.png','img/sprite_2181_2.png','img/sprite_2181_3.png','img/sprite_2181_4.png','img/sprite_2181_5.png','img/sprite_2181_6.png','img/sprite_2181_7.png','img/sprite_2181_8.png','img/sprite_2181_9.png','img/sprite_2181_10.png','img/sprite_2181_11.png','img/sprite_2181_12.png','img/sprite_2181_13.png','img/sprite_2181_14.png','img/sprite_2181_15.png']);
+__sprite_init__(this, sprite_2181, 48, 48, 0, 0, 'Box', 24, 0, 48, 0, 48, ['img/sprite_2181_4.png','img/sprite_2181_5.png','img/sprite_2181_6.png','img/sprite_2181_7.png','img/sprite_2181_8.png','img/sprite_2181_9.png','img/sprite_2181_10.png','img/sprite_2181_11.png']);
 }; var sprite_2181 = new __sprite_2181();
 
 function __sprite_etipoka() { 
@@ -4038,7 +4038,7 @@ __instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 348);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
-image_index=4;
+image_index=0;
 this.kier=-3;
 this.odlicz=100;
 }
@@ -4076,12 +4076,12 @@ if 	(global.game_paused) return;
 			
 			if (this.kier<0)
 			{
-				image_index=4+(x/8+y/8) % 4;
+				image_index=0+(x/8+y/8) % 4;
 				direction = 180;
 			}
 			else
 			{
-				image_index=8+(x/8+y/8) % 4;
+				image_index=4+(x/8+y/8) % 4;
 				direction = 0;
 			}
 		
@@ -4550,7 +4550,7 @@ this.objects = [
 [{o:podloze_ziemia, x:1580, y:220}],
 [{o:podloze_ziemia, x:1600, y:224}],
 [{o:podloze_ziemia, x:1616, y:224}],
-[{o:egipska_krolewna, x:540, y:0}]];
+[{o:wrogAniol, x:600, y:120}]];
 this.start = function() {
 __room_start__(this, tutorial, 1660, 480, 30, 0, 255, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
