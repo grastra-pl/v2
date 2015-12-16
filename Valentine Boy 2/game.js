@@ -1417,7 +1417,7 @@ __sprite_init__(this, sprite_1228, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/
 }; var sprite_1228 = new __sprite_1228();
 
 function __sprite_1229() { 
-__sprite_init__(this, sprite_1229, 49, 48, 0, 0, 'Box', 24, 0, 49, 0, 48, ['img/sprite_1229_0.png','img/sprite_1229_1.png','img/sprite_1229_2.png','img/sprite_1229_3.png','img/sprite_1229_4.png','img/sprite_1229_5.png','img/sprite_1229_6.png','img/sprite_1229_7.png','img/sprite_1229_8.png','img/sprite_1229_9.png','img/sprite_1229_10.png','img/sprite_1229_11.png','img/sprite_1229_12.png','img/sprite_1229_13.png','img/sprite_1229_14.png','img/sprite_1229_15.png']);
+__sprite_init__(this, sprite_1229, 49, 48, 0, 0, 'Box', 24, 0, 49, 0, 48, ['img/sprite_1229_4.png','img/sprite_1229_5.png','img/sprite_1229_6.png','img/sprite_1229_7.png','img/sprite_1229_8.png','img/sprite_1229_9.png','img/sprite_1229_10.png','img/sprite_1229_11.png']);
 }; var sprite_1229 = new __sprite_1229();
 
 function __sprite_1240() { 
@@ -1441,7 +1441,7 @@ __sprite_init__(this, sprite_2025, 20, 21, 0, 0, 'Box', 10, 0, 20, 0, 21, ['img/
 }; var sprite_2025 = new __sprite_2025();
 
 function __sprite_2067() { 
-__sprite_init__(this, sprite_2067, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_2067_0.png','img/sprite_2067_1.png','img/sprite_2067_2.png','img/sprite_2067_3.png','img/sprite_2067_4.png','img/sprite_2067_5.png','img/sprite_2067_6.png','img/sprite_2067_7.png','img/sprite_2067_8.png','img/sprite_2067_9.png','img/sprite_2067_10.png','img/sprite_2067_11.png','img/sprite_2067_12.png','img/sprite_2067_13.png','img/sprite_2067_14.png','img/sprite_2067_15.png']);
+__sprite_init__(this, sprite_2067, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_2067_4.png','img/sprite_2067_5.png','img/sprite_2067_6.png','img/sprite_2067_7.png','img/sprite_2067_8.png','img/sprite_2067_9.png','img/sprite_2067_10.png','img/sprite_2067_11.png']);
 }; var sprite_2067 = new __sprite_2067();
 
 function __sprite_2078() { 
@@ -2440,7 +2440,7 @@ __instance_init__(this, wrog2, null, 1, 0, sprite_1229, 1, 41);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
-image_index=4;
+image_index=0;
 this.kier=-1.5;
 this.odlicz=100;
 }
@@ -2474,12 +2474,12 @@ if  (( place_meeting(x, y+4, podloze_ziemia) != null)
 			x+=this.kier;
 			if (kier<0)
 			{
-				image_index=4+(x/8+y/8) % 4;
+				image_index=0+(x/8+y/8) % 4;
 				direction = 180;
 			}
 			else
 			{
-				image_index=8+(x/8+y/8) % 4;
+				image_index=4+(x/8+y/8) % 4;
 				direction = 0;
 			}
 		}
@@ -2808,6 +2808,7 @@ with(this) {
 image_speed=0;
 this.xss=xstart;
 this.yss=ystart;
+this.p_przes=0;
 }
 };
 this.on_destroy = on_destroy_i;
@@ -2840,6 +2841,7 @@ if (jestem_juz==1)
 
 			if (co_ma[co_wymagane]==0)
 			{
+			/*
 				if (odliczanie % 10 <5)
 				{
 					image_angle++;
@@ -2848,26 +2850,28 @@ if (jestem_juz==1)
 				{
 					image_angle--;
 				}
+*/
 
-				przes=Math.sin((xstart+ystart+odliczanie)/45*Math.PI)*10;
+				przes=Math.sin((xstart+ystart+odliczanie/2)/45*Math.PI)*20;
 				x=this.xss+przes;
 				mysl.x=x+15;
 				mysl.y=y - 55;
 				pier.x=mysl.x+15;
 				pier.y=mysl.y +5;
 				
-				if (przes>4)
+				if (przes<this.p_przes)
 				{	
-					image_index=4+(Math.floor(x/4) % 4);
+					image_index=0+(Math.floor(x/4) % 4);
 				}
-				else if (przes<-4)
+				else if (przes>this.p_przes)
 				{
-					image_index=8+(Math.floor(x/4) % 4);
+					image_index=4+(Math.floor(x/4) % 4);
 				}
 				else
 				{
-					image_index=(Math.floor(x/4) % 4);
+					image_index=0;
 				}
+				this.p_przes = przes;
 			}
 			else if (co_ma[co_wymagane]==1)
 			{
@@ -4546,8 +4550,7 @@ this.objects = [
 [{o:podloze_ziemia, x:1580, y:220}],
 [{o:podloze_ziemia, x:1600, y:224}],
 [{o:podloze_ziemia, x:1616, y:224}],
-[{o:wrog1, x:460, y:40}],
-[{o:wrog2, x:500, y:20}]];
+[{o:egipska_krolewna, x:540, y:0}]];
 this.start = function() {
 __room_start__(this, tutorial, 1660, 480, 30, 0, 255, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
