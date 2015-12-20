@@ -1361,7 +1361,7 @@ tu_init();
  * SPRITES
  ***********************************************************************/
 function __sprite_162() { 
-__sprite_init__(this, sprite_162, 32, 48, 16, 24, 'Box', 16, 0, 32, 0, 48, ['img/sprite_162_0.png','img/sprite_162_1.png','img/sprite_162_2.png','img/sprite_162_3.png','img/sprite_162_4.png','img/sprite_162_5.png','img/sprite_162_6.png','img/sprite_162_7.png','img/sprite_162_8.png','img/sprite_162_9.png','img/sprite_162_10.png','img/sprite_162_11.png','img/sprite_162_12.png','img/sprite_162_13.png','img/sprite_162_14.png','img/sprite_162_15.png']);
+__sprite_init__(this, sprite_162, 32, 48, 16, 24, 'Box', 16, 0, 32, 0, 48, ['img/sprite_162_4.png','img/sprite_162_5.png','img/sprite_162_6.png','img/sprite_162_7.png','img/sprite_162_8.png','img/sprite_162_9.png','img/sprite_162_10.png','img/sprite_162_11.png']);
 }; var sprite_162 = new __sprite_162();
 
 function __sprite_342() { 
@@ -1479,10 +1479,6 @@ __sprite_init__(this, sprite_2214, 32, 25, 0, 0, 'Box', 16, 0, 32, 0, 25, ['img/
 function __grastra_logo() { 
 __sprite_init__(this, grastra_logo, 110, 88, 0, 0, 'Box', 55, 0, 110, 0, 88, ['img/grastra_logo_0.png']);
 }; var grastra_logo = new __grastra_logo();
-
-function __american_girl() { 
-__sprite_init__(this, american_girl, 80, 87, 0, 0, 'Box', 40, 0, 80, 0, 87, ['img/american_girl_0.png']);
-}; var american_girl = new __american_girl();
 
 function __dzwieki_on_sprite() { 
 __sprite_init__(this, dzwieki_on_sprite, 29, 30, 0, 0, 'Box', 14, 0, 29, 0, 30, ['img/dzwieki_on_sprite_0.png']);
@@ -1786,7 +1782,7 @@ if (gra_wstepna<=18)
 				x += 4;
 			}
 		direction = 0;
-		image_index = 8 + floor((x % 32) / 8);
+		image_index = 4 + floor((x % 32) / 8);
 		this.kier=1;
 		
 		if ((place_meeting(x, y, podloze_ziemia) != null) || (place_meeting(x, y, podloze_trawa) != null)) {
@@ -1809,7 +1805,7 @@ if (gra_wstepna<=18)
 				x -= 4;
 			}
 		direction = 180;
-		image_index = 4+ floor((x % 32 ) / 8);
+		image_index = 0+ floor((x % 32 ) / 8);
 		this.kier=0;
 		
 		if ((place_meeting(x, y, podloze_ziemia) != null) || (place_meeting(x, y, podloze_trawa) != null)) {
@@ -2007,14 +2003,7 @@ this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
 this.on_end_step = on_end_step_i;
-this.on_collision = function() {
-with(this) {
-this.other = this.place_meeting(this.x, this.y, girl_american);
-if(this.other != null) {
-y+=2;
-}
-}
-};
+this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
@@ -2029,10 +2018,6 @@ this.on_step = on_step_i;
 this.on_end_step = on_end_step_i;
 this.on_collision = function() {
 with(this) {
-this.other = this.place_meeting(this.x, this.y, girl_american);
-if(this.other != null) {
-y+=2;
-}
 this.other = this.place_meeting(this.x, this.y, podloze_ziemia);
 if(this.other != null) {
 y++;
@@ -3681,93 +3666,8 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var logo_grastry = new __logo_grastry();
 
-function __girl_american() {
-__instance_init__(this, girl_american, null, 1, 0, american_girl, 1, 280);
-this.on_creation = on_creation_i;
-this.on_destroy = on_destroy_i;
-this.on_step = function() {
-with(this) {
-if (jestem_juz==1)
-{
-	mysl = instance_create(x+15,y - 55 ,chmurka_myslenia);
-	mysl.image_alpha=0;
-	jestem_juz=2;
-}
-
-if (co_ma[co_wymagane]==0)
-{
-/*
-	if (odliczanie % 10 <5)
-	{
-		image_angle++;
-	}
-	else
-	{
-		image_angle--;
-	}
-
-	przes=Math.sin((xstart+ystart+odliczanie)/45*Math.PI)*10;
-	x=xstart+przes;
-	mysl.x=mysl.xstart+przes;
-	pier.x=pier.xstart+przes;
-*/
-}
-else if (co_ma[co_wymagane]==1)
-{
-	przes=Math.sin((xstart+ystart+odliczanie)/15*Math.PI)*10;
-	y=ystart+przes;
-	mysl.y=mysl.ystart+2*przes;
-	pier.y=pier.ystart+2*przes;
-}
-else
-{
-	if (gra_wstepna>18)
-	{
-		image_angle=-90;
-		
-		przes=Math.sin((xstart+ystart+odliczanie)/10*Math.PI)*2;
-		x=xstart+przes+75;
-		y=ystart+przes+10;
-	}
-}
-
-}
-};
-this.on_end_step = on_end_step_i;
-this.on_collision = function() {
-with(this) {
-this.other = this.place_meeting(this.x, this.y, Walenty);
-if(this.other != null) {
-if (co_ma[co_wymagane]==0)
-{
-	pier.image_alpha=1;
-	mysl.image_alpha=1;
-}
-else if (co_ma[co_wymagane]==1)
-{
-	co_ma[co_wymagane]=2;
-	pier.image_alpha=0;
-	mysl.image_alpha=0;
-	
-	
-	
-	loze = instance_create(x-15,y - 140 ,obj_drzwi);
-}
-}
-}
-};
-this.on_roomstart = function() {
-with(this) {
-jestem_juz=1;
-}
-};
-this.on_roomend = on_roomend_i;
-this.on_animationend = on_animationend_i;
-this.on_draw = on_draw_i;
-}; var girl_american = new __girl_american();
-
 function __dzwieki_wlaczone() {
-__instance_init__(this, dzwieki_wlaczone, null, 1, 0, dzwieki_on_sprite, 1, 281);
+__instance_init__(this, dzwieki_wlaczone, null, 1, 0, dzwieki_on_sprite, 1, 280);
 this.on_creation = function() {
 with(this) {
 dzwieki_on_bool=true;
@@ -3793,7 +3693,7 @@ this.on_draw = on_draw_i;
 }; var dzwieki_wlaczone = new __dzwieki_wlaczone();
 
 function __kwiatek_do_wziecia() {
-__instance_init__(this, kwiatek_do_wziecia, null, 1, 0, kwiatek, 1, 342);
+__instance_init__(this, kwiatek_do_wziecia, null, 1, 0, kwiatek, 1, 341);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3819,7 +3719,7 @@ this.on_draw = on_draw_i;
 }; var kwiatek_do_wziecia = new __kwiatek_do_wziecia();
 
 function __kwiatek_pomyslany() {
-__instance_init__(this, kwiatek_pomyslany, null, 1, 0, kwiatek, 1, 343);
+__instance_init__(this, kwiatek_pomyslany, null, 1, 0, kwiatek, 1, 342);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3832,7 +3732,7 @@ this.on_draw = on_draw_i;
 }; var kwiatek_pomyslany = new __kwiatek_pomyslany();
 
 function __burger_do_wziecia() {
-__instance_init__(this, burger_do_wziecia, null, 1, 0, burger, 1, 344);
+__instance_init__(this, burger_do_wziecia, null, 1, 0, burger, 1, 343);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3853,7 +3753,7 @@ this.on_draw = on_draw_i;
 }; var burger_do_wziecia = new __burger_do_wziecia();
 
 function __burger_pomyslany() {
-__instance_init__(this, burger_pomyslany, null, 1, 0, burger, 1, 345);
+__instance_init__(this, burger_pomyslany, null, 1, 0, burger, 1, 344);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3866,7 +3766,7 @@ this.on_draw = on_draw_i;
 }; var burger_pomyslany = new __burger_pomyslany();
 
 function __wrogAniol() {
-__instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 347);
+__instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 346);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3948,7 +3848,7 @@ this.on_draw = on_draw_i;
 }; var wrogAniol = new __wrogAniol();
 
 function __niewidzialny_obiekt() {
-__instance_init__(this, niewidzialny_obiekt, null, 1, 0, null, 1, 374);
+__instance_init__(this, niewidzialny_obiekt, null, 1, 0, null, 1, 373);
 this.on_creation = function() {
 with(this) {
 this.wz = 0;
@@ -4037,7 +3937,7 @@ this.on_draw = on_draw_i;
 }; var niewidzialny_obiekt = new __niewidzialny_obiekt();
 
 function __skrzydla() {
-__instance_init__(this, skrzydla, null, 1, 0, skrzydla_sprite, 1, 384);
+__instance_init__(this, skrzydla, null, 1, 0, skrzydla_sprite, 1, 383);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4062,7 +3962,7 @@ this.on_draw = on_draw_i;
 }; var skrzydla = new __skrzydla();
 
 function __skrzydlo_obj() {
-__instance_init__(this, skrzydlo_obj, null, 1, 0, skrzydlo_ludzika, 1, 869);
+__instance_init__(this, skrzydlo_obj, null, 1, 0, skrzydlo_ludzika, 1, 868);
 this.on_creation = function() {
 with(this) {
 image_speed = 0;
@@ -4080,7 +3980,7 @@ this.on_draw = on_draw_i;
 }; var skrzydlo_obj = new __skrzydlo_obj();
 
 function __konggobj() {
-__instance_init__(this, konggobj, null, 1, 0, kongg, 1, 968);
+__instance_init__(this, konggobj, null, 1, 0, kongg, 1, 967);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4093,7 +3993,7 @@ this.on_draw = on_draw_i;
 }; var konggobj = new __konggobj();
 
 function __kongbigobj() {
-__instance_init__(this, kongbigobj, null, 1, 0, konggbig, 1, 974);
+__instance_init__(this, kongbigobj, null, 1, 0, konggbig, 1, 973);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4106,7 +4006,7 @@ this.on_draw = on_draw_i;
 }; var kongbigobj = new __kongbigobj();
 
 function __jablko_pomyslane() {
-__instance_init__(this, jablko_pomyslane, null, 1, 0, sprite_jablko, 1, 1010);
+__instance_init__(this, jablko_pomyslane, null, 1, 0, sprite_jablko, 1, 1009);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4119,7 +4019,7 @@ this.on_draw = on_draw_i;
 }; var jablko_pomyslane = new __jablko_pomyslane();
 
 function __jablko_do_wziecia() {
-__instance_init__(this, jablko_do_wziecia, null, 1, 0, sprite_jablko, 1, 1011);
+__instance_init__(this, jablko_do_wziecia, null, 1, 0, sprite_jablko, 1, 1010);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4144,7 +4044,7 @@ this.on_draw = on_draw_i;
 }; var jablko_do_wziecia = new __jablko_do_wziecia();
 
 function __slon_pomyslany() {
-__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 1012);
+__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 1011);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4157,7 +4057,7 @@ this.on_draw = on_draw_i;
 }; var slon_pomyslany = new __slon_pomyslany();
 
 function __slon_do_wziecia_dup() {
-__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 1013);
+__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 1012);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4302,253 +4202,6 @@ function inicjalizacja()
 }
 var EkranStartowy = new __EkranStartowy();
 tu_scenes.push(EkranStartowy);
-function __Piramidy() { 
-this.tiles = [
-];
-this.objects = [
-[{o:Walenty, x:80, y:112}],
-[{o:podloze_ziemia, x:64, y:192}],
-[{o:podloze_ziemia, x:96, y:192}],
-[{o:podloze_ziemia, x:32, y:192}],
-[{o:podloze_ziemia, x:128, y:192}],
-[{o:podloze_ziemia, x:48, y:192}],
-[{o:podloze_ziemia, x:80, y:192}],
-[{o:podloze_ziemia, x:112, y:192}],
-[{o:podloze_skos_lewy, x:16, y:192}],
-[{o:podloze_skos_prawy, x:144, y:192}],
-[{o:podloze_trawa, x:256, y:288}],
-[{o:podloze_trawa, x:288, y:288}],
-[{o:podloze_trawa, x:320, y:288}],
-[{o:podloze_ziemia, x:224, y:144}],
-[{o:podloze_ziemia, x:240, y:144}],
-[{o:podloze_ziemia, x:304, y:96}],
-[{o:podloze_ziemia, x:320, y:96}],
-[{o:podloze_ziemia, x:416, y:64}],
-[{o:podloze_ziemia, x:432, y:64}],
-[{o:podloze_ziemia, x:496, y:96}],
-[{o:podloze_ziemia, x:512, y:96}],
-[{o:bonus, x:304, y:16}],
-[{o:bonus, x:400, y:0}],
-[{o:bonus, x:480, y:32}],
-[{o:bonus, x:256, y:208}],
-[{o:bonus, x:320, y:208}],
-[{o:podloze_skos_prawy, x:560, y:240}],
-[{o:podloze_skos_prawy, x:576, y:256}],
-[{o:podloze_skos_prawy, x:592, y:272}],
-[{o:podloze_skos_prawy, x:608, y:288}],
-[{o:podloze_skos_prawy, x:624, y:304}],
-[{o:podloze_skos_prawy, x:640, y:320}],
-[{o:podloze_skos_lewy, x:800, y:368}],
-[{o:podloze_skos_lewy, x:816, y:352}],
-[{o:podloze_skos_lewy, x:832, y:336}],
-[{o:podloze_skos_lewy, x:848, y:320}],
-[{o:podloze_skos_lewy, x:864, y:304}],
-[{o:podloze_skos_lewy, x:784, y:384}],
-[{o:podloze_skos_lewy, x:768, y:400}],
-[{o:podloze_skos_lewy, x:752, y:416}],
-[{o:podloze_skos_lewy, x:736, y:448}],
-[{o:podloze_skos_lewy, x:736, y:432}],
-[{o:podloze_ziemia, x:736, y:448}],
-[{o:podloze_ziemia, x:736, y:448}],
-[{o:podloze_ziemia, x:752, y:432}],
-[{o:podloze_ziemia, x:864, y:320}],
-[{o:podloze_ziemia, x:848, y:336}],
-[{o:podloze_ziemia, x:832, y:352}],
-[{o:podloze_ziemia, x:816, y:368}],
-[{o:podloze_ziemia, x:800, y:384}],
-[{o:podloze_ziemia, x:784, y:400}],
-[{o:podloze_ziemia, x:768, y:416}],
-[{o:podloze_ziemia, x:880, y:304}],
-[{o:podloze_ziemia, x:896, y:304}],
-[{o:podloze_skos_prawy, x:912, y:304}],
-[{o:podloze_skos_prawy, x:928, y:320}],
-[{o:podloze_skos_prawy, x:944, y:336}],
-[{o:podloze_skos_prawy, x:960, y:352}],
-[{o:podloze_skos_prawy, x:976, y:368}],
-[{o:podloze_skos_prawy, x:992, y:384}],
-[{o:podloze_skos_prawy, x:1008, y:400}],
-[{o:podloze_skos_prawy, x:1024, y:416}],
-[{o:podloze_skos_prawy, x:1040, y:432}],
-[{o:podloze_ziemia, x:1040, y:448}],
-[{o:podloze_ziemia, x:912, y:320}],
-[{o:podloze_ziemia, x:928, y:336}],
-[{o:podloze_ziemia, x:944, y:352}],
-[{o:podloze_ziemia, x:960, y:368}],
-[{o:podloze_ziemia, x:976, y:384}],
-[{o:podloze_ziemia, x:992, y:400}],
-[{o:podloze_ziemia, x:1008, y:416}],
-[{o:podloze_ziemia, x:1024, y:432}],
-[{o:podloze_skos_lewy, x:1056, y:432}],
-[{o:podloze_skos_lewy, x:1072, y:416}],
-[{o:podloze_skos_lewy, x:1088, y:400}],
-[{o:podloze_skos_lewy, x:1104, y:384}],
-[{o:podloze_skos_lewy, x:1120, y:368}],
-[{o:podloze_skos_lewy, x:1136, y:352}],
-[{o:podloze_skos_lewy, x:1152, y:336}],
-[{o:podloze_skos_prawy, x:1168, y:336}],
-[{o:podloze_skos_prawy, x:1184, y:352}],
-[{o:podloze_skos_prawy, x:1200, y:368}],
-[{o:podloze_skos_prawy, x:1216, y:384}],
-[{o:podloze_skos_prawy, x:1232, y:400}],
-[{o:podloze_skos_prawy, x:1248, y:416}],
-[{o:podloze_skos_prawy, x:1264, y:432}],
-[{o:podloze_skos_prawy, x:1280, y:448}],
-[{o:podloze_skos_prawy, x:1296, y:464}],
-[{o:podloze_ziemia, x:1152, y:352}],
-[{o:podloze_ziemia, x:1168, y:352}],
-[{o:podloze_ziemia, x:1136, y:368}],
-[{o:podloze_ziemia, x:1120, y:384}],
-[{o:podloze_ziemia, x:1104, y:400}],
-[{o:podloze_ziemia, x:1088, y:416}],
-[{o:podloze_ziemia, x:1072, y:432}],
-[{o:podloze_ziemia, x:1056, y:448}],
-[{o:podloze_ziemia, x:1184, y:368}],
-[{o:podloze_ziemia, x:1200, y:384}],
-[{o:podloze_ziemia, x:1216, y:400}],
-[{o:podloze_ziemia, x:1232, y:416}],
-[{o:podloze_ziemia, x:1248, y:432}],
-[{o:podloze_ziemia, x:1264, y:448}],
-[{o:podloze_ziemia, x:1280, y:464}],
-[{o:podloze_skos_lewy, x:1312, y:464}],
-[{o:podloze_skos_lewy, x:1328, y:448}],
-[{o:podloze_skos_lewy, x:1344, y:432}],
-[{o:podloze_skos_lewy, x:1360, y:416}],
-[{o:podloze_skos_lewy, x:1376, y:400}],
-[{o:podloze_skos_lewy, x:1392, y:384}],
-[{o:podloze_skos_lewy, x:1408, y:368}],
-[{o:podloze_skos_lewy, x:1424, y:352}],
-[{o:podloze_skos_lewy, x:1440, y:336}],
-[{o:podloze_skos_lewy, x:1456, y:320}],
-[{o:podloze_skos_lewy, x:1472, y:304}],
-[{o:podloze_skos_lewy, x:1488, y:288}],
-[{o:podloze_skos_prawy, x:1504, y:288}],
-[{o:podloze_skos_prawy, x:1520, y:304}],
-[{o:podloze_skos_prawy, x:1536, y:320}],
-[{o:podloze_skos_prawy, x:1552, y:336}],
-[{o:podloze_skos_prawy, x:1568, y:352}],
-[{o:podloze_skos_prawy, x:1584, y:368}],
-[{o:podloze_skos_prawy, x:1600, y:384}],
-[{o:podloze_skos_prawy, x:1616, y:400}],
-[{o:podloze_skos_prawy, x:1632, y:416}],
-[{o:podloze_skos_prawy, x:1648, y:432}],
-[{o:podloze_ziemia, x:1328, y:464}],
-[{o:podloze_ziemia, x:1344, y:448}],
-[{o:podloze_ziemia, x:1360, y:432}],
-[{o:podloze_ziemia, x:1376, y:416}],
-[{o:podloze_ziemia, x:1392, y:400}],
-[{o:podloze_ziemia, x:1408, y:384}],
-[{o:podloze_ziemia, x:1424, y:368}],
-[{o:podloze_ziemia, x:1440, y:352}],
-[{o:podloze_ziemia, x:1456, y:336}],
-[{o:podloze_ziemia, x:1472, y:320}],
-[{o:podloze_ziemia, x:1488, y:304}],
-[{o:podloze_ziemia, x:1504, y:304}],
-[{o:podloze_ziemia, x:1520, y:320}],
-[{o:podloze_ziemia, x:1536, y:336}],
-[{o:podloze_ziemia, x:1552, y:352}],
-[{o:podloze_ziemia, x:1568, y:368}],
-[{o:podloze_ziemia, x:1584, y:384}],
-[{o:podloze_ziemia, x:1600, y:400}],
-[{o:podloze_ziemia, x:1616, y:416}],
-[{o:podloze_ziemia, x:1632, y:432}],
-[{o:podloze_ziemia, x:1648, y:448}],
-[{o:podloze_skos_lewy, x:544, y:240}],
-[{o:podloze_skos_lewy, x:528, y:256}],
-[{o:podloze_skos_lewy, x:512, y:272}],
-[{o:podloze_skos_lewy, x:496, y:288}],
-[{o:podloze_skos_lewy, x:480, y:304}],
-[{o:podloze_skos_lewy, x:464, y:320}],
-[{o:bonus, x:576, y:112}],
-[{o:bonus, x:880, y:240}],
-[{o:bonus, x:880, y:176}],
-[{o:bonus, x:1152, y:256}],
-[{o:bonus, x:1152, y:208}],
-[{o:bonus, x:1488, y:224}],
-[{o:bonus, x:1488, y:176}],
-[{o:podloze_ziemia, x:480, y:320}],
-[{o:podloze_ziemia, x:496, y:304}],
-[{o:podloze_ziemia, x:512, y:288}],
-[{o:podloze_ziemia, x:528, y:272}],
-[{o:podloze_ziemia, x:560, y:256}],
-[{o:podloze_ziemia, x:544, y:256}],
-[{o:podloze_ziemia, x:576, y:272}],
-[{o:podloze_ziemia, x:592, y:288}],
-[{o:podloze_ziemia, x:608, y:304}],
-[{o:podloze_ziemia, x:624, y:320}],
-[{o:podloze_ziemia, x:640, y:336}],
-[{o:podloze_ziemia, x:464, y:336}],
-[{o:tasma_lewo, x:120, y:40}],
-[{o:tasma_lewo, x:140, y:40}],
-[{o:tasma_lewo, x:160, y:40}],
-[{o:tasma_lewo, x:180, y:40}],
-[{o:tasma_lewo, x:200, y:40}],
-[{o:tasma_skraj, x:100, y:40}],
-[{o:tasma_prawo, x:380, y:180}],
-[{o:tasma_prawo, x:400, y:180}],
-[{o:tasma_prawo, x:420, y:180}],
-[{o:tasma_prawo, x:440, y:180}],
-[{o:tasma_prawo, x:460, y:180}],
-[{o:tasma_skraj, x:360, y:180}],
-[{o:tasma_skraj_prawy, x:220, y:40}],
-[{o:tasma_skraj_prawy, x:480, y:180}],
-[{o:tasma_lewo, x:680, y:160}],
-[{o:tasma_lewo, x:700, y:160}],
-[{o:tasma_lewo, x:720, y:160}],
-[{o:tasma_lewo, x:740, y:160}],
-[{o:tasma_lewo, x:760, y:160}],
-[{o:tasma_skraj, x:660, y:160}],
-[{o:tasma_skraj_prawy, x:780, y:160}],
-[{o:podloze_ziemia, x:620, y:120}],
-[{o:podloze_ziemia, x:580, y:100}],
-[{o:podloze_ziemia, x:860, y:200}],
-[{o:podloze_ziemia, x:940, y:160}],
-[{o:podloze_ziemia, x:800, y:240}],
-[{o:kot_do_wziecia, x:1300, y:420}],
-[{o:klocek, x:180, y:180}],
-[{o:klocek, x:1020, y:120}],
-[{o:klocek_ciemny, x:1120, y:80}],
-[{o:bonus, x:1120, y:20}],
-[{o:bonus, x:1020, y:60}],
-[{o:klocek_ciemny, x:1220, y:60}],
-[{o:klocek_ciemny, x:1380, y:60}],
-[{o:bonus, x:1220, y:0}],
-[{o:bonus, x:1300, y:0}],
-[{o:bonus, x:1380, y:0}],
-[{o:klocek, x:1300, y:60}],
-[{o:podloze_ziemia, x:1328, y:320}],
-[{o:podloze_ziemia, x:1312, y:320}],
-[{o:podloze_ziemia, x:1296, y:320}],
-[{o:podloze_ziemia, x:1344, y:320}],
-[{o:podloze_ziemia, x:1264, y:320}],
-[{o:podloze_ziemia, x:1280, y:320}],
-[{o:podloze_ziemia, x:1264, y:304}],
-[{o:wrog2, x:1312, y:224}],
-[{o:kladka, x:384, y:400}],
-[{o:kladka, x:1552, y:240}],
-[{o:kladka, x:1552, y:128}],
-[{o:klocek_ciemny, x:1488, y:144}],
-[{o:klocek_ciemny, x:1456, y:32}],
-[{o:podloze_ziemia, x:1344, y:304}],
-[{o:podloze_ziemia, x:784, y:240}],
-[{o:podloze_ziemia, x:768, y:240}],
-[{o:filizanka_do_wziecia, x:1460, y:0}],
-[{o:zlozona_dziewczyna, x:400, y:120}],
-[{o:zlozona_dziewczyna, x:540, y:160}],
-[{o:but_do_wziecia, x:624, y:400}],
-[{o:klocek, x:608, y:448}],
-[{o:klocek, x:640, y:448}],
-[{o:zlozona_dziewczyna, x:500, y:20}]];
-this.start = function() {
-__room_start__(this, Piramidy, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
-
-
-poziomu_nr=2;
-
-co_wymagane=['filizanka','kot','but'];
-};
-}
-var Piramidy = new __Piramidy();
-tu_scenes.push(Piramidy);
 function __tutorial() { 
 this.tiles = [
 ];
@@ -5308,6 +4961,253 @@ co_wymagane='pierścień';
 }
 var Sfinks = new __Sfinks();
 tu_scenes.push(Sfinks);
+function __Piramidy() { 
+this.tiles = [
+];
+this.objects = [
+[{o:Walenty, x:80, y:112}],
+[{o:podloze_ziemia, x:64, y:192}],
+[{o:podloze_ziemia, x:96, y:192}],
+[{o:podloze_ziemia, x:32, y:192}],
+[{o:podloze_ziemia, x:128, y:192}],
+[{o:podloze_ziemia, x:48, y:192}],
+[{o:podloze_ziemia, x:80, y:192}],
+[{o:podloze_ziemia, x:112, y:192}],
+[{o:podloze_skos_lewy, x:16, y:192}],
+[{o:podloze_skos_prawy, x:144, y:192}],
+[{o:podloze_trawa, x:256, y:288}],
+[{o:podloze_trawa, x:288, y:288}],
+[{o:podloze_trawa, x:320, y:288}],
+[{o:podloze_ziemia, x:224, y:144}],
+[{o:podloze_ziemia, x:240, y:144}],
+[{o:podloze_ziemia, x:304, y:96}],
+[{o:podloze_ziemia, x:320, y:96}],
+[{o:podloze_ziemia, x:416, y:64}],
+[{o:podloze_ziemia, x:432, y:64}],
+[{o:podloze_ziemia, x:496, y:96}],
+[{o:podloze_ziemia, x:512, y:96}],
+[{o:bonus, x:304, y:16}],
+[{o:bonus, x:400, y:0}],
+[{o:bonus, x:480, y:32}],
+[{o:bonus, x:256, y:208}],
+[{o:bonus, x:320, y:208}],
+[{o:podloze_skos_prawy, x:560, y:240}],
+[{o:podloze_skos_prawy, x:576, y:256}],
+[{o:podloze_skos_prawy, x:592, y:272}],
+[{o:podloze_skos_prawy, x:608, y:288}],
+[{o:podloze_skos_prawy, x:624, y:304}],
+[{o:podloze_skos_prawy, x:640, y:320}],
+[{o:podloze_skos_lewy, x:800, y:368}],
+[{o:podloze_skos_lewy, x:816, y:352}],
+[{o:podloze_skos_lewy, x:832, y:336}],
+[{o:podloze_skos_lewy, x:848, y:320}],
+[{o:podloze_skos_lewy, x:864, y:304}],
+[{o:podloze_skos_lewy, x:784, y:384}],
+[{o:podloze_skos_lewy, x:768, y:400}],
+[{o:podloze_skos_lewy, x:752, y:416}],
+[{o:podloze_skos_lewy, x:736, y:448}],
+[{o:podloze_skos_lewy, x:736, y:432}],
+[{o:podloze_ziemia, x:736, y:448}],
+[{o:podloze_ziemia, x:736, y:448}],
+[{o:podloze_ziemia, x:752, y:432}],
+[{o:podloze_ziemia, x:864, y:320}],
+[{o:podloze_ziemia, x:848, y:336}],
+[{o:podloze_ziemia, x:832, y:352}],
+[{o:podloze_ziemia, x:816, y:368}],
+[{o:podloze_ziemia, x:800, y:384}],
+[{o:podloze_ziemia, x:784, y:400}],
+[{o:podloze_ziemia, x:768, y:416}],
+[{o:podloze_ziemia, x:880, y:304}],
+[{o:podloze_ziemia, x:896, y:304}],
+[{o:podloze_skos_prawy, x:912, y:304}],
+[{o:podloze_skos_prawy, x:928, y:320}],
+[{o:podloze_skos_prawy, x:944, y:336}],
+[{o:podloze_skos_prawy, x:960, y:352}],
+[{o:podloze_skos_prawy, x:976, y:368}],
+[{o:podloze_skos_prawy, x:992, y:384}],
+[{o:podloze_skos_prawy, x:1008, y:400}],
+[{o:podloze_skos_prawy, x:1024, y:416}],
+[{o:podloze_skos_prawy, x:1040, y:432}],
+[{o:podloze_ziemia, x:1040, y:448}],
+[{o:podloze_ziemia, x:912, y:320}],
+[{o:podloze_ziemia, x:928, y:336}],
+[{o:podloze_ziemia, x:944, y:352}],
+[{o:podloze_ziemia, x:960, y:368}],
+[{o:podloze_ziemia, x:976, y:384}],
+[{o:podloze_ziemia, x:992, y:400}],
+[{o:podloze_ziemia, x:1008, y:416}],
+[{o:podloze_ziemia, x:1024, y:432}],
+[{o:podloze_skos_lewy, x:1056, y:432}],
+[{o:podloze_skos_lewy, x:1072, y:416}],
+[{o:podloze_skos_lewy, x:1088, y:400}],
+[{o:podloze_skos_lewy, x:1104, y:384}],
+[{o:podloze_skos_lewy, x:1120, y:368}],
+[{o:podloze_skos_lewy, x:1136, y:352}],
+[{o:podloze_skos_lewy, x:1152, y:336}],
+[{o:podloze_skos_prawy, x:1168, y:336}],
+[{o:podloze_skos_prawy, x:1184, y:352}],
+[{o:podloze_skos_prawy, x:1200, y:368}],
+[{o:podloze_skos_prawy, x:1216, y:384}],
+[{o:podloze_skos_prawy, x:1232, y:400}],
+[{o:podloze_skos_prawy, x:1248, y:416}],
+[{o:podloze_skos_prawy, x:1264, y:432}],
+[{o:podloze_skos_prawy, x:1280, y:448}],
+[{o:podloze_skos_prawy, x:1296, y:464}],
+[{o:podloze_ziemia, x:1152, y:352}],
+[{o:podloze_ziemia, x:1168, y:352}],
+[{o:podloze_ziemia, x:1136, y:368}],
+[{o:podloze_ziemia, x:1120, y:384}],
+[{o:podloze_ziemia, x:1104, y:400}],
+[{o:podloze_ziemia, x:1088, y:416}],
+[{o:podloze_ziemia, x:1072, y:432}],
+[{o:podloze_ziemia, x:1056, y:448}],
+[{o:podloze_ziemia, x:1184, y:368}],
+[{o:podloze_ziemia, x:1200, y:384}],
+[{o:podloze_ziemia, x:1216, y:400}],
+[{o:podloze_ziemia, x:1232, y:416}],
+[{o:podloze_ziemia, x:1248, y:432}],
+[{o:podloze_ziemia, x:1264, y:448}],
+[{o:podloze_ziemia, x:1280, y:464}],
+[{o:podloze_skos_lewy, x:1312, y:464}],
+[{o:podloze_skos_lewy, x:1328, y:448}],
+[{o:podloze_skos_lewy, x:1344, y:432}],
+[{o:podloze_skos_lewy, x:1360, y:416}],
+[{o:podloze_skos_lewy, x:1376, y:400}],
+[{o:podloze_skos_lewy, x:1392, y:384}],
+[{o:podloze_skos_lewy, x:1408, y:368}],
+[{o:podloze_skos_lewy, x:1424, y:352}],
+[{o:podloze_skos_lewy, x:1440, y:336}],
+[{o:podloze_skos_lewy, x:1456, y:320}],
+[{o:podloze_skos_lewy, x:1472, y:304}],
+[{o:podloze_skos_lewy, x:1488, y:288}],
+[{o:podloze_skos_prawy, x:1504, y:288}],
+[{o:podloze_skos_prawy, x:1520, y:304}],
+[{o:podloze_skos_prawy, x:1536, y:320}],
+[{o:podloze_skos_prawy, x:1552, y:336}],
+[{o:podloze_skos_prawy, x:1568, y:352}],
+[{o:podloze_skos_prawy, x:1584, y:368}],
+[{o:podloze_skos_prawy, x:1600, y:384}],
+[{o:podloze_skos_prawy, x:1616, y:400}],
+[{o:podloze_skos_prawy, x:1632, y:416}],
+[{o:podloze_skos_prawy, x:1648, y:432}],
+[{o:podloze_ziemia, x:1328, y:464}],
+[{o:podloze_ziemia, x:1344, y:448}],
+[{o:podloze_ziemia, x:1360, y:432}],
+[{o:podloze_ziemia, x:1376, y:416}],
+[{o:podloze_ziemia, x:1392, y:400}],
+[{o:podloze_ziemia, x:1408, y:384}],
+[{o:podloze_ziemia, x:1424, y:368}],
+[{o:podloze_ziemia, x:1440, y:352}],
+[{o:podloze_ziemia, x:1456, y:336}],
+[{o:podloze_ziemia, x:1472, y:320}],
+[{o:podloze_ziemia, x:1488, y:304}],
+[{o:podloze_ziemia, x:1504, y:304}],
+[{o:podloze_ziemia, x:1520, y:320}],
+[{o:podloze_ziemia, x:1536, y:336}],
+[{o:podloze_ziemia, x:1552, y:352}],
+[{o:podloze_ziemia, x:1568, y:368}],
+[{o:podloze_ziemia, x:1584, y:384}],
+[{o:podloze_ziemia, x:1600, y:400}],
+[{o:podloze_ziemia, x:1616, y:416}],
+[{o:podloze_ziemia, x:1632, y:432}],
+[{o:podloze_ziemia, x:1648, y:448}],
+[{o:podloze_skos_lewy, x:544, y:240}],
+[{o:podloze_skos_lewy, x:528, y:256}],
+[{o:podloze_skos_lewy, x:512, y:272}],
+[{o:podloze_skos_lewy, x:496, y:288}],
+[{o:podloze_skos_lewy, x:480, y:304}],
+[{o:podloze_skos_lewy, x:464, y:320}],
+[{o:bonus, x:576, y:112}],
+[{o:bonus, x:880, y:240}],
+[{o:bonus, x:880, y:176}],
+[{o:bonus, x:1152, y:256}],
+[{o:bonus, x:1152, y:208}],
+[{o:bonus, x:1488, y:224}],
+[{o:bonus, x:1488, y:176}],
+[{o:podloze_ziemia, x:480, y:320}],
+[{o:podloze_ziemia, x:496, y:304}],
+[{o:podloze_ziemia, x:512, y:288}],
+[{o:podloze_ziemia, x:528, y:272}],
+[{o:podloze_ziemia, x:560, y:256}],
+[{o:podloze_ziemia, x:544, y:256}],
+[{o:podloze_ziemia, x:576, y:272}],
+[{o:podloze_ziemia, x:592, y:288}],
+[{o:podloze_ziemia, x:608, y:304}],
+[{o:podloze_ziemia, x:624, y:320}],
+[{o:podloze_ziemia, x:640, y:336}],
+[{o:podloze_ziemia, x:464, y:336}],
+[{o:tasma_lewo, x:120, y:40}],
+[{o:tasma_lewo, x:140, y:40}],
+[{o:tasma_lewo, x:160, y:40}],
+[{o:tasma_lewo, x:180, y:40}],
+[{o:tasma_lewo, x:200, y:40}],
+[{o:tasma_skraj, x:100, y:40}],
+[{o:tasma_prawo, x:380, y:180}],
+[{o:tasma_prawo, x:400, y:180}],
+[{o:tasma_prawo, x:420, y:180}],
+[{o:tasma_prawo, x:440, y:180}],
+[{o:tasma_prawo, x:460, y:180}],
+[{o:tasma_skraj, x:360, y:180}],
+[{o:tasma_skraj_prawy, x:220, y:40}],
+[{o:tasma_skraj_prawy, x:480, y:180}],
+[{o:tasma_lewo, x:680, y:160}],
+[{o:tasma_lewo, x:700, y:160}],
+[{o:tasma_lewo, x:720, y:160}],
+[{o:tasma_lewo, x:740, y:160}],
+[{o:tasma_lewo, x:760, y:160}],
+[{o:tasma_skraj, x:660, y:160}],
+[{o:tasma_skraj_prawy, x:780, y:160}],
+[{o:podloze_ziemia, x:620, y:120}],
+[{o:podloze_ziemia, x:580, y:100}],
+[{o:podloze_ziemia, x:860, y:200}],
+[{o:podloze_ziemia, x:940, y:160}],
+[{o:podloze_ziemia, x:800, y:240}],
+[{o:kot_do_wziecia, x:1300, y:420}],
+[{o:klocek, x:180, y:180}],
+[{o:klocek, x:1020, y:120}],
+[{o:klocek_ciemny, x:1120, y:80}],
+[{o:bonus, x:1120, y:20}],
+[{o:bonus, x:1020, y:60}],
+[{o:klocek_ciemny, x:1220, y:60}],
+[{o:klocek_ciemny, x:1380, y:60}],
+[{o:bonus, x:1220, y:0}],
+[{o:bonus, x:1300, y:0}],
+[{o:bonus, x:1380, y:0}],
+[{o:klocek, x:1300, y:60}],
+[{o:podloze_ziemia, x:1328, y:320}],
+[{o:podloze_ziemia, x:1312, y:320}],
+[{o:podloze_ziemia, x:1296, y:320}],
+[{o:podloze_ziemia, x:1344, y:320}],
+[{o:podloze_ziemia, x:1264, y:320}],
+[{o:podloze_ziemia, x:1280, y:320}],
+[{o:podloze_ziemia, x:1264, y:304}],
+[{o:wrog2, x:1312, y:224}],
+[{o:kladka, x:384, y:400}],
+[{o:kladka, x:1552, y:240}],
+[{o:kladka, x:1552, y:128}],
+[{o:klocek_ciemny, x:1488, y:144}],
+[{o:klocek_ciemny, x:1456, y:32}],
+[{o:podloze_ziemia, x:1344, y:304}],
+[{o:podloze_ziemia, x:784, y:240}],
+[{o:podloze_ziemia, x:768, y:240}],
+[{o:filizanka_do_wziecia, x:1460, y:0}],
+[{o:zlozona_dziewczyna, x:400, y:120}],
+[{o:zlozona_dziewczyna, x:540, y:160}],
+[{o:but_do_wziecia, x:624, y:400}],
+[{o:klocek, x:608, y:448}],
+[{o:klocek, x:640, y:448}],
+[{o:zlozona_dziewczyna, x:500, y:20}]];
+this.start = function() {
+__room_start__(this, Piramidy, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+
+
+poziomu_nr=2;
+
+co_wymagane=['filizanka','kot','but'];
+};
+}
+var Piramidy = new __Piramidy();
+tu_scenes.push(Piramidy);
 function __ekran_koncowy() { 
 this.tiles = [
 ];
