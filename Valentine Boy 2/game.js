@@ -1373,7 +1373,7 @@ __sprite_init__(this, sprite_384, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/s
 }; var sprite_384 = new __sprite_384();
 
 function __drzwi() { 
-__sprite_init__(this, drzwi, 82, 64, 0, 0, 'Box', 41, 0, 82, 0, 64, ['img/drzwi_0.png']);
+__sprite_init__(this, drzwi, 96, 96, 48, 48, 'Box', 48, 0, 96, 0, 96, ['img/drzwi_0.png','img/drzwi_1.png','img/drzwi_2.png','img/drzwi_3.png']);
 }; var drzwi = new __drzwi();
 
 function __sprite_469() { 
@@ -2108,7 +2108,11 @@ this.on_draw = on_draw_i;
 
 function __obj_drzwi() {
 __instance_init__(this, obj_drzwi, null, 1, 0, drzwi, 1, 4);
-this.on_creation = on_creation_i;
+this.on_creation = function() {
+with(this) {
+image_speed = 0;
+}
+};
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
@@ -4004,7 +4008,7 @@ this.objects = [
 [{o:girl_tile, x:608, y:432}],
 [{o:dzwieki_wlaczone, x:600, y:20}]];
 this.start = function() {
-__room_start__(this, EkranStartowy, 640, 480, 30, 255, 128, 255, VALENTINE_TLO.image, 0, 0, 0, 640, 480, null, 50, 50);
+__room_start__(this, EkranStartowy, 640, 480, 30, 255, 0, 0, VALENTINE_TLO.image, 0, 0, 0, 640, 480, null, 50, 50);
 
 //alert ("tload:"+tu_load_total +"=> tloading: "+ tu_loading);
 
@@ -4185,10 +4189,9 @@ this.objects = [
 [{o:podloze_ziemia, x:1580, y:220}],
 [{o:podloze_ziemia, x:1600, y:224}],
 [{o:podloze_ziemia, x:1616, y:224}],
-[{o:wrogAniol, x:600, y:120}],
 [{o:kot_do_wziecia, x:160, y:240}]];
 this.start = function() {
-__room_start__(this, tutorial, 1660, 480, 30, 0, 255, 255, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+__room_start__(this, tutorial, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 poziomu_nazwa='Tutorial';
 poziomu_nr=1;
