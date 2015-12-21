@@ -1368,6 +1368,30 @@ function __sprite_11() {
 __sprite_init__(this, sprite_11, 96, 96, 0, 0, 'Box', 48, 0, 96, 0, 96, ['img/sprite_11_0.png','img/sprite_11_3.png','img/sprite_11_6.png','img/sprite_11_9.png']);
 }; var sprite_11 = new __sprite_11();
 
+function __sprite_12() { 
+__sprite_init__(this, sprite_12, 80, 80, 0, 0, 'Box', 40, 0, 80, 0, 80, ['img/sprite_12_4.png','img/sprite_12_5.png','img/sprite_12_6.png','img/sprite_12_7.png','img/sprite_12_8.png','img/sprite_12_9.png','img/sprite_12_10.png','img/sprite_12_11.png']);
+}; var sprite_12 = new __sprite_12();
+
+function __sprite_13() { 
+__sprite_init__(this, sprite_13, 64, 64, 0, 0, 'Box', 32, 0, 64, 0, 64, ['img/sprite_13_0.png','img/sprite_13_1.png','img/sprite_13_2.png','img/sprite_13_3.png','img/sprite_13_4.png','img/sprite_13_5.png','img/sprite_13_6.png','img/sprite_13_7.png','img/sprite_13_8.png','img/sprite_13_9.png','img/sprite_13_10.png','img/sprite_13_11.png']);
+}; var sprite_13 = new __sprite_13();
+
+function __sprite_14() { 
+__sprite_init__(this, sprite_14, 64, 64, 0, 0, 'Box', 32, 0, 64, 0, 64, ['img/sprite_14_3.png','img/sprite_14_4.png','img/sprite_14_5.png','img/sprite_14_6.png','img/sprite_14_7.png','img/sprite_14_8.png']);
+}; var sprite_14 = new __sprite_14();
+
+function __sprite_15() { 
+__sprite_init__(this, sprite_15, 80, 80, 0, 0, 'Box', 40, 0, 80, 0, 80, ['img/sprite_15_0.png','img/sprite_15_1.png','img/sprite_15_2.png','img/sprite_15_3.png','img/sprite_15_4.png','img/sprite_15_5.png','img/sprite_15_6.png','img/sprite_15_7.png']);
+}; var sprite_15 = new __sprite_15();
+
+function __sprite_16() { 
+__sprite_init__(this, sprite_16, 62, 99, 0, 0, 'Box', 31, 0, 62, 0, 99, ['img/sprite_16_0.png']);
+}; var sprite_16 = new __sprite_16();
+
+function __sprite_18() { 
+__sprite_init__(this, sprite_18, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_18_4.png','img/sprite_18_5.png','img/sprite_18_6.png','img/sprite_18_7.png','img/sprite_18_8.png','img/sprite_18_9.png','img/sprite_18_10.png','img/sprite_18_11.png']);
+}; var sprite_18 = new __sprite_18();
+
 
 
 /***********************************************************************
