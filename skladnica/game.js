@@ -1392,6 +1392,10 @@ function __sprite_18() {
 __sprite_init__(this, sprite_18, 32, 48, 0, 0, 'Box', 16, 0, 32, 0, 48, ['img/sprite_18_4.png','img/sprite_18_5.png','img/sprite_18_6.png','img/sprite_18_7.png','img/sprite_18_8.png','img/sprite_18_9.png','img/sprite_18_10.png','img/sprite_18_11.png']);
 }; var sprite_18 = new __sprite_18();
 
+function __sprite_26() { 
+__sprite_init__(this, sprite_26, 24, 20, 0, 0, 'Box', 12, 0, 24, 0, 20, ['img/sprite_26_0.png','img/sprite_26_1.png']);
+}; var sprite_26 = new __sprite_26();
+
 
 
 /***********************************************************************
