@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="5963" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>function setCookie(cname, cvalue, exdays) {
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="5964" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
@@ -1269,7 +1269,7 @@ x--;
 
 
 if (keyboard_check(vk_space)) {
-	room_goto_next();
+	letsStartGame();
 }
 </script><script name="scr_2265" object="logo_grastry" event="Creation" parameter="">
 image_xscale=0;
@@ -1522,7 +1522,7 @@ function inicjalizacja()
 		t_game.appendChild(tytul_div);
 		t_game.appendChild(start_div);
 		
-		start_div.addEventListener("click",room_goto_next,false);
+		start_div.addEventListener("click",letsStartGame,false);
 		
 	}
 }</scene><scene name="Sfinks" width="3320" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">co_wymagane='pierścień';</scene><scene name="tutorial" width="1660" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nazwa='Tutorial';
@@ -1587,7 +1587,7 @@ if (end_game1===null)
  
 	
 }
-</scene></scenes><layers count="5"><layer name="layer_167" scene="Piramidy" value="1000000"/><layer name="layer_204" scene="EkranStartowy" value="1000000"/><layer name="layer_2282" scene="ekran_koncowy" value="1000000"/><layer name="layer_2459" scene="tutorial" value="1000000"/><layer name="layer_2917" scene="Sfinks" value="1000000"/></layers><tiles count="0"/><fns count="2"><fn name="doliczPunkty" params="ile" description="">punkty+=ile*poziomu_nr;
+</scene></scenes><layers count="5"><layer name="layer_167" scene="Piramidy" value="1000000"/><layer name="layer_204" scene="EkranStartowy" value="1000000"/><layer name="layer_2282" scene="ekran_koncowy" value="1000000"/><layer name="layer_2459" scene="tutorial" value="1000000"/><layer name="layer_2917" scene="Sfinks" value="1000000"/></layers><tiles count="0"/><fns count="3"><fn name="doliczPunkty" params="ile" description="">punkty+=ile*poziomu_nr;
 /*
 var pkt_game = document.getElementById('pkt');
 // jeśli obiekt pkt istnieje:
@@ -1622,4 +1622,8 @@ else
 {
 	
 	room_goto_first();
-}</fn></fns></tululoo>
+}</fn><fn name="letsStartGame" params="" description="">moze_latac=false;
+maPistolet=false;
+room_goto_first();
+room_goto_next();
+</fn></fns></tululoo>

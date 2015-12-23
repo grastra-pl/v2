@@ -3561,7 +3561,7 @@ x--;
 
 
 if (keyboard_check(vk_space)) {
-	room_goto_next();
+	letsStartGame();
 }
 
 }
@@ -4206,7 +4206,7 @@ function inicjalizacja()
 		t_game.appendChild(tytul_div);
 		t_game.appendChild(start_div);
 		
-		start_div.addEventListener("click",room_goto_next,false);
+		start_div.addEventListener("click",letsStartGame,false);
 		
 	}
 }
@@ -5318,6 +5318,13 @@ else
 	
 	room_goto_first();
 }
+}
+function letsStartGame() { 
+moze_latac=false;
+maPistolet=false;
+room_goto_first();
+room_goto_next();
+
 }
 
 
