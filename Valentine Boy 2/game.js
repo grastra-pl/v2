@@ -1417,7 +1417,7 @@ __sprite_init__(this, sprite_1229, 49, 48, 0, 0, 'Box', 24, 0, 49, 0, 48, ['img/
 }; var sprite_1229 = new __sprite_1229();
 
 function __sprite_1240() { 
-__sprite_init__(this, sprite_1240, 75, 70, 0, 0, 'Box', 37, 0, 75, 0, 70, ['img/sprite_1240_0.png','img/sprite_1240_1.png','img/sprite_1240_2.png','img/sprite_1240_3.png','img/sprite_1240_4.png','img/sprite_1240_5.png','img/sprite_1240_6.png','img/sprite_1240_7.png','img/sprite_1240_8.png','img/sprite_1240_9.png','img/sprite_1240_10.png','img/sprite_1240_11.png','img/sprite_1240_12.png','img/sprite_1240_13.png','img/sprite_1240_14.png','img/sprite_1240_15.png']);
+__sprite_init__(this, sprite_1240, 64, 40, 0, 0, 'Box', 37, 0, 75, 0, 70, ['img/sprite_1240_0.png','img/sprite_1240_1.png','img/sprite_1240_2.png','img/sprite_1240_3.png','img/sprite_1240_7.png','img/sprite_1240_9.png','img/sprite_1240_10.png','img/sprite_1240_11.png','img/sprite_1240_12.png']);
 }; var sprite_1240 = new __sprite_1240();
 
 function __sprite_1322() { 
@@ -1539,6 +1539,10 @@ __sprite_init__(this, pistoletSprite, 22, 23, 0, 0, 'Box', 11, 0, 22, 0, 23, ['i
 function __pociskPistoletuSprite() { 
 __sprite_init__(this, pociskPistoletuSprite, 24, 20, 0, 0, 'Box', 12, 0, 24, 0, 20, ['img/pociskPistoletuSprite_0.png','img/pociskPistoletuSprite_1.png']);
 }; var pociskPistoletuSprite = new __pociskPistoletuSprite();
+
+function __sprite_5960() { 
+__sprite_init__(this, sprite_5960, 18, 26, 0, 0, 'Box', 9, 0, 18, 0, 26, ['img/sprite_5960_0.png','img/sprite_5960_1.png']);
+}; var sprite_5960 = new __sprite_5960();
 
 
 
@@ -1664,8 +1668,8 @@ if (gra_wstepna<=18)
 		
 		
 		
-		if (image_index>0)
-		{
+		//if (image_index>0)
+		//{
 			if ( keyboard_check(vk_d)  || keyboard_check(vk_a) || keyboard_check( vk_left ) || keyboard_check( vk_right ))  {
 				this.skrzydelko.x=x; 
 				this.skrzydelko.y=y-15+sin(odliczanie/2)*5;
@@ -1702,7 +1706,7 @@ if (gra_wstepna<=18)
 					image_angle=-60;
 				}
 
-		}
+		//}
 		
 		
 		if ( keyboard_check(vk_w) || keyboard_check( vk_up ) )
@@ -1815,16 +1819,7 @@ if (gra_wstepna<=18)
 		{
 				x = xprevious;		
 		}
-		
-		if (
-		(place_meeting(x-8, y, podloze_ziemia) != null) || 
-		(place_meeting(x-8, y, podloze_trawa) != null) ||
-		( place_meeting(x-8, y, kongbigobj) != null) ||
-		( place_meeting(x-8, y, konggobj) != null) )
-		{
-				x = xprevious;		
-		}
-		
+			
 		if (place_meeting(x, y+8, podloze_skos_lewy) != null)
 			{
 				y -= 2;
@@ -4764,7 +4759,8 @@ this.objects = [
 [{o:podloze_ziemia, x:624, y:128}],
 [{o:wrog1, x:624, y:0}],
 [{o:wrog1, x:592, y:16}],
-[{o:konggobj, x:160, y:128}]];
+[{o:konggobj, x:160, y:128}],
+[{o:skrzydla, x:64, y:208}]];
 this.start = function() {
 __room_start__(this, Sfinks, 3320, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
