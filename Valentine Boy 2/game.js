@@ -4068,7 +4068,21 @@ if (x < 0 || x > room_width) instance_destroy();
 }
 };
 this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, klocek);
+if(this.other != null) {
+other.instance_destroy();
+instance_destroy();
+
+}
+this.other = this.place_meeting(this.x, this.y, klocek_ciemny);
+if(this.other != null) {
+other.instance_destroy();
+instance_destroy(); 
+}
+}
+};
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
