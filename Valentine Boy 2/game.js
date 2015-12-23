@@ -4162,7 +4162,7 @@ function inicjalizacja()
 
 		punkty_div.setAttribute('id',divIdName);
 		punkty_div.setAttribute('name',divIdName);
-		punkty_div.setAttribute('style','border: 2px solid; border-radius: 1em; position: absolute; top: 280px; left: 450px; background-color: blue; color: white; padding: 1.5em;');
+		punkty_div.setAttribute('style','border: 2px solid; border-radius: 1em; position: absolute; top: 280px; left: 450px; background-color: red; color: white; padding: 1.5em;');
 
 		if (!((punkty>0) || (best_punkty>0)))
 		{
