@@ -1544,6 +1544,10 @@ function __sprite_5960() {
 __sprite_init__(this, sprite_5960, 18, 26, 0, 0, 'Box', 9, 0, 18, 0, 26, ['img/sprite_5960_0.png','img/sprite_5960_1.png']);
 }; var sprite_5960 = new __sprite_5960();
 
+function __pistoletHUD() { 
+__sprite_init__(this, pistoletHUD, 62, 57, 0, 0, 'Box', 31, 0, 62, 0, 57, ['img/pistoletHUD_0.png']);
+}; var pistoletHUD = new __pistoletHUD();
+
 
 
 /***********************************************************************
@@ -3222,7 +3226,7 @@ if (moze_latac)
 }
 if (maPistolet)
 {
-	draw_sprite(pistoletSprite,0,x+440,y+15);
+	draw_sprite(pistoletHUD,0,x+440,y+15);
 }
 
 draw_sprite(sprite_pause,0,x+520,y-20);
