@@ -1548,6 +1548,10 @@ function __pistoletHUD() {
 __sprite_init__(this, pistoletHUD, 62, 57, 0, 0, 'Box', 31, 0, 62, 0, 57, ['img/pistoletHUD_0.png']);
 }; var pistoletHUD = new __pistoletHUD();
 
+function __tloHUDA() { 
+__sprite_init__(this, tloHUDA, 736, 133, 0, 0, 'Box', 368, 0, 736, 0, 133, ['img/tloHUDA_0.png']);
+}; var tloHUDA = new __tloHUDA();
+
 
 
 /***********************************************************************
@@ -3253,6 +3257,11 @@ for (var przedmiot in co_ma)
 
 */
 
+//draw_sprite(tloHUDA ,0,x-65,y-30);
+draw_sprite_ext(tloHUDA ,0,x-65,y-30,1,1,0,0.5);
+
+draw_sprite(sprite_pause,0,x+520,y-20);
+
 if (global.friendzoned)
 {
 	draw_text(x+200 , y+150 , "FRIENDZONED!");
@@ -3295,7 +3304,8 @@ this.rysuj = function(kat,obrazek,klatka,wartosc) {
 	wspOddaleniaObrazkow=1;
 	ofsetYObrazkow=-20;
 	ofsetXObrazkow=-15;
-	draw_sprite(obrazek,klatka,x+ofsetxx+arr[0]*wspOddaleniaObrazkow+ofsetXObrazkow,y+ofsetyy+arr[1]*wspOddaleniaObrazkow+ofsetYObrazkow);
+	//draw_sprite(obrazek,klatka,x+ofsetxx+arr[0]*wspOddaleniaObrazkow+ofsetXObrazkow,y+ofsetyy+arr[1]*wspOddaleniaObrazkow+ofsetYObrazkow);
+	draw_sprite_ext(obrazek,klatka,x+ofsetxx+arr[0]*wspOddaleniaObrazkow+ofsetXObrazkow,y+ofsetyy+arr[1]*wspOddaleniaObrazkow+ofsetYObrazkow, 0.75, 0.75, 0,0.75);
 	if (wartosc>0) {
 		draw_text(x+ofsetxx+arr[0] *wspOddalenia, y+ofsetyy+arr[1]*wspOddalenia , wartosc);
 	}
@@ -3303,7 +3313,7 @@ this.rysuj = function(kat,obrazek,klatka,wartosc) {
 }
 
 this.wyliczXY = function(degrees) {
-	promien=70;
+	promien=84;
 	radians = degrees * (Math.PI/180)
 	xx=Math.sin(radians)*promien;
 	yy=Math.cos(radians)*promien;
@@ -3353,12 +3363,12 @@ if (this.odliczanie++>360) {
 bicieSerca=Math.sin(this.odliczanie * (Math.PI/45));
 skalaSerca=2.5+0.25*bicieSerca;
 przesuniecieSerca=-bicieSerca*5;
-draw_sprite_ext(sprite_469,5, x-60+przesuniecieSerca, y-60+przesuniecieSerca, skalaSerca, skalaSerca, 0,1);
+draw_sprite_ext(sprite_469,5, x-60+przesuniecieSerca, y-60+przesuniecieSerca, skalaSerca, skalaSerca, 0,0.75);
 
 
 
 this.rysujIloscZycia = function(ile_zyc, ile_ran) {
-	draw_text(x-20, y, zycia);
+	draw_text(x-20, y-5, zycia);
 	przesx=0;
 	if (bity>0) {
 	 przesx=5;
@@ -3368,9 +3378,7 @@ this.rysujIloscZycia = function(ile_zyc, ile_ran) {
 
 this.rysujIloscZycia(zycia,bity);
 
-draw_text(x+35 , y , punkty);
-
-
+draw_text(x+28 , y-12 , punkty);
 
 ile_ma_przedmiotow = arrayOfSprites.length;
 
