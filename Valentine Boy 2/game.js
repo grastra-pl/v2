@@ -2126,6 +2126,9 @@ else
 	}
 }
 
+animacjaZebrania = instance_create(x,y ,zebranyObiekt);
+animacjaZebrania.image_index=image_index;
+
 instance_destroy();
 }
 }
@@ -4253,6 +4256,43 @@ this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var pociskPistoletu = new __pociskPistoletu();
+
+function __zebranyObiekt() {
+__instance_init__(this, zebranyObiekt, null, 1, 0, sprite_469, 1, 941);
+this.on_creation = function() {
+with(this) {
+image_speed=0;
+image_index=5;
+
+image_xscale=0.5;
+image_yscale=0.5;
+}
+};
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+if (x>0) 
+{
+ x-=20
+}
+
+if (y>0) 
+{
+ y-=10;
+}
+
+if  ((x<=0) && (y<=0)) {
+	instance_destroy();
+}
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var zebranyObiekt = new __zebranyObiekt();
 
 
 
