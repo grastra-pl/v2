@@ -3178,89 +3178,6 @@ with(this) {
 draw_set_font(F_Arial);
 draw_set_color(255,255,0);
 
-
-
-/*
-draw_text(x+35 , y , punkty);
-draw_text(x+130 , y , zycia);
-draw_text(x+200 , y , (10-bity)*10+'%');
-
-
-
-if (global.friendzoned)
-{
-	draw_text(x+200 , y+150 , "FRIENDZONED!");
-}
-
-
-if (global.game_paused)
-{
-	draw_text(x+300 , y+200 , "PAUSED");
-}
-
-draw_sprite(sprite_469,5,x+80,y-20 );
-draw_sprite(sprite_469,7,x+0,y-25 );
-draw_sprite(sprite_469,0,x+160,y-22 );
-
-//dzwieki_off_sprite
-if (dzwieki_on_bool)
-{
-	draw_sprite(dzwieki_on_sprite,0,x+320,y-10);
-}
-else
-{
-	draw_sprite(dzwieki_off_sprite,0,x+320,y-10);
-}
-
-
-//dzwieki_off_sprite
-if (muzyka_on_bool)
-{
-	draw_sprite(muzyka_on_sprite,0,x+370,y-10);
-}
-else
-{
-	draw_sprite(muzyka_off_sprite,0,x+370,y-10);
-}
-
-
-przes_obr=0;
-
-for (var przedmiot in co_ma)
-{
-		if (co_ma[przedmiot]>0)
-		{
-			draw_sprite(co_moze_miec[przedmiot][2],0,x+240+przes_obr,y-15 );
-			przes_obr+=32;
-		}
-}
-
-if (moze_latac)
-{
-	draw_sprite(skrzydla_sprite,0,x+440,y-15);
-}
-if (maPistolet)
-{
-	draw_sprite(pistoletHUD,0,x+440,y+15);
-}
-
-draw_sprite(sprite_pause,0,x+520,y-20);
-*/
-
-/*
-
-for (var przedmiot in co_ma)
-{
-		if (co_ma[przedmiot]>0)
-		{
-			draw_sprite(co_moze_miec[przedmiot][2],0,x+240+przes_obr,y-15 );
-			przes_obr+=32;
-		}
-}
-
-*/
-
-//draw_sprite(tloHUDA ,0,x-65,y-30);
 draw_sprite_ext(tloHUDA ,0,x-65,y-30,1,1,0,0.5);
 
 draw_sprite(sprite_pause,0,x+520,y-20);
@@ -3270,7 +3187,6 @@ if (global.friendzoned)
 	draw_text(x+200 , y+150 , "FRIENDZONED!");
 }
 
-
 if (global.game_paused)
 {
 	draw_text(x+300 , y+200 , "PAUSED");
@@ -3286,7 +3202,6 @@ else
 	draw_sprite(dzwieki_off_sprite,0,x+320,y-10);
 }
 
-
 //dzwieki_off_sprite
 if (muzyka_on_bool)
 {
@@ -3297,8 +3212,6 @@ else
 	draw_sprite(muzyka_off_sprite,0,x+370,y-10);
 }
 
-
-
 this.rysuj = function(kat,obrazek,klatka,wartosc) {
 	arr=this.wyliczXY(kat);
 	ofsetyy=0;
@@ -3307,12 +3220,11 @@ this.rysuj = function(kat,obrazek,klatka,wartosc) {
 	wspOddaleniaObrazkow=1;
 	ofsetYObrazkow=-20;
 	ofsetXObrazkow=-15;
-	//draw_sprite(obrazek,klatka,x+ofsetxx+arr[0]*wspOddaleniaObrazkow+ofsetXObrazkow,y+ofsetyy+arr[1]*wspOddaleniaObrazkow+ofsetYObrazkow);
+
 	draw_sprite_ext(obrazek,klatka,x+ofsetxx+arr[0]*wspOddaleniaObrazkow+ofsetXObrazkow,y+ofsetyy+arr[1]*wspOddaleniaObrazkow+ofsetYObrazkow, 0.75, 0.75, 0,0.75);
 	if (wartosc>0) {
 		draw_text(x+ofsetxx+arr[0] *wspOddalenia, y+ofsetyy+arr[1]*wspOddalenia , wartosc);
 	}
-	
 }
 
 this.wyliczXY = function(degrees) {
@@ -3322,26 +3234,6 @@ this.wyliczXY = function(degrees) {
 	yy=Math.cos(radians)*promien;
 	return [xx,yy];
 }
-
-
-
-/*
-arrayOfSprites = [
-	[sprite_469,5],
-	[sprite_469,7],
-	[sprite_469,0],
-	[pistoletHUD,0]
-];
-*/
-
-/*
-arrayOfSprites = [
-	[sprite_469,5],
-	[sprite_469,7],
-	[sprite_469,0],
-	[pistoletHUD,0]
-];
-*/
 
 // tworzenie tabeli spriteów
 arrayOfSprites = [];
@@ -3353,22 +3245,14 @@ for (var przedmiot in co_ma)
 		}
 }
 
-
-//draw_sprite_ext(sprite, frame, x, y, xscale, yscale, direction, alpha) //- draws specified sprite with given parameters of scaling, rotation, and alpha at given coordinates.
-
 if (this.odliczanie++>360) {
 	this.odliczanie=0;
 }
-
-
-
 
 bicieSerca=Math.sin(this.odliczanie * (Math.PI/45));
 skalaSerca=2.5+0.25*bicieSerca;
 przesuniecieSerca=-bicieSerca*5;
 draw_sprite_ext(sprite_469,5, x-60+przesuniecieSerca, y-60+przesuniecieSerca, skalaSerca, skalaSerca, 0,0.75);
-
-
 
 this.rysujIloscZycia = function(ile_zyc, ile_ran) {
 	draw_text(x-20, y-5, zycia);
