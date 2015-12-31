@@ -1398,33 +1398,55 @@ __instance_init__(this, kamien, null, 1, 0, kamienS, 0, 0);
 this.on_creation = function() {
 with(this) {
 this.kierunek_kamienia='prawo';
+this.staczanie=false;
+this.szybkoscStaczania=0;
 y=policzY(x);
 }
 };
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
-szybkoscSyzyfa = 5;
-						
-if ( keyboard_check(vk_d) ) {
-	 x+= szybkoscSyzyfa
-	 
-}
+szybkoscSyzyfa = 1;
 
-if ( keyboard_check(vk_a) ) {
-	 x-= szybkoscSyzyfa;
-	 
+if (!this.staczanie) {
+	if ( keyboard_check(vk_d) ) {
+		 x+= szybkoscSyzyfa 
+	}
+
+	if ( keyboard_check(vk_a) ) {
+		 x-= szybkoscSyzyfa;
+	}
+
+	
+	
+	if (czyKamienPrzekroczylPolowe(x,this.kierunek_kamienia)) {
+		this.staczanie=true;
+	}
+} else {
+	if (this.kierunek_kamienia=='prawo') {
+		x += this.szybkoscStaczania;
+	} else {
+		x -= this.szybkoscStaczania;
+	}
+	this.szybkoscStaczania++;
 }
 
 if  ((x<0) || (x>polowaEkranu*2)) {
-		x = xprevious
+		x = xprevious;
+		this.szybkoscStaczania=0;
+		if (this.staczanie) {
+			this.staczanie=false;
+			if (this.kierunek_kamienia=='prawo') {
+				this.kierunek_kamienia='lewo';
+			} else {
+				this.kierunek_kamienia='prawo';
+			}
+		}
 }
-
 
 if ( x != xprevious )  {
 	y = policzY(x);	
 }
-
 image_angle = -x;
 
 }
@@ -1473,15 +1495,15 @@ tu_room_to_go = SyzyfowePrace;
 /***********************************************************************
  * CUSTOM GLOBAL VARIABLES
  ***********************************************************************/
-
+polowaEkranu = 320;
+poziomGruntu = 485;
 
 /***********************************************************************
  * CUSTOM GLOBAL FUNCTIONS
  ***********************************************************************/
 
 function policzY(x) { 
-polowaEkranu=320;
-poziomGruntu = 485;
+
 
 if (x<polowaEkranu) {
 	 y= poziomGruntu  - x;
@@ -1490,6 +1512,21 @@ if (x<polowaEkranu) {
 }
 
 return y
+}
+function czyKamienPrzekroczylPolowe(x,kierunek_kamienia) { 
+if (kierunek_kamienia == 'prawo') {
+	if (x>polowaEkranu) {
+		return true;
+	}
+	return false;
+}
+
+if (kierunek_kamienia == 'lewo') {
+	if (x<=polowaEkranu) {
+		return true;
+	}
+	return false;
+}
 }
 
 
