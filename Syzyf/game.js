@@ -1364,6 +1364,10 @@ function __kamienS() {
 __sprite_init__(this, kamienS, 79, 80, 39, 40, 'Circle', 39, 0, 79, 0, 80, ['img/kamienS_0.png']);
 }; var kamienS = new __kamienS();
 
+function __góraS() { 
+__sprite_init__(this, góraS, 575, 304, 0, 0, 'Box', 287, 0, 575, 0, 304, ['img/góraS_0.png']);
+}; var góraS = new __góraS();
+
 
 
 /***********************************************************************
@@ -1390,7 +1394,55 @@ __sprite_init__(this, kamienS, 79, 80, 39, 40, 'Circle', 39, 0, 79, 0, 80, ['img
  * OBJECTS
  ***********************************************************************/
 function __kamien() {
-__instance_init__(this, kamien, null, 1, 0, kamienS, 1, 0);
+__instance_init__(this, kamien, null, 1, 0, kamienS, 0, 0);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+szybkoscSyzyfa = 5;
+polowaEkranu = 320;
+poziomGruntu = 485;
+
+
+						
+if ( keyboard_check(vk_d) ) {
+	 x+= szybkoscSyzyfa
+	 
+}
+
+if ( keyboard_check(vk_a) ) {
+	 x-= szybkoscSyzyfa;
+	 
+}
+
+if  ((x<0) || (x>polowaEkranu*2)) {
+		x = xprevious
+}
+
+
+if ( x != xprevious )  {
+	if (x<polowaEkranu) {
+	 y= poziomGruntu  - x;
+	} else {
+	 y= poziomGruntu - 2 * polowaEkranu + x;
+	}
+	
+}
+
+image_angle = -x;
+
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var kamien = new __kamien();
+
+function __góra() {
+__instance_init__(this, góra, null, 1, 0, góraS, 0, 1);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -1400,7 +1452,7 @@ this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
-}; var kamien = new __kamien();
+}; var góra = new __góra();
 
 
 
@@ -1411,7 +1463,8 @@ function __SyzyfowePrace() {
 this.tiles = [
 ];
 this.objects = [
-];
+[{o:góra, x:50, y:200}],
+[{o:kamien, x:60, y:180}]];
 this.start = function() {
 __room_start__(this, SyzyfowePrace, 640, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, null, 50, 50);
 };

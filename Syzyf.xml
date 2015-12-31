@@ -1,1 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="6" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions/><variables/><comments/><sprites count="1"><sprite name="kamienS" centerx="39" centery="40" collisionshape="Circle" collisionradius="39" collisionleft="0" collisionright="79" collisiontop="0" collisionbottom="80"/></sprites><frames count="1"><frame file="0" sprite="kamienS"/></frames><sounds count="0"/><musics count="0"/><backgrounds count="0"/><fonts count="0"/><objects count="1"><object name="kamien" template="" prototype="1" scene="" sprite="kamienS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/></objects><scripts count="0"/><scenes count="1"><scene name="SyzyfowePrace" width="640" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_4" scene="SyzyfowePrace" value="1000000"/></layers><tiles count="0"/><fns count="0"/></tululoo>
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="14" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions/><variables/><comments/><sprites count="2"><sprite name="kamienS" centerx="39" centery="40" collisionshape="Circle" collisionradius="39" collisionleft="0" collisionright="79" collisiontop="0" collisionbottom="80"/><sprite name="góraS" centerx="0" centery="0" collisionshape="Box" collisionradius="287" collisionleft="0" collisionright="575" collisiontop="0" collisionbottom="304"/></sprites><frames count="2"><frame file="0" sprite="kamienS"/><frame file="0" sprite="góraS"/></frames><sounds count="0"/><musics count="0"/><backgrounds count="0"/><fonts count="0"/><objects count="4"><object name="kamien" template="" prototype="1" scene="" sprite="kamienS" x="0" y="0" visible="1" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="góra" template="" prototype="1" scene="" sprite="góraS" x="0" y="0" visible="1" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject13" template="góra" prototype="0" scene="SyzyfowePrace" sprite="góraS" x="50" y="200" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject14" template="kamien" prototype="0" scene="SyzyfowePrace" sprite="kamienS" x="60" y="180" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/></objects><scripts count="1"><script name="scr_7" object="kamien" event="Step" parameter="">szybkoscSyzyfa = 5;
+polowaEkranu = 320;
+poziomGruntu = 485;
+
+
+						
+if ( keyboard_check(vk_d) ) {
+	 x+= szybkoscSyzyfa
+	 
+}
+
+if ( keyboard_check(vk_a) ) {
+	 x-= szybkoscSyzyfa;
+	 
+}
+
+if  ((x&lt;0) || (x&gt;polowaEkranu*2)) {
+		x = xprevious
+}
+
+
+if ( x != xprevious )  {
+	if (x&lt;polowaEkranu) {
+	 y= poziomGruntu  - x;
+	} else {
+	 y= poziomGruntu - 2 * polowaEkranu + x;
+	}
+	
+}
+
+image_angle = -x;
+</script></scripts><scenes count="1"><scene name="SyzyfowePrace" width="640" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_4" scene="SyzyfowePrace" value="1000000"/></layers><tiles count="0"/><fns count="0"/></tululoo>
