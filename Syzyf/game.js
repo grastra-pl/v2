@@ -1395,15 +1395,16 @@ __sprite_init__(this, góraS, 575, 304, 0, 0, 'Box', 287, 0, 575, 0, 304, ['img/
  ***********************************************************************/
 function __kamien() {
 __instance_init__(this, kamien, null, 1, 0, kamienS, 0, 0);
-this.on_creation = on_creation_i;
+this.on_creation = function() {
+with(this) {
+this.kierunek_kamienia='prawo';
+y=policzY(x);
+}
+};
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
 szybkoscSyzyfa = 5;
-polowaEkranu = 320;
-poziomGruntu = 485;
-
-
 						
 if ( keyboard_check(vk_d) ) {
 	 x+= szybkoscSyzyfa
@@ -1421,12 +1422,7 @@ if  ((x<0) || (x>polowaEkranu*2)) {
 
 
 if ( x != xprevious )  {
-	if (x<polowaEkranu) {
-	 y= poziomGruntu  - x;
-	} else {
-	 y= poziomGruntu - 2 * polowaEkranu + x;
-	}
-	
+	y = policzY(x);	
 }
 
 image_angle = -x;
@@ -1483,6 +1479,18 @@ tu_room_to_go = SyzyfowePrace;
  * CUSTOM GLOBAL FUNCTIONS
  ***********************************************************************/
 
+function policzY(x) { 
+polowaEkranu=320;
+poziomGruntu = 485;
+
+if (x<polowaEkranu) {
+	 y= poziomGruntu  - x;
+} else {
+	 y= poziomGruntu - 2 * polowaEkranu + x;
+}
+
+return y
+}
 
 
 tu_gameloop = tu_loop;
