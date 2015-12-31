@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="5971" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>function setCookie(cname, cvalue, exdays) {
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="5972" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
