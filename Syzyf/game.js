@@ -1388,6 +1388,9 @@ __sprite_init__(this, góraS, 575, 304, 0, 0, 'Box', 287, 0, 575, 0, 304, ['img/
 /***********************************************************************
  * FONTS
  ***********************************************************************/
+function __F_Arial() { 
+__font_init__(this, F_Arial, 'Arial', 32, 1, 0)}; var F_Arial = new __F_Arial();
+
 
 
 /***********************************************************************
@@ -1401,6 +1404,9 @@ this.kierunek_kamienia='prawo';
 this.staczanie=false;
 this.szybkoscStaczania=0;
 y=policzY(x);
+hudini = instance_create(0,0 ,HUD);
+
+
 }
 };
 this.on_destroy = on_destroy_i;
@@ -1421,6 +1427,8 @@ if (!this.staczanie) {
 	
 	if (czyKamienPrzekroczylPolowe(x,this.kierunek_kamienia)) {
 		this.staczanie=true;
+		punkty++;
+		kasa++;
 	}
 } else {
 	if (this.kierunek_kamienia=='prawo') {
@@ -1472,6 +1480,30 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var góra = new __góra();
 
+function __HUD() {
+__instance_init__(this, HUD, null, 1, 0, null, 1, 4);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = function() {
+if (this.visible == 1) {
+__handle_sprite__(this);
+with(this) {
+draw_set_font(F_Arial);
+draw_set_color(255,255,0);
+draw_text(x+20 , y+15 , "Score:" + punkty);
+draw_text(x+200 , y+15 , "Money:" + kasa);
+
+}
+}
+};
+}; var HUD = new __HUD();
+
 
 
 /***********************************************************************
@@ -1497,6 +1529,10 @@ tu_room_to_go = SyzyfowePrace;
  ***********************************************************************/
 polowaEkranu = 320;
 poziomGruntu = 485;
+
+
+punkty = 0;
+kasa = 0;
 
 /***********************************************************************
  * CUSTOM GLOBAL FUNCTIONS
