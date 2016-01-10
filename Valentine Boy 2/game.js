@@ -1864,7 +1864,7 @@ if (gra_wstepna<=18)
 	if ( x < 0 ) x = 0;
 	if ( x > room_width -32 ) x = room_width-32;
 
-	if (y>480)
+	if (y>1480)
 	{
 		dodajZycie(-1);
 	}
@@ -2168,7 +2168,7 @@ this.on_draw = on_draw_i;
 }; var obj_drzwi = new __obj_drzwi();
 
 function __podloze_skos_lewy() {
-__instance_init__(this, podloze_skos_lewy, null, 1, 0, sprite_560, 1, 13);
+__instance_init__(this, podloze_skos_lewy, null, 1, 0, sprite_560, 1, 6);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2181,7 +2181,7 @@ this.on_draw = on_draw_i;
 }; var podloze_skos_lewy = new __podloze_skos_lewy();
 
 function __podloze_skos_prawy() {
-__instance_init__(this, podloze_skos_prawy, null, 1, 0, sprite_563, 1, 14);
+__instance_init__(this, podloze_skos_prawy, null, 1, 0, sprite_563, 1, 7);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2194,7 +2194,7 @@ this.on_draw = on_draw_i;
 }; var podloze_skos_prawy = new __podloze_skos_prawy();
 
 function __chmurka_myslenia() {
-__instance_init__(this, chmurka_myslenia, null, 1, 0, sprite_1188, 1, 33);
+__instance_init__(this, chmurka_myslenia, null, 1, 0, sprite_1188, 1, 24);
 this.on_creation = function() {
 with(this) {
 pier = instance_create(x+15,y +5 ,co_moze_miec[co_wymagane][0]);
@@ -2213,7 +2213,7 @@ this.on_draw = on_draw_i;
 }; var chmurka_myslenia = new __chmurka_myslenia();
 
 function __pierscien_do_wziecia() {
-__instance_init__(this, pierscien_do_wziecia, null, 1, 0, sprite_1196, 1, 34);
+__instance_init__(this, pierscien_do_wziecia, null, 1, 0, sprite_1196, 1, 25);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2234,7 +2234,7 @@ this.on_draw = on_draw_i;
 }; var pierscien_do_wziecia = new __pierscien_do_wziecia();
 
 function __pierscien_pomyslany() {
-__instance_init__(this, pierscien_pomyslany, null, 1, 0, sprite_1196, 0, 35);
+__instance_init__(this, pierscien_pomyslany, null, 1, 0, sprite_1196, 0, 26);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2247,7 +2247,7 @@ this.on_draw = on_draw_i;
 }; var pierscien_pomyslany = new __pierscien_pomyslany();
 
 function __but_do_wziecia() {
-__instance_init__(this, but_do_wziecia, null, 1, 0, sprite_1216, 1, 36);
+__instance_init__(this, but_do_wziecia, null, 1, 0, sprite_1216, 1, 27);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2268,7 +2268,7 @@ this.on_draw = on_draw_i;
 }; var but_do_wziecia = new __but_do_wziecia();
 
 function __but_pomyslany() {
-__instance_init__(this, but_pomyslany, null, 1, 0, sprite_1216, 0, 37);
+__instance_init__(this, but_pomyslany, null, 1, 0, sprite_1216, 0, 28);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2281,7 +2281,7 @@ this.on_draw = on_draw_i;
 }; var but_pomyslany = new __but_pomyslany();
 
 function __cenzura() {
-__instance_init__(this, cenzura, null, 1, 0, sprite_1224, 0, 38);
+__instance_init__(this, cenzura, null, 1, 0, sprite_1224, 0, 29);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2294,7 +2294,7 @@ this.on_draw = on_draw_i;
 }; var cenzura = new __cenzura();
 
 function __wrog1() {
-__instance_init__(this, wrog1, null, 1, 0, sprite_1228, 1, 39);
+__instance_init__(this, wrog1, null, 1, 0, sprite_1228, 1, 30);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2366,7 +2366,7 @@ this.on_draw = on_draw_i;
 }; var wrog1 = new __wrog1();
 
 function __wrog2() {
-__instance_init__(this, wrog2, null, 1, 0, sprite_1229, 1, 40);
+__instance_init__(this, wrog2, null, 1, 0, sprite_1229, 1, 31);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2449,7 +2449,7 @@ this.on_draw = on_draw_i;
 }; var wrog2 = new __wrog2();
 
 function __explozja() {
-__instance_init__(this, explozja, null, 1, 0, sprite_1240, 1, 41);
+__instance_init__(this, explozja, null, 1, 0, sprite_1240, 1, 32);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -2468,7 +2468,7 @@ this.on_draw = on_draw_i;
 }; var explozja = new __explozja();
 
 function __kula_wroga() {
-__instance_init__(this, kula_wroga, null, 1, 0, sprite_1322, 1, 63);
+__instance_init__(this, kula_wroga, null, 1, 0, sprite_1322, 1, 54);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -2485,7 +2485,7 @@ this.on_draw = on_draw_i;
 }; var kula_wroga = new __kula_wroga();
 
 function __Niemka() {
-__instance_init__(this, Niemka, null, 1, 0, sprite_1399, 1, 64);
+__instance_init__(this, Niemka, null, 1, 0, sprite_1399, 1, 55);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2604,7 +2604,7 @@ this.on_draw = on_draw_i;
 }; var Niemka = new __Niemka();
 
 function __tasma_lewo() {
-__instance_init__(this, tasma_lewo, null, 1, 0, sprite_2025, 1, 149);
+__instance_init__(this, tasma_lewo, null, 1, 0, sprite_2025, 1, 140);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2647,7 +2647,7 @@ this.on_draw = on_draw_i;
 }; var tasma_lewo = new __tasma_lewo();
 
 function __tasma_prawo() {
-__instance_init__(this, tasma_prawo, null, 1, 0, sprite_2025, 1, 155);
+__instance_init__(this, tasma_prawo, null, 1, 0, sprite_2025, 1, 141);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2692,7 +2692,7 @@ this.on_draw = on_draw_i;
 }; var tasma_prawo = new __tasma_prawo();
 
 function __tasma_skraj() {
-__instance_init__(this, tasma_skraj, null, 1, 0, sprite_2025, 1, 156);
+__instance_init__(this, tasma_skraj, null, 1, 0, sprite_2025, 1, 142);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2711,7 +2711,7 @@ this.on_draw = on_draw_i;
 }; var tasma_skraj = new __tasma_skraj();
 
 function __tasma_skraj_prawy() {
-__instance_init__(this, tasma_skraj_prawy, null, 1, 0, sprite_2025, 1, 164);
+__instance_init__(this, tasma_skraj_prawy, null, 1, 0, sprite_2025, 1, 149);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2732,7 +2732,7 @@ this.on_draw = on_draw_i;
 }; var tasma_skraj_prawy = new __tasma_skraj_prawy();
 
 function __egipska_krolewna() {
-__instance_init__(this, egipska_krolewna, null, 1, 0, sprite_2067, 1, 179);
+__instance_init__(this, egipska_krolewna, null, 1, 0, sprite_2067, 1, 163);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2884,7 +2884,7 @@ this.on_draw = on_draw_i;
 }; var egipska_krolewna = new __egipska_krolewna();
 
 function __kot_pomyslany() {
-__instance_init__(this, kot_pomyslany, null, 1, 0, sprite_2078, 0, 180);
+__instance_init__(this, kot_pomyslany, null, 1, 0, sprite_2078, 0, 164);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2902,7 +2902,7 @@ this.on_draw = on_draw_i;
 }; var kot_pomyslany = new __kot_pomyslany();
 
 function __kot_do_wziecia() {
-__instance_init__(this, kot_do_wziecia, null, 1, 0, sprite_2078, 1, 181);
+__instance_init__(this, kot_do_wziecia, null, 1, 0, sprite_2078, 1, 165);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2948,7 +2948,7 @@ this.on_draw = on_draw_i;
 }; var kot_do_wziecia = new __kot_do_wziecia();
 
 function __serduszko() {
-__instance_init__(this, serduszko, null, 1, 0, sprite_469, 1, 183);
+__instance_init__(this, serduszko, null, 1, 0, sprite_469, 1, 167);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -2986,7 +2986,7 @@ this.on_draw = on_draw_i;
 }; var serduszko = new __serduszko();
 
 function __klocek() {
-__instance_init__(this, klocek, null, 1, 0, sprite_2093, 1, 184);
+__instance_init__(this, klocek, null, 1, 0, sprite_2093, 1, 168);
 this.on_creation = function() {
 with(this) {
 this.air = 0;
@@ -3046,7 +3046,7 @@ this.on_draw = on_draw_i;
 }; var klocek = new __klocek();
 
 function __klocek_ciemny() {
-__instance_init__(this, klocek_ciemny, null, 1, 0, sprite_2094, 1, 185);
+__instance_init__(this, klocek_ciemny, null, 1, 0, sprite_2094, 1, 169);
 this.on_creation = on_creation_i;
 this.on_destroy = function() {
 with(this) {
@@ -3078,7 +3078,7 @@ this.on_draw = on_draw_i;
 }; var klocek_ciemny = new __klocek_ciemny();
 
 function __kawalek() {
-__instance_init__(this, kawalek, null, 1, 0, sprite_2106, 1, 191);
+__instance_init__(this, kawalek, null, 1, 0, sprite_2106, 1, 174);
 this.on_creation = function() {
 with(this) {
 speed = irandom(2) + 2;
@@ -3103,7 +3103,7 @@ this.on_draw = on_draw_i;
 }; var kawalek = new __kawalek();
 
 function __kladka() {
-__instance_init__(this, kladka, null, 1, 0, kladka_sprite, 1, 206);
+__instance_init__(this, kladka, null, 1, 0, kladka_sprite, 1, 189);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -3124,7 +3124,7 @@ this.on_draw = on_draw_i;
 }; var kladka = new __kladka();
 
 function __HUD() {
-__instance_init__(this, HUD, null, 1, 0, null, 1, 214);
+__instance_init__(this, HUD, null, 1, 0, null, 1, 197);
 this.on_creation = function() {
 with(this) {
 this.odliczanie=0;
@@ -3134,7 +3134,7 @@ this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
 x=room_viewport_x+50;
-y=20;
+y=room_viewport_y+20;
 
 if ( mouse_check_released() )
 {
@@ -3286,7 +3286,7 @@ if (ile_ma_przedmiotow>0) {
 }; var HUD = new __HUD();
 
 function __filizanka_do_wziecia() {
-__instance_init__(this, filizanka_do_wziecia, null, 1, 0, sprite_2214, 1, 215);
+__instance_init__(this, filizanka_do_wziecia, null, 1, 0, sprite_2214, 1, 198);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3307,7 +3307,7 @@ this.on_draw = on_draw_i;
 }; var filizanka_do_wziecia = new __filizanka_do_wziecia();
 
 function __filizanka_pomyslana() {
-__instance_init__(this, filizanka_pomyslana, null, 1, 0, sprite_2214, 1, 216);
+__instance_init__(this, filizanka_pomyslana, null, 1, 0, sprite_2214, 1, 199);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3320,7 +3320,7 @@ this.on_draw = on_draw_i;
 }; var filizanka_pomyslana = new __filizanka_pomyslana();
 
 function __zlozona_dziewczyna() {
-__instance_init__(this, zlozona_dziewczyna, null, 1, 0, sprite_1400, 1, 218);
+__instance_init__(this, zlozona_dziewczyna, null, 1, 0, sprite_1400, 1, 201);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3509,7 +3509,7 @@ this.on_draw = on_draw_i;
 }; var zlozona_dziewczyna = new __zlozona_dziewczyna();
 
 function __chmurka_myslenia_dup() {
-__instance_init__(this, chmurka_myslenia_dup, null, 1, 0, sprite_1188, 1, 219);
+__instance_init__(this, chmurka_myslenia_dup, null, 1, 0, sprite_1188, 1, 202);
 this.on_creation = function() {
 with(this) {
 
@@ -3529,7 +3529,7 @@ this.on_draw = on_draw_i;
 }; var chmurka_myslenia_dup = new __chmurka_myslenia_dup();
 
 function __serce_tile() {
-__instance_init__(this, serce_tile, null, 1, 0, sprite_469, 1, 222);
+__instance_init__(this, serce_tile, null, 1, 0, sprite_469, 1, 205);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3596,7 +3596,7 @@ this.on_draw = on_draw_i;
 }; var serce_tile = new __serce_tile();
 
 function __girl_tile() {
-__instance_init__(this, girl_tile, null, 1, 0, sprite_etipoka, 1, 235);
+__instance_init__(this, girl_tile, null, 1, 0, sprite_etipoka, 1, 218);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3627,7 +3627,7 @@ this.on_draw = on_draw_i;
 }; var girl_tile = new __girl_tile();
 
 function __logo_grastry() {
-__instance_init__(this, logo_grastry, null, 1, 0, grastra_logo, 1, 237);
+__instance_init__(this, logo_grastry, null, 1, 0, grastra_logo, 1, 220);
 this.on_creation = function() {
 with(this) {
 
@@ -3663,7 +3663,7 @@ this.on_draw = on_draw_i;
 }; var logo_grastry = new __logo_grastry();
 
 function __dzwieki_wlaczone() {
-__instance_init__(this, dzwieki_wlaczone, null, 1, 0, dzwieki_on_sprite, 1, 238);
+__instance_init__(this, dzwieki_wlaczone, null, 1, 0, dzwieki_on_sprite, 1, 221);
 this.on_creation = function() {
 with(this) {
 dzwieki_on_bool=true;
@@ -3689,7 +3689,7 @@ this.on_draw = on_draw_i;
 }; var dzwieki_wlaczone = new __dzwieki_wlaczone();
 
 function __kwiatek_do_wziecia() {
-__instance_init__(this, kwiatek_do_wziecia, null, 1, 0, kwiatek, 1, 296);
+__instance_init__(this, kwiatek_do_wziecia, null, 1, 0, kwiatek, 1, 279);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3715,7 +3715,7 @@ this.on_draw = on_draw_i;
 }; var kwiatek_do_wziecia = new __kwiatek_do_wziecia();
 
 function __kwiatek_pomyslany() {
-__instance_init__(this, kwiatek_pomyslany, null, 1, 0, kwiatek, 1, 297);
+__instance_init__(this, kwiatek_pomyslany, null, 1, 0, kwiatek, 1, 280);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3728,7 +3728,7 @@ this.on_draw = on_draw_i;
 }; var kwiatek_pomyslany = new __kwiatek_pomyslany();
 
 function __burger_do_wziecia() {
-__instance_init__(this, burger_do_wziecia, null, 1, 0, burger, 1, 298);
+__instance_init__(this, burger_do_wziecia, null, 1, 0, burger, 1, 281);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3749,7 +3749,7 @@ this.on_draw = on_draw_i;
 }; var burger_do_wziecia = new __burger_do_wziecia();
 
 function __burger_pomyslany() {
-__instance_init__(this, burger_pomyslany, null, 1, 0, burger, 1, 299);
+__instance_init__(this, burger_pomyslany, null, 1, 0, burger, 1, 282);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -3762,7 +3762,7 @@ this.on_draw = on_draw_i;
 }; var burger_pomyslany = new __burger_pomyslany();
 
 function __wrogAniol() {
-__instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 301);
+__instance_init__(this, wrogAniol, null, 1, 0, sprite_2181, 1, 284);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -3844,7 +3844,7 @@ this.on_draw = on_draw_i;
 }; var wrogAniol = new __wrogAniol();
 
 function __niewidzialny_obiekt() {
-__instance_init__(this, niewidzialny_obiekt, null, 1, 0, null, 1, 302);
+__instance_init__(this, niewidzialny_obiekt, null, 1, 0, null, 1, 285);
 this.on_creation = function() {
 with(this) {
 this.wz = 0;
@@ -3933,7 +3933,7 @@ this.on_draw = on_draw_i;
 }; var niewidzialny_obiekt = new __niewidzialny_obiekt();
 
 function __skrzydla() {
-__instance_init__(this, skrzydla, null, 1, 0, skrzydla_sprite, 1, 312);
+__instance_init__(this, skrzydla, null, 1, 0, skrzydla_sprite, 1, 295);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -3958,7 +3958,7 @@ this.on_draw = on_draw_i;
 }; var skrzydla = new __skrzydla();
 
 function __skrzydlo_obj() {
-__instance_init__(this, skrzydlo_obj, null, 1, 0, skrzydlo_ludzika, 1, 684);
+__instance_init__(this, skrzydlo_obj, null, 1, 0, skrzydlo_ludzika, 1, 667);
 this.on_creation = function() {
 with(this) {
 image_speed = 0;
@@ -3976,7 +3976,7 @@ this.on_draw = on_draw_i;
 }; var skrzydlo_obj = new __skrzydlo_obj();
 
 function __konggobj() {
-__instance_init__(this, konggobj, null, 1, 0, kongg, 1, 755);
+__instance_init__(this, konggobj, null, 1, 0, kongg, 1, 738);
 this.on_creation = function() {
 with(this) {
 this.ruchPoziomy=false;
@@ -4005,7 +4005,7 @@ this.on_draw = on_draw_i;
 }; var konggobj = new __konggobj();
 
 function __kongbigobj() {
-__instance_init__(this, kongbigobj, null, 1, 0, konggbig, 1, 761);
+__instance_init__(this, kongbigobj, null, 1, 0, konggbig, 1, 744);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4018,7 +4018,7 @@ this.on_draw = on_draw_i;
 }; var kongbigobj = new __kongbigobj();
 
 function __jablko_pomyslane() {
-__instance_init__(this, jablko_pomyslane, null, 1, 0, sprite_jablko, 1, 789);
+__instance_init__(this, jablko_pomyslane, null, 1, 0, sprite_jablko, 1, 772);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4031,7 +4031,7 @@ this.on_draw = on_draw_i;
 }; var jablko_pomyslane = new __jablko_pomyslane();
 
 function __jablko_do_wziecia() {
-__instance_init__(this, jablko_do_wziecia, null, 1, 0, sprite_jablko, 1, 790);
+__instance_init__(this, jablko_do_wziecia, null, 1, 0, sprite_jablko, 1, 773);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4052,7 +4052,7 @@ this.on_draw = on_draw_i;
 }; var jablko_do_wziecia = new __jablko_do_wziecia();
 
 function __slon_pomyslany() {
-__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 791);
+__instance_init__(this, slon_pomyslany, null, 1, 0, sprite_slon_pomyslany, 1, 774);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4065,7 +4065,7 @@ this.on_draw = on_draw_i;
 }; var slon_pomyslany = new __slon_pomyslany();
 
 function __slon_do_wziecia_dup() {
-__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 792);
+__instance_init__(this, slon_do_wziecia_dup, null, 1, 0, sprite_slon, 1, 775);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -4086,7 +4086,7 @@ this.on_draw = on_draw_i;
 }; var slon_do_wziecia_dup = new __slon_do_wziecia_dup();
 
 function __pistolet() {
-__instance_init__(this, pistolet, null, 1, 0, pistoletSprite, 1, 927);
+__instance_init__(this, pistolet, null, 1, 0, pistoletSprite, 1, 901);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4111,7 +4111,7 @@ this.on_draw = on_draw_i;
 }; var pistolet = new __pistolet();
 
 function __pociskPistoletu() {
-__instance_init__(this, pociskPistoletu, null, 1, 0, pociskPistoletuSprite, 1, 928);
+__instance_init__(this, pociskPistoletu, null, 1, 0, pociskPistoletuSprite, 1, 902);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4142,7 +4142,7 @@ this.on_draw = on_draw_i;
 }; var pociskPistoletu = new __pociskPistoletu();
 
 function __zebranyObiekt() {
-__instance_init__(this, zebranyObiekt, null, 1, 0, sprite_469, 1, 941);
+__instance_init__(this, zebranyObiekt, null, 1, 0, sprite_469, 1, 914);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -4308,15 +4308,6 @@ this.tiles = [
 ];
 this.objects = [
 [{o:Walenty, x:80, y:112}],
-[{o:podloze_ziemia, x:64, y:192}],
-[{o:podloze_ziemia, x:96, y:192}],
-[{o:podloze_ziemia, x:32, y:192}],
-[{o:podloze_ziemia, x:128, y:192}],
-[{o:podloze_ziemia, x:48, y:192}],
-[{o:podloze_ziemia, x:80, y:192}],
-[{o:podloze_ziemia, x:112, y:192}],
-[{o:podloze_skos_lewy, x:16, y:192}],
-[{o:podloze_skos_prawy, x:144, y:192}],
 [{o:podloze_trawa, x:256, y:288}],
 [{o:podloze_trawa, x:288, y:288}],
 [{o:podloze_trawa, x:320, y:288}],
@@ -4438,19 +4429,12 @@ this.objects = [
 [{o:podloze_ziemia, x:624, y:320}],
 [{o:podloze_ziemia, x:640, y:336}],
 [{o:podloze_ziemia, x:464, y:336}],
-[{o:tasma_lewo, x:120, y:40}],
-[{o:tasma_lewo, x:140, y:40}],
-[{o:tasma_lewo, x:160, y:40}],
-[{o:tasma_lewo, x:180, y:40}],
-[{o:tasma_lewo, x:200, y:40}],
-[{o:tasma_skraj, x:100, y:40}],
 [{o:tasma_prawo, x:380, y:180}],
 [{o:tasma_prawo, x:400, y:180}],
 [{o:tasma_prawo, x:420, y:180}],
 [{o:tasma_prawo, x:440, y:180}],
 [{o:tasma_prawo, x:460, y:180}],
 [{o:tasma_skraj, x:360, y:180}],
-[{o:tasma_skraj_prawy, x:220, y:40}],
 [{o:tasma_skraj_prawy, x:480, y:180}],
 [{o:tasma_lewo, x:680, y:160}],
 [{o:tasma_lewo, x:700, y:160}],
@@ -4465,7 +4449,6 @@ this.objects = [
 [{o:podloze_ziemia, x:940, y:160}],
 [{o:podloze_ziemia, x:800, y:240}],
 [{o:kot_do_wziecia, x:1300, y:420}],
-[{o:klocek, x:180, y:180}],
 [{o:klocek, x:1020, y:120}],
 [{o:klocek_ciemny, x:1120, y:80}],
 [{o:bonus, x:1120, y:20}],
@@ -4498,14 +4481,8 @@ this.objects = [
 [{o:klocek, x:608, y:448}],
 [{o:klocek, x:640, y:448}],
 [{o:zlozona_dziewczyna, x:500, y:20}],
-[{o:podloze_trawa, x:128, y:384}],
-[{o:podloze_trawa, x:32, y:416}],
 [{o:podloze_trawa, x:0, y:416}],
 [{o:podloze_trawa, x:160, y:416}],
-[{o:podloze_trawa, x:192, y:416}],
-[{o:podloze_trawa, x:128, y:416}],
-[{o:podloze_trawa, x:96, y:416}],
-[{o:podloze_trawa, x:64, y:416}],
 [{o:podloze_trawa, x:0, y:384}],
 [{o:podloze_trawa, x:0, y:352}],
 [{o:pierscien_do_wziecia, x:544, y:192}],
@@ -4514,15 +4491,115 @@ this.objects = [
 [{o:jablko_do_wziecia, x:1600, y:352}],
 [{o:podloze_trawa, x:224, y:288}],
 [{o:podloze_trawa, x:352, y:288}],
-[{o:podloze_trawa, x:128, y:352}],
-[{o:podloze_trawa, x:96, y:384}],
-[{o:kot_do_wziecia, x:0, y:320}],
 [{o:klocek_ciemny, x:352, y:64}],
 [{o:klocek_ciemny, x:544, y:352}],
 [{o:klocek_ciemny, x:1152, y:256}],
-[{o:skrzydla, x:60, y:280}]];
+[{o:podloze_trawa, x:0, y:1408}],
+[{o:podloze_trawa, x:160, y:1408}],
+[{o:podloze_trawa, x:0, y:1376}],
+[{o:podloze_trawa, x:0, y:1344}],
+[{o:podloze_trawa, x:0, y:1312}],
+[{o:podloze_trawa, x:0, y:1280}],
+[{o:podloze_trawa, x:0, y:1248}],
+[{o:podloze_trawa, x:0, y:1216}],
+[{o:podloze_trawa, x:0, y:1184}],
+[{o:podloze_trawa, x:0, y:1152}],
+[{o:podloze_trawa, x:0, y:1120}],
+[{o:podloze_trawa, x:0, y:1088}],
+[{o:podloze_trawa, x:128, y:1408}],
+[{o:podloze_trawa, x:32, y:1408}],
+[{o:podloze_trawa, x:64, y:1408}],
+[{o:podloze_trawa, x:96, y:1408}],
+[{o:podloze_trawa, x:160, y:1248}],
+[{o:podloze_trawa, x:160, y:1216}],
+[{o:podloze_trawa, x:160, y:1184}],
+[{o:podloze_trawa, x:160, y:1152}],
+[{o:podloze_trawa, x:160, y:1120}],
+[{o:podloze_trawa, x:160, y:1088}],
+[{o:podloze_trawa, x:160, y:1056}],
+[{o:podloze_trawa, x:160, y:1024}],
+[{o:podloze_trawa, x:192, y:1408}],
+[{o:podloze_trawa, x:224, y:1408}],
+[{o:podloze_trawa, x:352, y:1408}],
+[{o:podloze_trawa, x:384, y:1408}],
+[{o:podloze_trawa, x:416, y:1408}],
+[{o:podloze_trawa, x:576, y:1408}],
+[{o:podloze_trawa, x:608, y:1408}],
+[{o:podloze_trawa, x:608, y:1376}],
+[{o:podloze_trawa, x:640, y:1376}],
+[{o:podloze_trawa, x:640, y:1344}],
+[{o:podloze_trawa, x:672, y:1344}],
+[{o:podloze_trawa, x:672, y:1312}],
+[{o:podloze_trawa, x:704, y:1312}],
+[{o:podloze_trawa, x:768, y:1216}],
+[{o:podloze_trawa, x:800, y:1216}],
+[{o:podloze_trawa, x:800, y:1184}],
+[{o:podloze_trawa, x:832, y:1184}],
+[{o:podloze_trawa, x:832, y:1152}],
+[{o:podloze_trawa, x:864, y:1152}],
+[{o:podloze_trawa, x:928, y:1056}],
+[{o:podloze_trawa, x:960, y:1056}],
+[{o:podloze_trawa, x:960, y:1024}],
+[{o:podloze_trawa, x:992, y:1024}],
+[{o:podloze_trawa, x:992, y:992}],
+[{o:podloze_trawa, x:1024, y:992}],
+[{o:podloze_trawa, x:1024, y:960}],
+[{o:podloze_trawa, x:1056, y:960}],
+[{o:podloze_trawa, x:1120, y:864}],
+[{o:podloze_trawa, x:1152, y:864}],
+[{o:podloze_trawa, x:1152, y:832}],
+[{o:podloze_trawa, x:1184, y:832}],
+[{o:podloze_trawa, x:1184, y:800}],
+[{o:podloze_trawa, x:1216, y:800}],
+[{o:podloze_trawa, x:1216, y:768}],
+[{o:podloze_trawa, x:1248, y:768}],
+[{o:podloze_trawa, x:0, y:1056}],
+[{o:podloze_trawa, x:0, y:1024}],
+[{o:podloze_trawa, x:0, y:992}],
+[{o:podloze_trawa, x:0, y:960}],
+[{o:podloze_trawa, x:0, y:928}],
+[{o:podloze_trawa, x:0, y:896}],
+[{o:podloze_trawa, x:160, y:992}],
+[{o:podloze_trawa, x:160, y:960}],
+[{o:podloze_trawa, x:160, y:928}],
+[{o:podloze_trawa, x:160, y:896}],
+[{o:podloze_trawa, x:160, y:864}],
+[{o:podloze_trawa, x:0, y:864}],
+[{o:podloze_trawa, x:0, y:832}],
+[{o:podloze_trawa, x:0, y:800}],
+[{o:podloze_trawa, x:0, y:768}],
+[{o:podloze_trawa, x:0, y:736}],
+[{o:podloze_trawa, x:0, y:704}],
+[{o:podloze_trawa, x:0, y:672}],
+[{o:podloze_trawa, x:0, y:640}],
+[{o:podloze_trawa, x:160, y:832}],
+[{o:podloze_trawa, x:160, y:800}],
+[{o:podloze_trawa, x:160, y:768}],
+[{o:podloze_trawa, x:160, y:736}],
+[{o:podloze_trawa, x:160, y:704}],
+[{o:podloze_trawa, x:160, y:672}],
+[{o:podloze_trawa, x:160, y:640}],
+[{o:podloze_trawa, x:160, y:608}],
+[{o:podloze_trawa, x:160, y:576}],
+[{o:podloze_trawa, x:160, y:544}],
+[{o:podloze_trawa, x:160, y:480}],
+[{o:podloze_trawa, x:160, y:512}],
+[{o:podloze_trawa, x:160, y:448}],
+[{o:podloze_trawa, x:0, y:448}],
+[{o:podloze_trawa, x:0, y:480}],
+[{o:podloze_trawa, x:0, y:512}],
+[{o:podloze_trawa, x:0, y:544}],
+[{o:podloze_trawa, x:0, y:576}],
+[{o:podloze_trawa, x:0, y:608}],
+[{o:podloze_trawa, x:160, y:384}],
+[{o:podloze_trawa, x:160, y:352}],
+[{o:podloze_trawa, x:160, y:320}],
+[{o:podloze_trawa, x:160, y:288}],
+[{o:podloze_trawa, x:192, y:288}],
+[{o:podloze_trawa, x:0, y:288}],
+[{o:podloze_trawa, x:0, y:320}]];
 this.start = function() {
-__room_start__(this, Piramidy, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+__room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 
 poziomu_nr=2;
