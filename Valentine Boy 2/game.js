@@ -1595,6 +1595,7 @@ this.odlicz = 40;
 
 this.air = 0;
 this.jump = 0;
+this.spada = true;
 bity = 0;
 this.odrzut=0;
 
@@ -1739,15 +1740,20 @@ if (gra_wstepna<=18)
 	}
 	else
 	{
-		image_angle=0;
-		if ( (keyboard_check_pressed(vk_w) ||  keyboard_check( vk_up )) && jump == 0 ) {
+		if (this.spada==false) {
+			image_angle=0;
+		} else {
+			image_angle=air*12;
+		}
+		
+		if ( (keyboard_check_pressed(vk_w) ||  keyboard_check( vk_up )) && this.jump == 0 && this.air ==0 && this.spada == false) {
 			jump = 1;
 			air =  9; // siła skoku
 			if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_jump);
 			 
 		}
 
-		if ( air > -16 ) air -= 0.5;
+		if ( air > -32 ) air -= 0.5;
 
 		y -= air;
 	}
@@ -1784,8 +1790,9 @@ if (gra_wstepna<=18)
 			
 			
 			y = yprevious;
-			air = 0;
-			jump = 0;
+			this.air = 0;
+			this.jump = 0;
+			this.spada = false;
 			
 			if ( place_meeting(x, y, kladka) != null)
 			{
@@ -1809,57 +1816,62 @@ if (gra_wstepna<=18)
 		x++;
 	}
 	
-	if ( keyboard_check(vk_d) || keyboard_check( vk_right ) )  {
-		x += 4;
-		if (moze_latac)
-			{
-				x += 4;
-			}
-		direction = 0;
-		image_index = 4 + floor((x % 32) / 8);
-		this.kier=1;
-		
-		if (
-		(place_meeting(x, y, podloze_ziemia) != null) || 
-		(place_meeting(x, y, podloze_trawa) != null) ||
-		( place_meeting(x, y, kongbigobj) != null) ||
-		( place_meeting(x, y, konggobj) != null) )
-		{
-				x = xprevious;		
-		}
+	
+	if  ((!this.spada) || (moze_latac)) {
+	
+		if ( keyboard_check(vk_d) || keyboard_check( vk_right ) )  {
+			x += 4;
+			if (moze_latac)
+				{
+					x += 4;
+				}
+			direction = 0;
+			image_index = 4 + floor((x % 32) / 8);
+			this.kier=1;
 			
-		if (place_meeting(x, y+8, podloze_skos_lewy) != null)
+			if (
+			(place_meeting(x, y, podloze_ziemia) != null) || 
+			(place_meeting(x, y, podloze_trawa) != null) ||
+			( place_meeting(x, y, kongbigobj) != null) ||
+			( place_meeting(x, y, konggobj) != null) )
+			{
+					x = xprevious;		
+			}
+				
+			if (place_meeting(x, y+8, podloze_skos_lewy) != null)
+				{
+					y -= 2;
+					x += 1;
+				}
+		}
+
+		if ( keyboard_check(vk_a) || keyboard_check( vk_left )) {
+			x -= 4;
+			if (moze_latac)
+				{
+					x -= 4;
+				}
+			direction = 180;
+			image_index = 0+ floor((x % 32 ) / 8);
+			this.kier=0;
+			
+			if ((place_meeting(x, y, podloze_ziemia) != null) || (place_meeting(x, y, podloze_trawa) != null)) {
+				x = xprevious;
+			}
+			
+			if  (place_meeting(x, y+8, podloze_skos_prawy) != null)
 			{
 				y -= 2;
-				x += 1;
+				x -= 1;
 			}
-		
-		 
-	}
+			
+			 
 
-	if ( keyboard_check(vk_a) || keyboard_check( vk_left )) {
-		x -= 4;
-		if (moze_latac)
-			{
-				x -= 4;
-			}
-		direction = 180;
-		image_index = 0+ floor((x % 32 ) / 8);
-		this.kier=0;
-		
-		if ((place_meeting(x, y, podloze_ziemia) != null) || (place_meeting(x, y, podloze_trawa) != null)) {
-			x = xprevious;
 		}
-		
-		if  (place_meeting(x, y+8, podloze_skos_prawy) != null)
-		{
-			y -= 2;
-			x -= 1;
-		}
-		
-		 
-
+	
 	}
+	
+	
 
 	if ( x < 0 ) x = 0;
 	if ( x > room_width -32 ) x = room_width-32;
