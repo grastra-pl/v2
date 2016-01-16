@@ -1656,6 +1656,16 @@ odliczanie++;
 	{
 		odliczanie=0;
 	}
+	
+szybkosc_utraty_latania=6;
+if (odliczanie % szybkosc_utraty_latania == 0) {
+	if (moze_latac) {
+			procent_latania--;
+			if (procent_latania<1) {
+				moze_latac=false;
+			}
+		}
+}
 
 if (odrzut!=0)
 {
@@ -3194,6 +3204,13 @@ draw_sprite_ext(tloHUDA ,0,x-65,y-30,1,1,0,0.5);
 
 draw_sprite(sprite_pause,0,x+520,y-20);
 
+if (moze_latac)
+	{
+		draw_sprite_ext(skrzydla_sprite,0,x+270,y-20,0.5,0.5,0,0.75);
+		
+		draw_text(x+265 , y , procent_latania+"%");
+	}
+
 if (global.friendzoned)
 {
 	draw_text(x+200 , y+150 , "FRIENDZONED!");
@@ -3960,6 +3977,7 @@ with(this) {
 this.other = this.place_meeting(this.x, this.y, Walenty);
 if(this.other != null) {
 moze_latac=true;
+procent_latania=100;
 instance_destroy();
 }
 }
@@ -4627,7 +4645,22 @@ this.objects = [
 [{o:podloze_ziemia, x:928, y:1088}],
 [{o:podloze_ziemia, x:944, y:1088}],
 [{o:podloze_ziemia, x:960, y:1088}],
-[{o:podloze_ziemia, x:976, y:1088}]];
+[{o:podloze_ziemia, x:976, y:1088}],
+[{o:podloze_ziemia, x:80, y:304}],
+[{o:podloze_ziemia, x:96, y:304}],
+[{o:podloze_ziemia, x:112, y:304}],
+[{o:podloze_ziemia, x:64, y:304}],
+[{o:skrzydla, x:192, y:192}],
+[{o:jablko_do_wziecia, x:272, y:240}],
+[{o:slon_do_wziecia_dup, x:352, y:224}],
+[{o:pistolet, x:288, y:192}],
+[{o:filizanka_do_wziecia, x:256, y:176}],
+[{o:but_do_wziecia, x:304, y:160}],
+[{o:pierscien_do_wziecia, x:256, y:112}],
+[{o:bonus, x:224, y:48}],
+[{o:burger_do_wziecia, x:208, y:256}],
+[{o:kwiatek_do_wziecia, x:192, y:112}],
+[{o:kot_do_wziecia, x:320, y:256}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
@@ -5405,6 +5438,8 @@ dzwieki_on_bool=true;
 muzyka_on_bool=true;
 
 dzwieki_tylko_etapu=true;
+
+procent_latania=0;
 
 moze_latac=false;
 maPistolet=false;
