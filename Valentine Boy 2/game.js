@@ -3178,6 +3178,7 @@ this.on_step = function() {
 with(this) {
 air++;
 y+=air;
+image_angle++;
 }
 };
 this.on_end_step = on_end_step_i;
@@ -4491,6 +4492,138 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var granatRzucony = new __granatRzucony();
 
+function __odlamek() {
+__instance_init__(this, odlamek, null, 1, 0, sprite_2106, 1, 1063);
+this.on_creation = function() {
+with(this) {
+this.rzut=-10;
+speed = irandom(4) + 4;
+direction = irandom(360);
+image_angle = direction;
+}
+};
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+if (x < 0 || x > room_width || y > room_height || y<-20) instance_destroy();
+y+=this.rzut;
+this.rzut++;
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, klocek);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+
+}
+this.other = this.place_meeting(this.x, this.y, klocek_ciemny);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy(); 
+}
+this.other = this.place_meeting(this.x, this.y, podloze_ziemia);
+if(this.other != null) {
+wybuchGranatu(x,y);
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, podloze_trawa);
+if(this.other != null) {
+wybuchGranatu(x,y);
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrog1);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrog2);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrogAniol);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+}
+};
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var odlamek = new __odlamek();
+
+function __pociskGranatnika() {
+__instance_init__(this, pociskGranatnika, null, 1, 0, sprite_560, 1, 1064);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+if (x < 0 || x > room_width || y > room_height || y<-20) instance_destroy();
+image_angle+=17;
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, klocek);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+
+}
+this.other = this.place_meeting(this.x, this.y, klocek_ciemny);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy(); 
+}
+this.other = this.place_meeting(this.x, this.y, podloze_ziemia);
+if(this.other != null) {
+wybuchGranatu(x,y);
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, podloze_trawa);
+if(this.other != null) {
+wybuchGranatu(x,y);
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrog1);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrog2);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrogAniol);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+}
+};
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var pociskGranatnika = new __pociskGranatnika();
+
 
 
 /***********************************************************************
@@ -5760,7 +5893,7 @@ bronie={
 	'pistolet':[pistolet,pistoletHUD,6,40,pociskPistoletu,15,1],
 	'kalasz':[kalasz,kalaszS,60,10,pociskPistoletu,20,3],
 	'granat':[granat,granatS,5,20,granatRzucony,5,1],
-	'granatnik':[granatnik,granatnikS,4,60,pociskPistoletu,5,1],
+	'granatnik':[granatnik,granatnikS,4,60,pociskGranatnika,5,1],
 	'rozwalacz':[rozwalacz,rozwalaczS,3,70,pociskPistoletu,5,1]
 };
 
