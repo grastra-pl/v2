@@ -1568,6 +1568,14 @@ function __granatS() {
 __sprite_init__(this, granatS, 23, 20, 0, 0, 'Box', 11, 0, 23, 0, 20, ['img/granatS_0.png']);
 }; var granatS = new __granatS();
 
+function __płomieńS() { 
+__sprite_init__(this, płomieńS, 33, 63, 0, 0, 'Box', 21, 0, 43, 0, 82, ['img/płomieńS_0.png','img/płomieńS_3.png','img/płomieńS_4.png','img/płomieńS_5.png','img/płomieńS_6.png','img/płomieńS_10.png','img/płomieńS_11.png','img/płomieńS_12.png','img/płomieńS_13.png']);
+}; var płomieńS = new __płomieńS();
+
+function __lawa() { 
+__sprite_init__(this, lawa, 130, 125, 0, 0, 'Box', 65, 0, 130, 0, 125, ['img/lawa_0.png','img/lawa_1.png','img/lawa_2.png','img/lawa_3.png','img/lawa_4.png','img/lawa_5.png','img/lawa_6.png']);
+}; var lawa = new __lawa();
+
 
 
 /***********************************************************************
@@ -1619,6 +1627,9 @@ global.poczatkowe_punkty=punkty;
 global.game_paused=false; 
 global.friendzoned=false;
 
+dnoPiekieł=room_height;
+global.poziomLawy = dnoPiekieł;
+
 this.nieruchomosc=0;
 
 image_speed = 0; // zatrzymuje animację obrazka
@@ -1652,6 +1663,7 @@ with(this) {
 if 	(global.game_paused) return;
 
 
+
 		this.odlicz--;
 		if (this.odlicz<0)
 		{		
@@ -1672,7 +1684,11 @@ odliczanie++;
 	{
 		odliczanie=0;
 	}
-	
+
+if (odliczanie % 5 == 0) {
+global.poziomLawy--;
+}
+
 szybkosc_utraty_latania=6;
 if (odliczanie % szybkosc_utraty_latania == 0) {
 	if (moze_latac) {
@@ -1902,7 +1918,7 @@ if (gra_wstepna<=18)
 	if ( x < 0 ) x = 0;
 	if ( x > room_width -32 ) x = room_width-32;
 
-	if (y>1480)
+	if (y>wyliczDno())
 	{
 		dodajZycie(-1);
 	}
@@ -3220,22 +3236,38 @@ draw_sprite_ext(tloHUDA ,0,x-65,y-30,1,1,0,0.5);
 
 draw_sprite(sprite_pause,0,x+520,y-20);
 
+if (this.odliczanie++>360) {
+	this.odliczanie=0;
+}
+
+
+
+var xlawy=128;
+var ylawy=125;
+poziomPlomieni = wyliczDno()-25;
+
+for (var j=0;j<480;j+=ylawy) {
+	for (var i=0;i<room_width;i+=xlawy) {
+		draw_sprite(lawa,(floor(this.odliczanie/10)+j/ylawy+0*i/xlawy) % 7,i,j+poziomPlomieni+50);
+	}
+}
+
+for (var i=0;i<room_width;i+=20) {
+	draw_sprite(płomieńS,(floor(this.odliczanie/4)+i) % 9,i,poziomPlomieni);
+}
+
+
+
 if (moze_latac)	{
 		draw_sprite_ext(skrzydla_sprite,0,x+270,y-20,0.5,0.5,0,0.75);
 		draw_text(x+265 , y , procent_latania+"%");
 	}
 
-if (maPistolet) {
-		draw_sprite_ext(pistoletHUD, 0,x+280,y+25,0.5,0.5,0,0.75);
-		draw_text(x+285 , y+40 , procent_latania+"%");
-	}
-
-
 
 var nrBroni=0;
 for (var broń in posiadane_bronie)
 {
-		if (posiadane_bronie[broń]>-1)
+		if (posiadane_bronie[broń]>0)
 		{
 			xBroni=x+290+33*nrBroni;
 			
@@ -3260,6 +3292,7 @@ for (var broń in posiadane_bronie)
 		}
 		nrBroni++;
 }
+
 
 
 if (global.friendzoned)
@@ -3325,9 +3358,8 @@ for (var przedmiot in co_ma)
 		}
 }
 
-if (this.odliczanie++>360) {
-	this.odliczanie=0;
-}
+
+
 
 bicieSerca=Math.sin(this.odliczanie * (Math.PI/45));
 skalaSerca=2.5+0.25*bicieSerca;
@@ -5559,6 +5591,10 @@ tu_room_to_go = EkranStartowy;
  ***********************************************************************/
 global.gra_w_pelni_zaladowana = false;
 
+
+dnoPiekieł = 1480;
+global.poziomLawy = dnoPiekieł;
+
 dzwieki_on_bool=true;
 muzyka_on_bool=true;
 
@@ -5706,6 +5742,9 @@ wybrana_bron=0;
 room_goto_first();
 room_goto_next();
 
+}
+function wyliczDno() { 
+return global.poziomLawy;
 }
 
 
