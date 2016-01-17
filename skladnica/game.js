@@ -1396,6 +1396,18 @@ function __sprite_26() {
 __sprite_init__(this, sprite_26, 24, 20, 0, 0, 'Box', 12, 0, 24, 0, 20, ['img/sprite_26_0.png','img/sprite_26_1.png']);
 }; var sprite_26 = new __sprite_26();
 
+function __rozwalacz() { 
+__sprite_init__(this, rozwalacz, 57, 22, 0, 0, 'Box', 81, 0, 162, 0, 62, ['img/rozwalacz_0.png']);
+}; var rozwalacz = new __rozwalacz();
+
+function __kalasz() { 
+__sprite_init__(this, kalasz, 61, 23, 0, 0, 'Box', 61, 0, 122, 0, 46, ['img/kalasz_0.png']);
+}; var kalasz = new __kalasz();
+
+function __granatnik() { 
+__sprite_init__(this, granatnik, 80, 31, 0, 0, 'Box', 79, 0, 159, 0, 62, ['img/granatnik_0.png']);
+}; var granatnik = new __granatnik();
+
 
 
 /***********************************************************************

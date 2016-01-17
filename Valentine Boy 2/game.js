@@ -1552,6 +1552,18 @@ function __tloHUDA() {
 __sprite_init__(this, tloHUDA, 736, 133, 0, 0, 'Box', 368, 0, 736, 0, 133, ['img/tloHUDA_0.png']);
 }; var tloHUDA = new __tloHUDA();
 
+function __granatnikS() { 
+__sprite_init__(this, granatnikS, 80, 31, 0, 0, 'Box', 40, 0, 80, 0, 31, ['img/granatnikS_0.png']);
+}; var granatnikS = new __granatnikS();
+
+function __rozwalaczS() { 
+__sprite_init__(this, rozwalaczS, 57, 22, 0, 0, 'Box', 28, 0, 57, 0, 22, ['img/rozwalaczS_0.png']);
+}; var rozwalaczS = new __rozwalaczS();
+
+function __kalaszS() { 
+__sprite_init__(this, kalaszS, 61, 23, 0, 0, 'Box', 30, 0, 61, 0, 23, ['img/kalaszS_0.png']);
+}; var kalaszS = new __kalaszS();
+
 
 
 /***********************************************************************
@@ -3204,12 +3216,17 @@ draw_sprite_ext(tloHUDA ,0,x-65,y-30,1,1,0,0.5);
 
 draw_sprite(sprite_pause,0,x+520,y-20);
 
-if (moze_latac)
-	{
+if (moze_latac)	{
 		draw_sprite_ext(skrzydla_sprite,0,x+270,y-20,0.5,0.5,0,0.75);
-		
 		draw_text(x+265 , y , procent_latania+"%");
 	}
+
+if (maPistolet) {
+		draw_sprite_ext(pistoletHUD, 0,x+280,y+25,0.5,0.5,0,0.75);
+		draw_text(x+285 , y+40 , procent_latania+"%");
+	}
+
+
 
 if (global.friendzoned)
 {
@@ -4209,6 +4226,45 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var zebranyObiekt = new __zebranyObiekt();
 
+function __granatnik() {
+__instance_init__(this, granatnik, null, 1, 0, granatnikS, 1, 1049);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var granatnik = new __granatnik();
+
+function __rozwalacz() {
+__instance_init__(this, rozwalacz, null, 1, 0, rozwalaczS, 1, 1050);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var rozwalacz = new __rozwalacz();
+
+function __kalasz() {
+__instance_init__(this, kalasz, null, 1, 0, kalaszS, 1, 1051);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var kalasz = new __kalasz();
+
 
 
 /***********************************************************************
@@ -4660,7 +4716,12 @@ this.objects = [
 [{o:bonus, x:224, y:48}],
 [{o:burger_do_wziecia, x:208, y:256}],
 [{o:kwiatek_do_wziecia, x:192, y:112}],
-[{o:kot_do_wziecia, x:320, y:256}]];
+[{o:kot_do_wziecia, x:320, y:256}],
+[{o:granatnik, x:128, y:32}],
+[{o:rozwalacz, x:128, y:80}],
+[{o:kalasz, x:32, y:32}],
+[{o:podloze_ziemia, x:16, y:112}],
+[{o:podloze_ziemia, x:0, y:112}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
