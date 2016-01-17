@@ -4213,8 +4213,7 @@ this.on_collision = function() {
 with(this) {
 this.other = this.place_meeting(this.x, this.y, Walenty);
 if(this.other != null) {
-maPistolet=true;
-co_ma['kwiat']=1;
+dodajBron('pistolet');
 instance_destroy();
 }
 }
@@ -4303,7 +4302,15 @@ y=ystart+Math.sin((xstart+ystart+odliczanie)/90*Math.PI)*10;
 }
 };
 this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, Walenty);
+if(this.other != null) {
+dodajBron('granatnik');
+instance_destroy();
+}
+}
+};
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
@@ -4320,7 +4327,15 @@ y=ystart+Math.sin((xstart+ystart+odliczanie)/90*Math.PI)*10;
 }
 };
 this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, Walenty);
+if(this.other != null) {
+dodajBron('rozwalacz');
+instance_destroy();
+}
+}
+};
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
@@ -4337,7 +4352,15 @@ y=ystart+Math.sin((xstart+ystart+odliczanie)/90*Math.PI)*10;
 }
 };
 this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, Walenty);
+if(this.other != null) {
+dodajBron('kalasz');
+instance_destroy();
+}
+}
+};
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
@@ -4354,7 +4377,15 @@ y=ystart+Math.sin((xstart+ystart+odliczanie)/90*Math.PI)*10;
 }
 };
 this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, Walenty);
+if(this.other != null) {
+dodajBron('granat');
+instance_destroy();
+}
+}
+};
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
@@ -4817,7 +4848,8 @@ this.objects = [
 [{o:rozwalacz, x:128, y:80}],
 [{o:podloze_ziemia, x:16, y:112}],
 [{o:podloze_ziemia, x:0, y:112}],
-[{o:kalasz, x:336, y:128}]];
+[{o:kalasz, x:336, y:128}],
+[{o:granat, x:160, y:240}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
@@ -5745,6 +5777,9 @@ room_goto_next();
 }
 function wyliczDno() { 
 return global.poziomLawy;
+}
+function dodajBron(ktora) { 
+posiadane_bronie[ktora]+=bronie[ktora][2];
 }
 
 
