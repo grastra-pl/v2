@@ -1564,6 +1564,10 @@ function __kalaszS() {
 __sprite_init__(this, kalaszS, 61, 23, 0, 0, 'Box', 30, 0, 61, 0, 23, ['img/kalaszS_0.png']);
 }; var kalaszS = new __kalaszS();
 
+function __granatS() { 
+__sprite_init__(this, granatS, 23, 20, 0, 0, 'Box', 11, 0, 23, 0, 20, ['img/granatS_0.png']);
+}; var granatS = new __granatS();
+
 
 
 /***********************************************************************
@@ -3228,6 +3232,36 @@ if (maPistolet) {
 
 
 
+var nrBroni=0;
+for (var broń in posiadane_bronie)
+{
+		if (posiadane_bronie[broń]>-1)
+		{
+			xBroni=x+290+33*nrBroni;
+			
+			if (nrBroni==2) {
+				xTextu=xBroni;
+			} else {
+				xTextu=xBroni+5;
+			}
+			
+			if (nrBroni==3) {
+				xBroni-=12;
+			}
+
+
+			yBroni=y+15+15*nrBroni;
+			if (nrBroni>2) {
+				yBroni=y+10+30-(nrBroni-2)*15;
+			}
+			
+			draw_sprite_ext(bronie[broń][1], 0,xBroni,yBroni,0.5,0.5,0,0.75);
+			draw_text(xTextu, yBroni+15 , posiadane_bronie[broń]);
+		}
+		nrBroni++;
+}
+
+
 if (global.friendzoned)
 {
 	draw_text(x+200 , y+150 , "FRIENDZONED!");
@@ -4148,6 +4182,7 @@ with(this) {
 this.other = this.place_meeting(this.x, this.y, Walenty);
 if(this.other != null) {
 maPistolet=true;
+co_ma['kwiat']=1;
 instance_destroy();
 }
 }
@@ -4276,6 +4311,23 @@ this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var kalasz = new __kalasz();
+
+function __granat() {
+__instance_init__(this, granat, null, 1, 0, granatS, 1, 1057);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+y=ystart+Math.sin((xstart+ystart+odliczanie)/90*Math.PI)*10; 
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var granat = new __granat();
 
 
 
@@ -5533,6 +5585,17 @@ poziomu_nazwa='';
 poziomu_nr=0;
 odliczanie=0;
 
+
+bronie={
+	'pistolet':[pistolet,pistoletHUD,6],
+	'kalasz':[kalasz,kalaszS,60],
+	'granat':[granat,granatS,5],
+	'granatnik':[granatnik,granatnikS,4],
+	'rozwalacz':[rozwalacz,rozwalaczS,3]
+};
+
+
+
 co_moze_miec={
 'kot':[kot_pomyslany,kot_do_wziecia,sprite_2078],
 'pierścień': [pierscien_pomyslany,pierscien_do_wziecia,sprite_1196], 
@@ -5629,6 +5692,17 @@ else
 function letsStartGame() { 
 moze_latac=false;
 maPistolet=false;
+
+posiadane_bronie={
+	'pistolet':0,
+	'kalasz':0,
+	'granat':0,
+	'granatnik':0,
+	'rozwalacz':0
+};
+
+wybrana_bron=0;
+
 room_goto_first();
 room_goto_next();
 

@@ -1408,6 +1408,22 @@ function __granatnik() {
 __sprite_init__(this, granatnik, 80, 31, 0, 0, 'Box', 79, 0, 159, 0, 62, ['img/granatnik_0.png']);
 }; var granatnik = new __granatnik();
 
+function __ogien() { 
+__sprite_init__(this, ogien, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/ogien_0.png','img/ogien_1.png','img/ogien_2.png','img/ogien_3.png','img/ogien_4.png','img/ogien_5.png','img/ogien_6.png','img/ogien_7.png','img/ogien_8.png','img/ogien_9.png','img/ogien_10.png','img/ogien_11.png','img/ogien_12.png','img/ogien_13.png','img/ogien_14.png','img/ogien_15.png','img/ogien_16.png','img/ogien_17.png','img/ogien_18.png','img/ogien_19.png','img/ogien_20.png','img/ogien_21.png','img/ogien_22.png','img/ogien_23.png','img/ogien_24.png','img/ogien_25.png','img/ogien_26.png','img/ogien_27.png','img/ogien_28.png','img/ogien_29.png','img/ogien_30.png','img/ogien_31.png','img/ogien_32.png','img/ogien_33.png','img/ogien_34.png','img/ogien_35.png','img/ogien_36.png','img/ogien_37.png','img/ogien_38.png','img/ogien_39.png','img/ogien_40.png','img/ogien_41.png','img/ogien_42.png','img/ogien_43.png','img/ogien_44.png','img/ogien_45.png','img/ogien_46.png','img/ogien_47.png','img/ogien_48.png','img/ogien_49.png','img/ogien_50.png','img/ogien_51.png','img/ogien_52.png','img/ogien_53.png','img/ogien_54.png','img/ogien_55.png','img/ogien_56.png','img/ogien_57.png','img/ogien_58.png','img/ogien_59.png','img/ogien_60.png','img/ogien_61.png','img/ogien_62.png','img/ogien_63.png','img/ogien_64.png','img/ogien_65.png','img/ogien_66.png','img/ogien_67.png','img/ogien_68.png','img/ogien_69.png','img/ogien_70.png','img/ogien_71.png','img/ogien_72.png','img/ogien_73.png','img/ogien_74.png','img/ogien_75.png','img/ogien_76.png','img/ogien_77.png','img/ogien_78.png','img/ogien_79.png','img/ogien_80.png','img/ogien_81.png','img/ogien_82.png','img/ogien_83.png','img/ogien_84.png','img/ogien_85.png','img/ogien_86.png','img/ogien_87.png','img/ogien_88.png','img/ogien_89.png','img/ogien_90.png','img/ogien_91.png','img/ogien_92.png','img/ogien_93.png','img/ogien_94.png','img/ogien_95.png']);
+}; var ogien = new __ogien();
+
+function __hexagramS() { 
+__sprite_init__(this, hexagramS, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/hexagramS_43.png','img/hexagramS_44.png']);
+}; var hexagramS = new __hexagramS();
+
+function __sprite_36() { 
+__sprite_init__(this, sprite_36, 51, 52, 0, 0, 'Box', 25, 0, 51, 0, 52, ['img/sprite_36_0.png','img/sprite_36_1.png','img/sprite_36_2.png','img/sprite_36_3.png','img/sprite_36_4.png','img/sprite_36_5.png','img/sprite_36_6.png','img/sprite_36_7.png','img/sprite_36_8.png','img/sprite_36_9.png','img/sprite_36_10.png','img/sprite_36_11.png','img/sprite_36_12.png','img/sprite_36_13.png','img/sprite_36_14.png','img/sprite_36_15.png','img/sprite_36_16.png','img/sprite_36_17.png','img/sprite_36_18.png','img/sprite_36_19.png','img/sprite_36_20.png','img/sprite_36_21.png','img/sprite_36_22.png','img/sprite_36_23.png','img/sprite_36_24.png','img/sprite_36_25.png','img/sprite_36_26.png','img/sprite_36_27.png','img/sprite_36_28.png','img/sprite_36_29.png','img/sprite_36_30.png','img/sprite_36_31.png','img/sprite_36_32.png','img/sprite_36_33.png','img/sprite_36_34.png','img/sprite_36_35.png','img/sprite_36_36.png','img/sprite_36_37.png','img/sprite_36_38.png','img/sprite_36_39.png','img/sprite_36_40.png','img/sprite_36_41.png','img/sprite_36_42.png','img/sprite_36_43.png','img/sprite_36_44.png','img/sprite_36_45.png','img/sprite_36_46.png','img/sprite_36_47.png','img/sprite_36_48.png','img/sprite_36_49.png','img/sprite_36_50.png','img/sprite_36_51.png','img/sprite_36_52.png','img/sprite_36_53.png','img/sprite_36_54.png','img/sprite_36_55.png','img/sprite_36_56.png','img/sprite_36_57.png','img/sprite_36_58.png','img/sprite_36_59.png','img/sprite_36_60.png','img/sprite_36_61.png','img/sprite_36_62.png','img/sprite_36_63.png','img/sprite_36_64.png','img/sprite_36_65.png','img/sprite_36_66.png','img/sprite_36_67.png','img/sprite_36_68.png','img/sprite_36_69.png','img/sprite_36_70.png','img/sprite_36_71.png']);
+}; var sprite_36 = new __sprite_36();
+
+function __granat() { 
+__sprite_init__(this, granat, 23, 20, 0, 0, 'Box', 11, 0, 23, 0, 20, ['img/granat_0.png']);
+}; var granat = new __granat();
+
 
 
 /***********************************************************************
