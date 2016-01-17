@@ -1540,9 +1540,9 @@ function __pociskPistoletuSprite() {
 __sprite_init__(this, pociskPistoletuSprite, 24, 20, 0, 0, 'Box', 12, 0, 24, 0, 20, ['img/pociskPistoletuSprite_0.png','img/pociskPistoletuSprite_1.png']);
 }; var pociskPistoletuSprite = new __pociskPistoletuSprite();
 
-function __sprite_5960() { 
-__sprite_init__(this, sprite_5960, 18, 26, 0, 0, 'Box', 9, 0, 18, 0, 26, ['img/sprite_5960_0.png','img/sprite_5960_1.png']);
-}; var sprite_5960 = new __sprite_5960();
+function __pociskRozwalacza() { 
+__sprite_init__(this, pociskRozwalacza, 18, 26, 0, 0, 'Box', 9, 0, 18, 0, 26, ['img/pociskRozwalacza_0.png','img/pociskRozwalacza_1.png']);
+}; var pociskRozwalacza = new __pociskRozwalacza();
 
 function __pistoletHUD() { 
 __sprite_init__(this, pistoletHUD, 62, 57, 0, 0, 'Box', 31, 0, 62, 0, 57, ['img/pistoletHUD_0.png']);
@@ -1663,18 +1663,50 @@ with(this) {
 if 	(global.game_paused) return;
 
 
-
+// wybrana_bron
 		this.odlicz--;
 		if (this.odlicz<0)
 		{		
 			this.odlicz=0;
 			if ( keyboard_check(vk_space)) {
+			/*
 				if (maPistolet) {
 					this.odlicz=40;				
 					kula = instance_create(x,y,pociskPistoletu);
 					kula.direction = direction;
 					kula.speed = 15;
 				}
+				*/
+				if (wybrana_bron!='') {
+					if (posiadane_bronie[wybrana_bron]>0) {
+						
+						this.odlicz=bronie[wybrana_bron][3];
+						
+						kule=[];
+						var spd = bronie[wybrana_bron][5]; 
+						var typPocisku = bronie[wybrana_bron][4];
+						var liczbaPociskow = bronie[wybrana_bron][6];
+						var xdir = lengthdir_x(spd, direction);
+						var ydir = lengthdir_y(spd, direction);
+						
+						
+						for (var i=0;i<liczbaPociskow;i++) {
+							if (posiadane_bronie[wybrana_bron]>0) {
+								
+								kule[i] = instance_create(x+xdir*i,y+ydir*i,typPocisku);
+								kule[i].speed = spd;
+								kule[i].direction = direction;
+															
+								posiadane_bronie[wybrana_bron]--;
+							}
+						}
+						
+					} else {
+					
+					}
+				}
+				
+				
 			}
 		}
 
@@ -4293,7 +4325,7 @@ this.on_draw = on_draw_i;
 }; var zebranyObiekt = new __zebranyObiekt();
 
 function __granatnik() {
-__instance_init__(this, granatnik, null, 1, 0, granatnikS, 1, 1049);
+__instance_init__(this, granatnik, null, 1, 0, granatnikS, 1, 1048);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4318,7 +4350,7 @@ this.on_draw = on_draw_i;
 }; var granatnik = new __granatnik();
 
 function __rozwalacz() {
-__instance_init__(this, rozwalacz, null, 1, 0, rozwalaczS, 1, 1050);
+__instance_init__(this, rozwalacz, null, 1, 0, rozwalaczS, 1, 1049);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4343,7 +4375,7 @@ this.on_draw = on_draw_i;
 }; var rozwalacz = new __rozwalacz();
 
 function __kalasz() {
-__instance_init__(this, kalasz, null, 1, 0, kalaszS, 1, 1051);
+__instance_init__(this, kalasz, null, 1, 0, kalaszS, 1, 1050);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4368,7 +4400,7 @@ this.on_draw = on_draw_i;
 }; var kalasz = new __kalasz();
 
 function __granat() {
-__instance_init__(this, granat, null, 1, 0, granatS, 1, 1057);
+__instance_init__(this, granat, null, 1, 0, granatS, 1, 1056);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4391,6 +4423,73 @@ this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var granat = new __granat();
+
+function __granatRzucony() {
+__instance_init__(this, granatRzucony, null, 1, 0, granatS, 1, 1058);
+this.on_creation = function() {
+with(this) {
+this.rzut=-10;
+}
+};
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+if (x < 0 || x > room_width || y > room_height || y<-20) instance_destroy();
+y+=this.rzut;
+this.rzut++;
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, klocek);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+
+}
+this.other = this.place_meeting(this.x, this.y, klocek_ciemny);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy(); 
+}
+this.other = this.place_meeting(this.x, this.y, podloze_ziemia);
+if(this.other != null) {
+wybuchGranatu(x,y);
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, podloze_trawa);
+if(this.other != null) {
+wybuchGranatu(x,y);
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrog1);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrog2);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, wrogAniol);
+if(this.other != null) {
+wybuchGranatu(x,y);
+other.instance_destroy();
+instance_destroy();
+}
+}
+};
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var granatRzucony = new __granatRzucony();
 
 
 
@@ -4836,7 +4935,6 @@ this.objects = [
 [{o:skrzydla, x:192, y:192}],
 [{o:jablko_do_wziecia, x:272, y:240}],
 [{o:slon_do_wziecia_dup, x:352, y:224}],
-[{o:pistolet, x:288, y:192}],
 [{o:filizanka_do_wziecia, x:256, y:176}],
 [{o:but_do_wziecia, x:304, y:160}],
 [{o:pierscien_do_wziecia, x:256, y:112}],
@@ -4849,7 +4947,11 @@ this.objects = [
 [{o:podloze_ziemia, x:16, y:112}],
 [{o:podloze_ziemia, x:0, y:112}],
 [{o:kalasz, x:336, y:128}],
-[{o:granat, x:160, y:240}]];
+[{o:granat, x:160, y:240}],
+[{o:klocek, x:32, y:192}],
+[{o:klocek, x:32, y:224}],
+[{o:klocek, x:32, y:256}],
+[{o:klocek, x:64, y:256}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
@@ -5655,11 +5757,11 @@ odliczanie=0;
 
 
 bronie={
-	'pistolet':[pistolet,pistoletHUD,6],
-	'kalasz':[kalasz,kalaszS,60],
-	'granat':[granat,granatS,5],
-	'granatnik':[granatnik,granatnikS,4],
-	'rozwalacz':[rozwalacz,rozwalaczS,3]
+	'pistolet':[pistolet,pistoletHUD,6,40,pociskPistoletu,15,1],
+	'kalasz':[kalasz,kalaszS,60,10,pociskPistoletu,20,3],
+	'granat':[granat,granatS,5,20,granatRzucony,5,1],
+	'granatnik':[granatnik,granatnikS,4,60,pociskPistoletu,5,1],
+	'rozwalacz':[rozwalacz,rozwalaczS,3,70,pociskPistoletu,5,1]
 };
 
 
@@ -5769,7 +5871,7 @@ posiadane_bronie={
 	'rozwalacz':0
 };
 
-wybrana_bron=0;
+wybrana_bron='';
 
 room_goto_first();
 room_goto_next();
@@ -5780,6 +5882,23 @@ return global.poziomLawy;
 }
 function dodajBron(ktora) { 
 posiadane_bronie[ktora]+=bronie[ktora][2];
+wybrana_bron=ktora;
+}
+function wybuchGranatu(x,y) { 
+for (i=0;i<10;i++)
+{
+	instance_create(x,y,kawalek);
+}
+
+}
+function wybuchCzaszki(x,y) { 
+kule=[];
+
+for (var i=0;i<=360;i+=15) {
+	kule[i] = instance_create(x,y,pociskPistoletu);
+	kule[i].direction = i;
+	kule[i].speed = 20;
+}
 }
 
 
