@@ -4230,7 +4230,11 @@ function __granatnik() {
 __instance_init__(this, granatnik, null, 1, 0, granatnikS, 1, 1049);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
-this.on_step = on_step_i;
+this.on_step = function() {
+with(this) {
+y=ystart+Math.sin((xstart+ystart+odliczanie)/90*Math.PI)*10; 
+}
+};
 this.on_end_step = on_end_step_i;
 this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
@@ -4243,7 +4247,11 @@ function __rozwalacz() {
 __instance_init__(this, rozwalacz, null, 1, 0, rozwalaczS, 1, 1050);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
-this.on_step = on_step_i;
+this.on_step = function() {
+with(this) {
+y=ystart+Math.sin((xstart+ystart+odliczanie)/90*Math.PI)*10; 
+}
+};
 this.on_end_step = on_end_step_i;
 this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
@@ -4256,7 +4264,11 @@ function __kalasz() {
 __instance_init__(this, kalasz, null, 1, 0, kalaszS, 1, 1051);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
-this.on_step = on_step_i;
+this.on_step = function() {
+with(this) {
+y=ystart+Math.sin((xstart+ystart+odliczanie)/90*Math.PI)*10; 
+}
+};
 this.on_end_step = on_end_step_i;
 this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
@@ -4719,9 +4731,9 @@ this.objects = [
 [{o:kot_do_wziecia, x:320, y:256}],
 [{o:granatnik, x:128, y:32}],
 [{o:rozwalacz, x:128, y:80}],
-[{o:kalasz, x:32, y:32}],
 [{o:podloze_ziemia, x:16, y:112}],
-[{o:podloze_ziemia, x:0, y:112}]];
+[{o:podloze_ziemia, x:0, y:112}],
+[{o:kalasz, x:336, y:128}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
