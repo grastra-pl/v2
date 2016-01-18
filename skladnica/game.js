@@ -1424,6 +1424,22 @@ function __granat() {
 __sprite_init__(this, granat, 23, 20, 0, 0, 'Box', 11, 0, 23, 0, 20, ['img/granat_0.png']);
 }; var granat = new __granat();
 
+function __blueBos() { 
+__sprite_init__(this, blueBos, 80, 80, 0, 0, 'Box', 40, 0, 80, 0, 80, ['img/blueBos_0.png','img/blueBos_1.png','img/blueBos_2.png']);
+}; var blueBos = new __blueBos();
+
+function __redBoss() { 
+__sprite_init__(this, redBoss, 80, 80, 0, 0, 'Box', 40, 0, 80, 0, 80, ['img/redBoss_6.png','img/redBoss_7.png','img/redBoss_8.png']);
+}; var redBoss = new __redBoss();
+
+function __greenBoss() { 
+__sprite_init__(this, greenBoss, 80, 80, 0, 0, 'Box', 40, 0, 80, 0, 80, ['img/greenBoss_9.png','img/greenBoss_10.png','img/greenBoss_11.png']);
+}; var greenBoss = new __greenBoss();
+
+function __glownyBoss() { 
+__sprite_init__(this, glownyBoss, 134, 95, 0, 0, 'Box', 198, 0, 397, 0, 281, ['img/glownyBoss_0.png']);
+}; var glownyBoss = new __glownyBoss();
+
 
 
 /***********************************************************************

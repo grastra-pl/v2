@@ -1540,9 +1540,9 @@ function __pociskPistoletuSprite() {
 __sprite_init__(this, pociskPistoletuSprite, 24, 20, 0, 0, 'Box', 12, 0, 24, 0, 20, ['img/pociskPistoletuSprite_0.png','img/pociskPistoletuSprite_1.png']);
 }; var pociskPistoletuSprite = new __pociskPistoletuSprite();
 
-function __pociskRozwalacza() { 
-__sprite_init__(this, pociskRozwalacza, 18, 26, 0, 0, 'Box', 9, 0, 18, 0, 26, ['img/pociskRozwalacza_0.png','img/pociskRozwalacza_1.png']);
-}; var pociskRozwalacza = new __pociskRozwalacza();
+function __pociskRozwalaczaS() { 
+__sprite_init__(this, pociskRozwalaczaS, 18, 26, 0, 0, 'Box', 9, 0, 18, 0, 26, ['img/pociskRozwalaczaS_0.png','img/pociskRozwalaczaS_1.png']);
+}; var pociskRozwalaczaS = new __pociskRozwalaczaS();
 
 function __pistoletHUD() { 
 __sprite_init__(this, pistoletHUD, 62, 57, 0, 0, 'Box', 31, 0, 62, 0, 57, ['img/pistoletHUD_0.png']);
@@ -1575,6 +1575,30 @@ __sprite_init__(this, płomieńS, 33, 63, 0, 0, 'Box', 21, 0, 43, 0, 82, ['img/p
 function __lawa() { 
 __sprite_init__(this, lawa, 130, 125, 0, 0, 'Box', 65, 0, 130, 0, 125, ['img/lawa_0.png','img/lawa_1.png','img/lawa_2.png','img/lawa_3.png','img/lawa_4.png','img/lawa_5.png','img/lawa_6.png']);
 }; var lawa = new __lawa();
+
+function __pociskGranatnikaS() { 
+__sprite_init__(this, pociskGranatnikaS, 24, 20, 0, 0, 'Box', 12, 0, 24, 0, 20, ['img/pociskGranatnikaS_0.png','img/pociskGranatnikaS_1.png']);
+}; var pociskGranatnikaS = new __pociskGranatnikaS();
+
+function __glownyBossS() { 
+__sprite_init__(this, glownyBossS, 134, 95, 0, 0, 'Box', 67, 0, 134, 0, 95, ['img/glownyBossS_0.png']);
+}; var glownyBossS = new __glownyBossS();
+
+function __greenBossS() { 
+__sprite_init__(this, greenBossS, 80, 80, 0, 0, 'Box', 40, 0, 80, 0, 80, ['img/greenBossS_0.png','img/greenBossS_1.png','img/greenBossS_2.png']);
+}; var greenBossS = new __greenBossS();
+
+function __redBossS() { 
+__sprite_init__(this, redBossS, 80, 80, 0, 0, 'Box', 40, 0, 80, 0, 80, ['img/redBossS_0.png','img/redBossS_1.png','img/redBossS_2.png']);
+}; var redBossS = new __redBossS();
+
+function __blueBossS() { 
+__sprite_init__(this, blueBossS, 80, 80, 0, 0, 'Box', 40, 0, 80, 0, 80, ['img/blueBossS_0.png','img/blueBossS_1.png','img/blueBossS_2.png']);
+}; var blueBossS = new __blueBossS();
+
+function __miniLifeBarS() { 
+__sprite_init__(this, miniLifeBarS, 32, 8, 0, 0, 'Box', 16, 0, 32, 0, 8, ['img/miniLifeBarS_0.png']);
+}; var miniLifeBarS = new __miniLifeBarS();
 
 
 
@@ -4563,13 +4587,13 @@ this.on_draw = on_draw_i;
 }; var odlamek = new __odlamek();
 
 function __pociskGranatnika() {
-__instance_init__(this, pociskGranatnika, null, 1, 0, sprite_560, 1, 1064);
+__instance_init__(this, pociskGranatnika, null, 1, 0, pociskGranatnikaS, 1, 1064);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
 if (x < 0 || x > room_width || y > room_height || y<-20) instance_destroy();
-image_angle+=17;
+//image_angle+=17;
 }
 };
 this.on_end_step = on_end_step_i;
@@ -4623,6 +4647,127 @@ this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var pociskGranatnika = new __pociskGranatnika();
+
+function __blueBoss() {
+__instance_init__(this, blueBoss, null, 1, 0, blueBossS, 1, 1065);
+this.on_creation = function() {
+with(this) {
+image_speed=0;
+image_index=0;
+this.kier=-1.5;
+this.odlicz=100;
+this.zycie=100;
+}
+};
+this.on_destroy = function() {
+with(this) {
+expl = instance_create(x+irandom(5)-3,y +irandom(5)-3 ,explozja);
+doliczPunkty(16);
+}
+};
+this.on_step = function() {
+with(this) {
+if 	(global.game_paused) return;
+
+if  (( place_meeting(x, y+4, podloze_ziemia) != null)
+		|| ( place_meeting(x, y+4, podloze_trawa) != null)
+		|| ( place_meeting(x, y+4, podloze_skos_lewy) != null)
+		|| ( place_meeting(x, y+4, podloze_skos_prawy) != null)
+		)
+		{
+			if  (( place_meeting(x+2*this.kier, y, podloze_ziemia) != null)
+				|| ( place_meeting(x+2*this.kier, y, podloze_trawa) != null)
+				|| ( place_meeting(x+2*this.kier, y, podloze_skos_lewy) != null)
+				|| ( place_meeting(x+2*this.kier, y, podloze_skos_prawy) != null)
+				)
+				{
+					// zmiana kierunku
+					this.kier=-this.kier;
+				}
+				
+			x+=this.kier;
+			if (kier<0)
+			{
+				image_index=0+(x/8+y/8) % 4;
+				direction = 180;
+			}
+			else
+			{
+				image_index=4+(x/8+y/8) % 4;
+				direction = 0;
+			}
+		}
+		else
+		{
+			image_index=0;
+			y+=4;
+		}
+		
+		
+		this.odlicz--;
+		if (this.odlicz<0)
+		{
+			if (abs(x-x_gracza)<220)
+			{
+				this.odlicz=40;				
+				kula = instance_create(x,y +15,kula_wroga);
+				kula.direction = direction;
+				kula.speed = 15;
+			}
+		}
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, kawalek);
+if(this.other != null) {
+this.zycie--;
+other.instance_destroy();
+
+
+}
+this.other = this.place_meeting(this.x, this.y, pociskPistoletu);
+if(this.other != null) {
+this.zycie-=2;
+other.instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, granatRzucony);
+if(this.other != null) {
+this.zycie-=5;
+other.instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, odlamek);
+if(this.other != null) {
+this.zycie-=5;
+other.instance_destroy();
+}
+this.other = this.place_meeting(this.x, this.y, pociskGranatnika);
+if(this.other != null) {
+this.zycie-=10;
+other.instance_destroy();
+}
+}
+};
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = function() {
+if (this.visible == 1) {
+__handle_sprite__(this);
+with(this) {
+if (this.zycie<=0) {
+instance_destroy();
+} else {
+	
+var srodek=x+blueBossS.width/2-miniLifeBarS.width/2;
+	draw_sprite_ext(miniLifeBarS ,0,srodek,y-30,this.zycie/100,1,0,0.75);
+	draw_sprite_ext(blueBossS ,0,x,y-30,1,1,0,1);
+}
+}
+}
+};
+}; var blueBoss = new __blueBoss();
 
 
 
@@ -5084,7 +5229,12 @@ this.objects = [
 [{o:klocek, x:32, y:192}],
 [{o:klocek, x:32, y:224}],
 [{o:klocek, x:32, y:256}],
-[{o:klocek, x:64, y:256}]];
+[{o:klocek, x:64, y:256}],
+[{o:blueBoss, x:680, y:0}],
+[{o:podloze_ziemia, x:680, y:100}],
+[{o:podloze_ziemia, x:700, y:100}],
+[{o:podloze_ziemia, x:720, y:100}],
+[{o:podloze_ziemia, x:740, y:100}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
