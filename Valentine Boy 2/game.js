@@ -1686,6 +1686,9 @@ this.on_step = function() {
 with(this) {
 if 	(global.game_paused) return;
 
+
+wybieranieBroni();
+
 // wybrana_bron
 		this.odlicz--;
 		if (this.odlicz<0)
@@ -6215,6 +6218,36 @@ var srodek=bossThis.x+bossType.width/2-miniLifeBarS.width/2;
 		}
 	}
 	draw_sprite_ext(bossType,subimg,bossThis.x,bossThis.y-30,1,1,0,1);
+}
+function wybieranieBroni() { 
+nowowybrana='';
+if ( keyboard_check(vk_1)) {
+	nowowybrana= 'pistolet';
+}
+
+if ( keyboard_check(vk_2)) {
+	nowowybrana='kalasz';
+}
+
+if ( keyboard_check(vk_3)) {
+	nowowybrana='granat';
+}
+
+if ( keyboard_check(vk_4)) {
+	nowowybrana='granatnik';
+}
+
+
+if ( keyboard_check(vk_5)) {
+	nowowybrana='rozwalacz';
+}
+
+if (nowowybrana!='') {
+	if (posiadane_bronie[nowowybrana]>0) {
+		wybrana_bron=nowowybrana;
+	}
+}
+
 }
 
 
