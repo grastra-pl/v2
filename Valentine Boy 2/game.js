@@ -1609,6 +1609,30 @@ function __snd_jump() {
 __audio_init__(this, snd_jump, 'aud/coin06.wav', '', '');
 }; var snd_jump = new __snd_jump();
 
+function __snd_glock() { 
+__audio_init__(this, snd_glock, '', 'aud/Glock.mp3', '');
+}; var snd_glock = new __snd_glock();
+
+function __snd_ak47() { 
+__audio_init__(this, snd_ak47, '', 'aud/Ak47.mp3', '');
+}; var snd_ak47 = new __snd_ak47();
+
+function __snd_granat() { 
+__audio_init__(this, snd_granat, '', 'aud/Granat.mp3', '');
+}; var snd_granat = new __snd_granat();
+
+function __snd_rozwalacz() { 
+__audio_init__(this, snd_rozwalacz, '', 'aud/Rozwalacz.mp3', '');
+}; var snd_rozwalacz = new __snd_rozwalacz();
+
+function __snd_rzut() { 
+__audio_init__(this, snd_rzut, '', 'aud/Rzut.mp3', '');
+}; var snd_rzut = new __snd_rzut();
+
+function __snd_bec() { 
+__audio_init__(this, snd_bec, '', 'aud/Szklo.mp3', '');
+}; var snd_bec = new __snd_bec();
+
 
 
 /***********************************************************************
@@ -1708,6 +1732,7 @@ wybieranieBroni();
 						var xdir = lengthdir_x(spd, direction);
 						var ydir = lengthdir_y(spd, direction);
 						
+						if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(bronie[wybrana_bron][7]);
 						
 						for (var i=0;i<liczbaPociskow;i++) {
 							if (posiadane_bronie[wybrana_bron]>0) {
@@ -3112,6 +3137,7 @@ for (i=0;i<10;i++)
 {
 	instance_create(x,y,kawalek);
 }
+if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_bec);
 }
 };
 this.on_step = function() {
@@ -3167,6 +3193,7 @@ for (i=0;i<10;i++)
 {
 	instance_create(x,y,kawalek);
 }
+if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_bec);
 }
 };
 this.on_step = function() {
@@ -6054,11 +6081,11 @@ odliczanie=0;
 
 
 bronie={
-	'pistolet':[pistolet,pistoletHUD,6,40,pociskPistoletu,15,1],
-	'kalasz':[kalasz,kalaszS,60,10,pociskPistoletu,20,3],
-	'granat':[granat,granatS,5,20,granatRzucony,5,1],
-	'granatnik':[granatnik,granatnikS,4,60,pociskGranatnika,5,1],
-	'rozwalacz':[rozwalacz,rozwalaczS,3,70,pociskPistoletu,5,1]
+	'pistolet':[pistolet,pistoletHUD,6,40,pociskPistoletu,15,1,snd_glock],
+	'kalasz':[kalasz,kalaszS,60,10,pociskPistoletu,20,3,snd_ak47],
+	'granat':[granat,granatS,5,20,granatRzucony,5,1,snd_rzut],
+	'granatnik':[granatnik,granatnikS,4,60,pociskGranatnika,5,1,snd_granat],
+	'rozwalacz':[rozwalacz,rozwalaczS,3,70,pociskPistoletu,5,1,snd_rozwalacz]
 };
 
 
