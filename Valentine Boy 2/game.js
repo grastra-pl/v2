@@ -1652,7 +1652,10 @@ __audio_init__(this, snd_potwor, '', 'aud/Potwor.mp3', '');
  * BACKGROUNDS
  ***********************************************************************/
 function __VALENTINE_TLO() { 
-__background_init__(this, VALENTINE_TLO, 'img/ValentineBoy_2.png')}; var VALENTINE_TLO = new __VALENTINE_TLO();
+__background_init__(this, VALENTINE_TLO, 'img/planszaTytulowaVB.png')}; var VALENTINE_TLO = new __VALENTINE_TLO();
+
+function __paniD() { 
+__background_init__(this, paniD, 'img/pani_diabel.png')}; var paniD = new __paniD();
 
 
 
@@ -3821,6 +3824,7 @@ this.on_creation = function() {
 with(this) {
 image_speed=0;
 image_index=0;
+
 }
 };
 this.on_destroy = on_destroy_i;
@@ -3836,6 +3840,10 @@ if (global.gra_w_pelni_zaladowana) {
 		letsStartGame();
 	}
 }
+
+this.odliczanie++;
+
+
 
 }
 };
@@ -4913,15 +4921,17 @@ function inicjalizacja()
 		var divIdName = 'start';
 		start_div.setAttribute('id',divIdName);
 		start_div.setAttribute('name',divIdName);
-		start_div.setAttribute('style','position: absolute; top: 105px; left: 0px; width: 640px; background-color: transparent; font-size: 95px; color: black; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;');
+		start_div.setAttribute('style','position: absolute; top: 285px; left: 0px; width: 640px; background-color: transparent; font-size: 95px; color: black; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;');
 		start_div.innerHTML = 'Start'+dedykacja;
+		
 		
 		var tytul_div = document.createElement('div');
 		var divIdName = 'tytul';
 		tytul_div.setAttribute('id',divIdName);
 		tytul_div.setAttribute('name',divIdName);
 		tytul_div.setAttribute('style','position: absolute; top: 385px; left: 485px; background-color: transparent;');
-		tytul_div.innerHTML = '<img src="imq/grastra1999.gif" alt="grastra logo" >';
+		tytul_div.innerHTML = 'Grastra 2016';
+		
 		
 		var punkty_div = document.createElement('div');
 		divIdName = 'punkty';
@@ -6056,7 +6066,7 @@ this.tiles = [
 this.objects = [
 ];
 this.start = function() {
-__room_start__(this, ekran_koncowy, 640, 480, 30, 0, 0, 0, VALENTINE_TLO.image, 0, 0, 0, 640, 480, null, 50, 50);
+__room_start__(this, ekran_koncowy, 640, 480, 30, 0, 0, 0, paniD.image, 0, 0, 0, 640, 480, null, 50, 50);
 
 end_text="Now, after pick up all the girls in Hell...";
 end_text2="try the same in the real world!";
@@ -6076,7 +6086,7 @@ if (end_game1===null)
 
 	end_game1_div.setAttribute('id',divIdName);
 	end_game1_div.setAttribute('name',divIdName);
-	end_game1_div.setAttribute('style','position: absolute; top: 30px; left: 20px; background-color: red; padding: 5px; font-size: 25px; color: pink; text-align: center;');
+	end_game1_div.setAttribute('style','position: absolute; top: 30px; left: 120px; background-color: red; padding: 5px; font-size: 25px; color: pink; text-align: center;');
 
 	end_game1_div.innerHTML = end_text;
 
@@ -6088,7 +6098,7 @@ if (end_game1===null)
 
 	end_game2_div.setAttribute('id',divIdName);
 	end_game2_div.setAttribute('name',divIdName);
-	end_game2_div.setAttribute('style','position: absolute; top: 130px; left: 20px; background-color: red; padding: 5px; font-size: 25px; color: pink; text-align: center;');
+	end_game2_div.setAttribute('style','position: absolute; top: 130px; left: 180px; background-color: red; padding: 5px; font-size: 25px; color: pink; text-align: center;');
 
 	end_game2_div.innerHTML = end_text2;
 
