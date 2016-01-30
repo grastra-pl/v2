@@ -1457,7 +1457,7 @@ __sprite_init__(this, sprite_2106, 11, 11, 0, 0, 'Box', 5, 0, 11, 0, 11, ['img/s
 }; var sprite_2106 = new __sprite_2106();
 
 function __kladka_sprite() { 
-__sprite_init__(this, kladka_sprite, 53, 53, 0, 0, 'Box', 26, 0, 53, 24, 34, ['img/kladka_sprite_0.png']);
+__sprite_init__(this, kladka_sprite, 54, 9, 0, 0, 'Box', 27, 0, 54, 0, 9, ['img/kladka_sprite_0.png']);
 }; var kladka_sprite = new __kladka_sprite();
 
 function __sprite_2181() { 
@@ -1646,6 +1646,14 @@ __audio_init__(this, snd_potwor, '', 'aud/Potwor.mp3', '');
 /***********************************************************************
  * MUSICS
  ***********************************************************************/
+function __Greensleeves() { 
+__audio_init__(this, Greensleeves, '', 'aud/GreensleevesToAGround.mp3', '');
+}; var Greensleeves = new __Greensleeves();
+
+function __GreenS() { 
+__audio_init__(this, GreenS, '', 'aud/greenS.mp3', '');
+}; var GreenS = new __GreenS();
+
 
 
 /***********************************************************************
@@ -2018,7 +2026,7 @@ if (gra_wstepna<=18)
 	{
 		if (irandom(10)>8) {
 			bity++;
-			instance_create(x,y-4,dym);
+			instance_create(x-15+irandom(30),y-64+irandom(30),dym);
 		}
 	}
 
@@ -3197,10 +3205,10 @@ else
 }
 
 
-if (y>470)
-{
+if (y>wyliczDno())
+	{
 	instance_destroy();
-}
+	}
 }
 };
 this.on_end_step = on_end_step_i;
@@ -3230,10 +3238,10 @@ if (y>ystart)
 	y--;
 }
 
-if (y>470)
-{
+if (y>wyliczDno())
+	{
 	instance_destroy();
-}
+	}
 }
 };
 this.on_end_step = on_end_step_i;
@@ -3314,7 +3322,7 @@ if ( mouse_check_released() )
 	
 	if ((mouse_x>420) && (mouse_y<38)  && (mouse_x<450) )
 	{
-		muzyka_on_bool=!muzyka_on_bool;
+		muzyka_on_off();
 	}
 
 	if ((mouse_x>560) && (mouse_y<38)  && (mouse_x<600) )
@@ -3904,10 +3912,7 @@ this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
 if ( mouse_check_pressed() && position_meeting(mouse_x,mouse_y,this) ){
-        //do stuff
-		// alert('wyłączam dźwięk');
-		// dzwieki_on_bool=!dzwieki_on_bool;
-		dzwieki_on_bool=false;
+		muzyka_on_off();
 }
 }
 };
@@ -5454,6 +5459,8 @@ function inicjalizacja()
 
 	if (p_game===null)
 	{
+		ustaw_odgrywany_utwor(GreenS);
+		
 		var start_div = document.createElement('div');
 		var divIdName = 'start';
 		start_div.setAttribute('id',divIdName);
@@ -5467,7 +5474,7 @@ function inicjalizacja()
 		tytul_div.setAttribute('id',divIdName);
 		tytul_div.setAttribute('name',divIdName);
 		tytul_div.setAttribute('style','position: absolute; top: 385px; left: 485px; background-color: transparent;');
-		tytul_div.innerHTML = 'Grastra 2016';
+		tytul_div.innerHTML = 'Grastra 2016<br><br>game code: Jimmy<br>music: Henry VIII';
 		
 		
 		var punkty_div = document.createElement('div');
@@ -5914,15 +5921,17 @@ this.objects = [
 [{o:podloze_trawa, x:800, y:592}],
 [{o:podloze_trawa, x:832, y:592}],
 [{o:podloze_trawa, x:832, y:560}],
-[{o:klocek, x:32, y:1376}],
-[{o:klocek_ciemny, x:64, y:1376}],
-[{o:klocek, x:96, y:1376}],
-[{o:klocek_ciemny, x:128, y:1376}],
 [{o:podloze_trawa, x:0, y:240}],
 [{o:podloze_trawa, x:160, y:240}],
 [{o:podloze_trawa, x:1488, y:640}],
 [{o:podloze_trawa, x:1520, y:640}],
-[{o:kladka, x:1584, y:592}]];
+[{o:kladka, x:1584, y:592}],
+[{o:klocek, x:48, y:1344}],
+[{o:klocek, x:32, y:1376}],
+[{o:klocek, x:64, y:1376}],
+[{o:klocek, x:96, y:1376}],
+[{o:klocek_ciemny, x:128, y:1376}],
+[{o:klocek_ciemny, x:160, y:1376}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
@@ -5930,6 +5939,9 @@ __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480,
 poziomu_nr=2;
 
 co_wymagane=['filizanka','kot','but'];
+
+
+ustaw_odgrywany_utwor(Greensleeves);
 };
 }
 var Piramidy = new __Piramidy();
@@ -6060,6 +6072,8 @@ co_wymagane='kwiat';// kwiatek_pomyslany
 		
 		t_game.appendChild(tut_div);
  
+ 
+ ustaw_odgrywany_utwor(Greensleeves);
 };
 }
 var tutorial = new __tutorial();
@@ -6707,6 +6721,9 @@ muzyka_on_bool=true;
 
 dzwieki_tylko_etapu=true;
 
+odgrywany_utwor=Greensleeves;
+
+
 procent_latania=0;
 
 moze_latac=false;
@@ -6949,6 +6966,45 @@ for (var i=0;i<=360;i+=60) {
 	kule[i].direction = i;
 	kule[i].speed = 30;
 }
+}
+function sound_loop_2(a) { 
+
+    myAudio = a.audio
+    if (typeof myAudio.loop == 'boolean')
+    {
+        myAudio.loop = true;
+    }
+    else
+    {
+        myAudio.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+    }
+    myAudio.play();
+
+}
+function muzyka_on_off() { 
+muzyka_on_bool=!muzyka_on_bool;
+
+if (muzyka_on_bool) {
+	sound_loop_2(odgrywany_utwor);
+} else {
+		wycisz_muzyke();
+}
+
+}
+function ustaw_odgrywany_utwor(utwor) { 
+odgrywany_utwor=utwor;
+if (muzyka_on_bool) {
+	wycisz_muzyke();
+	myAudio = odgrywany_utwor.audio
+	myAudio.currentTime=0;
+	sound_loop_2(odgrywany_utwor);
+}
+}
+function wycisz_muzyke() { 
+sound_stop_all();
 }
 
 
