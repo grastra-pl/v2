@@ -2020,7 +2020,7 @@ if (gra_wstepna<=18)
 	if ( x < 0 ) x = 0;
 	if ( x > room_width -32 ) x = room_width-32;
 
-	strefaParzeniaLawy=40;
+	
 	
 	if (y>wyliczDno()-strefaParzeniaLawy)
 	{
@@ -3684,10 +3684,10 @@ if (this.sledz_gracza>0)
 	if (y>y_gracza) y-=3;
 }
 
-if (y>500)
-{
-y=-50;
-}
+if (y>wyliczDno()-strefaParzeniaLawy)
+	{
+		y=-50;
+	}
 }
 };
 this.on_end_step = function() {
@@ -3921,7 +3921,19 @@ this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
-this.on_draw = on_draw_i;
+this.on_draw = function() {
+if (this.visible == 1) {
+__handle_sprite__(this);
+with(this) {
+if (muzyka_on_bool) {
+	draw_sprite(dzwieki_on_sprite,0,x,y);
+} else {
+	draw_sprite(dzwieki_off_sprite,0,x,y);
+}
+
+}
+}
+};
 }; var dzwieki_wlaczone = new __dzwieki_wlaczone();
 
 function __kwiatek_do_wziecia() {
@@ -5038,7 +5050,7 @@ if  (( place_meeting(x, y+24, podloze_ziemia) != null)
 		}
 		else
 		{
-			y+=4;
+			y+=2;
 		}
 		
 		
@@ -5152,6 +5164,8 @@ if  (( place_meeting(x, y+24, podloze_ziemia) != null)
 		|| ( place_meeting(x, y+24, podloze_trawa) != null)
 		|| ( place_meeting(x, y+24, podloze_skos_lewy) != null)
 		|| ( place_meeting(x, y+24, podloze_skos_prawy) != null)
+		|| ( place_meeting(x, y+24, klocek) != null)
+		|| ( place_meeting(x, y+24, klocek_ciemny) != null)
 		)
 		{
 			if  (( place_meeting(x+2*this.kier, y, podloze_ziemia) != null)
@@ -5281,6 +5295,8 @@ if  (( place_meeting(x, y+24, podloze_ziemia) != null)
 		|| ( place_meeting(x, y+24, podloze_trawa) != null)
 		|| ( place_meeting(x, y+24, podloze_skos_lewy) != null)
 		|| ( place_meeting(x, y+24, podloze_skos_prawy) != null)
+		|| ( place_meeting(x, y+24, klocek) != null)
+		|| ( place_meeting(x, y+24, klocek_ciemny) != null)
 		)
 		{
 			if  (( place_meeting(x+2*this.kier, y, podloze_ziemia) != null)
@@ -5536,6 +5552,411 @@ function inicjalizacja()
 }
 var EkranStartowy = new __EkranStartowy();
 tu_scenes.push(EkranStartowy);
+function __bossFight() { 
+this.tiles = [
+[1000000,
+[paniD,
+[512,128,128,128,1472,0],
+[512,128,128,128,1344,0],
+[512,128,128,128,1216,0],
+[512,128,128,128,1088,0],
+[512,128,128,128,960,0],
+[512,128,128,128,832,0],
+[512,128,128,128,704,0],
+[512,256,128,128,1472,128],
+[512,256,128,128,1344,128],
+[512,256,128,128,1216,128],
+[512,256,128,128,1088,128],
+[512,256,128,128,960,128],
+[512,256,128,128,832,128],
+[512,256,128,128,704,128],
+[512,384,128,128,1472,256],
+[512,384,128,128,1344,256],
+[512,384,128,128,1216,256],
+[512,384,128,128,1088,256],
+[512,384,128,128,960,256],
+[512,384,128,128,832,256],
+[512,384,128,128,704,256],
+[0,256,128,128,1088,1344],
+[128,256,128,128,1216,1344],
+[0,384,128,128,1088,1472],
+[128,384,128,128,1216,1472]]]];
+this.objects = [
+[{o:podloze_trawa, x:672, y:0}],
+[{o:podloze_trawa, x:672, y:32}],
+[{o:podloze_trawa, x:672, y:64}],
+[{o:podloze_trawa, x:672, y:96}],
+[{o:podloze_trawa, x:672, y:128}],
+[{o:podloze_trawa, x:672, y:160}],
+[{o:podloze_trawa, x:672, y:192}],
+[{o:podloze_trawa, x:672, y:224}],
+[{o:podloze_trawa, x:672, y:256}],
+[{o:podloze_trawa, x:672, y:288}],
+[{o:podloze_trawa, x:672, y:320}],
+[{o:podloze_trawa, x:672, y:352}],
+[{o:podloze_trawa, x:704, y:352}],
+[{o:podloze_trawa, x:736, y:352}],
+[{o:podloze_trawa, x:768, y:352}],
+[{o:podloze_trawa, x:800, y:352}],
+[{o:podloze_trawa, x:832, y:352}],
+[{o:podloze_trawa, x:864, y:352}],
+[{o:podloze_trawa, x:896, y:352}],
+[{o:podloze_trawa, x:928, y:352}],
+[{o:podloze_trawa, x:960, y:352}],
+[{o:podloze_trawa, x:992, y:352}],
+[{o:podloze_trawa, x:1024, y:352}],
+[{o:podloze_trawa, x:1056, y:352}],
+[{o:podloze_trawa, x:1088, y:352}],
+[{o:podloze_trawa, x:1120, y:352}],
+[{o:podloze_trawa, x:1280, y:352}],
+[{o:podloze_trawa, x:1312, y:352}],
+[{o:podloze_trawa, x:1344, y:352}],
+[{o:podloze_trawa, x:1376, y:352}],
+[{o:podloze_trawa, x:1408, y:352}],
+[{o:podloze_trawa, x:1440, y:352}],
+[{o:podloze_trawa, x:1472, y:352}],
+[{o:podloze_trawa, x:1504, y:352}],
+[{o:podloze_trawa, x:1536, y:352}],
+[{o:podloze_trawa, x:1568, y:352}],
+[{o:podloze_ziemia, x:1280, y:288}],
+[{o:podloze_ziemia, x:1312, y:288}],
+[{o:podloze_ziemia, x:1120, y:288}],
+[{o:podloze_ziemia, x:1088, y:288}],
+[{o:podloze_ziemia, x:1408, y:320}],
+[{o:podloze_ziemia, x:1440, y:320}],
+[{o:podloze_ziemia, x:1024, y:320}],
+[{o:podloze_ziemia, x:992, y:320}],
+[{o:podloze_trawa, x:1344, y:224}],
+[{o:podloze_trawa, x:1056, y:224}],
+[{o:podloze_trawa, x:1184, y:224}],
+[{o:podloze_trawa, x:160, y:0}],
+[{o:podloze_trawa, x:160, y:32}],
+[{o:podloze_trawa, x:160, y:64}],
+[{o:podloze_trawa, x:160, y:96}],
+[{o:podloze_trawa, x:160, y:128}],
+[{o:podloze_trawa, x:160, y:160}],
+[{o:podloze_trawa, x:160, y:224}],
+[{o:podloze_trawa, x:160, y:192}],
+[{o:podloze_trawa, x:0, y:1568}],
+[{o:klocek, x:32, y:1536}],
+[{o:klocek, x:64, y:1536}],
+[{o:klocek, x:96, y:1536}],
+[{o:klocek, x:128, y:1536}],
+[{o:klocek, x:64, y:1504}],
+[{o:klocek, x:96, y:1504}],
+[{o:klocek, x:128, y:1504}],
+[{o:klocek, x:96, y:1472}],
+[{o:klocek, x:32, y:1472}],
+[{o:klocek, x:64, y:1472}],
+[{o:klocek, x:32, y:1504}],
+[{o:klocek, x:0, y:1504}],
+[{o:klocek, x:0, y:1536}],
+[{o:klocek, x:160, y:1536}],
+[{o:klocek, x:160, y:1504}],
+[{o:klocek, x:128, y:1472}],
+[{o:klocek, x:64, y:1440}],
+[{o:klocek, x:96, y:1440}],
+[{o:podloze_ziemia, x:160, y:1408}],
+[{o:podloze_ziemia, x:192, y:1408}],
+[{o:podloze_ziemia, x:224, y:1440}],
+[{o:podloze_ziemia, x:256, y:1440}],
+[{o:podloze_ziemia, x:192, y:1536}],
+[{o:podloze_ziemia, x:224, y:1536}],
+[{o:podloze_ziemia, x:256, y:1536}],
+[{o:podloze_ziemia, x:288, y:1568}],
+[{o:podloze_ziemia, x:320, y:1568}],
+[{o:podloze_trawa, x:352, y:1568}],
+[{o:podloze_trawa, x:384, y:1568}],
+[{o:podloze_trawa, x:416, y:1568}],
+[{o:podloze_skos_lewy, x:448, y:1440}],
+[{o:podloze_skos_lewy, x:464, y:1424}],
+[{o:podloze_skos_lewy, x:480, y:1408}],
+[{o:podloze_skos_lewy, x:496, y:1392}],
+[{o:podloze_skos_prawy, x:512, y:1392}],
+[{o:podloze_skos_prawy, x:528, y:1408}],
+[{o:podloze_skos_prawy, x:544, y:1424}],
+[{o:podloze_skos_prawy, x:560, y:1440}],
+[{o:podloze_ziemia, x:464, y:1440}],
+[{o:podloze_ziemia, x:544, y:1440}],
+[{o:podloze_ziemia, x:528, y:1440}],
+[{o:podloze_ziemia, x:480, y:1440}],
+[{o:podloze_ziemia, x:480, y:1456}],
+[{o:podloze_ziemia, x:480, y:1472}],
+[{o:podloze_ziemia, x:528, y:1456}],
+[{o:podloze_ziemia, x:528, y:1472}],
+[{o:podloze_ziemia, x:528, y:1488}],
+[{o:podloze_ziemia, x:512, y:1488}],
+[{o:podloze_ziemia, x:496, y:1488}],
+[{o:podloze_ziemia, x:480, y:1488}],
+[{o:podloze_ziemia, x:496, y:1472}],
+[{o:podloze_ziemia, x:512, y:1472}],
+[{o:podloze_ziemia, x:512, y:1456}],
+[{o:podloze_ziemia, x:496, y:1456}],
+[{o:podloze_ziemia, x:512, y:1424}],
+[{o:podloze_ziemia, x:512, y:1440}],
+[{o:podloze_ziemia, x:496, y:1440}],
+[{o:podloze_ziemia, x:496, y:1424}],
+[{o:podloze_ziemia, x:480, y:1424}],
+[{o:podloze_ziemia, x:496, y:1408}],
+[{o:podloze_ziemia, x:512, y:1408}],
+[{o:podloze_ziemia, x:528, y:1424}],
+[{o:podloze_ziemia, x:480, y:1296}],
+[{o:podloze_ziemia, x:496, y:1296}],
+[{o:podloze_ziemia, x:512, y:1296}],
+[{o:podloze_ziemia, x:528, y:1296}],
+[{o:podloze_ziemia, x:528, y:1280}],
+[{o:podloze_ziemia, x:512, y:1280}],
+[{o:podloze_ziemia, x:496, y:1280}],
+[{o:podloze_ziemia, x:480, y:1280}],
+[{o:podloze_ziemia, x:480, y:1264}],
+[{o:podloze_ziemia, x:496, y:1264}],
+[{o:podloze_ziemia, x:512, y:1264}],
+[{o:podloze_ziemia, x:528, y:1264}],
+[{o:podloze_ziemia, x:464, y:1248}],
+[{o:podloze_ziemia, x:480, y:1248}],
+[{o:podloze_ziemia, x:496, y:1248}],
+[{o:podloze_ziemia, x:512, y:1248}],
+[{o:podloze_ziemia, x:528, y:1248}],
+[{o:podloze_ziemia, x:544, y:1248}],
+[{o:podloze_ziemia, x:528, y:1232}],
+[{o:podloze_ziemia, x:512, y:1232}],
+[{o:podloze_ziemia, x:496, y:1232}],
+[{o:podloze_ziemia, x:480, y:1232}],
+[{o:podloze_ziemia, x:496, y:1216}],
+[{o:podloze_ziemia, x:512, y:1216}],
+[{o:podloze_skos_lewy, x:496, y:1200}],
+[{o:podloze_skos_lewy, x:480, y:1216}],
+[{o:podloze_skos_lewy, x:464, y:1232}],
+[{o:podloze_skos_lewy, x:448, y:1248}],
+[{o:podloze_skos_prawy, x:512, y:1200}],
+[{o:podloze_skos_prawy, x:528, y:1216}],
+[{o:podloze_skos_prawy, x:544, y:1232}],
+[{o:podloze_skos_prawy, x:560, y:1248}],
+[{o:podloze_ziemia, x:272, y:1360}],
+[{o:podloze_ziemia, x:288, y:1360}],
+[{o:podloze_ziemia, x:336, y:1312}],
+[{o:podloze_ziemia, x:368, y:1312}],
+[{o:podloze_ziemia, x:352, y:1312}],
+[{o:podloze_ziemia, x:576, y:1152}],
+[{o:podloze_ziemia, x:592, y:1152}],
+[{o:podloze_ziemia, x:608, y:1152}],
+[{o:podloze_ziemia, x:608, y:1136}],
+[{o:podloze_ziemia, x:608, y:1120}],
+[{o:podloze_ziemia, x:608, y:1104}],
+[{o:podloze_ziemia, x:608, y:1088}],
+[{o:podloze_ziemia, x:608, y:1072}],
+[{o:podloze_ziemia, x:608, y:1056}],
+[{o:podloze_ziemia, x:608, y:1040}],
+[{o:podloze_ziemia, x:608, y:1024}],
+[{o:podloze_ziemia, x:608, y:1008}],
+[{o:podloze_ziemia, x:592, y:1008}],
+[{o:podloze_ziemia, x:576, y:1008}],
+[{o:podloze_ziemia, x:560, y:1008}],
+[{o:podloze_ziemia, x:544, y:1008}],
+[{o:podloze_ziemia, x:528, y:1008}],
+[{o:podloze_ziemia, x:512, y:1008}],
+[{o:podloze_ziemia, x:496, y:1008}],
+[{o:podloze_ziemia, x:480, y:1008}],
+[{o:podloze_ziemia, x:448, y:1024}],
+[{o:podloze_ziemia, x:448, y:1008}],
+[{o:podloze_ziemia, x:464, y:1008}],
+[{o:podloze_ziemia, x:432, y:1024}],
+[{o:podloze_ziemia, x:416, y:1024}],
+[{o:podloze_ziemia, x:400, y:1024}],
+[{o:podloze_ziemia, x:368, y:1024}],
+[{o:podloze_ziemia, x:384, y:1024}],
+[{o:podloze_ziemia, x:368, y:1040}],
+[{o:podloze_ziemia, x:368, y:1056}],
+[{o:podloze_ziemia, x:368, y:1072}],
+[{o:podloze_ziemia, x:368, y:1104}],
+[{o:podloze_ziemia, x:368, y:1088}],
+[{o:podloze_ziemia, x:368, y:1120}],
+[{o:podloze_ziemia, x:368, y:1136}],
+[{o:podloze_ziemia, x:368, y:1152}],
+[{o:podloze_ziemia, x:384, y:1152}],
+[{o:podloze_ziemia, x:400, y:1152}],
+[{o:podloze_ziemia, x:416, y:1152}],
+[{o:podloze_ziemia, x:432, y:1152}],
+[{o:Walenty, x:64, y:80}],
+[{o:zlozona_dziewczyna, x:416, y:1056}],
+[{o:klocek, x:416, y:1120}],
+[{o:klocek, x:448, y:1120}],
+[{o:klocek, x:480, y:1120}],
+[{o:klocek, x:1328, y:128}],
+[{o:klocek, x:1296, y:128}],
+[{o:klocek, x:1360, y:128}],
+[{o:podloze_ziemia, x:1280, y:192}],
+[{o:podloze_ziemia, x:1296, y:192}],
+[{o:podloze_ziemia, x:1312, y:192}],
+[{o:podloze_ziemia, x:1280, y:176}],
+[{o:podloze_ziemia, x:1328, y:192}],
+[{o:podloze_ziemia, x:1344, y:192}],
+[{o:podloze_ziemia, x:1264, y:176}],
+[{o:podloze_ziemia, x:1248, y:176}],
+[{o:podloze_ziemia, x:1248, y:160}],
+[{o:podloze_ziemia, x:1360, y:192}],
+[{o:podloze_ziemia, x:1376, y:192}],
+[{o:podloze_ziemia, x:1392, y:192}],
+[{o:podloze_ziemia, x:1408, y:192}],
+[{o:podloze_ziemia, x:1424, y:176}],
+[{o:podloze_ziemia, x:1408, y:176}],
+[{o:podloze_ziemia, x:1440, y:176}],
+[{o:podloze_ziemia, x:1440, y:160}],
+[{o:zlozona_dziewczyna, x:1328, y:64}],
+[{o:podloze_trawa, x:256, y:1216}],
+[{o:podloze_trawa, x:192, y:1216}],
+[{o:podloze_trawa, x:128, y:1152}],
+[{o:podloze_trawa, x:256, y:1024}],
+[{o:podloze_trawa, x:192, y:896}],
+[{o:podloze_trawa, x:256, y:832}],
+[{o:podloze_trawa, x:384, y:896}],
+[{o:podloze_ziemia, x:288, y:1248}],
+[{o:podloze_ziemia, x:160, y:1152}],
+[{o:podloze_ziemia, x:352, y:896}],
+[{o:podloze_ziemia, x:224, y:1088}],
+[{o:klocek_ciemny, x:320, y:960}],
+[{o:klocek_ciemny, x:448, y:864}],
+[{o:klocek_ciemny, x:512, y:832}],
+[{o:klocek_ciemny, x:576, y:800}],
+[{o:klocek_ciemny, x:640, y:768}],
+[{o:klocek_ciemny, x:704, y:736}],
+[{o:klocek, x:768, y:704}],
+[{o:klocek, x:832, y:672}],
+[{o:klocek, x:896, y:640}],
+[{o:klocek, x:960, y:608}],
+[{o:klocek, x:1024, y:576}],
+[{o:klocek, x:1088, y:544}],
+[{o:klocek, x:1152, y:512}],
+[{o:klocek, x:1216, y:480}],
+[{o:klocek, x:1280, y:448}],
+[{o:klocek, x:1216, y:384}],
+[{o:skrzydla, x:928, y:1088}],
+[{o:podloze_ziemia, x:704, y:1312}],
+[{o:podloze_ziemia, x:688, y:1320}],
+[{o:podloze_ziemia, x:680, y:1336}],
+[{o:podloze_ziemia, x:672, y:1352}],
+[{o:podloze_ziemia, x:672, y:1360}],
+[{o:podloze_ziemia, x:680, y:1376}],
+[{o:podloze_ziemia, x:696, y:1384}],
+[{o:podloze_ziemia, x:712, y:1384}],
+[{o:podloze_ziemia, x:720, y:1368}],
+[{o:podloze_ziemia, x:720, y:1352}],
+[{o:podloze_ziemia, x:704, y:1344}],
+[{o:podloze_ziemia, x:696, y:1344}],
+[{o:podloze_ziemia, x:720, y:1304}],
+[{o:podloze_ziemia, x:808, y:1304}],
+[{o:podloze_ziemia, x:792, y:1312}],
+[{o:podloze_ziemia, x:776, y:1320}],
+[{o:podloze_ziemia, x:768, y:1336}],
+[{o:podloze_ziemia, x:760, y:1352}],
+[{o:podloze_ziemia, x:760, y:1368}],
+[{o:podloze_ziemia, x:768, y:1376}],
+[{o:podloze_ziemia, x:776, y:1384}],
+[{o:podloze_ziemia, x:792, y:1384}],
+[{o:podloze_ziemia, x:808, y:1376}],
+[{o:podloze_ziemia, x:816, y:1360}],
+[{o:podloze_ziemia, x:808, y:1344}],
+[{o:podloze_ziemia, x:792, y:1344}],
+[{o:podloze_ziemia, x:776, y:1344}],
+[{o:podloze_ziemia, x:888, y:1304}],
+[{o:podloze_ziemia, x:872, y:1312}],
+[{o:podloze_ziemia, x:856, y:1320}],
+[{o:podloze_ziemia, x:848, y:1336}],
+[{o:podloze_ziemia, x:848, y:1352}],
+[{o:podloze_ziemia, x:848, y:1368}],
+[{o:podloze_ziemia, x:856, y:1384}],
+[{o:podloze_ziemia, x:864, y:1384}],
+[{o:podloze_ziemia, x:880, y:1384}],
+[{o:podloze_ziemia, x:896, y:1376}],
+[{o:podloze_ziemia, x:896, y:1360}],
+[{o:podloze_ziemia, x:888, y:1352}],
+[{o:podloze_ziemia, x:880, y:1344}],
+[{o:podloze_ziemia, x:864, y:1344}],
+[{o:podloze_ziemia, x:1280, y:1216}],
+[{o:podloze_trawa, x:1280, y:960}],
+[{o:bigBoss, x:1280, y:576}],
+[{o:skrzydla, x:320, y:1408}],
+[{o:podloze_ziemia, x:1312, y:960}],
+[{o:podloze_ziemia, x:1328, y:960}],
+[{o:podloze_ziemia, x:1280, y:704}],
+[{o:podloze_ziemia, x:1296, y:704}],
+[{o:podloze_ziemia, x:1312, y:704}],
+[{o:podloze_ziemia, x:1328, y:704}],
+[{o:podloze_ziemia, x:1344, y:704}],
+[{o:podloze_ziemia, x:1360, y:704}],
+[{o:podloze_ziemia, x:1376, y:704}],
+[{o:podloze_ziemia, x:1392, y:704}],
+[{o:podloze_ziemia, x:1408, y:704}],
+[{o:podloze_ziemia, x:1424, y:704}],
+[{o:podloze_ziemia, x:1440, y:704}],
+[{o:podloze_ziemia, x:1456, y:704}],
+[{o:podloze_ziemia, x:1456, y:688}],
+[{o:podloze_ziemia, x:1456, y:672}],
+[{o:podloze_ziemia, x:1264, y:704}],
+[{o:podloze_ziemia, x:1248, y:704}],
+[{o:podloze_ziemia, x:1232, y:704}],
+[{o:podloze_ziemia, x:1136, y:928}],
+[{o:podloze_ziemia, x:1136, y:944}],
+[{o:podloze_ziemia, x:1152, y:944}],
+[{o:podloze_ziemia, x:1168, y:944}],
+[{o:podloze_ziemia, x:1200, y:944}],
+[{o:podloze_ziemia, x:1184, y:944}],
+[{o:podloze_ziemia, x:1216, y:944}],
+[{o:podloze_ziemia, x:1232, y:944}],
+[{o:podloze_ziemia, x:1248, y:944}],
+[{o:podloze_ziemia, x:1248, y:960}],
+[{o:podloze_ziemia, x:1264, y:960}],
+[{o:podloze_ziemia, x:1120, y:928}],
+[{o:podloze_ziemia, x:1120, y:912}],
+[{o:podloze_ziemia, x:1120, y:896}],
+[{o:podloze_ziemia, x:1296, y:1216}],
+[{o:podloze_ziemia, x:1312, y:1216}],
+[{o:podloze_ziemia, x:1328, y:1216}],
+[{o:podloze_ziemia, x:1344, y:1216}],
+[{o:podloze_ziemia, x:1360, y:1216}],
+[{o:podloze_ziemia, x:1376, y:1216}],
+[{o:podloze_ziemia, x:1392, y:1216}],
+[{o:podloze_ziemia, x:1408, y:1216}],
+[{o:podloze_ziemia, x:1424, y:1216}],
+[{o:podloze_ziemia, x:1440, y:1216}],
+[{o:podloze_ziemia, x:1456, y:1216}],
+[{o:podloze_ziemia, x:1472, y:1216}],
+[{o:podloze_ziemia, x:1488, y:1216}],
+[{o:podloze_ziemia, x:1504, y:1216}],
+[{o:podloze_ziemia, x:1520, y:1216}],
+[{o:podloze_ziemia, x:1536, y:1216}],
+[{o:podloze_ziemia, x:1536, y:1200}],
+[{o:podloze_ziemia, x:1552, y:1200}],
+[{o:podloze_ziemia, x:1552, y:1184}],
+[{o:podloze_ziemia, x:1552, y:1168}],
+[{o:podloze_ziemia, x:1552, y:1152}],
+[{o:podloze_ziemia, x:1568, y:1152}],
+[{o:podloze_ziemia, x:1568, y:1136}],
+[{o:podloze_ziemia, x:1568, y:1120}],
+[{o:podloze_ziemia, x:1568, y:1104}],
+[{o:podloze_ziemia, x:1584, y:1104}],
+[{o:podloze_ziemia, x:1584, y:1088}],
+[{o:podloze_ziemia, x:1584, y:1072}],
+[{o:podloze_ziemia, x:1584, y:1056}],
+[{o:klocek, x:1040, y:1312}],
+[{o:klocek, x:1008, y:1312}],
+[{o:klocek, x:976, y:1312}],
+[{o:klocek, x:944, y:1312}],
+[{o:klocek, x:1088, y:896}],
+[{o:klocek, x:1056, y:896}]];
+this.start = function() {
+__room_start__(this, bossFight, 1600, 1600, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+
+poziomu_nr=7;
+
+co_wymagane=['filizanka','kot'];
+
+
+ustaw_odgrywany_utwor(Greensleeves);
+};
+}
+var bossFight = new __bossFight();
+tu_scenes.push(bossFight);
 function __Piramidy() { 
 this.tiles = [
 [1000000,
@@ -5725,7 +6146,7 @@ this.objects = [
 [{o:podloze_ziemia, x:784, y:240}],
 [{o:podloze_ziemia, x:768, y:240}],
 [{o:filizanka_do_wziecia, x:1460, y:0}],
-[{o:zlozona_dziewczyna, x:400, y:120}],
+[{o:zlozona_dziewczyna, x:400, y:420}],
 [{o:zlozona_dziewczyna, x:540, y:160}],
 [{o:but_do_wziecia, x:624, y:400}],
 [{o:klocek, x:608, y:448}],
@@ -5926,12 +6347,7 @@ this.objects = [
 [{o:podloze_trawa, x:1488, y:640}],
 [{o:podloze_trawa, x:1520, y:640}],
 [{o:kladka, x:1584, y:592}],
-[{o:klocek, x:48, y:1344}],
-[{o:klocek, x:32, y:1376}],
-[{o:klocek, x:64, y:1376}],
-[{o:klocek, x:96, y:1376}],
-[{o:klocek_ciemny, x:128, y:1376}],
-[{o:klocek_ciemny, x:160, y:1376}]];
+[{o:klocek, x:64, y:1376}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
@@ -6710,6 +7126,7 @@ tu_room_to_go = EkranStartowy;
  ***********************************************************************/
 global.gra_w_pelni_zaladowana = false;
 
+strefaParzeniaLawy=40;
 
 global.czestotliwoscTworzenia=100;
 
