@@ -1568,9 +1568,9 @@ function __granatS() {
 __sprite_init__(this, granatS, 23, 20, 0, 0, 'Box', 11, 0, 23, 0, 20, ['img/granatS_0.png']);
 }; var granatS = new __granatS();
 
-function __płomieńS() { 
-__sprite_init__(this, płomieńS, 33, 63, 0, 0, 'Box', 21, 0, 43, 0, 82, ['img/płomieńS_0.png','img/płomieńS_3.png','img/płomieńS_4.png','img/płomieńS_5.png','img/płomieńS_6.png','img/płomieńS_10.png','img/płomieńS_11.png','img/płomieńS_12.png','img/płomieńS_13.png']);
-}; var płomieńS = new __płomieńS();
+function __plomienS() { 
+__sprite_init__(this, plomienS, 33, 63, 0, 0, 'Box', 21, 0, 43, 0, 82, ['img/plomienS_0.png','img/plomienS_3.png','img/plomienS_4.png','img/plomienS_5.png','img/plomienS_6.png','img/plomienS_10.png','img/plomienS_11.png','img/plomienS_12.png','img/plomienS_13.png']);
+}; var plomienS = new __plomienS();
 
 function __lawa() { 
 __sprite_init__(this, lawa, 130, 125, 0, 0, 'Box', 65, 0, 130, 0, 125, ['img/lawa_0.png','img/lawa_1.png','img/lawa_2.png','img/lawa_3.png','img/lawa_4.png','img/lawa_5.png','img/lawa_6.png']);
@@ -3375,7 +3375,7 @@ for (var j=0;j<480;j+=ylawy) {
 }
 
 for (var i=0;i<room_width;i+=20) {
-	draw_sprite(płomieńS,(floor(this.odliczanie/4)+i) % 9,i,poziomPlomieni);
+	draw_sprite(plomienS,(floor(this.odliczanie/4)+i) % 9,i,poziomPlomieni);
 }
 
 
