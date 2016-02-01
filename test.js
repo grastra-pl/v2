@@ -296,6 +296,7 @@ if (gra_wstepna<=18)
 	if (y>wyliczDno()-strefaParzeniaLawy)
 	{
 		bity++;
+		instance_create(x,y-4,dym);
 	}
 
 	if (y>wyliczDno())
