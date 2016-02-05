@@ -1823,18 +1823,18 @@ if (gra_wstepna<=18)
 		
 		//if (image_index>0)
 		//{
-			if ( keyboard_check(vk_d)  || keyboard_check(vk_a) || keyboard_check( vk_left ) || keyboard_check( vk_right ))  {
+			if ( keyboard_check(vk_d)  || keyboard_check(vk_a))  {
 				this.skrzydelko.x=x; 
 				this.skrzydelko.y=y-15+sin(odliczanie/2)*5;
 				this.skrzydelko.image_angle=sin(odliczanie*tu_d2r*24)*15;
 			}
-			else if ( keyboard_check(vk_w) || keyboard_check( vk_up ))
+			else if ( keyboard_check(vk_w) )
 			{
 				this.skrzydelko.x=x; 
 				this.skrzydelko.y=y-15+sin(odliczanie)*5;
 				this.skrzydelko.image_angle=sin(odliczanie*tu_d2r*48)*15;
 			}
-			else if ( keyboard_check(vk_s) || keyboard_check( vk_down ))
+			else if ( keyboard_check(vk_s) )
 			{
 				this.skrzydelko.x=x; 
 				this.skrzydelko.y=y-15;
@@ -1862,12 +1862,12 @@ if (gra_wstepna<=18)
 		//}
 		
 		
-		if ( keyboard_check(vk_w) || keyboard_check( vk_up ) )
+		if ( keyboard_check(vk_w) )
 		{
 			y-=3;
 			direction = 90;
 		}
-		if ( keyboard_check(vk_s) || keyboard_check( vk_down ) )
+		if ( keyboard_check(vk_s) )
 		{
 			y+=5;
 			direction = 270;
@@ -1890,7 +1890,7 @@ if (gra_wstepna<=18)
 			image_angle=air*12;
 		}
 		
-		if ( (keyboard_check_pressed(vk_w) ||  keyboard_check( vk_up )) && this.jump == 0 && this.air ==0 && this.spada == false) {
+		if ( (keyboard_check_pressed(vk_w) ) && this.jump == 0 && this.air ==0 && this.spada == false) {
 			jump = 1;
 			air =  9; // siła skoku
 			if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_jump);
@@ -1963,7 +1963,7 @@ if (gra_wstepna<=18)
 	
 	if  ((!this.spada) || (moze_latac)) {
 	
-		if ( keyboard_check(vk_d) || keyboard_check( vk_right ) )  {
+		if ( keyboard_check(vk_d) )  {
 			x += 4;
 			if (moze_latac)
 				{
@@ -1989,7 +1989,7 @@ if (gra_wstepna<=18)
 				}
 		}
 
-		if ( keyboard_check(vk_a) || keyboard_check( vk_left )) {
+		if ( keyboard_check(vk_a) ) {
 			x -= 4;
 			if (moze_latac)
 				{
