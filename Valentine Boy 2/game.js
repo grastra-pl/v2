@@ -2278,6 +2278,10 @@ if (image_index==5)
 {
 	dodajZycie(1);
 }
+else if (image_index==17)
+{
+	wybuchCzaszki(x,y);
+}
 else
 {
 	doliczPunkty(3);
@@ -5740,9 +5744,6 @@ this.objects = [
 [{o:podloze_ziemia, x:608, y:1120}],
 [{o:podloze_ziemia, x:608, y:1104}],
 [{o:podloze_ziemia, x:608, y:1088}],
-[{o:podloze_ziemia, x:608, y:1072}],
-[{o:podloze_ziemia, x:608, y:1056}],
-[{o:podloze_ziemia, x:608, y:1040}],
 [{o:podloze_ziemia, x:608, y:1024}],
 [{o:podloze_ziemia, x:608, y:1008}],
 [{o:podloze_ziemia, x:592, y:1008}],
@@ -5771,8 +5772,6 @@ this.objects = [
 [{o:podloze_ziemia, x:368, y:1152}],
 [{o:podloze_ziemia, x:384, y:1152}],
 [{o:podloze_ziemia, x:400, y:1152}],
-[{o:podloze_ziemia, x:416, y:1152}],
-[{o:podloze_ziemia, x:432, y:1152}],
 [{o:Walenty, x:64, y:80}],
 [{o:zlozona_dziewczyna, x:416, y:1056}],
 [{o:klocek, x:416, y:1120}],
@@ -6053,7 +6052,27 @@ this.objects = [
 [{o:bonus, x:512, y:256}],
 [{o:bonus, x:576, y:256}],
 [{o:bonus, x:576, y:320}],
-[{o:bonus, x:512, y:320}]];
+[{o:bonus, x:512, y:320}],
+[{o:skrzydla, x:1024, y:448}],
+[{o:bonus, x:1024, y:1216}],
+[{o:bonus, x:1024, y:1152}],
+[{o:bonus, x:1024, y:1088}],
+[{o:bonus, x:1280, y:1152}],
+[{o:bonus, x:1280, y:1088}],
+[{o:bonus, x:1280, y:1024}],
+[{o:bonus, x:1344, y:1152}],
+[{o:bonus, x:1344, y:1088}],
+[{o:bonus, x:1344, y:1024}],
+[{o:bonus, x:1408, y:1472}],
+[{o:bonus, x:1472, y:1472}],
+[{o:bonus, x:1536, y:1472}],
+[{o:bonus, x:1536, y:1408}],
+[{o:bonus, x:1472, y:1408}],
+[{o:bonus, x:1408, y:1408}],
+[{o:bonus, x:1408, y:1344}],
+[{o:bonus, x:1472, y:1344}],
+[{o:bonus, x:1536, y:1344}],
+[{o:podloze_ziemia, x:416, y:1152}]];
 this.start = function() {
 __room_start__(this, bossFight, 1600, 1600, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
