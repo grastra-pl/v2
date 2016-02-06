@@ -1392,9 +1392,9 @@ function __sprite_563() {
 __sprite_init__(this, sprite_563, 16, 16, 0, 0, 'Box', 8, 0, 16, 0, 16, ['img/sprite_563_0.png']);
 }; var sprite_563 = new __sprite_563();
 
-function __sprite_1188() { 
-__sprite_init__(this, sprite_1188, 72, 62, 0, 0, 'Box', 36, 0, 72, 0, 62, ['img/sprite_1188_0.png']);
-}; var sprite_1188 = new __sprite_1188();
+function __chmurkaS() { 
+__sprite_init__(this, chmurkaS, 72, 62, 0, 0, 'Box', 36, 0, 72, 0, 62, ['img/chmurkaS_0.png']);
+}; var chmurkaS = new __chmurkaS();
 
 function __sprite_1196() { 
 __sprite_init__(this, sprite_1196, 26, 24, 0, 0, 'Box', 13, 0, 26, 0, 24, ['img/sprite_1196_0.png']);
@@ -1603,6 +1603,10 @@ __sprite_init__(this, miniLifeBarS, 32, 8, 0, 0, 'Box', 16, 0, 32, 0, 8, ['img/m
 function __pentagramS() { 
 __sprite_init__(this, pentagramS, 128, 124, 0, 0, 'Box', 64, 0, 128, 0, 124, ['img/pentagramS_0.png']);
 }; var pentagramS = new __pentagramS();
+
+function __chmura() { 
+__sprite_init__(this, chmura, 525, 313, 0, 0, 'Box', 262, 0, 525, 0, 313, ['img/chmura_0.png']);
+}; var chmura = new __chmura();
 
 
 
@@ -2371,7 +2375,7 @@ this.on_draw = on_draw_i;
 }; var podloze_skos_prawy = new __podloze_skos_prawy();
 
 function __chmurka_myslenia() {
-__instance_init__(this, chmurka_myslenia, null, 1, 0, sprite_1188, 1, 24);
+__instance_init__(this, chmurka_myslenia, null, 1, 0, chmurkaS, 1, 24);
 this.on_creation = function() {
 with(this) {
 pier = instance_create(x+15,y +5 ,co_moze_miec[co_wymagane][0]);
@@ -3754,7 +3758,7 @@ this.on_draw = on_draw_i;
 }; var zlozona_dziewczyna = new __zlozona_dziewczyna();
 
 function __chmurka_myslenia_dup() {
-__instance_init__(this, chmurka_myslenia_dup, null, 1, 0, sprite_1188, 1, 171);
+__instance_init__(this, chmurka_myslenia_dup, null, 1, 0, chmurkaS, 1, 171);
 this.on_creation = function() {
 with(this) {
 
@@ -4878,7 +4882,7 @@ instance_destroy();
 }; var blueBoss = new __blueBoss();
 
 function __dym() {
-__instance_init__(this, dym, null, 1, 0, sprite_1188, 1, 1049);
+__instance_init__(this, dym, null, 1, 0, chmurkaS, 1, 1049);
 this.on_creation = function() {
 with(this) {
 this.czas=50;
@@ -5433,6 +5437,36 @@ instance_destroy();
 };
 }; var bigBoss = new __bigBoss();
 
+function __chmurkaKoncowa() {
+__instance_init__(this, chmurkaKoncowa, null, 1, 0, chmura, 1, 1695);
+this.on_creation = function() {
+with(this) {
+this.odliczanie=0;
+}
+};
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+if (keyboard_check(vk_space)) {
+		this.odliczanie=10;
+	}
+	
+if (this.odliczanie>0) {
+	this.odliczanie--;
+	if (this.odliczanie==0) {
+		room_goto_first();
+	}
+}
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var chmurkaKoncowa = new __chmurkaKoncowa();
+
 
 
 /***********************************************************************
@@ -5564,6 +5598,175 @@ function inicjalizacja()
 }
 var EkranStartowy = new __EkranStartowy();
 tu_scenes.push(EkranStartowy);
+function __tutorial() { 
+this.tiles = [
+];
+this.objects = [
+[{o:podloze_trawa, x:0, y:288}],
+[{o:podloze_trawa, x:32, y:288}],
+[{o:podloze_trawa, x:64, y:288}],
+[{o:podloze_trawa, x:96, y:288}],
+[{o:podloze_trawa, x:128, y:288}],
+[{o:podloze_trawa, x:160, y:288}],
+[{o:podloze_trawa, x:192, y:288}],
+[{o:podloze_trawa, x:224, y:288}],
+[{o:podloze_trawa, x:256, y:288}],
+[{o:podloze_trawa, x:288, y:288}],
+[{o:podloze_trawa, x:320, y:288}],
+[{o:podloze_trawa, x:352, y:288}],
+[{o:podloze_trawa, x:384, y:288}],
+[{o:podloze_trawa, x:416, y:288}],
+[{o:podloze_trawa, x:448, y:288}],
+[{o:podloze_trawa, x:480, y:288}],
+[{o:podloze_trawa, x:512, y:288}],
+[{o:podloze_trawa, x:544, y:288}],
+[{o:podloze_trawa, x:576, y:288}],
+[{o:podloze_trawa, x:608, y:288}],
+[{o:podloze_trawa, x:640, y:288}],
+[{o:podloze_trawa, x:672, y:288}],
+[{o:podloze_trawa, x:704, y:288}],
+[{o:podloze_trawa, x:736, y:288}],
+[{o:podloze_trawa, x:768, y:288}],
+[{o:podloze_trawa, x:800, y:288}],
+[{o:podloze_trawa, x:832, y:288}],
+[{o:podloze_ziemia, x:864, y:288}],
+[{o:podloze_ziemia, x:864, y:304}],
+[{o:podloze_ziemia, x:880, y:304}],
+[{o:podloze_skos_prawy, x:880, y:288}],
+[{o:podloze_skos_lewy, x:960, y:288}],
+[{o:podloze_ziemia, x:960, y:304}],
+[{o:podloze_ziemia, x:976, y:304}],
+[{o:podloze_ziemia, x:976, y:288}],
+[{o:podloze_trawa, x:992, y:288}],
+[{o:podloze_trawa, x:1024, y:288}],
+[{o:podloze_trawa, x:1056, y:288}],
+[{o:podloze_trawa, x:1088, y:288}],
+[{o:podloze_trawa, x:1120, y:288}],
+[{o:podloze_ziemia, x:1152, y:288}],
+[{o:podloze_ziemia, x:1152, y:304}],
+[{o:klocek_ciemny, x:1168, y:288}],
+[{o:klocek_ciemny, x:1200, y:288}],
+[{o:klocek_ciemny, x:1232, y:288}],
+[{o:klocek_ciemny, x:1264, y:288}],
+[{o:klocek_ciemny, x:1296, y:288}],
+[{o:podloze_ziemia, x:1328, y:288}],
+[{o:podloze_ziemia, x:1328, y:304}],
+[{o:podloze_trawa, x:1344, y:288}],
+[{o:podloze_trawa, x:1408, y:288}],
+[{o:podloze_trawa, x:1440, y:288}],
+[{o:podloze_trawa, x:1504, y:288}],
+[{o:podloze_trawa, x:1568, y:288}],
+[{o:podloze_trawa, x:1600, y:288}],
+[{o:podloze_trawa, x:1632, y:288}],
+[{o:kwiatek_do_wziecia, x:1520, y:240}],
+[{o:Niemka, x:544, y:240}],
+[{o:niewidzialny_obiekt, x:16, y:272}],
+[{o:Walenty, x:368, y:240}],
+[{o:podloze_ziemia, x:256, y:272}],
+[{o:podloze_skos_lewy, x:240, y:272}],
+[{o:podloze_skos_lewy, x:256, y:256}],
+[{o:podloze_ziemia, x:272, y:256}],
+[{o:podloze_ziemia, x:288, y:256}],
+[{o:podloze_trawa, x:96, y:256}],
+[{o:konggobj, x:544, y:64}],
+[{o:klocek, x:544, y:64}],
+[{o:klocek, x:576, y:64}],
+[{o:klocek, x:608, y:64}],
+[{o:podloze_ziemia, x:1580, y:220}],
+[{o:podloze_ziemia, x:1600, y:224}],
+[{o:podloze_ziemia, x:1616, y:224}],
+[{o:kot_do_wziecia, x:160, y:240}],
+[{o:podloze_skos_lewy, x:416, y:256}],
+[{o:podloze_skos_lewy, x:448, y:224}],
+[{o:podloze_skos_lewy, x:400, y:272}],
+[{o:podloze_skos_lewy, x:432, y:240}],
+[{o:podloze_skos_lewy, x:464, y:208}],
+[{o:podloze_skos_lewy, x:480, y:192}],
+[{o:podloze_skos_lewy, x:464, y:272}],
+[{o:podloze_skos_lewy, x:480, y:256}],
+[{o:podloze_skos_lewy, x:496, y:240}],
+[{o:podloze_skos_lewy, x:512, y:224}],
+[{o:klocek_ciemny, x:512, y:128}],
+[{o:klocek_ciemny, x:528, y:80}],
+[{o:slon_do_wziecia_dup, x:656, y:224}],
+[{o:serce_tile, x:1600, y:160}],
+[{o:tasma_prawo, x:880, y:256}],
+[{o:tasma_prawo, x:896, y:256}],
+[{o:tasma_prawo, x:912, y:256}],
+[{o:tasma_prawo, x:928, y:256}],
+[{o:tasma_prawo, x:944, y:256}],
+[{o:tasma_lewo, x:944, y:176}],
+[{o:tasma_lewo, x:928, y:176}],
+[{o:tasma_lewo, x:928, y:176}],
+[{o:tasma_lewo, x:896, y:176}],
+[{o:tasma_lewo, x:880, y:176}],
+[{o:tasma_lewo, x:864, y:176}],
+[{o:tasma_lewo, x:864, y:176}],
+[{o:tasma_lewo, x:912, y:176}],
+[{o:kwiatek_do_wziecia, x:192, y:192}]];
+this.start = function() {
+__room_start__(this, tutorial, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+
+poziomu_nazwa='Tutorial';
+poziomu_nr=1;
+
+co_wymagane='kwiat';// kwiatek_pomyslany
+
+
+
+	var t_game = document.getElementById('tululoogame');
+ 
+		var tut_div = document.createElement('div');
+		var divIdName = 'tut';
+		tut_div.setAttribute('id',divIdName);
+		tut_div.setAttribute('name',divIdName);
+		tut_div.setAttribute('style','position: absolute; top: 105px; left: 0px; width: 640px; background-color: transparent; font-size: 48px; color: yellow; text-align: center;');
+		tut_div.innerHTML = 'Use [D] to go right';
+		
+		t_game.appendChild(tut_div);
+ 
+ 
+ ustaw_odgrywany_utwor(Greensleeves);
+};
+}
+var tutorial = new __tutorial();
+tu_scenes.push(tutorial);
+function __ekran_koncowy() { 
+this.tiles = [
+];
+this.objects = [
+[{o:kot_do_wziecia, x:140, y:400}],
+[{o:chmurkaKoncowa, x:80, y:0}]];
+this.start = function() {
+__room_start__(this, ekran_koncowy, 640, 480, 30, 0, 0, 0, paniD.image, 0, 0, 0, 640, 480, null, 50, 50);
+
+end_text='Your score:'+punkty+' ';
+end_text2="Now, after pick up all the girls in Hell...";
+end_text3="try the same in the real world!";
+end_text4="Or just press SPACE to restart game.";
+
+
+var t_game = document.getElementById('tululoogame');
+
+var end_game1 = document.getElementById('end_game1');
+
+var end_game2 = document.getElementById('end_game2');
+
+komunikatKoncowy('end_game1',end_text,190,35,36);
+komunikatKoncowy('end_game2',end_text2,150,110,24);
+komunikatKoncowy('end_game3',end_text3,160,150,24);
+komunikatKoncowy('end_game4',end_text4,160,180,16);
+
+	/*
+	end_game1_div.addEventListener("click",room_goto_first,false);
+	end_game2_div.addEventListener("click",room_goto_first,false);
+	end_game3_div.addEventListener("click",room_goto_first,false);
+*/
+
+};
+}
+var ekran_koncowy = new __ekran_koncowy();
+tu_scenes.push(ekran_koncowy);
 function __Piramidy() { 
 this.tiles = [
 [1000000,
@@ -6078,139 +6281,6 @@ ustaw_odgrywany_utwor(Greensleeves);
 }
 var Piramidy = new __Piramidy();
 tu_scenes.push(Piramidy);
-function __tutorial() { 
-this.tiles = [
-];
-this.objects = [
-[{o:podloze_trawa, x:0, y:288}],
-[{o:podloze_trawa, x:32, y:288}],
-[{o:podloze_trawa, x:64, y:288}],
-[{o:podloze_trawa, x:96, y:288}],
-[{o:podloze_trawa, x:128, y:288}],
-[{o:podloze_trawa, x:160, y:288}],
-[{o:podloze_trawa, x:192, y:288}],
-[{o:podloze_trawa, x:224, y:288}],
-[{o:podloze_trawa, x:256, y:288}],
-[{o:podloze_trawa, x:288, y:288}],
-[{o:podloze_trawa, x:320, y:288}],
-[{o:podloze_trawa, x:352, y:288}],
-[{o:podloze_trawa, x:384, y:288}],
-[{o:podloze_trawa, x:416, y:288}],
-[{o:podloze_trawa, x:448, y:288}],
-[{o:podloze_trawa, x:480, y:288}],
-[{o:podloze_trawa, x:512, y:288}],
-[{o:podloze_trawa, x:544, y:288}],
-[{o:podloze_trawa, x:576, y:288}],
-[{o:podloze_trawa, x:608, y:288}],
-[{o:podloze_trawa, x:640, y:288}],
-[{o:podloze_trawa, x:672, y:288}],
-[{o:podloze_trawa, x:704, y:288}],
-[{o:podloze_trawa, x:736, y:288}],
-[{o:podloze_trawa, x:768, y:288}],
-[{o:podloze_trawa, x:800, y:288}],
-[{o:podloze_trawa, x:832, y:288}],
-[{o:podloze_ziemia, x:864, y:288}],
-[{o:podloze_ziemia, x:864, y:304}],
-[{o:podloze_ziemia, x:880, y:304}],
-[{o:podloze_skos_prawy, x:880, y:288}],
-[{o:podloze_skos_lewy, x:960, y:288}],
-[{o:podloze_ziemia, x:960, y:304}],
-[{o:podloze_ziemia, x:976, y:304}],
-[{o:podloze_ziemia, x:976, y:288}],
-[{o:podloze_trawa, x:992, y:288}],
-[{o:podloze_trawa, x:1024, y:288}],
-[{o:podloze_trawa, x:1056, y:288}],
-[{o:podloze_trawa, x:1088, y:288}],
-[{o:podloze_trawa, x:1120, y:288}],
-[{o:podloze_ziemia, x:1152, y:288}],
-[{o:podloze_ziemia, x:1152, y:304}],
-[{o:klocek_ciemny, x:1168, y:288}],
-[{o:klocek_ciemny, x:1200, y:288}],
-[{o:klocek_ciemny, x:1232, y:288}],
-[{o:klocek_ciemny, x:1264, y:288}],
-[{o:klocek_ciemny, x:1296, y:288}],
-[{o:podloze_ziemia, x:1328, y:288}],
-[{o:podloze_ziemia, x:1328, y:304}],
-[{o:podloze_trawa, x:1344, y:288}],
-[{o:podloze_trawa, x:1408, y:288}],
-[{o:podloze_trawa, x:1440, y:288}],
-[{o:podloze_trawa, x:1504, y:288}],
-[{o:podloze_trawa, x:1568, y:288}],
-[{o:podloze_trawa, x:1600, y:288}],
-[{o:podloze_trawa, x:1632, y:288}],
-[{o:kwiatek_do_wziecia, x:1520, y:240}],
-[{o:Niemka, x:544, y:240}],
-[{o:niewidzialny_obiekt, x:16, y:272}],
-[{o:Walenty, x:368, y:240}],
-[{o:podloze_ziemia, x:256, y:272}],
-[{o:podloze_skos_lewy, x:240, y:272}],
-[{o:podloze_skos_lewy, x:256, y:256}],
-[{o:podloze_ziemia, x:272, y:256}],
-[{o:podloze_ziemia, x:288, y:256}],
-[{o:podloze_trawa, x:96, y:256}],
-[{o:konggobj, x:544, y:64}],
-[{o:klocek, x:544, y:64}],
-[{o:klocek, x:576, y:64}],
-[{o:klocek, x:608, y:64}],
-[{o:podloze_ziemia, x:1580, y:220}],
-[{o:podloze_ziemia, x:1600, y:224}],
-[{o:podloze_ziemia, x:1616, y:224}],
-[{o:kot_do_wziecia, x:160, y:240}],
-[{o:podloze_skos_lewy, x:416, y:256}],
-[{o:podloze_skos_lewy, x:448, y:224}],
-[{o:podloze_skos_lewy, x:400, y:272}],
-[{o:podloze_skos_lewy, x:432, y:240}],
-[{o:podloze_skos_lewy, x:464, y:208}],
-[{o:podloze_skos_lewy, x:480, y:192}],
-[{o:podloze_skos_lewy, x:464, y:272}],
-[{o:podloze_skos_lewy, x:480, y:256}],
-[{o:podloze_skos_lewy, x:496, y:240}],
-[{o:podloze_skos_lewy, x:512, y:224}],
-[{o:klocek_ciemny, x:512, y:128}],
-[{o:klocek_ciemny, x:528, y:80}],
-[{o:slon_do_wziecia_dup, x:656, y:224}],
-[{o:serce_tile, x:1600, y:160}],
-[{o:tasma_prawo, x:880, y:256}],
-[{o:tasma_prawo, x:896, y:256}],
-[{o:tasma_prawo, x:912, y:256}],
-[{o:tasma_prawo, x:928, y:256}],
-[{o:tasma_prawo, x:944, y:256}],
-[{o:tasma_lewo, x:944, y:176}],
-[{o:tasma_lewo, x:928, y:176}],
-[{o:tasma_lewo, x:928, y:176}],
-[{o:tasma_lewo, x:896, y:176}],
-[{o:tasma_lewo, x:880, y:176}],
-[{o:tasma_lewo, x:864, y:176}],
-[{o:tasma_lewo, x:864, y:176}],
-[{o:tasma_lewo, x:912, y:176}],
-[{o:kwiatek_do_wziecia, x:192, y:192}]];
-this.start = function() {
-__room_start__(this, tutorial, 1660, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
-
-poziomu_nazwa='Tutorial';
-poziomu_nr=1;
-
-co_wymagane='kwiat';// kwiatek_pomyslany
-
-
-
-	var t_game = document.getElementById('tululoogame');
- 
-		var tut_div = document.createElement('div');
-		var divIdName = 'tut';
-		tut_div.setAttribute('id',divIdName);
-		tut_div.setAttribute('name',divIdName);
-		tut_div.setAttribute('style','position: absolute; top: 105px; left: 0px; width: 640px; background-color: transparent; font-size: 48px; color: yellow; text-align: center;');
-		tut_div.innerHTML = 'Use [D] to go right';
-		
-		t_game.appendChild(tut_div);
- 
- 
- ustaw_odgrywany_utwor(Greensleeves);
-};
-}
-var tutorial = new __tutorial();
-tu_scenes.push(tutorial);
 function __Sfinks() { 
 this.tiles = [
 ];
@@ -7328,61 +7398,6 @@ ustaw_odgrywany_utwor(Greensleeves);
 }
 var bossFight = new __bossFight();
 tu_scenes.push(bossFight);
-function __ekran_koncowy() { 
-this.tiles = [
-];
-this.objects = [
-];
-this.start = function() {
-__room_start__(this, ekran_koncowy, 640, 480, 30, 0, 0, 0, paniD.image, 0, 0, 0, 640, 480, null, 50, 50);
-
-end_text="Now, after pick up all the girls in Hell...";
-end_text2="try the same in the real world!";
-
-
-var t_game = document.getElementById('tululoogame');
-
-var end_game1 = document.getElementById('end_game1');
-
-var end_game2 = document.getElementById('end_game2');
-// jeśli obiekt punkty nie istnieje:
-
-if (end_game1===null)
-{
-	var end_game1_div = document.createElement('div');
-	divIdName = 'end_game1';
-
-	end_game1_div.setAttribute('id',divIdName);
-	end_game1_div.setAttribute('name',divIdName);
-	end_game1_div.setAttribute('style','position: absolute; top: 30px; left: 120px; background-color: red; padding: 5px; font-size: 25px; color: pink; text-align: center;');
-
-	end_game1_div.innerHTML = end_text;
-
-	t_game.appendChild(end_game1_div);
-	
-	
-	var end_game2_div = document.createElement('div');
-	divIdName = 'end_game2';
-
-	end_game2_div.setAttribute('id',divIdName);
-	end_game2_div.setAttribute('name',divIdName);
-	end_game2_div.setAttribute('style','position: absolute; top: 130px; left: 180px; background-color: red; padding: 5px; font-size: 25px; color: pink; text-align: center;');
-
-	end_game2_div.innerHTML = end_text2;
-
-	t_game.appendChild(end_game2_div);
-	
-	end_game1_div.addEventListener("click",room_goto_first,false);
-	end_game2_div.addEventListener("click",room_goto_first,false);
-	
- 
-	
-}
-
-};
-}
-var ekran_koncowy = new __ekran_koncowy();
-tu_scenes.push(ekran_koncowy);
 tu_room_to_go = EkranStartowy;
 
 
@@ -7693,6 +7708,19 @@ posiadane_bronie={
 wybrana_bron='';
 
 liczba_spelnionych=0;
+}
+function komunikatKoncowy(idn,tresc,pozX,pozY,wlk) { 
+// idn,tresc,pozX,pozY,wlk
+var t_game = document.getElementById('tululoogame');
+var dodawany_div = document.createElement('div');
+
+dodawany_div.setAttribute('id',idn);
+dodawany_div.setAttribute('name',idn);
+dodawany_div.setAttribute('style','position: absolute; top: '+pozY+'px; left: '+pozX+'px; font-size: '+wlk+'px; color: red; text-align: center;');
+
+dodawany_div.innerHTML = tresc;
+
+t_game.appendChild(dodawany_div);
 }
 
 
