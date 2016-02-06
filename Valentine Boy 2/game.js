@@ -1665,6 +1665,9 @@ __background_init__(this, VALENTINE_TLO, 'img/planszaTytulowaVB.png')}; var VALE
 function __paniD() { 
 __background_init__(this, paniD, 'img/pani_diabel.png')}; var paniD = new __paniD();
 
+function __instrukcja() { 
+__background_init__(this, instrukcja, 'img/instrukcja_p.png')}; var instrukcja = new __instrukcja();
+
 
 
 /***********************************************************************
@@ -5598,8 +5601,16 @@ this.tiles = [
 [512,256,128,128,1152,256],
 [512,256,128,128,1280,256],
 [512,256,128,128,1408,256],
-[512,256,128,128,1536,256],
-[0,128,128,128,192,1088]]]];
+[512,256,128,128,1536,256]],
+[instrukcja,
+[0,0,96,96,64,1280],
+[288,0,96,96,192,1248],
+[384,0,96,96,288,1248],
+[0,384,96,96,192,1056],
+[96,384,96,96,288,1056],
+[288,384,96,96,192,960],
+[384,384,96,96,288,960],
+[288,96,96,96,480,1248]]]];
 this.objects = [
 [{o:Walenty, x:80, y:112}],
 [{o:podloze_trawa, x:256, y:288}],
@@ -6027,7 +6038,6 @@ this.objects = [
 [{o:bonus, x:320, y:1280}],
 [{o:bonus, x:384, y:1088}],
 [{o:bonus, x:320, y:1088}],
-[{o:bonus, x:512, y:1280}],
 [{o:bonus, x:512, y:960}],
 [{o:bonus, x:576, y:960}],
 [{o:tasma_lewo, x:1088, y:704}],
@@ -6047,7 +6057,8 @@ this.objects = [
 [{o:but_do_wziecia, x:672, y:400}],
 [{o:but_do_wziecia, x:592, y:416}],
 [{o:but_do_wziecia, x:432, y:464}],
-[{o:but_do_wziecia, x:352, y:432}]];
+[{o:but_do_wziecia, x:352, y:432}],
+[{o:skrzydla, x:384, y:1344}]];
 this.start = function() {
 __room_start__(this, Piramidy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
