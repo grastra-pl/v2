@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="7190" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>function setCookie(cname, cvalue, exdays) {
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="7191" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
@@ -559,6 +559,7 @@ instance_destroy();</script><script name="" object="" event="" parameter=""/><sc
 }
 else
 {
+	punkty*=2;
 	gra_wstepna=0;
 	room_goto_next();
 }</script><script name="" object="" event="" parameter=""/><script name="scr_636" object="bonus" event="Step" parameter="">if 	(global.game_paused) return;
@@ -1000,7 +1001,7 @@ image_yscale=0.3;
 this.odliczanie=25;</script><script name="scr_2091" object="serduszko" event="Step" parameter="">if 	(global.game_paused) return;
 
 this.odliczanie--;
-image_angle++;
+image_angle+=3;
 if (this.odliczanie&lt;0)
 {
 	image_alpha-=0.1;
@@ -1065,7 +1066,8 @@ if (dzwieki_on_bool &amp;&amp; dzwieki_tylko_etapu) sound_play(snd_bec);</script
 	instance_create(x,y,kawalek);
 }
 if (dzwieki_on_bool &amp;&amp; dzwieki_tylko_etapu) sound_play(snd_bec);</script><script name="" object="" event="" parameter=""/><script name="scr_2121" object="wrog2" event="Collision" parameter="kawalek">instance_destroy();</script><script name="scr_2122" object="wrog2" event="Destroy" parameter="">expl = instance_create(x+irandom(5)-3,y +irandom(5)-3 ,explozja);
-doliczPunkty(16);</script><script name="scr_2123" object="wrog1" event="Destroy" parameter="">expl = instance_create(x+irandom(5)-3,y +irandom(5)-3 ,explozja);</script><script name="scr_2124" object="wrog1" event="Collision" parameter="kawalek">
+doliczPunkty(16);</script><script name="scr_2123" object="wrog1" event="Destroy" parameter="">expl = instance_create(x+irandom(5)-3,y +irandom(5)-3 ,explozja);
+doliczPunkty(4);</script><script name="scr_2124" object="wrog1" event="Collision" parameter="kawalek">
 instance_destroy();</script><script name="scr_2140" object="kladka" event="Step" parameter="">y-=2;
 if (ystart&gt;y+200)
 {
@@ -2171,7 +2173,13 @@ function inicjalizacja()
 		global.gra_w_pelni_zaladowana = true;
 
 	}
-}</scene><scene name="tutorial" width="1660" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nazwa='Tutorial';
+}</scene><scene name="Piramidy" width="1660" height="1480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">
+poziomu_nr=2;
+
+co_wymagane=['filizanka','kot','but'];
+
+
+ustaw_odgrywany_utwor(Greensleeves);</scene><scene name="tutorial" width="1660" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nazwa='Tutorial';
 poziomu_nr=1;
 
 co_wymagane='kwiat';// kwiatek_pomyslany
@@ -2190,18 +2198,12 @@ co_wymagane='kwiat';// kwiatek_pomyslany
 		t_game.appendChild(tut_div);
  
  
- ustaw_odgrywany_utwor(Greensleeves);</scene><scene name="Piramidy" width="1660" height="1480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">
-poziomu_nr=2;
-
-co_wymagane=['filizanka','kot','but'];
-
-
-ustaw_odgrywany_utwor(Greensleeves);</scene><scene name="bossFight" width="1600" height="1600" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nr=7;
+ ustaw_odgrywany_utwor(Greensleeves);</scene><scene name="Sfinks" width="3320" height="880" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">co_wymagane='pierścień';</scene><scene name="bossFight" width="1600" height="1600" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nr=7;
 
 co_wymagane=['filizanka','kot'];
 
 
-ustaw_odgrywany_utwor(Greensleeves);</scene><scene name="Sfinks" width="3320" height="880" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">co_wymagane='pierścień';</scene><scene name="ekran_koncowy" width="640" height="480" speed="30" red="0" green="0" blue="0" background="paniD" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject="">end_text="Now, after pick up all the girls in Hell...";
+ustaw_odgrywany_utwor(Greensleeves);</scene><scene name="ekran_koncowy" width="640" height="480" speed="30" red="0" green="0" blue="0" background="paniD" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject="">end_text="Now, after pick up all the girls in Hell...";
 end_text2="try the same in the real world!";
 
 
@@ -2243,7 +2245,7 @@ if (end_game1===null)
  
 	
 }
-</scene></scenes><layers count="6"><layer name="layer_167" scene="Piramidy" value="1000000"/><layer name="layer_204" scene="EkranStartowy" value="1000000"/><layer name="layer_2282" scene="ekran_koncowy" value="1000000"/><layer name="layer_2459" scene="tutorial" value="1000000"/><layer name="layer_2917" scene="Sfinks" value="1000000"/><layer name="layer_6385" scene="bossFight" value="1000000"/></layers><tiles count="72"><tile name="tile_6329" background="paniD" width="128" height="128" x="0" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6330" background="paniD" width="128" height="128" x="128" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6331" background="paniD" width="128" height="128" x="256" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6332" background="paniD" width="128" height="128" x="384" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6333" background="paniD" width="128" height="128" x="512" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6334" background="paniD" width="128" height="128" x="640" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6335" background="paniD" width="128" height="128" x="768" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6336" background="paniD" width="128" height="128" x="896" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6337" background="paniD" width="128" height="128" x="1024" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6338" background="paniD" width="128" height="128" x="1152" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6339" background="paniD" width="128" height="128" x="1280" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6340" background="paniD" width="128" height="128" x="1408" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6341" background="paniD" width="128" height="128" x="1536" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6342" background="paniD" width="128" height="128" x="0" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6343" background="paniD" width="128" height="128" x="128" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6344" background="paniD" width="128" height="128" x="256" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6345" background="paniD" width="128" height="128" x="384" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6346" background="paniD" width="128" height="128" x="512" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6347" background="paniD" width="128" height="128" x="640" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6348" background="paniD" width="128" height="128" x="768" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6349" background="paniD" width="128" height="128" x="896" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6350" background="paniD" width="128" height="128" x="1024" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6351" background="paniD" width="128" height="128" x="1152" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6352" background="paniD" width="128" height="128" x="1280" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6353" background="paniD" width="128" height="128" x="1408" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6354" background="paniD" width="128" height="128" x="1536" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6355" background="paniD" width="128" height="128" x="0" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6356" background="paniD" width="128" height="128" x="128" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6357" background="paniD" width="128" height="128" x="256" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6358" background="paniD" width="128" height="128" x="384" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6359" background="paniD" width="128" height="128" x="512" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6360" background="paniD" width="128" height="128" x="640" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6361" background="paniD" width="128" height="128" x="768" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6362" background="paniD" width="128" height="128" x="896" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6363" background="paniD" width="128" height="128" x="1024" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6364" background="paniD" width="128" height="128" x="1152" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6365" background="paniD" width="128" height="128" x="1280" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6366" background="paniD" width="128" height="128" x="1408" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6367" background="paniD" width="128" height="128" x="1536" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6386" background="paniD" width="128" height="128" x="1472" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6387" background="paniD" width="128" height="128" x="1344" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6388" background="paniD" width="128" height="128" x="1216" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6389" background="paniD" width="128" height="128" x="1088" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6390" background="paniD" width="128" height="128" x="960" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6391" background="paniD" width="128" height="128" x="832" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6392" background="paniD" width="128" height="128" x="704" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6404" background="paniD" width="128" height="128" x="1472" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6405" background="paniD" width="128" height="128" x="1344" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6406" background="paniD" width="128" height="128" x="1216" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6407" background="paniD" width="128" height="128" x="1088" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6408" background="paniD" width="128" height="128" x="960" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6409" background="paniD" width="128" height="128" x="832" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6410" background="paniD" width="128" height="128" x="704" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6417" background="paniD" width="128" height="128" x="1472" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6418" background="paniD" width="128" height="128" x="1344" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6419" background="paniD" width="128" height="128" x="1216" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6420" background="paniD" width="128" height="128" x="1088" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6421" background="paniD" width="128" height="128" x="960" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6422" background="paniD" width="128" height="128" x="832" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6423" background="paniD" width="128" height="128" x="704" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6784" background="paniD" width="128" height="128" x="1088" y="1344" top="256" left="0" depth="1000000" scene="bossFight"/><tile name="tile_6785" background="paniD" width="128" height="128" x="1216" y="1344" top="256" left="128" depth="1000000" scene="bossFight"/><tile name="tile_6786" background="paniD" width="128" height="128" x="1088" y="1472" top="384" left="0" depth="1000000" scene="bossFight"/><tile name="tile_6787" background="paniD" width="128" height="128" x="1216" y="1472" top="384" left="128" depth="1000000" scene="bossFight"/><tile name="tile_7173" background="instrukcja" width="96" height="96" x="64" y="1280" top="0" left="0" depth="1000000" scene="Piramidy"/><tile name="tile_7176" background="instrukcja" width="96" height="96" x="192" y="1248" top="0" left="288" depth="1000000" scene="Piramidy"/><tile name="tile_7177" background="instrukcja" width="96" height="96" x="288" y="1248" top="0" left="384" depth="1000000" scene="Piramidy"/><tile name="tile_7178" background="instrukcja" width="96" height="96" x="192" y="1056" top="384" left="0" depth="1000000" scene="Piramidy"/><tile name="tile_7179" background="instrukcja" width="96" height="96" x="288" y="1056" top="384" left="96" depth="1000000" scene="Piramidy"/><tile name="tile_7180" background="instrukcja" width="96" height="96" x="192" y="960" top="384" left="288" depth="1000000" scene="Piramidy"/><tile name="tile_7181" background="instrukcja" width="96" height="96" x="288" y="960" top="384" left="384" depth="1000000" scene="Piramidy"/><tile name="tile_7184" background="instrukcja" width="96" height="96" x="480" y="1248" top="96" left="288" depth="1000000" scene="Piramidy"/></tiles><fns count="18"><fn name="doliczPunkty" params="ile" description="">punkty+=ile*poziomu_nr;
+</scene></scenes><layers count="6"><layer name="layer_167" scene="Piramidy" value="1000000"/><layer name="layer_204" scene="EkranStartowy" value="1000000"/><layer name="layer_2282" scene="ekran_koncowy" value="1000000"/><layer name="layer_2459" scene="tutorial" value="1000000"/><layer name="layer_2917" scene="Sfinks" value="1000000"/><layer name="layer_6385" scene="bossFight" value="1000000"/></layers><tiles count="72"><tile name="tile_6329" background="paniD" width="128" height="128" x="0" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6330" background="paniD" width="128" height="128" x="128" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6331" background="paniD" width="128" height="128" x="256" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6332" background="paniD" width="128" height="128" x="384" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6333" background="paniD" width="128" height="128" x="512" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6334" background="paniD" width="128" height="128" x="640" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6335" background="paniD" width="128" height="128" x="768" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6336" background="paniD" width="128" height="128" x="896" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6337" background="paniD" width="128" height="128" x="1024" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6338" background="paniD" width="128" height="128" x="1152" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6339" background="paniD" width="128" height="128" x="1280" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6340" background="paniD" width="128" height="128" x="1408" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6341" background="paniD" width="128" height="128" x="1536" y="0" top="0" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6342" background="paniD" width="128" height="128" x="0" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6343" background="paniD" width="128" height="128" x="128" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6344" background="paniD" width="128" height="128" x="256" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6345" background="paniD" width="128" height="128" x="384" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6346" background="paniD" width="128" height="128" x="512" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6347" background="paniD" width="128" height="128" x="640" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6348" background="paniD" width="128" height="128" x="768" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6349" background="paniD" width="128" height="128" x="896" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6350" background="paniD" width="128" height="128" x="1024" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6351" background="paniD" width="128" height="128" x="1152" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6352" background="paniD" width="128" height="128" x="1280" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6353" background="paniD" width="128" height="128" x="1408" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6354" background="paniD" width="128" height="128" x="1536" y="128" top="128" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6355" background="paniD" width="128" height="128" x="0" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6356" background="paniD" width="128" height="128" x="128" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6357" background="paniD" width="128" height="128" x="256" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6358" background="paniD" width="128" height="128" x="384" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6359" background="paniD" width="128" height="128" x="512" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6360" background="paniD" width="128" height="128" x="640" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6361" background="paniD" width="128" height="128" x="768" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6362" background="paniD" width="128" height="128" x="896" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6363" background="paniD" width="128" height="128" x="1024" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6364" background="paniD" width="128" height="128" x="1152" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6365" background="paniD" width="128" height="128" x="1280" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6366" background="paniD" width="128" height="128" x="1408" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6367" background="paniD" width="128" height="128" x="1536" y="256" top="256" left="512" depth="1000000" scene="Piramidy"/><tile name="tile_6386" background="paniD" width="128" height="128" x="1472" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6387" background="paniD" width="128" height="128" x="1344" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6388" background="paniD" width="128" height="128" x="1216" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6389" background="paniD" width="128" height="128" x="1088" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6390" background="paniD" width="128" height="128" x="960" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6391" background="paniD" width="128" height="128" x="832" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6392" background="paniD" width="128" height="128" x="704" y="0" top="128" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6404" background="paniD" width="128" height="128" x="1472" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6405" background="paniD" width="128" height="128" x="1344" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6406" background="paniD" width="128" height="128" x="1216" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6407" background="paniD" width="128" height="128" x="1088" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6408" background="paniD" width="128" height="128" x="960" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6409" background="paniD" width="128" height="128" x="832" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6410" background="paniD" width="128" height="128" x="704" y="128" top="256" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6417" background="paniD" width="128" height="128" x="1472" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6418" background="paniD" width="128" height="128" x="1344" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6419" background="paniD" width="128" height="128" x="1216" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6420" background="paniD" width="128" height="128" x="1088" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6421" background="paniD" width="128" height="128" x="960" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6422" background="paniD" width="128" height="128" x="832" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6423" background="paniD" width="128" height="128" x="704" y="256" top="384" left="512" depth="1000000" scene="bossFight"/><tile name="tile_6784" background="paniD" width="128" height="128" x="1088" y="1344" top="256" left="0" depth="1000000" scene="bossFight"/><tile name="tile_6785" background="paniD" width="128" height="128" x="1216" y="1344" top="256" left="128" depth="1000000" scene="bossFight"/><tile name="tile_6786" background="paniD" width="128" height="128" x="1088" y="1472" top="384" left="0" depth="1000000" scene="bossFight"/><tile name="tile_6787" background="paniD" width="128" height="128" x="1216" y="1472" top="384" left="128" depth="1000000" scene="bossFight"/><tile name="tile_7173" background="instrukcja" width="96" height="96" x="64" y="1280" top="0" left="0" depth="1000000" scene="Piramidy"/><tile name="tile_7176" background="instrukcja" width="96" height="96" x="192" y="1248" top="0" left="288" depth="1000000" scene="Piramidy"/><tile name="tile_7177" background="instrukcja" width="96" height="96" x="288" y="1248" top="0" left="384" depth="1000000" scene="Piramidy"/><tile name="tile_7178" background="instrukcja" width="96" height="96" x="192" y="1056" top="384" left="0" depth="1000000" scene="Piramidy"/><tile name="tile_7179" background="instrukcja" width="96" height="96" x="288" y="1056" top="384" left="96" depth="1000000" scene="Piramidy"/><tile name="tile_7180" background="instrukcja" width="96" height="96" x="192" y="960" top="384" left="288" depth="1000000" scene="Piramidy"/><tile name="tile_7181" background="instrukcja" width="96" height="96" x="288" y="960" top="384" left="384" depth="1000000" scene="Piramidy"/><tile name="tile_7184" background="instrukcja" width="96" height="96" x="480" y="1248" top="96" left="288" depth="1000000" scene="Piramidy"/></tiles><fns count="19"><fn name="doliczPunkty" params="ile" description="">punkty+=ile*poziomu_nr;
 /*
 var pkt_game = document.getElementById('pkt');
 // jeśli obiekt pkt istnieje:
@@ -2255,22 +2257,15 @@ if (pkt_game!==null)
 */</fn><fn name="dodajZycie" params="ile" description="">zycia+=ile;
 
 
+if (ile&lt;0)
+	{
+		zerujStanPosiadania();
+	}
+
 if (zycia&gt;0)
 {
-	/*
-	var zyc_game = document.getElementById('zyc');
-	// jeśli obiekt pkt istnieje:
-
-	if (zyc_game!==null)
-	{	
-		zyc_game.innerHTML = zycia;	
-	}
-	
-	*/
 	if (ile&lt;0)
 	{
-		moze_latac=false;
-		maPistolet=false;
 		room_restart();
 	}
 }
@@ -2278,18 +2273,7 @@ else
 {
 	
 	room_goto_first();
-}</fn><fn name="letsStartGame" params="" description="">moze_latac=false;
-maPistolet=false;
-
-posiadane_bronie={
-	'pistolet':0,
-	'kalasz':0,
-	'granat':0,
-	'granatnik':0,
-	'rozwalacz':0
-};
-
-wybrana_bron='';
+}</fn><fn name="letsStartGame" params="" description="">zerujStanPosiadania();
 
 room_goto_first();
 room_goto_next();
@@ -2395,4 +2379,17 @@ obj.y=(obj.y+other.y)/2;
 if (obj.image_yscale&gt;0.1) {
 	obj.image_yscale-=0.1;
 	obj.image_yscale-=0.1;
-}</fn></fns></tululoo>
+}</fn><fn name="zerujStanPosiadania" params="" description="">moze_latac=false;
+maPistolet=false;
+
+posiadane_bronie={
+	'pistolet':0,
+	'kalasz':0,
+	'granat':0,
+	'granatnik':0,
+	'rozwalacz':0
+};
+
+wybrana_bron='';
+
+liczba_spelnionych=0;</fn></fns></tululoo>
