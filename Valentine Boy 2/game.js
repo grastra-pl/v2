@@ -4674,7 +4674,7 @@ this.on_creation = function() {
 with(this) {
 image_speed=0;
 image_index=0;
-this.kier=-1.5;
+this.kier=3;
 this.odlicz=100;
 this.odliczStworzenie=global.czestotliwoscTworzenia;
 this.zycie=100;
@@ -5540,6 +5540,97 @@ function inicjalizacja()
 }
 var EkranStartowy = new __EkranStartowy();
 tu_scenes.push(EkranStartowy);
+function __Etap_7_duzy() { 
+this.tiles = [
+];
+this.objects = [
+[{o:podloze_trawa, x:1728, y:3136}],
+[{o:podloze_trawa, x:1760, y:3136}],
+[{o:podloze_trawa, x:1792, y:3136}],
+[{o:podloze_trawa, x:1824, y:3136}],
+[{o:Walenty, x:1792, y:3104}],
+[{o:podloze_ziemia, x:1664, y:3072}],
+[{o:podloze_ziemia, x:1888, y:3072}],
+[{o:podloze_ziemia, x:1904, y:3072}],
+[{o:podloze_ziemia, x:1680, y:3072}],
+[{o:podloze_ziemia, x:1600, y:3008}],
+[{o:podloze_ziemia, x:1968, y:3008}],
+[{o:tasma_lewo, x:1536, y:2960}],
+[{o:tasma_lewo, x:1520, y:2960}],
+[{o:tasma_lewo, x:1504, y:2960}],
+[{o:tasma_lewo, x:1488, y:2960}],
+[{o:tasma_lewo, x:1472, y:2960}],
+[{o:tasma_lewo, x:1456, y:2960}],
+[{o:tasma_lewo, x:1440, y:2960}],
+[{o:tasma_lewo, x:1424, y:2960}],
+[{o:tasma_lewo, x:1408, y:2960}],
+[{o:tasma_lewo, x:1392, y:2960}],
+[{o:tasma_lewo, x:1376, y:2960}],
+[{o:tasma_skraj, x:1360, y:2960}],
+[{o:tasma_skraj_prawy, x:1552, y:2960}],
+[{o:kladka, x:2048, y:2960}],
+[{o:kladka, x:2128, y:2880}],
+[{o:podloze_ziemia, x:1312, y:3008}],
+[{o:podloze_ziemia, x:1216, y:3008}],
+[{o:szybkaWinda, x:1120, y:3008}],
+[{o:kladka, x:1184, y:2528}],
+[{o:kladka, x:960, y:2464}],
+[{o:kladka, x:1088, y:2336}],
+[{o:klocek, x:1184, y:2272}],
+[{o:klocek, x:1216, y:2272}],
+[{o:klocek, x:1248, y:2272}],
+[{o:klocek, x:1280, y:2304}],
+[{o:klocek, x:1312, y:2304}],
+[{o:klocek, x:1344, y:2304}],
+[{o:klocek, x:1376, y:2336}],
+[{o:klocek, x:1408, y:2336}],
+[{o:klocek, x:1440, y:2336}],
+[{o:klocek, x:2208, y:2752}],
+[{o:klocek, x:2240, y:2752}],
+[{o:klocek, x:2272, y:2752}],
+[{o:klocek, x:2304, y:2784}],
+[{o:klocek, x:2336, y:2784}],
+[{o:klocek, x:2368, y:2784}],
+[{o:klocek, x:2400, y:2816}],
+[{o:klocek, x:2432, y:2816}],
+[{o:klocek, x:2464, y:2816}],
+[{o:klocek, x:2496, y:2848}],
+[{o:klocek, x:2528, y:2848}],
+[{o:klocek, x:2560, y:2848}],
+[{o:kladka, x:2592, y:2912}],
+[{o:kladka, x:2688, y:2784}],
+[{o:kladka, x:2752, y:2656}],
+[{o:podloze_ziemia, x:2848, y:2528}],
+[{o:podloze_ziemia, x:2912, y:2528}],
+[{o:podloze_trawa, x:2976, y:2528}],
+[{o:podloze_trawa, x:3008, y:2528}],
+[{o:podloze_trawa, x:3040, y:2528}],
+[{o:podloze_trawa, x:3072, y:2528}],
+[{o:podloze_trawa, x:3104, y:2528}],
+[{o:podloze_trawa, x:3136, y:2528}],
+[{o:podloze_trawa, x:3168, y:2528}],
+[{o:szybkaWinda, x:1472, y:2400}],
+[{o:kladka, x:1536, y:1888}],
+[{o:kladka, x:1600, y:1920}],
+[{o:podloze_ziemia, x:1664, y:1696}],
+[{o:podloze_ziemia, x:1696, y:1760}],
+[{o:podloze_trawa, x:1728, y:1760}],
+[{o:podloze_trawa, x:1760, y:1760}],
+[{o:podloze_trawa, x:1792, y:1760}],
+[{o:podloze_trawa, x:3168, y:2496}],
+[{o:podloze_trawa, x:3168, y:2448}],
+[{o:podloze_ziemia, x:3168, y:2480}],
+[{o:podloze_ziemia, x:3184, y:2480}],
+[{o:podloze_ziemia, x:3088, y:2400}],
+[{o:podloze_ziemia, x:3072, y:2400}],
+[{o:podloze_ziemia, x:3136, y:2512}],
+[{o:podloze_ziemia, x:3152, y:2512}]];
+this.start = function() {
+__room_start__(this, Etap_7_duzy, 3200, 3200, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+};
+}
+var Etap_7_duzy = new __Etap_7_duzy();
+tu_scenes.push(Etap_7_duzy);
 function __Etap6_Labirynt() { 
 this.tiles = [
 ];
