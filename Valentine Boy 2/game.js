@@ -5624,7 +5624,9 @@ this.objects = [
 [{o:podloze_ziemia, x:3088, y:2400}],
 [{o:podloze_ziemia, x:3072, y:2400}],
 [{o:podloze_ziemia, x:3136, y:2512}],
-[{o:podloze_ziemia, x:3152, y:2512}]];
+[{o:podloze_ziemia, x:3152, y:2512}],
+[{o:skrzydla, x:3072, y:2240}],
+[{o:skrzydla, x:1856, y:1664}]];
 this.start = function() {
 __room_start__(this, Etap_7_duzy, 3200, 3200, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 };
