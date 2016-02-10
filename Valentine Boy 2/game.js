@@ -5629,6 +5629,10 @@ this.objects = [
 [{o:skrzydla, x:1856, y:1664}]];
 this.start = function() {
 __room_start__(this, Etap_7_duzy, 3200, 3200, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+
+poziomu_nr=7;
+co_wymagane=['pierścień','pierścień','pierścień','pierścień','pierścień','pierścień'];
+ustaw_odgrywany_utwor(Greensleeves);
 };
 }
 var Etap_7_duzy = new __Etap_7_duzy();

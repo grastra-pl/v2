@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="8102" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>function setCookie(cname, cvalue, exdays) {
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="8693" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
@@ -2127,7 +2127,9 @@ function inicjalizacja()
 		global.gra_w_pelni_zaladowana = true;
 
 	}
-}</scene><scene name="Etap_7_duzy" width="3200" height="3200" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty"/><scene name="Etap6_Labirynt" width="1600" height="1600" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nr=1;
+}</scene><scene name="Etap_7_duzy" width="3200" height="3200" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nr=7;
+co_wymagane=['pierścień','pierścień','pierścień','pierścień','pierścień','pierścień'];
+ustaw_odgrywany_utwor(Greensleeves);</scene><scene name="Etap6_Labirynt" width="1600" height="1600" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">poziomu_nr=1;
 co_wymagane=['pierścień','jablko'];
 ustaw_odgrywany_utwor(Greensleeves);</scene><scene name="EtapStartowy" width="1660" height="1480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">
 poziomu_nr=1;
