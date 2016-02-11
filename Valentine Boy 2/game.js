@@ -6009,7 +6009,6 @@ this.objects = [
 [{o:podloze_trawa, x:2592, y:448}],
 [{o:podloze_trawa, x:2624, y:448}],
 [{o:podloze_trawa, x:2656, y:448}],
-[{o:podloze_trawa, x:2656, y:416}],
 [{o:podloze_trawa, x:2432, y:448}],
 [{o:podloze_trawa, x:2400, y:448}],
 [{o:granat, x:1664, y:128}],
@@ -6101,13 +6100,6 @@ this.objects = [
 [{o:podloze_trawa, x:1792, y:2880}],
 [{o:podloze_trawa, x:1760, y:2880}],
 [{o:podloze_trawa, x:1728, y:2880}],
-[{o:zlozona_dziewczyna, x:1888, y:2816}],
-[{o:zlozona_dziewczyna, x:1856, y:2816}],
-[{o:zlozona_dziewczyna, x:1824, y:2816}],
-[{o:zlozona_dziewczyna, x:1792, y:2816}],
-[{o:zlozona_dziewczyna, x:1760, y:2816}],
-[{o:zlozona_dziewczyna, x:1728, y:2816}],
-[{o:zlozona_dziewczyna, x:1696, y:2816}],
 [{o:podloze_trawa, x:1696, y:2880}],
 [{o:podloze_trawa, x:1696, y:2720}],
 [{o:podloze_trawa, x:1728, y:2720}],
@@ -6126,8 +6118,18 @@ this.objects = [
 [{o:slon_do_wziecia_dup, x:1888, y:2688}],
 [{o:pierscien_do_wziecia, x:1920, y:2688}],
 [{o:klocek, x:1952, y:2752}],
-[{o:zlozona_dziewczyna, x:1664, y:2816}],
-[{o:podloze_trawa, x:1664, y:2880}]];
+[{o:podloze_trawa, x:1664, y:2880}],
+[{o:podloze_trawa, x:2688, y:448}],
+[{o:podloze_trawa, x:2720, y:448}],
+[{o:podloze_trawa, x:2720, y:416}],
+[{o:zlozona_dziewczyna, x:2656, y:384}],
+[{o:zlozona_dziewczyna, x:2624, y:384}],
+[{o:zlozona_dziewczyna, x:2592, y:384}],
+[{o:zlozona_dziewczyna, x:2560, y:384}],
+[{o:zlozona_dziewczyna, x:2528, y:384}],
+[{o:zlozona_dziewczyna, x:2496, y:384}],
+[{o:zlozona_dziewczyna, x:2464, y:384}],
+[{o:zlozona_dziewczyna, x:2432, y:384}]];
 this.start = function() {
 __room_start__(this, Etap_7_duzy, 3200, 3200, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
