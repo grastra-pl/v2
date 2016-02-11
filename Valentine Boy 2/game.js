@@ -6085,12 +6085,63 @@ this.objects = [
 [{o:podloze_trawa, x:2336, y:576}],
 [{o:podloze_trawa, x:2304, y:576}],
 [{o:podloze_trawa, x:2272, y:576}],
-[{o:podloze_trawa, x:2240, y:576}]];
+[{o:podloze_trawa, x:2240, y:576}],
+[{o:podloze_trawa, x:2880, y:768}],
+[{o:podloze_trawa, x:2912, y:768}],
+[{o:podloze_trawa, x:2944, y:768}],
+[{o:podloze_trawa, x:2976, y:768}],
+[{o:podloze_trawa, x:2464, y:736}],
+[{o:podloze_trawa, x:2496, y:736}],
+[{o:podloze_trawa, x:2528, y:736}],
+[{o:podloze_trawa, x:2560, y:736}],
+[{o:podloze_trawa, x:1920, y:2880}],
+[{o:podloze_trawa, x:1888, y:2880}],
+[{o:podloze_trawa, x:1856, y:2880}],
+[{o:podloze_trawa, x:1824, y:2880}],
+[{o:podloze_trawa, x:1792, y:2880}],
+[{o:podloze_trawa, x:1760, y:2880}],
+[{o:podloze_trawa, x:1728, y:2880}],
+[{o:zlozona_dziewczyna, x:1888, y:2816}],
+[{o:zlozona_dziewczyna, x:1856, y:2816}],
+[{o:zlozona_dziewczyna, x:1824, y:2816}],
+[{o:zlozona_dziewczyna, x:1792, y:2816}],
+[{o:zlozona_dziewczyna, x:1760, y:2816}],
+[{o:zlozona_dziewczyna, x:1728, y:2816}],
+[{o:zlozona_dziewczyna, x:1696, y:2816}],
+[{o:podloze_trawa, x:1696, y:2880}],
+[{o:podloze_trawa, x:1696, y:2720}],
+[{o:podloze_trawa, x:1728, y:2720}],
+[{o:podloze_trawa, x:1760, y:2720}],
+[{o:podloze_trawa, x:1792, y:2720}],
+[{o:podloze_trawa, x:1824, y:2720}],
+[{o:podloze_trawa, x:1856, y:2720}],
+[{o:podloze_trawa, x:1888, y:2720}],
+[{o:podloze_trawa, x:1920, y:2720}],
+[{o:but_do_wziecia, x:1696, y:2688}],
+[{o:kot_do_wziecia, x:1728, y:2688}],
+[{o:filizanka_do_wziecia, x:1760, y:2688}],
+[{o:kwiatek_do_wziecia, x:1792, y:2688}],
+[{o:burger_do_wziecia, x:1824, y:2688}],
+[{o:jablko_do_wziecia, x:1856, y:2656}],
+[{o:slon_do_wziecia_dup, x:1888, y:2688}],
+[{o:pierscien_do_wziecia, x:1920, y:2688}],
+[{o:klocek, x:1952, y:2752}],
+[{o:zlozona_dziewczyna, x:1664, y:2816}],
+[{o:podloze_trawa, x:1664, y:2880}]];
 this.start = function() {
 __room_start__(this, Etap_7_duzy, 3200, 3200, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 poziomu_nr=7;
-co_wymagane=['pierścień','pierścień','pierścień','pierścień','pierścień','pierścień'];
+co_wymagane=[
+'kot',
+'pierścień',
+'but',
+'filizanka',
+'kwiat',
+'burg',
+'jablko',
+'slon',
+];
 ustaw_odgrywany_utwor(Greensleeves);
 };
 }
