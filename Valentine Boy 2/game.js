@@ -2314,8 +2314,10 @@ else
 	if (image_index<5)
 	{
 		bity-=(6-image_index);
-		if (bity<0) bity=0;
+	} else {
+		bity--;
 	}
+	if (bity<0) bity=0;
 }
 
 animacjaZebrania = instance_create(x,y ,zebranyObiekt);
@@ -5687,7 +5689,6 @@ this.objects = [
 [{o:klocek, x:544, y:1248}],
 [{o:klocek, x:608, y:1216}],
 [{o:klocek, x:480, y:1216}],
-[{o:klocek, x:544, y:1184}],
 [{o:klocek, x:480, y:1152}],
 [{o:klocek, x:608, y:1152}],
 [{o:klocek, x:544, y:1120}],
@@ -6109,14 +6110,6 @@ this.objects = [
 [{o:podloze_trawa, x:1856, y:2720}],
 [{o:podloze_trawa, x:1888, y:2720}],
 [{o:podloze_trawa, x:1920, y:2720}],
-[{o:but_do_wziecia, x:1696, y:2688}],
-[{o:kot_do_wziecia, x:1728, y:2688}],
-[{o:filizanka_do_wziecia, x:1760, y:2688}],
-[{o:kwiatek_do_wziecia, x:1792, y:2688}],
-[{o:burger_do_wziecia, x:1824, y:2688}],
-[{o:jablko_do_wziecia, x:1856, y:2656}],
-[{o:slon_do_wziecia_dup, x:1888, y:2688}],
-[{o:pierscien_do_wziecia, x:1920, y:2688}],
 [{o:klocek, x:1952, y:2752}],
 [{o:podloze_trawa, x:1664, y:2880}],
 [{o:podloze_trawa, x:2688, y:448}],
@@ -6129,7 +6122,64 @@ this.objects = [
 [{o:zlozona_dziewczyna, x:2528, y:384}],
 [{o:zlozona_dziewczyna, x:2496, y:384}],
 [{o:zlozona_dziewczyna, x:2464, y:384}],
-[{o:zlozona_dziewczyna, x:2432, y:384}]];
+[{o:zlozona_dziewczyna, x:2432, y:384}],
+[{o:but_do_wziecia, x:192, y:1248}],
+[{o:kot_do_wziecia, x:3008, y:960}],
+[{o:pierscien_do_wziecia, x:2240, y:160}],
+[{o:filizanka_do_wziecia, x:896, y:480}],
+[{o:kwiatek_do_wziecia, x:544, y:1184}],
+[{o:burger_do_wziecia, x:3136, y:64}],
+[{o:jablko_do_wziecia, x:1568, y:640}],
+[{o:slon_do_wziecia_dup, x:896, y:96}],
+[{o:bonus, x:1888, y:3008}],
+[{o:bonus, x:1952, y:2944}],
+[{o:bonus, x:2208, y:2656}],
+[{o:bonus, x:2240, y:2656}],
+[{o:bonus, x:2272, y:2656}],
+[{o:bonus, x:2400, y:2720}],
+[{o:bonus, x:2432, y:2720}],
+[{o:bonus, x:2464, y:2720}],
+[{o:bonus, x:2912, y:2464}],
+[{o:bonus, x:2912, y:2400}],
+[{o:bonus, x:2848, y:2400}],
+[{o:bonus, x:2848, y:2464}],
+[{o:bonus, x:3168, y:2368}],
+[{o:bonus, x:3008, y:2432}],
+[{o:bonus, x:3072, y:2432}],
+[{o:granat, x:3072, y:2336}],
+[{o:granat, x:2816, y:928}],
+[{o:granat, x:2880, y:928}],
+[{o:granat, x:2592, y:928}],
+[{o:granat, x:2528, y:928}],
+[{o:bonus, x:2592, y:832}],
+[{o:bonus, x:2528, y:832}],
+[{o:bonus, x:2816, y:832}],
+[{o:bonus, x:2880, y:832}],
+[{o:skrzydla, x:3040, y:160}],
+[{o:klocek, x:2912, y:32}],
+[{o:klocek, x:2848, y:96}],
+[{o:klocek, x:2944, y:128}],
+[{o:klocek, x:2848, y:160}],
+[{o:klocek, x:2944, y:224}],
+[{o:klocek, x:3040, y:256}],
+[{o:klocek, x:3104, y:320}],
+[{o:klocek, x:3168, y:384}],
+[{o:klocek, x:3104, y:416}],
+[{o:klocek, x:3104, y:512}],
+[{o:klocek, x:3072, y:608}],
+[{o:klocek, x:3040, y:704}],
+[{o:klocek, x:2752, y:320}],
+[{o:klocek, x:2784, y:224}],
+[{o:klocek, x:2816, y:768}],
+[{o:klocek, x:2624, y:768}],
+[{o:skrzydla, x:352, y:2400}],
+[{o:klocek_ciemny, x:2080, y:64}],
+[{o:klocek, x:2144, y:64}],
+[{o:klocek, x:2208, y:64}],
+[{o:bonus, x:2080, y:0}],
+[{o:bonus, x:2144, y:0}],
+[{o:bonus, x:2208, y:0}],
+[{o:klocek_ciemny, x:1824, y:96}]];
 this.start = function() {
 __room_start__(this, Etap_7_duzy, 3200, 3200, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
