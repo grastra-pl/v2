@@ -1833,18 +1833,18 @@ if (gra_wstepna<=18)
 		this.skrzydelko.image_index=this.kier;
 		
 
-			if ( keyboard_check(vk_d)  || keyboard_check(vk_a))  {
+			if ( keyboard_check(vk_d)  || keyboard_check(vk_a) || keyboard_check(vk_left)  || keyboard_check(vk_right))  {
 				this.skrzydelko.x=x; 
 				this.skrzydelko.y=y-15+sin(odliczanie/2)*5;
 				this.skrzydelko.image_angle=sin(odliczanie*tu_d2r*24)*15;
 			}
-			else if ( keyboard_check(vk_w) )
+			else if ( keyboard_check(vk_w) || keyboard_check(vk_up) )
 			{
 				this.skrzydelko.x=x; 
 				this.skrzydelko.y=y-15+sin(odliczanie)*5;
 				this.skrzydelko.image_angle=sin(odliczanie*tu_d2r*48)*15;
 			}
-			else if ( keyboard_check(vk_s) )
+			else if ( keyboard_check(vk_s) || keyboard_check(vk_down) )
 			{
 				this.skrzydelko.x=x; 
 				this.skrzydelko.y=y-15;
@@ -1868,12 +1868,12 @@ if (gra_wstepna<=18)
 				}
 		
 		
-		if ( keyboard_check(vk_w) )
+		if ( keyboard_check(vk_w) ||  keyboard_check(vk_up) )
 		{
 			y-=3;
 			direction = 90;
 		}
-		if ( keyboard_check(vk_s) )
+		if ( keyboard_check(vk_s) || keyboard_check(vk_down) )
 		{
 			y+=5;
 			direction = 270;
@@ -1896,9 +1896,9 @@ if (gra_wstepna<=18)
 			image_angle=air*12;
 		}
 		
-		if ( (keyboard_check_pressed(vk_w) ) && this.jump == 0 && this.air ==0 && this.spada == false) {
+		if ( (keyboard_check_pressed(vk_w) || keyboard_check(vk_up) ) && this.jump == 0 && this.air ==0 && this.spada == false) {
 			jump = 1;
-			air =  10; // siła skoku
+			air =  11; // siła skoku
 			if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_jump);
 			 
 		}
@@ -1980,7 +1980,7 @@ if (gra_wstepna<=18)
 	
 	if  ((!this.spada) || (moze_latac)) {
 	
-		if ( keyboard_check(vk_d) )  {
+		if ( keyboard_check(vk_d) || keyboard_check(vk_right) )  {
 			x += 4;
 			if (moze_latac)
 				{
@@ -2006,7 +2006,7 @@ if (gra_wstepna<=18)
 				}
 		}
 
-		if ( keyboard_check(vk_a) ) {
+		if ( keyboard_check(vk_a) || keyboard_check(vk_left) ) {
 			x -= 4;
 			if (moze_latac)
 				{
@@ -9443,6 +9443,11 @@ gra_wstepna=0;
 room_goto_next();
 ustaw_odgrywany_utwor(Greensleeves);
 poziomu_nr++;
+if (typeof kongregate != 'undefined')
+	{
+		kongregate.stats.submit("circleOfHell",poziomu_nr);
+	}
+
 }
 
 
