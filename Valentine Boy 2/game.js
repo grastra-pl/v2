@@ -2130,9 +2130,7 @@ if (gra_wstepna<100)
 }
 else
 {
-	punkty*=2;
-	gra_wstepna=0;
-	room_goto_next();
+	kolejnyEtap();
 }
 }
 this.other = this.place_meeting(this.x, this.y, wrog1);
@@ -4372,7 +4370,7 @@ this.on_draw = on_draw_i;
 }; var zebranyObiekt = new __zebranyObiekt();
 
 function __granatnik() {
-__instance_init__(this, granatnik, null, 1, 0, granatnikS, 1, 850);
+__instance_init__(this, granatnik, null, 1, 0, granatnikS, 1, 835);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4397,7 +4395,7 @@ this.on_draw = on_draw_i;
 }; var granatnik = new __granatnik();
 
 function __rozwalacz() {
-__instance_init__(this, rozwalacz, null, 1, 0, rozwalaczS, 1, 851);
+__instance_init__(this, rozwalacz, null, 1, 0, rozwalaczS, 1, 836);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4422,7 +4420,7 @@ this.on_draw = on_draw_i;
 }; var rozwalacz = new __rozwalacz();
 
 function __kalasz() {
-__instance_init__(this, kalasz, null, 1, 0, kalaszS, 1, 852);
+__instance_init__(this, kalasz, null, 1, 0, kalaszS, 1, 837);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4447,7 +4445,7 @@ this.on_draw = on_draw_i;
 }; var kalasz = new __kalasz();
 
 function __granat() {
-__instance_init__(this, granat, null, 1, 0, granatS, 1, 856);
+__instance_init__(this, granat, null, 1, 0, granatS, 1, 841);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4472,7 +4470,7 @@ this.on_draw = on_draw_i;
 }; var granat = new __granat();
 
 function __granatRzucony() {
-__instance_init__(this, granatRzucony, null, 1, 0, granatS, 1, 857);
+__instance_init__(this, granatRzucony, null, 1, 0, granatS, 1, 842);
 this.on_creation = function() {
 with(this) {
 this.rzut=-10;
@@ -4539,7 +4537,7 @@ this.on_draw = on_draw_i;
 }; var granatRzucony = new __granatRzucony();
 
 function __odlamek() {
-__instance_init__(this, odlamek, null, 1, 0, sprite_2106, 1, 858);
+__instance_init__(this, odlamek, null, 1, 0, sprite_2106, 1, 843);
 this.on_creation = function() {
 with(this) {
 this.rzut=-10;
@@ -4609,7 +4607,7 @@ this.on_draw = on_draw_i;
 }; var odlamek = new __odlamek();
 
 function __pociskGranatnika() {
-__instance_init__(this, pociskGranatnika, null, 1, 0, pociskGranatnikaS, 1, 859);
+__instance_init__(this, pociskGranatnika, null, 1, 0, pociskGranatnikaS, 1, 844);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4671,7 +4669,7 @@ this.on_draw = on_draw_i;
 }; var pociskGranatnika = new __pociskGranatnika();
 
 function __blueBoss() {
-__instance_init__(this, blueBoss, null, 1, 0, blueBossS, 1, 860);
+__instance_init__(this, blueBoss, null, 1, 0, blueBossS, 1, 845);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -4800,7 +4798,7 @@ instance_destroy();
 }; var blueBoss = new __blueBoss();
 
 function __dym() {
-__instance_init__(this, dym, null, 1, 0, chmurkaS, 1, 941);
+__instance_init__(this, dym, null, 1, 0, chmurkaS, 1, 926);
 this.on_creation = function() {
 with(this) {
 this.czas=50;
@@ -4826,7 +4824,7 @@ this.on_draw = on_draw_i;
 }; var dym = new __dym();
 
 function __pociskRozwalacza() {
-__instance_init__(this, pociskRozwalacza, null, 1, 0, pociskRozwalaczaS, 1, 942);
+__instance_init__(this, pociskRozwalacza, null, 1, 0, pociskRozwalaczaS, 1, 927);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -4945,7 +4943,7 @@ this.on_draw = on_draw_i;
 }; var pociskRozwalacza = new __pociskRozwalacza();
 
 function __redBoss() {
-__instance_init__(this, redBoss, null, 1, 0, redBossS, 1, 943);
+__instance_init__(this, redBoss, null, 1, 0, redBossS, 1, 928);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5074,7 +5072,7 @@ instance_destroy();
 }; var redBoss = new __redBoss();
 
 function __greenBoss() {
-__instance_init__(this, greenBoss, null, 1, 0, greenBossS, 1, 944);
+__instance_init__(this, greenBoss, null, 1, 0, greenBossS, 1, 929);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5207,7 +5205,7 @@ instance_destroy();
 }; var greenBoss = new __greenBoss();
 
 function __bigBoss() {
-__instance_init__(this, bigBoss, null, 1, 0, glownyBossS, 1, 945);
+__instance_init__(this, bigBoss, null, 1, 0, glownyBossS, 1, 930);
 this.on_creation = function() {
 with(this) {
 image_speed=0;
@@ -5358,7 +5356,7 @@ instance_destroy();
 }; var bigBoss = new __bigBoss();
 
 function __chmurkaKoncowa() {
-__instance_init__(this, chmurkaKoncowa, null, 1, 0, chmura, 1, 1582);
+__instance_init__(this, chmurkaKoncowa, null, 1, 0, chmura, 1, 1567);
 this.on_creation = function() {
 with(this) {
 this.odliczanie=0;
@@ -5388,7 +5386,7 @@ this.on_draw = on_draw_i;
 }; var chmurkaKoncowa = new __chmurkaKoncowa();
 
 function __szybkaWinda() {
-__instance_init__(this, szybkaWinda, null, 1, 0, elewatorS, 1, 1646);
+__instance_init__(this, szybkaWinda, null, 1, 0, elewatorS, 1, 1631);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -5480,7 +5478,7 @@ function inicjalizacja()
 		tytul_div.setAttribute('id',divIdName);
 		tytul_div.setAttribute('name',divIdName);
 		tytul_div.setAttribute('style','position: absolute; top: 385px; left: 485px; background-color: transparent;');
-		tytul_div.innerHTML = 'Grastra 2016<br><br>game code: Jimmy<br>music: Henry VIII';
+		tytul_div.innerHTML = 'Grastra 2016<br>game code: Jimmy<br>music: Henry VIII<br><small>v 1.0.1</small>';
 		
 		
 		var punkty_div = document.createElement('div');
@@ -5784,17 +5782,6 @@ this.objects = [
 [{o:podloze_trawa, x:640, y:1344}],
 [{o:podloze_trawa, x:672, y:1344}],
 [{o:podloze_trawa, x:672, y:1312}],
-[{o:podloze_trawa, x:768, y:1216}],
-[{o:podloze_trawa, x:800, y:1216}],
-[{o:podloze_trawa, x:800, y:1184}],
-[{o:podloze_trawa, x:832, y:1184}],
-[{o:podloze_trawa, x:832, y:1152}],
-[{o:podloze_trawa, x:960, y:1056}],
-[{o:podloze_trawa, x:960, y:1024}],
-[{o:podloze_trawa, x:992, y:1024}],
-[{o:podloze_trawa, x:992, y:992}],
-[{o:podloze_trawa, x:1024, y:992}],
-[{o:podloze_trawa, x:1024, y:960}],
 [{o:podloze_trawa, x:1152, y:864}],
 [{o:podloze_trawa, x:0, y:1056}],
 [{o:podloze_trawa, x:0, y:1024}],
@@ -5859,10 +5846,6 @@ this.objects = [
 [{o:podloze_ziemia, x:704, y:1104}],
 [{o:podloze_ziemia, x:1360, y:544}],
 [{o:podloze_ziemia, x:1376, y:544}],
-[{o:podloze_ziemia, x:928, y:1088}],
-[{o:podloze_ziemia, x:944, y:1088}],
-[{o:podloze_ziemia, x:960, y:1088}],
-[{o:podloze_ziemia, x:976, y:1088}],
 [{o:skrzydla, x:192, y:192}],
 [{o:jablko_do_wziecia, x:272, y:240}],
 [{o:slon_do_wziecia_dup, x:352, y:224}],
@@ -6040,21 +6023,180 @@ this.objects = [
 [{o:klocek, x:1120, y:864}],
 [{o:klocek, x:1184, y:800}],
 [{o:klocek, x:1296, y:720}],
-[{o:klocek, x:1328, y:688}]];
+[{o:klocek, x:1328, y:688}],
+[{o:tasma_prawo, x:460, y:1380}],
+[{o:tasma_prawo, x:480, y:1380}],
+[{o:tasma_prawo, x:500, y:1380}],
+[{o:tasma_prawo, x:520, y:1380}],
+[{o:tasma_prawo, x:540, y:1380}],
+[{o:tasma_prawo, x:560, y:1380}],
+[{o:tasma_skraj, x:440, y:1380}],
+[{o:tasma_skraj_prawy, x:580, y:1380}],
+[{o:podloze_skos_lewy, x:752, y:1232}],
+[{o:podloze_skos_lewy, x:784, y:1200}],
+[{o:podloze_skos_lewy, x:816, y:1168}],
+[{o:podloze_skos_lewy, x:848, y:1136}],
+[{o:podloze_skos_lewy, x:864, y:1120}],
+[{o:podloze_skos_lewy, x:880, y:1104}],
+[{o:podloze_skos_lewy, x:896, y:1088}],
+[{o:podloze_skos_lewy, x:912, y:1072}],
+[{o:podloze_skos_lewy, x:928, y:1056}],
+[{o:podloze_skos_lewy, x:944, y:1040}],
+[{o:podloze_skos_lewy, x:976, y:1008}],
+[{o:podloze_skos_lewy, x:1008, y:976}],
+[{o:podloze_skos_lewy, x:1040, y:944}],
+[{o:podloze_skos_lewy, x:1056, y:928}],
+[{o:podloze_skos_lewy, x:1072, y:912}],
+[{o:podloze_skos_lewy, x:1088, y:896}],
+[{o:podloze_skos_lewy, x:1104, y:880}],
+[{o:podloze_skos_lewy, x:1152, y:848}],
+[{o:podloze_skos_lewy, x:1168, y:832}],
+[{o:filizanka_do_wziecia, x:1024, y:768}],
+[{o:filizanka_do_wziecia, x:864, y:896}],
+[{o:szybkaWinda, x:208, y:1200}],
+[{o:podloze_skos_lewy, x:768, y:1216}],
+[{o:podloze_skos_lewy, x:800, y:1184}],
+[{o:podloze_skos_lewy, x:832, y:1152}],
+[{o:podloze_skos_lewy, x:960, y:1024}],
+[{o:podloze_skos_lewy, x:992, y:992}],
+[{o:podloze_skos_lewy, x:1024, y:960}],
+[{o:podloze_ziemia, x:320, y:688}],
+[{o:podloze_ziemia, x:304, y:688}],
+[{o:podloze_ziemia, x:336, y:688}],
+[{o:podloze_ziemia, x:352, y:608}],
+[{o:podloze_ziemia, x:368, y:608}],
+[{o:podloze_ziemia, x:384, y:608}],
+[{o:podloze_ziemia, x:624, y:1360}],
+[{o:podloze_ziemia, x:656, y:1328}],
+[{o:podloze_ziemia, x:688, y:1296}],
+[{o:podloze_ziemia, x:704, y:1280}],
+[{o:podloze_ziemia, x:720, y:1264}],
+[{o:podloze_ziemia, x:736, y:1248}],
+[{o:podloze_ziemia, x:752, y:1232}],
+[{o:podloze_ziemia, x:768, y:1216}],
+[{o:podloze_ziemia, x:784, y:1200}],
+[{o:podloze_ziemia, x:800, y:1184}],
+[{o:podloze_ziemia, x:816, y:1168}],
+[{o:podloze_ziemia, x:832, y:1152}],
+[{o:podloze_ziemia, x:848, y:1136}],
+[{o:podloze_ziemia, x:864, y:1120}],
+[{o:podloze_ziemia, x:880, y:1104}],
+[{o:podloze_ziemia, x:896, y:1088}],
+[{o:podloze_ziemia, x:912, y:1072}],
+[{o:podloze_ziemia, x:928, y:1056}],
+[{o:podloze_ziemia, x:944, y:1040}],
+[{o:podloze_ziemia, x:960, y:1024}],
+[{o:podloze_ziemia, x:976, y:1008}],
+[{o:podloze_ziemia, x:992, y:992}],
+[{o:podloze_ziemia, x:1008, y:976}],
+[{o:podloze_ziemia, x:1024, y:960}],
+[{o:podloze_ziemia, x:1040, y:944}],
+[{o:podloze_ziemia, x:1056, y:928}],
+[{o:podloze_ziemia, x:1072, y:912}],
+[{o:podloze_ziemia, x:1088, y:896}],
+[{o:podloze_ziemia, x:1104, y:880}],
+[{o:podloze_ziemia, x:1152, y:848}],
+[{o:podloze_ziemia, x:1168, y:832}]];
 this.start = function() {
 __room_start__(this, EtapStartowy, 1660, 1480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 
-poziomu_nr=1;
 
 co_wymagane=['filizanka','kot','but'];
 
 
-ustaw_odgrywany_utwor(Greensleeves);
+
 };
 }
 var EtapStartowy = new __EtapStartowy();
 tu_scenes.push(EtapStartowy);
+function __etap_Bonusowy() { 
+this.tiles = [
+];
+this.objects = [
+[{o:Walenty, x:128, y:320}],
+[{o:podloze_trawa, x:64, y:352}],
+[{o:podloze_trawa, x:96, y:352}],
+[{o:podloze_trawa, x:128, y:352}],
+[{o:podloze_trawa, x:160, y:352}],
+[{o:bonus, x:64, y:224}],
+[{o:bonus, x:128, y:224}],
+[{o:bonus, x:64, y:192}],
+[{o:bonus, x:128, y:192}],
+[{o:bonus, x:64, y:160}],
+[{o:bonus, x:128, y:160}],
+[{o:bonus, x:64, y:128}],
+[{o:bonus, x:128, y:128}],
+[{o:bonus, x:64, y:96}],
+[{o:bonus, x:128, y:96}],
+[{o:bonus, x:64, y:64}],
+[{o:bonus, x:128, y:64}],
+[{o:bonus, x:256, y:320}],
+[{o:bonus, x:320, y:320}],
+[{o:bonus, x:384, y:320}],
+[{o:bonus, x:448, y:320}],
+[{o:bonus, x:512, y:320}],
+[{o:bonus, x:576, y:320}],
+[{o:tasma_skraj, x:256, y:384}],
+[{o:tasma_skraj_prawy, x:592, y:384}],
+[{o:tasma_prawo, x:272, y:384}],
+[{o:tasma_prawo, x:288, y:384}],
+[{o:tasma_prawo, x:304, y:384}],
+[{o:tasma_prawo, x:320, y:384}],
+[{o:tasma_prawo, x:336, y:384}],
+[{o:tasma_prawo, x:352, y:384}],
+[{o:tasma_prawo, x:368, y:384}],
+[{o:tasma_prawo, x:384, y:384}],
+[{o:tasma_prawo, x:400, y:384}],
+[{o:tasma_prawo, x:416, y:384}],
+[{o:tasma_prawo, x:432, y:384}],
+[{o:tasma_prawo, x:448, y:384}],
+[{o:tasma_prawo, x:464, y:384}],
+[{o:tasma_prawo, x:480, y:384}],
+[{o:tasma_prawo, x:496, y:384}],
+[{o:tasma_prawo, x:512, y:384}],
+[{o:tasma_prawo, x:528, y:384}],
+[{o:tasma_prawo, x:544, y:384}],
+[{o:tasma_prawo, x:560, y:384}],
+[{o:tasma_prawo, x:576, y:384}],
+[{o:klocek, x:544, y:304}],
+[{o:klocek, x:496, y:272}],
+[{o:klocek, x:432, y:304}],
+[{o:klocek, x:544, y:240}],
+[{o:podloze_trawa, x:608, y:208}],
+[{o:podloze_trawa, x:576, y:208}],
+[{o:klocek_ciemny, x:464, y:272}],
+[{o:podloze_ziemia, x:32, y:304}],
+[{o:podloze_ziemia, x:16, y:256}],
+[{o:podloze_ziemia, x:0, y:208}],
+[{o:kladka, x:224, y:224}],
+[{o:podloze_trawa, x:496, y:128}],
+[{o:podloze_trawa, x:464, y:128}],
+[{o:podloze_trawa, x:432, y:128}],
+[{o:podloze_trawa, x:400, y:128}],
+[{o:podloze_trawa, x:368, y:128}],
+[{o:podloze_trawa, x:336, y:128}],
+[{o:podloze_trawa, x:304, y:128}],
+[{o:egipska_krolewna, x:384, y:80}],
+[{o:filizanka_do_wziecia, x:592, y:160}],
+[{o:bonus, x:480, y:64}],
+[{o:bonus, x:304, y:64}],
+[{o:bonus, x:304, y:16}],
+[{o:bonus, x:480, y:16}],
+[{o:bonus, x:576, y:48}],
+[{o:bonus, x:576, y:0}],
+[{o:bonus, x:128, y:32}],
+[{o:bonus, x:64, y:32}],
+[{o:kladka, x:160, y:320}]];
+this.start = function() {
+__room_start__(this, etap_Bonusowy, 640, 490, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, null, 50, 50);
+
+co_wymagane='filizanka';
+
+};
+}
+var etap_Bonusowy = new __etap_Bonusowy();
+tu_scenes.push(etap_Bonusowy);
 function __Etap2() { 
 this.tiles = [
 ];
@@ -6620,7 +6762,7 @@ this.start = function() {
 __room_start__(this, Etap2, 3320, 880, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='pierścień';
-poziomu_nr=2;
+
 };
 }
 var Etap2 = new __Etap2();
@@ -6745,10 +6887,10 @@ this.objects = [
 [{o:bonus, x:256, y:192}],
 [{o:bonus, x:256, y:64}]];
 this.start = function() {
-__room_start__(this, ETAP3, 640, 2480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
+__room_start__(this, ETAP3, 640, 2500, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='slon';
-poziomu_nr=2;
+
 };
 }
 var ETAP3 = new __ETAP3();
@@ -6908,10 +7050,10 @@ this.objects = [
 [{o:bonus, x:2240, y:32}],
 [{o:bonus, x:2304, y:32}]];
 this.start = function() {
-__room_start__(this, Etap4, 2640, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 300, 300);
+__room_start__(this, Etap4, 2640, 490, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 300, 300);
 
 co_wymagane='kwiat';
-poziomu_nr=4;
+
 };
 }
 var Etap4 = new __Etap4();
@@ -7143,7 +7285,7 @@ this.start = function() {
 __room_start__(this, Etap5PierwszyBos, 1600, 1600, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
 co_wymagane='burg';
-poziomu_nr=5;
+
 };
 }
 var Etap5PierwszyBos = new __Etap5PierwszyBos();
@@ -7399,9 +7541,9 @@ this.objects = [
 this.start = function() {
 __room_start__(this, Etap6_Labirynt, 1600, 1600, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
-poziomu_nr=1;
+
 co_wymagane=['pierścień','jablko'];
-ustaw_odgrywany_utwor(Greensleeves);
+
 };
 }
 var Etap6_Labirynt = new __Etap6_Labirynt();
@@ -8285,7 +8427,7 @@ this.objects = [
 this.start = function() {
 __room_start__(this, Etap_7_duzy, 3200, 3200, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
-poziomu_nr=7;
+
 co_wymagane=[
 'kot',
 'pierścień',
@@ -8296,97 +8438,11 @@ co_wymagane=[
 'jablko',
 'slon',
 ];
-ustaw_odgrywany_utwor(Greensleeves);
+
 };
 }
 var Etap_7_duzy = new __Etap_7_duzy();
 tu_scenes.push(Etap_7_duzy);
-function __etap_Bonusowy() { 
-this.tiles = [
-];
-this.objects = [
-[{o:Walenty, x:128, y:320}],
-[{o:podloze_trawa, x:64, y:352}],
-[{o:podloze_trawa, x:96, y:352}],
-[{o:podloze_trawa, x:128, y:352}],
-[{o:podloze_trawa, x:160, y:352}],
-[{o:bonus, x:64, y:224}],
-[{o:bonus, x:128, y:224}],
-[{o:bonus, x:64, y:192}],
-[{o:bonus, x:128, y:192}],
-[{o:bonus, x:64, y:160}],
-[{o:bonus, x:128, y:160}],
-[{o:bonus, x:64, y:128}],
-[{o:bonus, x:128, y:128}],
-[{o:bonus, x:64, y:96}],
-[{o:bonus, x:128, y:96}],
-[{o:bonus, x:64, y:64}],
-[{o:bonus, x:128, y:64}],
-[{o:bonus, x:256, y:320}],
-[{o:bonus, x:320, y:320}],
-[{o:bonus, x:384, y:320}],
-[{o:bonus, x:448, y:320}],
-[{o:bonus, x:512, y:320}],
-[{o:bonus, x:576, y:320}],
-[{o:tasma_skraj, x:256, y:384}],
-[{o:tasma_skraj_prawy, x:592, y:384}],
-[{o:tasma_prawo, x:272, y:384}],
-[{o:tasma_prawo, x:288, y:384}],
-[{o:tasma_prawo, x:304, y:384}],
-[{o:tasma_prawo, x:320, y:384}],
-[{o:tasma_prawo, x:336, y:384}],
-[{o:tasma_prawo, x:352, y:384}],
-[{o:tasma_prawo, x:368, y:384}],
-[{o:tasma_prawo, x:384, y:384}],
-[{o:tasma_prawo, x:400, y:384}],
-[{o:tasma_prawo, x:416, y:384}],
-[{o:tasma_prawo, x:432, y:384}],
-[{o:tasma_prawo, x:448, y:384}],
-[{o:tasma_prawo, x:464, y:384}],
-[{o:tasma_prawo, x:480, y:384}],
-[{o:tasma_prawo, x:496, y:384}],
-[{o:tasma_prawo, x:512, y:384}],
-[{o:tasma_prawo, x:528, y:384}],
-[{o:tasma_prawo, x:544, y:384}],
-[{o:tasma_prawo, x:560, y:384}],
-[{o:tasma_prawo, x:576, y:384}],
-[{o:klocek, x:544, y:304}],
-[{o:klocek, x:496, y:272}],
-[{o:klocek, x:432, y:304}],
-[{o:klocek, x:544, y:240}],
-[{o:podloze_trawa, x:608, y:208}],
-[{o:podloze_trawa, x:576, y:208}],
-[{o:klocek_ciemny, x:464, y:272}],
-[{o:podloze_ziemia, x:32, y:304}],
-[{o:podloze_ziemia, x:16, y:256}],
-[{o:podloze_ziemia, x:0, y:208}],
-[{o:kladka, x:224, y:224}],
-[{o:podloze_trawa, x:496, y:128}],
-[{o:podloze_trawa, x:464, y:128}],
-[{o:podloze_trawa, x:432, y:128}],
-[{o:podloze_trawa, x:400, y:128}],
-[{o:podloze_trawa, x:368, y:128}],
-[{o:podloze_trawa, x:336, y:128}],
-[{o:podloze_trawa, x:304, y:128}],
-[{o:egipska_krolewna, x:384, y:80}],
-[{o:filizanka_do_wziecia, x:592, y:160}],
-[{o:bonus, x:480, y:64}],
-[{o:bonus, x:304, y:64}],
-[{o:bonus, x:304, y:16}],
-[{o:bonus, x:480, y:16}],
-[{o:bonus, x:576, y:48}],
-[{o:bonus, x:576, y:0}],
-[{o:bonus, x:128, y:32}],
-[{o:bonus, x:64, y:32}]];
-this.start = function() {
-__room_start__(this, etap_Bonusowy, 640, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, null, 50, 50);
-
-co_wymagane='filizanka';
-poziomu_nr=8;
-};
-}
-var etap_Bonusowy = new __etap_Bonusowy();
-tu_scenes.push(etap_Bonusowy);
 function __bossFight() { 
 this.tiles = [
 [1000000,
@@ -8923,12 +8979,8 @@ this.objects = [
 this.start = function() {
 __room_start__(this, bossFight, 1600, 1600, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
-poziomu_nr=9;
-
 co_wymagane=['filizanka','kot'];
 
-
-ustaw_odgrywany_utwor(Greensleeves);
 };
 }
 var bossFight = new __bossFight();
@@ -9114,7 +9166,9 @@ function letsStartGame() {
 zerujStanPosiadania();
 
 room_goto_first();
-room_goto_next();
+
+poziomu_nr=0;
+kolejnyEtap();
 
 }
 function wyliczDno() { 
@@ -9292,6 +9346,13 @@ dodawany_div.setAttribute('style','position: absolute; top: '+pozY+'px; left: '+
 dodawany_div.innerHTML = tresc;
 
 t_game.appendChild(dodawany_div);
+}
+function kolejnyEtap() { 
+punkty*=3;
+gra_wstepna=0;
+room_goto_next();
+ustaw_odgrywany_utwor(Greensleeves);
+poziomu_nr++;
 }
 
 
