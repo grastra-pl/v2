@@ -1896,7 +1896,7 @@ if (gra_wstepna<=18)
 			image_angle=air*12;
 		}
 		
-		if ( (keyboard_check_pressed(vk_w) || keyboard_check(vk_up) ) && this.jump == 0 && this.air ==0 && this.spada == false) {
+		if ( (keyboard_check_pressed(vk_w) || keyboard_check(vk_up) ) && this.jump == 0 && this.air <2 && this.air >-2 &&this.spada == false) {
 			jump = 1;
 			air =  11; // siła skoku
 			if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_jump);
