@@ -1807,9 +1807,12 @@ odliczanie++;
 		odliczanie=0;
 	}
 
-if (odliczanie % 5 == 0) {
-	global.poziomLawy--;
+if (jest_lawa) {
+	if (odliczanie % 5 == 0) {
+		global.poziomLawy--;
+	}
 }
+
 
 szybkosc_utraty_latania=8;
 if (odliczanie % szybkosc_utraty_latania == 0) {
@@ -1921,6 +1924,7 @@ if (gra_wstepna<=18)
 
 	if  (( place_meeting(x, y, podloze_ziemia) != null)
 		|| ( place_meeting(x, y, podloze_trawa) != null)
+		|| ( place_meeting(x, y, podloze_niebieskie) != null)
 		|| ( place_meeting(x, y, podloze_skos_lewy) != null)
 		|| ( place_meeting(x, y, podloze_skos_prawy) != null)
 		|| ( place_meeting(x, y, tasma_prawo) != null)
@@ -2034,7 +2038,7 @@ if (gra_wstepna<=18)
 			image_index = 0+ floor((x % 32 ) / 8);
 			this.kier=0;
 			
-			if ((place_meeting(x, y, podloze_ziemia) != null) || (place_meeting(x, y, podloze_trawa) != null)) {
+			if ((place_meeting(x, y, podloze_ziemia) != null) || (place_meeting(x, y, podloze_trawa) != null) || ( place_meeting(x, y, podloze_niebieskie) != null)) {
 				x = xprevious;
 			}
 			
@@ -2056,7 +2060,7 @@ if (gra_wstepna<=18)
 	if ( x > room_width -32 ) x = room_width-32;
 
 	
-	
+if (jest_lawa) {
 	if (y>wyliczDno()-strefaParzeniaLawy)
 	{
 		if (irandom(10)>8) {
@@ -2064,6 +2068,7 @@ if (gra_wstepna<=18)
 			instance_create(x-15+irandom(30),y-64+irandom(30),dym);
 		}
 	}
+}
 
 	if (y>wyliczDno())
 	{
@@ -2902,14 +2907,8 @@ if (jestem_juz==1)
 			{
 				if (gra_wstepna>18)
 				{
-				/*
-					image_angle=-90;
-					
-					przes=Math.sin((xstart+ystart+odliczanie)/10*Math.PI)*5;
-					x=this.xss+przes+35;
-					y=this.yss+przes+10;
-				*/
 				
+								
 				}
 			}
 			
@@ -2917,6 +2916,7 @@ if  (( place_meeting(x, y+4, podloze_ziemia) != null)
 		|| ( place_meeting(x, y+4, podloze_trawa) != null)
 		|| ( place_meeting(x, y+4, podloze_skos_lewy) != null)
 		|| ( place_meeting(x, y+4, podloze_skos_prawy) != null)
+		|| ( place_meeting(x, y+4, podloze_niebieskie) != null)
 		|| ( place_meeting(x, y+4, tasma_lewo) != null)
 		|| ( place_meeting(x, y+4, tasma_prawo) != null)
 		)
@@ -3296,15 +3296,20 @@ var xlawy=128;
 var ylawy=125;
 poziomPlomieni = wyliczDno()-25;
 
-for (var j=0;j<480;j+=ylawy) {
-	for (var i=0;i<room_width;i+=xlawy) {
-		draw_sprite(lawa,(floor(this.odliczanie/10)+j/ylawy+0*i/xlawy) % 7,i,j+poziomPlomieni+50);
+
+if (jest_lawa) {
+	for (var j=0;j<480;j+=ylawy) {
+		for (var i=0;i<room_width;i+=xlawy) {
+			draw_sprite(lawa,(floor(this.odliczanie/10)+j/ylawy+0*i/xlawy) % 7,i,j+poziomPlomieni+50);
+		}
+	}
+
+	for (var i=0;i<room_width;i+=20) {
+		draw_sprite(plomienS,(floor(this.odliczanie/4)+i) % 9,i,poziomPlomieni);
 	}
 }
 
-for (var i=0;i<room_width;i+=20) {
-	draw_sprite(plomienS,(floor(this.odliczanie/4)+i) % 9,i,poziomPlomieni);
-}
+
 
 
 
@@ -5521,21 +5526,18 @@ function inicjalizacja()
 		if  ((punkty>0) || (best_punkty>0))
 		{
 			
-			
-			if (best_punkty>0)
-			{
-				if (typeof kongregate != 'undefined')
+			if (typeof kongregate != 'undefined')
 				{
-					kongregate.stats.submit("HighScore",best_punkty);
+					if (punkty>0) {
+						kongregate.stats.submit("HighScore",punkty);
+					}
+					
+					if (best_punkty>0)
+					{
+						kongregate.stats.submit("HighScore",best_punkty);
+					}
 				}
-			}
-			else if (punkty>0)
-			{
-				if (typeof kongregate != 'undefined')
-				{
-					kongregate.stats.submit("HighScore",punkty);
-				}
-			}
+						
 			
 			if (punkty>best_punkty)
 			{
@@ -5587,14 +5589,38 @@ this.objects = [
 [{o:podloze_trawa, x:160, y:416}],
 [{o:podloze_trawa, x:160, y:448}],
 [{o:podloze_ziemia, x:160, y:272}],
-[{o:podloze_ziemia, x:624, y:288}],
-[{o:podloze_ziemia, x:624, y:304}],
-[{o:podloze_ziemia, x:608, y:304}],
-[{o:podloze_ziemia, x:608, y:288}],
-[{o:podloze_trawa, x:576, y:288}],
-[{o:Walenty, x:608, y:256}]];
+[{o:Walenty, x:608, y:256}],
+[{o:podloze_niebieskie, x:512, y:288}],
+[{o:podloze_niebieskie, x:480, y:272}],
+[{o:podloze_niebieskie, x:448, y:272}],
+[{o:podloze_niebieskie, x:416, y:272}],
+[{o:podloze_niebieskie, x:384, y:272}],
+[{o:podloze_niebieskie, x:544, y:304}],
+[{o:podloze_niebieskie, x:576, y:288}],
+[{o:podloze_niebieskie, x:608, y:288}],
+[{o:podloze_niebieskie, x:352, y:272}],
+[{o:podloze_niebieskie, x:320, y:272}],
+[{o:podloze_niebieskie, x:288, y:272}],
+[{o:podloze_niebieskie, x:256, y:272}],
+[{o:podloze_niebieskie, x:224, y:272}],
+[{o:podloze_niebieskie, x:192, y:272}],
+[{o:podloze_niebieskie, x:160, y:208}],
+[{o:podloze_niebieskie, x:128, y:208}],
+[{o:podloze_niebieskie, x:96, y:208}],
+[{o:podloze_niebieskie, x:64, y:208}],
+[{o:podloze_niebieskie, x:32, y:208}],
+[{o:podloze_niebieskie, x:0, y:208}],
+[{o:podloze_niebieskie, x:32, y:288}],
+[{o:podloze_niebieskie, x:64, y:288}],
+[{o:podloze_niebieskie, x:96, y:288}],
+[{o:podloze_niebieskie, x:128, y:288}],
+[{o:egipska_krolewna, x:96, y:160}],
+[{o:filizanka_do_wziecia, x:0, y:64}]];
 this.start = function() {
 __room_start__(this, EtapWprowadzenia, 640, 480, 30, 0, 0, 0, krajobraz.image, 0, 0, 0, 640, 480, null, 50, 50);
+
+jest_lawa=false;
+co_wymagane='filizanka';
 };
 }
 var EtapWprowadzenia = new __EtapWprowadzenia();
@@ -5602,46 +5628,6 @@ tu_scenes.push(EtapWprowadzenia);
 function __EtapStartowy() { 
 this.tiles = [
 [1000000,
-[paniD,
-[512,0,128,128,0,0],
-[512,0,128,128,128,0],
-[512,0,128,128,256,0],
-[512,0,128,128,384,0],
-[512,0,128,128,512,0],
-[512,0,128,128,640,0],
-[512,0,128,128,768,0],
-[512,0,128,128,896,0],
-[512,0,128,128,1024,0],
-[512,0,128,128,1152,0],
-[512,0,128,128,1280,0],
-[512,0,128,128,1408,0],
-[512,0,128,128,1536,0],
-[512,128,128,128,0,128],
-[512,128,128,128,128,128],
-[512,128,128,128,256,128],
-[512,128,128,128,384,128],
-[512,128,128,128,512,128],
-[512,128,128,128,640,128],
-[512,128,128,128,768,128],
-[512,128,128,128,896,128],
-[512,128,128,128,1024,128],
-[512,128,128,128,1152,128],
-[512,128,128,128,1280,128],
-[512,128,128,128,1408,128],
-[512,128,128,128,1536,128],
-[512,256,128,128,0,256],
-[512,256,128,128,128,256],
-[512,256,128,128,256,256],
-[512,256,128,128,384,256],
-[512,256,128,128,512,256],
-[512,256,128,128,640,256],
-[512,256,128,128,768,256],
-[512,256,128,128,896,256],
-[512,256,128,128,1024,256],
-[512,256,128,128,1152,256],
-[512,256,128,128,1280,256],
-[512,256,128,128,1408,256],
-[512,256,128,128,1536,256]],
 [instrukcja,
 [0,0,96,96,64,1280],
 [288,0,96,96,192,1248],
@@ -5650,7 +5636,11 @@ this.tiles = [
 [96,384,96,96,288,1056],
 [288,384,96,96,192,960],
 [384,384,96,96,288,960],
-[288,96,96,96,480,1248]]]];
+[288,96,96,96,480,1248]],
+[krajobraz,
+[0,0,800,400,0,0],
+[0,0,800,400,780,0],
+[0,0,800,400,1560,0]]]];
 this.objects = [
 [{o:Walenty, x:80, y:112}],
 [{o:podloze_trawa, x:256, y:288}],
@@ -9272,7 +9262,7 @@ function saveHighscore() {
 	}
 }
 function doliczPunkty(ile) { 
-punkty+=ile*poziomu_nr;
+punkty+=ile*(poziomu_nr+1);
 /*
 var pkt_game = document.getElementById('pkt');
 // jeśli obiekt pkt istnieje:
@@ -9394,7 +9384,7 @@ if (nowowybrana!='') {
 }
 function ranaPotworowi(_this,_other,ile) { 
 if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_ou);
-_this.zycie-=ile;
+_this.zycie-=ile*2;
 _other.instance_destroy();
 }
 function zabiciePotwora(_this,pkt) { 
@@ -9491,6 +9481,8 @@ dodawany_div.innerHTML = tresc;
 t_game.appendChild(dodawany_div);
 }
 function kolejnyEtap() { 
+jest_lawa = true;
+
 punkty*=3;
 gra_wstepna=0;
 room_goto_next();
@@ -9498,7 +9490,7 @@ ustaw_odgrywany_utwor(Greensleeves);
 poziomu_nr++;
 if (typeof kongregate != 'undefined')
 	{
-		kongregate.stats.submit("circleOfHell",poziomu_nr);
+		kongregate.stats.submit("circleOfHell",(poziomu_nr-1));
 	}
 
 }
