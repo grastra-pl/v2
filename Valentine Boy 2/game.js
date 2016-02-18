@@ -1608,6 +1608,10 @@ function __elewatorS() {
 __sprite_init__(this, elewatorS, 53, 9, 0, 0, 'Box', 26, 0, 53, 0, 9, ['img/elewatorS_0.png']);
 }; var elewatorS = new __elewatorS();
 
+function __blekitny() { 
+__sprite_init__(this, blekitny, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/blekitny_0.png']);
+}; var blekitny = new __blekitny();
+
 
 
 /***********************************************************************
@@ -1675,6 +1679,9 @@ __background_init__(this, paniD, 'img/pani_diabel.png')}; var paniD = new __pani
 
 function __instrukcja() { 
 __background_init__(this, instrukcja, 'img/instrukcja_p.png')}; var instrukcja = new __instrukcja();
+
+function __krajobraz() { 
+__background_init__(this, krajobraz, 'img/jotpeguu.png')}; var krajobraz = new __krajobraz();
 
 
 
@@ -1964,8 +1971,19 @@ if (gra_wstepna<=18)
 				}
 			}
 			
+			
+			
 		}
 	
+	if ((place_meeting(x, y, tasma_lewo) != null) || (place_meeting(x, y, tasma_prawo) != null))
+			{
+				y-=5;
+				if ((place_meeting(x, y, tasma_lewo) != null) || (place_meeting(x, y, tasma_prawo) != null))
+				{
+					y-=5;
+				}
+			}
+			
 	
 	if ( place_meeting(x, y+8, tasma_lewo) != null)
 	{
@@ -2054,27 +2072,7 @@ if (gra_wstepna<=18)
 }
 else
 {
-/*
-		this.skrzydelko.x=-100;
-		image_angle=-80;
-		przes=Math.sin((xstart+ystart+odliczanie)/10*Math.PI)*4;
-		x=loze.x+37+przes*1.5;
-		y=loze.y+24+przes;
-		
-		image_index=8;
-		
-		if (gra_wstepna==19)
-		{
-			cenz.image_alpha=1;
-			cenz.x=x-45;
-			cenz.y=y-10;
-		}
-		
-		cenz.image_xscale+=0.02;
-		cenz.image_yscale+=0.02;
-		cenz.x-=0.2;
-		cenz.y-=0.2;
-*/
+
 }
 
 x_gracza=x;
@@ -2251,7 +2249,14 @@ image_speed = 0; // zatrzymuje animację obrazka
 odliczanie=0;
 kolysanie=0;
 
-image_index = irandom(18)-1; // Math.floor(Math.random()*18);
+
+los=irandom(18)-1;
+if (5==los) {
+ los=irandom(3);
+}
+
+
+image_index = los; // Math.floor(Math.random()*18);
 
 }
 };
@@ -2300,7 +2305,7 @@ this.other = this.place_meeting(this.x, this.y, Walenty);
 if(this.other != null) {
 if (image_index==5)
 {
-	dodajZycie(1);
+	//dodajZycie(1);
 }
 else if (image_index==17)
 {
@@ -5409,6 +5414,26 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var szybkaWinda = new __szybkaWinda();
 
+function __podloze_niebieskie() {
+__instance_init__(this, podloze_niebieskie, null, 1, 0, blekitny, 1, 3414);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, podloze_ziemia);
+if(this.other != null) {
+y++;
+}
+}
+};
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var podloze_niebieskie = new __podloze_niebieskie();
+
 
 
 /***********************************************************************
@@ -5478,7 +5503,7 @@ function inicjalizacja()
 		tytul_div.setAttribute('id',divIdName);
 		tytul_div.setAttribute('name',divIdName);
 		tytul_div.setAttribute('style','position: absolute; top: 375px; left: 485px; background-color: transparent;');
-		tytul_div.innerHTML = 'Grastra 2016<br><br>game code: Jimmy<br>music: Henry VIII<br><small style="font-size: 9px">v 1.0.1.3</small>';
+		tytul_div.innerHTML = 'Grastra 2016<br><br>game code: Jimmy<br>music: Henry VIII<br><small style="font-size: 9px">v 2.0.1.4</small>';
 		
 		
 		var punkty_div = document.createElement('div');
@@ -5540,6 +5565,40 @@ function inicjalizacja()
 }
 var EkranStartowy = new __EkranStartowy();
 tu_scenes.push(EkranStartowy);
+function __EtapWprowadzenia() { 
+this.tiles = [
+];
+this.objects = [
+[{o:podloze_ziemia, x:0, y:112}],
+[{o:podloze_ziemia, x:16, y:112}],
+[{o:podloze_trawa, x:0, y:240}],
+[{o:podloze_ziemia, x:16, y:272}],
+[{o:podloze_trawa, x:0, y:288}],
+[{o:podloze_trawa, x:0, y:320}],
+[{o:podloze_trawa, x:0, y:352}],
+[{o:podloze_trawa, x:0, y:384}],
+[{o:podloze_trawa, x:0, y:416}],
+[{o:podloze_trawa, x:0, y:448}],
+[{o:podloze_trawa, x:160, y:240}],
+[{o:podloze_trawa, x:160, y:288}],
+[{o:podloze_trawa, x:160, y:320}],
+[{o:podloze_trawa, x:160, y:352}],
+[{o:podloze_trawa, x:160, y:384}],
+[{o:podloze_trawa, x:160, y:416}],
+[{o:podloze_trawa, x:160, y:448}],
+[{o:podloze_ziemia, x:160, y:272}],
+[{o:podloze_ziemia, x:624, y:288}],
+[{o:podloze_ziemia, x:624, y:304}],
+[{o:podloze_ziemia, x:608, y:304}],
+[{o:podloze_ziemia, x:608, y:288}],
+[{o:podloze_trawa, x:576, y:288}],
+[{o:Walenty, x:608, y:256}]];
+this.start = function() {
+__room_start__(this, EtapWprowadzenia, 640, 480, 30, 0, 0, 0, krajobraz.image, 0, 0, 0, 640, 480, null, 50, 50);
+};
+}
+var EtapWprowadzenia = new __EtapWprowadzenia();
+tu_scenes.push(EtapWprowadzenia);
 function __EtapStartowy() { 
 this.tiles = [
 [1000000,
@@ -9085,7 +9144,7 @@ this.start = function() {
 __room_start__(this, ekran_koncowy, 640, 480, 30, 0, 0, 0, paniD.image, 0, 0, 0, 640, 480, null, 50, 50);
 
 end_text='Your score:'+punkty+' ';
-end_text2="Now, after pick up all the girls in Hell...";
+end_text2="Now, after picking up all the girls in Hell";
 end_text3="try the same in the real world!";
 end_text4="Or just press SPACE to restart game.";
 
@@ -9100,12 +9159,6 @@ komunikatKoncowy('end_game1',end_text,190,35,36);
 komunikatKoncowy('end_game2',end_text2,150,110,24);
 komunikatKoncowy('end_game3',end_text3,160,150,24);
 komunikatKoncowy('end_game4',end_text4,160,180,16);
-
-	/*
-	end_game1_div.addEventListener("click",room_goto_first,false);
-	end_game2_div.addEventListener("click",room_goto_first,false);
-	end_game3_div.addEventListener("click",room_goto_first,false);
-*/
 
 };
 }
