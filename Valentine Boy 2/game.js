@@ -1880,12 +1880,12 @@ if (gra_wstepna<=18)
 		
 		if ( keyboard_check(vk_w) ||  keyboard_check(vk_up) )
 		{
-			y-=3;
+			y-=6;
 			direction = 90;
 		}
 		if ( keyboard_check(vk_s) || keyboard_check(vk_down) )
 		{
-			y+=5;
+			y+=10;
 			direction = 270;
 		}
 		
@@ -3277,6 +3277,10 @@ this.on_draw = function() {
 if (this.visible == 1) {
 __handle_sprite__(this);
 with(this) {
+
+if (!jest_hud) {
+	return;
+}
 
 draw_set_font(F_Arial);
 draw_set_color(255,255,0);
@@ -5620,6 +5624,7 @@ this.start = function() {
 __room_start__(this, EtapWprowadzenia, 640, 480, 30, 0, 0, 0, krajobraz.image, 0, 0, 0, 640, 480, null, 50, 50);
 
 jest_lawa=false;
+jest_hud = false;
 co_wymagane='filizanka';
 };
 }
@@ -9482,6 +9487,7 @@ t_game.appendChild(dodawany_div);
 }
 function kolejnyEtap() { 
 jest_lawa = true;
+jest_hud = true;
 
 punkty*=3;
 gra_wstepna=0;

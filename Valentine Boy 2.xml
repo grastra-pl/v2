@@ -226,12 +226,12 @@ if (gra_wstepna&lt;=18)
 		
 		if ( keyboard_check(vk_w) ||  keyboard_check(vk_up) )
 		{
-			y-=3;
+			y-=6;
 			direction = 90;
 		}
 		if ( keyboard_check(vk_s) || keyboard_check(vk_down) )
 		{
-			y+=5;
+			y+=10;
 			direction = 270;
 		}
 		
@@ -1004,6 +1004,10 @@ if (this.opoznienie_klatki&gt;0) {
 	}
 }
 </script><script name="scr_2172" object="HUD" event="Draw" parameter="">
+if (!jest_hud) {
+	return;
+}
+
 draw_set_font(F_Arial);
 draw_set_color(255,255,0);
 
@@ -2128,6 +2132,7 @@ function inicjalizacja()
 
 	}
 }</scene><scene name="EtapWprowadzenia" width="640" height="480" speed="30" red="0" green="0" blue="0" background="krajobraz" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject="">jest_lawa=false;
+jest_hud = false;
 co_wymagane='filizanka';</scene><scene name="EtapStartowy" width="1660" height="1480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="200" viewportyborder="200" viewportobject="Walenty">
 
 co_wymagane=['filizanka','kot','but'];
@@ -2328,6 +2333,7 @@ dodawany_div.setAttribute('style','position: absolute; top: '+pozY+'px; left: '+
 dodawany_div.innerHTML = tresc;
 
 t_game.appendChild(dodawany_div);</fn><fn name="kolejnyEtap" params="" description="">jest_lawa = true;
+jest_hud = true;
 
 punkty*=3;
 gra_wstepna=0;
