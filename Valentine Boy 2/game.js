@@ -1814,7 +1814,7 @@ if (jest_lawa) {
 }
 
 
-szybkosc_utraty_latania=8;
+szybkosc_utraty_latania=6;
 if (odliczanie % szybkosc_utraty_latania == 0) {
 	if (moze_latac) {
 			procent_latania--;
@@ -5370,7 +5370,7 @@ instance_destroy();
 }; var bigBoss = new __bigBoss();
 
 function __chmurkaKoncowa() {
-__instance_init__(this, chmurkaKoncowa, null, 1, 0, chmura, 1, 1550);
+__instance_init__(this, chmurkaKoncowa, null, 1, 0, chmura, 1, 1511);
 this.on_creation = function() {
 with(this) {
 this.odliczanie=0;
@@ -5400,7 +5400,7 @@ this.on_draw = on_draw_i;
 }; var chmurkaKoncowa = new __chmurkaKoncowa();
 
 function __szybkaWinda() {
-__instance_init__(this, szybkaWinda, null, 1, 0, elewatorS, 1, 1614);
+__instance_init__(this, szybkaWinda, null, 1, 0, elewatorS, 1, 1575);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
@@ -5424,7 +5424,7 @@ this.on_draw = on_draw_i;
 }; var szybkaWinda = new __szybkaWinda();
 
 function __podloze_niebieskie() {
-__instance_init__(this, podloze_niebieskie, null, 1, 0, blekitny, 1, 3414);
+__instance_init__(this, podloze_niebieskie, null, 1, 0, blekitny, 1, 3375);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -8615,44 +8615,11 @@ this.tiles = [
 [0,256,128,128,1088,1344],
 [128,256,128,128,1216,1344],
 [0,384,128,128,1088,1472],
-[128,384,128,128,1216,1472]]]];
+[128,384,128,128,1216,1472]],
+[krajobraz,
+[0,0,800,400,624,0],
+[0,0,800,400,1404,0]]]];
 this.objects = [
-[{o:podloze_trawa, x:672, y:0}],
-[{o:podloze_trawa, x:672, y:32}],
-[{o:podloze_trawa, x:672, y:64}],
-[{o:podloze_trawa, x:672, y:96}],
-[{o:podloze_trawa, x:672, y:128}],
-[{o:podloze_trawa, x:672, y:160}],
-[{o:podloze_trawa, x:672, y:192}],
-[{o:podloze_trawa, x:672, y:224}],
-[{o:podloze_trawa, x:672, y:256}],
-[{o:podloze_trawa, x:672, y:288}],
-[{o:podloze_trawa, x:672, y:320}],
-[{o:podloze_trawa, x:672, y:352}],
-[{o:podloze_trawa, x:704, y:352}],
-[{o:podloze_trawa, x:736, y:352}],
-[{o:podloze_trawa, x:768, y:352}],
-[{o:podloze_trawa, x:800, y:352}],
-[{o:podloze_trawa, x:832, y:352}],
-[{o:podloze_trawa, x:864, y:352}],
-[{o:podloze_trawa, x:896, y:352}],
-[{o:podloze_trawa, x:928, y:352}],
-[{o:podloze_trawa, x:960, y:352}],
-[{o:podloze_trawa, x:992, y:352}],
-[{o:podloze_trawa, x:1024, y:352}],
-[{o:podloze_trawa, x:1056, y:352}],
-[{o:podloze_trawa, x:1088, y:352}],
-[{o:podloze_trawa, x:1120, y:352}],
-[{o:podloze_trawa, x:1280, y:352}],
-[{o:podloze_trawa, x:1312, y:352}],
-[{o:podloze_trawa, x:1344, y:352}],
-[{o:podloze_trawa, x:1376, y:352}],
-[{o:podloze_trawa, x:1408, y:352}],
-[{o:podloze_trawa, x:1440, y:352}],
-[{o:podloze_trawa, x:1472, y:352}],
-[{o:podloze_trawa, x:1504, y:352}],
-[{o:podloze_trawa, x:1536, y:352}],
-[{o:podloze_trawa, x:1568, y:352}],
 [{o:podloze_ziemia, x:1312, y:288}],
 [{o:podloze_ziemia, x:1120, y:288}],
 [{o:podloze_ziemia, x:1088, y:288}],
@@ -9048,7 +9015,6 @@ this.objects = [
 [{o:podloze_ziemia, x:1552, y:1104}],
 [{o:podloze_ziemia, x:1488, y:1088}],
 [{o:kot_do_wziecia, x:1520, y:1056}],
-[{o:serduszko, x:576, y:1344}],
 [{o:bonus, x:256, y:1280}],
 [{o:bonus, x:256, y:1088}],
 [{o:bonus, x:256, y:768}],
@@ -9071,8 +9037,6 @@ this.objects = [
 [{o:bonus, x:832, y:0}],
 [{o:bonus, x:704, y:64}],
 [{o:bonus, x:768, y:64}],
-[{o:bonus, x:704, y:256}],
-[{o:bonus, x:768, y:256}],
 [{o:bonus, x:512, y:0}],
 [{o:bonus, x:576, y:0}],
 [{o:bonus, x:512, y:64}],
@@ -9119,7 +9083,63 @@ this.objects = [
 [{o:podloze_trawa, x:128, y:960}],
 [{o:podloze_trawa, x:1568, y:992}],
 [{o:podloze_trawa, x:1568, y:1024}],
-[{o:skrzydla, x:1420, y:540}]];
+[{o:skrzydla, x:1420, y:540}],
+[{o:podloze_niebieskie, x:1312, y:384}],
+[{o:podloze_niebieskie, x:1344, y:384}],
+[{o:podloze_niebieskie, x:1376, y:384}],
+[{o:podloze_niebieskie, x:1408, y:384}],
+[{o:podloze_niebieskie, x:1440, y:384}],
+[{o:podloze_niebieskie, x:1472, y:384}],
+[{o:podloze_niebieskie, x:1504, y:384}],
+[{o:podloze_niebieskie, x:1536, y:384}],
+[{o:podloze_niebieskie, x:1568, y:384}],
+[{o:podloze_niebieskie, x:1120, y:384}],
+[{o:podloze_niebieskie, x:1088, y:384}],
+[{o:podloze_niebieskie, x:1056, y:384}],
+[{o:podloze_niebieskie, x:1024, y:384}],
+[{o:podloze_niebieskie, x:992, y:384}],
+[{o:podloze_niebieskie, x:960, y:384}],
+[{o:podloze_niebieskie, x:928, y:384}],
+[{o:podloze_niebieskie, x:896, y:384}],
+[{o:podloze_niebieskie, x:864, y:384}],
+[{o:podloze_niebieskie, x:832, y:384}],
+[{o:podloze_niebieskie, x:800, y:384}],
+[{o:podloze_niebieskie, x:768, y:384}],
+[{o:podloze_niebieskie, x:736, y:384}],
+[{o:podloze_niebieskie, x:704, y:384}],
+[{o:podloze_niebieskie, x:672, y:384}],
+[{o:podloze_niebieskie, x:640, y:384}],
+[{o:podloze_niebieskie, x:608, y:384}],
+[{o:podloze_niebieskie, x:608, y:352}],
+[{o:podloze_niebieskie, x:608, y:320}],
+[{o:podloze_niebieskie, x:608, y:288}],
+[{o:podloze_niebieskie, x:608, y:256}],
+[{o:podloze_niebieskie, x:608, y:224}],
+[{o:podloze_niebieskie, x:608, y:192}],
+[{o:podloze_niebieskie, x:608, y:160}],
+[{o:podloze_niebieskie, x:608, y:128}],
+[{o:podloze_niebieskie, x:608, y:96}],
+[{o:podloze_niebieskie, x:608, y:64}],
+[{o:podloze_niebieskie, x:608, y:32}],
+[{o:podloze_niebieskie, x:608, y:0}],
+[{o:podloze_niebieskie, x:640, y:288}],
+[{o:podloze_niebieskie, x:672, y:288}],
+[{o:podloze_niebieskie, x:704, y:288}],
+[{o:podloze_niebieskie, x:736, y:288}],
+[{o:podloze_niebieskie, x:768, y:288}],
+[{o:podloze_niebieskie, x:800, y:288}],
+[{o:podloze_niebieskie, x:832, y:288}],
+[{o:podloze_niebieskie, x:864, y:288}],
+[{o:podloze_trawa, x:480, y:448}],
+[{o:podloze_trawa, x:512, y:448}],
+[{o:podloze_trawa, x:576, y:544}],
+[{o:podloze_trawa, x:608, y:544}],
+[{o:podloze_trawa, x:672, y:928}],
+[{o:podloze_trawa, x:704, y:928}],
+[{o:podloze_trawa, x:768, y:864}],
+[{o:podloze_trawa, x:800, y:864}],
+[{o:podloze_trawa, x:864, y:800}],
+[{o:podloze_trawa, x:896, y:800}]];
 this.start = function() {
 __room_start__(this, bossFight, 1600, 1600, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, Walenty, 200, 200);
 
