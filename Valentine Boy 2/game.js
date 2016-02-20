@@ -5469,7 +5469,7 @@ this.objects = [
 this.start = function() {
 __room_start__(this, EkranStartowy, 640, 480, 30, 255, 0, 0, VALENTINE_TLO.image, 0, 0, 0, 640, 480, null, 50, 50);
 
-//alert ("tload:"+tu_load_total +"=> tloading: "+ tu_loading);
+wersja="2.0.1.6";
 
 czy_inicjowac();
 
@@ -5512,7 +5512,7 @@ function inicjalizacja()
 		tytul_div.setAttribute('id',divIdName);
 		tytul_div.setAttribute('name',divIdName);
 		tytul_div.setAttribute('style','position: absolute; top: 375px; left: 485px; background-color: transparent;');
-		tytul_div.innerHTML = 'Grastra 2016<br><br>game code: Jimmy<br>music: Henry VIII<br><small style="font-size: 9px">v 2.0.1.4</small>';
+		tytul_div.innerHTML = 'Grastra 2016<br><br>game code: Jimmy<br>music: Henry VIII<br><small style="font-size: 9px">v '+wersja+'</small>';
 		
 		
 		var punkty_div = document.createElement('div');
@@ -5645,7 +5645,15 @@ this.tiles = [
 [krajobraz,
 [0,0,800,400,0,0],
 [0,0,800,400,780,0],
-[0,0,800,400,1560,0]]]];
+[0,0,800,400,1560,0]],
+[paniD,
+[512,0,128,128,32,384],
+[512,128,128,128,32,512],
+[512,256,128,128,32,640],
+[512,384,128,128,32,768],
+[512,384,128,128,32,800],
+[512,384,128,128,32,832],
+[512,384,128,128,32,864]]]];
 this.objects = [
 [{o:Walenty, x:80, y:112}],
 [{o:podloze_trawa, x:256, y:288}],
