@@ -1401,7 +1401,14 @@ function __test() {
 __instance_init__(this, test, null, 1, 0, testS, 1, 0);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
-this.on_step = on_step_i;
+this.on_step = function() {
+with(this) {
+this.wys=32;
+this.szer=32;
+
+czyWybranoMnie(this);
+}
+};
 this.on_end_step = on_end_step_i;
 this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
@@ -1525,6 +1532,12 @@ draw_sprite_ext(myThis.sprite,subimg,myThis.x/skalaMapy,myThis.y/skalaMapy,1/ska
 function ustawCelDla(dla,xx,yy) { 
 dla.punkt_docelowy_x=xx;
 dla.punkt_docelowy_y=yy;
+}
+function czyWybranoMnie(obiekt) { 
+if (mouse_check_pressed()) {
+	console.log('tadam');
+
+}
 }
 
 
