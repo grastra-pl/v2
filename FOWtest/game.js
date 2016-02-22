@@ -1368,6 +1368,10 @@ function __klocekS() {
 __sprite_init__(this, klocekS, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/klocekS_0.png']);
 }; var klocekS = new __klocekS();
 
+function __celownikS() { 
+__sprite_init__(this, celownikS, 28, 31, 0, 0, 'Box', 14, 0, 28, 0, 31, ['img/celownikS_0.png']);
+}; var celownikS = new __celownikS();
+
 
 
 /***********************************************************************
@@ -1429,8 +1433,50 @@ this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
-this.on_draw = on_draw_i;
+this.on_draw = function() {
+if (this.visible == 1) {
+__handle_sprite__(this);
+with(this) {
+this.sprite=klocekS;
+myThis=this;
+subimg=0;
+przezro=1;
+
+fowDraw(myThis,subimg,przezro);
+}
+}
+};
 }; var klocek = new __klocek();
+
+function __interfejs() {
+__instance_init__(this, interfejs, null, 1, 0, null, 1, 8);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+//console.log(mouse_x+" "+mouse_y);
+
+celownik_x=mouse_x;
+celownik_y=mouse_y;
+
+
+
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = function() {
+if (this.visible == 1) {
+__handle_sprite__(this);
+with(this) {
+draw_sprite_ext(celownikS, 0, celownik_x, celownik_y,1,1,0,0.5);
+}
+}
+};
+}; var interfejs = new __interfejs();
 
 
 
@@ -1446,9 +1492,10 @@ this.objects = [
 [{o:test, x:100, y:260}],
 [{o:klocek, x:160, y:80}],
 [{o:klocek, x:200, y:160}],
-[{o:klocek, x:240, y:220}]];
+[{o:klocek, x:240, y:220}],
+[{o:interfejs, x:256, y:64}]];
 this.start = function() {
-__room_start__(this, FOWtest, 640, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, null, 50, 50);
+__room_start__(this, FOWtest, 800, 600, 30, 0, 0, 0, null, 0, 0, 0, 800, 600, null, 50, 50);
 };
 }
 var FOWtest = new __FOWtest();
@@ -1459,6 +1506,10 @@ tu_room_to_go = FOWtest;
 /***********************************************************************
  * CUSTOM GLOBAL VARIABLES
  ***********************************************************************/
+celownik_x=0;
+celownik_y=0;
+
+podkomendny=0;
 
 
 /***********************************************************************
@@ -1467,6 +1518,13 @@ tu_room_to_go = FOWtest;
 
 function fowDraw(myThis,subimg,przezro) { 
 draw_sprite_ext(myThis.sprite,subimg,myThis.x,myThis.y,1,1,0,przezro);
+
+skalaMapy=8;
+draw_sprite_ext(myThis.sprite,subimg,myThis.x/skalaMapy,myThis.y/skalaMapy,1/skalaMapy,1/skalaMapy,0,przezro);
+}
+function ustawCelDla(dla,xx,yy) { 
+dla.punkt_docelowy_x=xx;
+dla.punkt_docelowy_y=yy;
 }
 
 
