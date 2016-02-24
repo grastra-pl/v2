@@ -1406,7 +1406,10 @@ with(this) {
 this.wys=32;
 this.szer=32;
 
-czyWybranoMnie(this);
+if (czyWybranoMnie(this)){
+	console.log(object_index +"log"+ (instance_number(this) ));
+	image_alpha=0.5;
+}
 }
 };
 this.on_end_step = on_end_step_i;
@@ -1414,20 +1417,7 @@ this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
-this.on_draw = function() {
-if (this.visible == 1) {
-__handle_sprite__(this);
-with(this) {
-//nic
-this.sprite=testS;
-myThis=this;
-subimg=0;
-przezro=1;
-
-fowDraw(myThis,subimg,przezro);
-}
-}
-};
+this.on_draw = on_draw_i;
 }; var test = new __test();
 
 function __klocek() {
@@ -1500,7 +1490,9 @@ this.objects = [
 [{o:klocek, x:160, y:80}],
 [{o:klocek, x:200, y:160}],
 [{o:klocek, x:240, y:220}],
-[{o:interfejs, x:256, y:64}]];
+[{o:interfejs, x:256, y:64}],
+[{o:test, x:240, y:440}],
+[{o:test, x:340, y:340}]];
 this.start = function() {
 __room_start__(this, FOWtest, 800, 600, 30, 0, 0, 0, null, 0, 0, 0, 800, 600, null, 50, 50);
 };
@@ -1535,9 +1527,18 @@ dla.punkt_docelowy_y=yy;
 }
 function czyWybranoMnie(obiekt) { 
 if (mouse_check_pressed()) {
-	console.log('tadam');
-
+	if  (czyPunktWObiekcie(obiekt,celownik_x,celownik_y)) {
+		return true;
+	}
 }
+
+return false;
+}
+function czyPunktWObiekcie(obiekt,xx,yy) { 
+if  ((xx>=obiekt.x) && (yy>=obiekt.y) && (xx<=obiekt.x+obiekt.wys) && (yy<=obiekt.y+obiekt.szer)) {
+	return true;
+}
+return false;
 }
 
 
