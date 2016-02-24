@@ -1369,8 +1369,12 @@ __sprite_init__(this, klocekS, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/kloc
 }; var klocekS = new __klocekS();
 
 function __celownikS() { 
-__sprite_init__(this, celownikS, 28, 31, 0, 0, 'Box', 14, 0, 28, 0, 31, ['img/celownikS_0.png']);
+__sprite_init__(this, celownikS, 28, 31, 14, 15, 'Box', 14, 0, 28, 0, 31, ['img/celownikS_0.png']);
 }; var celownikS = new __celownikS();
+
+function __ramkaS() { 
+__sprite_init__(this, ramkaS, 40, 40, 0, 0, 'Box', 20, 0, 40, 0, 40, ['img/ramkaS_0.png']);
+}; var ramkaS = new __ramkaS();
 
 
 
@@ -1399,16 +1403,20 @@ __sprite_init__(this, celownikS, 28, 31, 0, 0, 'Box', 14, 0, 28, 0, 31, ['img/ce
  ***********************************************************************/
 function __test() {
 __instance_init__(this, test, null, 1, 0, testS, 1, 0);
-this.on_creation = on_creation_i;
+this.on_creation = function() {
+with(this) {
+this.nrO = nrObiektu;
+nrObiektu++;
+this.sprite=testS;
+this.wys=32;
+this.szer=32;
+}
+};
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
-this.wys=32;
-this.szer=32;
-
 if (czyWybranoMnie(this)){
-	console.log(object_index +"log"+ (instance_number(this) ));
-	image_alpha=0.5;
+	podkomendny=this.nrO;
 }
 }
 };
@@ -1417,7 +1425,19 @@ this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
-this.on_draw = on_draw_i;
+this.on_draw = function() {
+if (this.visible == 1) {
+__handle_sprite__(this);
+with(this) {
+
+myThis=this;
+subimg=0;
+przezro=1;
+
+fowDraw(myThis,subimg,przezro);
+}
+}
+};
 }; var test = new __test();
 
 function __klocek() {
@@ -1508,8 +1528,8 @@ tu_room_to_go = FOWtest;
 celownik_x=0;
 celownik_y=0;
 
-podkomendny=0;
-
+podkomendny=-1;
+nrObiektu=0;
 
 /***********************************************************************
  * CUSTOM GLOBAL FUNCTIONS
@@ -1520,6 +1540,11 @@ draw_sprite_ext(myThis.sprite,subimg,myThis.x,myThis.y,1,1,0,przezro);
 
 skalaMapy=8;
 draw_sprite_ext(myThis.sprite,subimg,myThis.x/skalaMapy,myThis.y/skalaMapy,1/skalaMapy,1/skalaMapy,0,przezro);
+
+
+if (podkomendny==myThis.nrO) {
+	draw_sprite_ext(ramkaS,0,myThis.x,myThis.y,1,1,0,przezro);
+}
 }
 function ustawCelDla(dla,xx,yy) { 
 dla.punkt_docelowy_x=xx;
