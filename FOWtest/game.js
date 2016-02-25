@@ -1405,11 +1405,7 @@ function __test() {
 __instance_init__(this, test, null, 1, 0, testS, 1, 0);
 this.on_creation = function() {
 with(this) {
-this.nrO = nrObiektu;
-nrObiektu++;
-this.sprite=testS;
-this.wys=32;
-this.szer=32;
+ustawObiekt(this);
 }
 };
 this.on_destroy = on_destroy_i;
@@ -1417,6 +1413,7 @@ this.on_step = function() {
 with(this) {
 if (czyWybranoMnie(this)){
 	podkomendny=this.nrO;
+	przechwycono_klik=this.nrO;
 }
 }
 };
@@ -1480,7 +1477,11 @@ celownik_y=mouse_y;
 
 }
 };
-this.on_end_step = on_end_step_i;
+this.on_end_step = function() {
+with(this) {
+przechwycono_klik=-1;
+}
+};
 this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
@@ -1531,6 +1532,8 @@ celownik_y=0;
 podkomendny=-1;
 nrObiektu=0;
 
+przechwycono_klik=-1;
+
 /***********************************************************************
  * CUSTOM GLOBAL FUNCTIONS
  ***********************************************************************/
@@ -1564,6 +1567,22 @@ if  ((xx>=obiekt.x) && (yy>=obiekt.y) && (xx<=obiekt.x+obiekt.wys) && (yy<=obiek
 	return true;
 }
 return false;
+}
+function ustawObiekt(obiekt, parametry) { 
+obiekt.nrO = nrObiektu;
+nrObiektu++;
+
+parametry = {};
+DEFAULT_VALUE_wys=40;
+DEFAULT_VALUE_szer=40;
+
+parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
+
+obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
+obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
+obiekt.sprite=testS;
+
+
 }
 
 
