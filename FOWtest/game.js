@@ -1537,53 +1537,65 @@ przechwycono_klik=-1;
 /***********************************************************************
  * CUSTOM GLOBAL FUNCTIONS
  ***********************************************************************/
-
-function fowDraw(myThis,subimg,przezro) { 
-draw_sprite_ext(myThis.sprite,subimg,myThis.x,myThis.y,1,1,0,przezro);
-
-skalaMapy=8;
-draw_sprite_ext(myThis.sprite,subimg,myThis.x/skalaMapy,myThis.y/skalaMapy,1/skalaMapy,1/skalaMapy,0,przezro);
+/**
+ * Created by Grastra on 2016-02-26.
+ */
 
 
-if (podkomendny==myThis.nrO) {
-	draw_sprite_ext(ramkaS,0,myThis.x,myThis.y,1,1,0,przezro);
-}
-}
-function ustawCelDla(dla,xx,yy) { 
-dla.punkt_docelowy_x=xx;
-dla.punkt_docelowy_y=yy;
-}
-function czyWybranoMnie(obiekt) { 
-if (mouse_check_pressed()) {
-	if  (czyPunktWObiekcie(obiekt,celownik_x,celownik_y)) {
-		return true;
-	}
+function fowDraw(myThis, subimg, przezro) {
+    "use strict";
+    draw_sprite_ext(myThis.sprite,subimg,myThis.x,myThis.y,1,1,0,przezro);
+
+    var skalaMapy=8;
+    draw_sprite_ext(myThis.sprite,subimg,myThis.x/skalaMapy,myThis.y/skalaMapy,1/skalaMapy,1/skalaMapy,0,przezro);
+
+
+    if (podkomendny==myThis.nrO) {
+        draw_sprite_ext(ramkaS,0,myThis.x,myThis.y,1,1,0,przezro);
+    }
 }
 
-return false;
+function ustawCelDla(dla, xx, yy) {
+    "use strict";
+    dla.punkt_docelowy_x=xx;
+    dla.punkt_docelowy_y=yy;
 }
-function czyPunktWObiekcie(obiekt,xx,yy) { 
-if  ((xx>=obiekt.x) && (yy>=obiekt.y) && (xx<=obiekt.x+obiekt.wys) && (yy<=obiekt.y+obiekt.szer)) {
-	return true;
+
+function czyWybranoMnie(obiekt) {
+    "use strict";
+    if (mouse_check_pressed()) {
+        if  (czyPunktWObiekcie(obiekt,celownik_x,celownik_y)) {
+            return true;
+        }
+    }
+    return false;
 }
-return false;
+
+function czyPunktWObiekcie(obiekt, xx, yy) {
+    "use strict";
+    if  ((xx>=obiekt.x) && (yy>=obiekt.y) && (xx<=obiekt.x+obiekt.wys) && (yy<=obiekt.y+obiekt.szer)) {
+        return true;
+    }
+    return false;
 }
-function ustawObiekt(obiekt, parametry) { 
-obiekt.nrO = nrObiektu;
-nrObiektu++;
 
-parametry = {};
-DEFAULT_VALUE_wys=40;
-DEFAULT_VALUE_szer=40;
+function ustawObiekt(obiekt, parametry) {
+    "use strict";
+    obiekt.nrO = nrObiektu;
+    nrObiektu++;
 
-parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
+    parametry = {};
+    var DEFAULT_VALUE_wys=40;
+    var DEFAULT_VALUE_szer=40;
 
-obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
-obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
-obiekt.sprite=testS;
+    parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
 
-
+    obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
+    obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
+    obiekt.sprite=testS;
 }
+
+
 
 
 tu_gameloop = tu_loop;
