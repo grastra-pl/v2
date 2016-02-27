@@ -1405,13 +1405,13 @@ function __test() {
 __instance_init__(this, test, null, 1, 0, testS, 1, 0);
 this.on_creation = function() {
 with(this) {
-ustawObiekt(this);
+grastraRTS.ustawObiekt(this);
 }
 };
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
-if (czyWybranoMnie(this)){
+if (grastraRTS.czyWybranoMnie(this)){
 	podkomendny=this.nrO;
 	przechwycono_klik=this.nrO;
 }
@@ -1431,7 +1431,7 @@ myThis=this;
 subimg=0;
 przezro=1;
 
-fowDraw(myThis,subimg,przezro);
+grastraRTS.fowDraw(myThis,subimg,przezro);
 }
 }
 };
@@ -1456,7 +1456,7 @@ myThis=this;
 subimg=0;
 przezro=1;
 
-fowDraw(myThis,subimg,przezro);
+grastraRTS.fowDraw(myThis,subimg,przezro);
 }
 }
 };
@@ -1541,60 +1541,59 @@ przechwycono_klik=-1;
  * Created by Grastra on 2016-02-26.
  */
 
+"use strict";
 
-function fowDraw(myThis, subimg, przezro) {
-    "use strict";
-    draw_sprite_ext(myThis.sprite,subimg,myThis.x,myThis.y,1,1,0,przezro);
+var grastraRTS;
+grastraRTS = {
+    fowDraw: function(myThis, subimg, przezro)
+    {
+        draw_sprite_ext(myThis.sprite, subimg, myThis.x, myThis.y, 1, 1, 0, przezro);
 
-    var skalaMapy=8;
-    draw_sprite_ext(myThis.sprite,subimg,myThis.x/skalaMapy,myThis.y/skalaMapy,1/skalaMapy,1/skalaMapy,0,przezro);
+        var skalaMapy = 8;
+        draw_sprite_ext(myThis.sprite, subimg, myThis.x / skalaMapy, myThis.y / skalaMapy, 1 / skalaMapy, 1 / skalaMapy, 0, przezro);
 
 
-    if (podkomendny==myThis.nrO) {
-        draw_sprite_ext(ramkaS,0,myThis.x,myThis.y,1,1,0,przezro);
-    }
-}
+        if (podkomendny == myThis.nrO) {
+            draw_sprite_ext(ramkaS, 0, myThis.x, myThis.y, 1, 1, 0, przezro);
+        }
+    },
 
-function ustawCelDla(dla, xx, yy) {
-    "use strict";
-    dla.punkt_docelowy_x=xx;
-    dla.punkt_docelowy_y=yy;
-}
+    ustawCelDla: function(dla, xx, yy) {
+        dla.punkt_docelowy_x = xx;
+        dla.punkt_docelowy_y = yy;
+    },
 
-function czyWybranoMnie(obiekt) {
-    "use strict";
-    if (mouse_check_pressed()) {
-        if  (czyPunktWObiekcie(obiekt,celownik_x,celownik_y)) {
+    czyWybranoMnie: function(obiekt) {
+        if (mouse_check_pressed()) {
+            if (czyPunktWObiekcie(obiekt, celownik_x, celownik_y)) {
+                return true;
+            }
+        }
+        return false;
+    },
+
+    czyPunktWObiekcie: function(obiekt, xx, yy) {
+        if ((xx >= obiekt.x) && (yy >= obiekt.y) && (xx <= obiekt.x + obiekt.wys) && (yy <= obiekt.y + obiekt.szer)) {
             return true;
         }
+        return false;
+    },
+
+    ustawObiekt: function(obiekt, parametry) {
+        obiekt.nrO = nrObiektu;
+        nrObiektu++;
+
+        parametry = {};
+        var DEFAULT_VALUE_wys = 40;
+        var DEFAULT_VALUE_szer = 40;
+
+        parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
+
+        obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
+        obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
+        obiekt.sprite = testS;
     }
-    return false;
 }
-
-function czyPunktWObiekcie(obiekt, xx, yy) {
-    "use strict";
-    if  ((xx>=obiekt.x) && (yy>=obiekt.y) && (xx<=obiekt.x+obiekt.wys) && (yy<=obiekt.y+obiekt.szer)) {
-        return true;
-    }
-    return false;
-}
-
-function ustawObiekt(obiekt, parametry) {
-    "use strict";
-    obiekt.nrO = nrObiektu;
-    nrObiektu++;
-
-    parametry = {};
-    var DEFAULT_VALUE_wys=40;
-    var DEFAULT_VALUE_szer=40;
-
-    parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
-
-    obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
-    obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
-    obiekt.sprite=testS;
-}
-
 
 
 

@@ -2,60 +2,59 @@
  * Created by Grastra on 2016-02-26.
  */
 
+"use strict";
 
-function fowDraw(myThis, subimg, przezro) {
-    "use strict";
-    draw_sprite_ext(myThis.sprite,subimg,myThis.x,myThis.y,1,1,0,przezro);
+var grastraRTS;
+grastraRTS = {
+    fowDraw: function(myThis, subimg, przezro)
+    {
+        draw_sprite_ext(myThis.sprite, subimg, myThis.x, myThis.y, 1, 1, 0, przezro);
 
-    var skalaMapy=8;
-    draw_sprite_ext(myThis.sprite,subimg,myThis.x/skalaMapy,myThis.y/skalaMapy,1/skalaMapy,1/skalaMapy,0,przezro);
+        var skalaMapy = 8;
+        draw_sprite_ext(myThis.sprite, subimg, myThis.x / skalaMapy, myThis.y / skalaMapy, 1 / skalaMapy, 1 / skalaMapy, 0, przezro);
 
 
-    if (podkomendny==myThis.nrO) {
-        draw_sprite_ext(ramkaS,0,myThis.x,myThis.y,1,1,0,przezro);
-    }
-}
+        if (podkomendny == myThis.nrO) {
+            draw_sprite_ext(ramkaS, 0, myThis.x, myThis.y, 1, 1, 0, przezro);
+        }
+    },
 
-function ustawCelDla(dla, xx, yy) {
-    "use strict";
-    dla.punkt_docelowy_x=xx;
-    dla.punkt_docelowy_y=yy;
-}
+    ustawCelDla: function(dla, xx, yy) {
+        dla.punkt_docelowy_x = xx;
+        dla.punkt_docelowy_y = yy;
+    },
 
-function czyWybranoMnie(obiekt) {
-    "use strict";
-    if (mouse_check_pressed()) {
-        if  (czyPunktWObiekcie(obiekt,celownik_x,celownik_y)) {
+    czyWybranoMnie: function(obiekt) {
+        if (mouse_check_pressed()) {
+            if (czyPunktWObiekcie(obiekt, celownik_x, celownik_y)) {
+                return true;
+            }
+        }
+        return false;
+    },
+
+    czyPunktWObiekcie: function(obiekt, xx, yy) {
+        if ((xx &gt;= obiekt.x) &amp;&amp; (yy &gt;= obiekt.y) &amp;&amp; (xx &lt;= obiekt.x + obiekt.wys) &amp;&amp; (yy &lt;= obiekt.y + obiekt.szer)) {
             return true;
         }
+        return false;
+    },
+
+    ustawObiekt: function(obiekt, parametry) {
+        obiekt.nrO = nrObiektu;
+        nrObiektu++;
+
+        parametry = {};
+        var DEFAULT_VALUE_wys = 40;
+        var DEFAULT_VALUE_szer = 40;
+
+        parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
+
+        obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
+        obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
+        obiekt.sprite = testS;
     }
-    return false;
 }
-
-function czyPunktWObiekcie(obiekt, xx, yy) {
-    "use strict";
-    if  ((xx&gt;=obiekt.x) &amp;&amp; (yy&gt;=obiekt.y) &amp;&amp; (xx&lt;=obiekt.x+obiekt.wys) &amp;&amp; (yy&lt;=obiekt.y+obiekt.szer)) {
-        return true;
-    }
-    return false;
-}
-
-function ustawObiekt(obiekt, parametry) {
-    "use strict";
-    obiekt.nrO = nrObiektu;
-    nrObiektu++;
-
-    parametry = {};
-    var DEFAULT_VALUE_wys=40;
-    var DEFAULT_VALUE_szer=40;
-
-    parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
-
-    obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
-    obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
-    obiekt.sprite=testS;
-}
-
 </functions><variables>celownik_x=0;
 celownik_y=0;
 
@@ -67,18 +66,18 @@ myThis=this;
 subimg=0;
 przezro=1;
 
-fowDraw(myThis,subimg,przezro);</script><script name="scr_19" object="interfejs" event="Step" parameter="">//console.log(mouse_x+" "+mouse_y);
+grastraRTS.fowDraw(myThis,subimg,przezro);</script><script name="scr_19" object="interfejs" event="Step" parameter="">//console.log(mouse_x+" "+mouse_y);
 
 celownik_x=mouse_x;
 celownik_y=mouse_y;
 
 
-</script><script name="scr_22" object="interfejs" event="Draw" parameter="">draw_sprite_ext(celownikS, 0, celownik_x, celownik_y,1,1,0,0.5);</script><script name="scr_25" object="test" event="Step" parameter="">if (czyWybranoMnie(this)){
+</script><script name="scr_22" object="interfejs" event="Draw" parameter="">draw_sprite_ext(celownikS, 0, celownik_x, celownik_y,1,1,0,0.5);</script><script name="scr_25" object="test" event="Step" parameter="">if (grastraRTS.czyWybranoMnie(this)){
 	podkomendny=this.nrO;
 	przechwycono_klik=this.nrO;
-}</script><script name="" object="" event="" parameter=""/><script name="scr_29" object="test" event="Creation" parameter="">ustawObiekt(this);</script><script name="scr_31" object="test" event="Draw" parameter="">
+}</script><script name="" object="" event="" parameter=""/><script name="scr_29" object="test" event="Creation" parameter="">grastraRTS.ustawObiekt(this);</script><script name="scr_31" object="test" event="Draw" parameter="">
 myThis=this;
 subimg=0;
 przezro=1;
 
-fowDraw(myThis,subimg,przezro);</script><script name="scr_32" object="interfejs" event="End step" parameter="">przechwycono_klik=-1;</script></scripts><scenes count="1"><scene name="FOWtest" width="800" height="600" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="800" viewportheight="600" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_7" scene="FOWtest" value="1000000"/></layers><tiles count="0"/><fns count="0"/></tululoo>
+grastraRTS.fowDraw(myThis,subimg,przezro);</script><script name="scr_32" object="interfejs" event="End step" parameter="">przechwycono_klik=-1;</script></scripts><scenes count="1"><scene name="FOWtest" width="800" height="600" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="800" viewportheight="600" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_7" scene="FOWtest" value="1000000"/></layers><tiles count="0"/><fns count="0"/></tululoo>
