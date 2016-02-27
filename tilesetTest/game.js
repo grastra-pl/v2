@@ -1360,46 +1360,6 @@ tu_init();
 /***********************************************************************
  * SPRITES
  ***********************************************************************/
-function __testS() { 
-__sprite_init__(this, testS, 41, 41, 0, 0, 'Box', 20, 0, 41, 0, 41, ['img/testS_0.png']);
-}; var testS = new __testS();
-
-function __klocekS() { 
-__sprite_init__(this, klocekS, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/klocekS_0.png']);
-}; var klocekS = new __klocekS();
-
-function __celownikS() { 
-__sprite_init__(this, celownikS, 28, 31, 14, 15, 'Box', 14, 0, 28, 0, 31, ['img/celownikS_0.png']);
-}; var celownikS = new __celownikS();
-
-function __ramkaS() { 
-__sprite_init__(this, ramkaS, 40, 40, 0, 0, 'Box', 20, 0, 40, 0, 40, ['img/ramkaS_0.png']);
-}; var ramkaS = new __ramkaS();
-
-function __glowna_bazaS() { 
-__sprite_init__(this, glowna_bazaS, 128, 128, 0, 0, 'Box', 64, 0, 128, 0, 128, ['img/glowna_bazaS_0.png']);
-}; var glowna_bazaS = new __glowna_bazaS();
-
-function __fabrykiS() { 
-__sprite_init__(this, fabrykiS, 96, 96, 0, 0, 'Box', 48, 0, 96, 0, 96, ['img/fabrykiS_0.png']);
-}; var fabrykiS = new __fabrykiS();
-
-function __elektrownieS() { 
-__sprite_init__(this, elektrownieS, 64, 64, 0, 0, 'Box', 32, 0, 64, 0, 64, ['img/elektrownieS_0.png']);
-}; var elektrownieS = new __elektrownieS();
-
-function __jednostkiS() { 
-__sprite_init__(this, jednostkiS, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/jednostkiS_0.png']);
-}; var jednostkiS = new __jednostkiS();
-
-function __wiezyczki_jednostekS() { 
-__sprite_init__(this, wiezyczki_jednostekS, 16, 16, 0, 0, 'Box', 8, 0, 16, 0, 16, ['img/wiezyczki_jednostekS_0.png']);
-}; var wiezyczki_jednostekS = new __wiezyczki_jednostekS();
-
-function __punkty_minimapyS() { 
-__sprite_init__(this, punkty_minimapyS, 8, 8, 0, 0, 'Box', 4, 0, 8, 0, 8, ['img/punkty_minimapyS_0.png']);
-}; var punkty_minimapyS = new __punkty_minimapyS();
-
 
 
 /***********************************************************************
@@ -1415,8 +1375,14 @@ __sprite_init__(this, punkty_minimapyS, 8, 8, 0, 0, 'Box', 4, 0, 8, 0, 8, ['img/
 /***********************************************************************
  * BACKGROUNDS
  ***********************************************************************/
-function __ciemne() { 
-__background_init__(this, ciemne, 'img/tlo_oo__20140818014548!phpzipeHj.jpg')}; var ciemne = new __ciemne();
+function __Izotileset() { 
+__background_init__(this, Izotileset, 'img/pgw.png')}; var Izotileset = new __Izotileset();
+
+function __pustkowie() { 
+__background_init__(this, pustkowie, 'img/tlo_oo__20140818014548!phpzipeHj.jpg')}; var pustkowie = new __pustkowie();
+
+function __atlas() { 
+__background_init__(this, atlas, 'img/terrainatlas.png')}; var atlas = new __atlas();
 
 
 
@@ -1428,291 +1394,137 @@ __background_init__(this, ciemne, 'img/tlo_oo__20140818014548!phpzipeHj.jpg')}; 
 /***********************************************************************
  * OBJECTS
  ***********************************************************************/
-function __test() {
-__instance_init__(this, test, null, 1, 0, testS, 1, 0);
-this.on_creation = function() {
-with(this) {
-grastraRTS.ustawObiekt(this);
-}
-};
-this.on_destroy = on_destroy_i;
-this.on_step = function() {
-with(this) {
-if (grastraRTS.czyWybranoMnie(this)){
-	podkomendny=this.nrO;
-	przechwycono_klik=this.nrO;
-}
-}
-};
-this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
-this.on_roomstart = on_roomstart_i;
-this.on_roomend = on_roomend_i;
-this.on_animationend = on_animationend_i;
-this.on_draw = function() {
-if (this.visible == 1) {
-__handle_sprite__(this);
-with(this) {
-
-myThis=this;
-subimg=0;
-przezro=1;
-
-grastraRTS.fowDraw(myThis,subimg,przezro);
-}
-}
-};
-}; var test = new __test();
-
-function __klocek() {
-__instance_init__(this, klocek, null, 1, 0, klocekS, 1, 1);
-this.on_creation = on_creation_i;
-this.on_destroy = on_destroy_i;
-this.on_step = on_step_i;
-this.on_end_step = on_end_step_i;
-this.on_collision = on_collision_i;
-this.on_roomstart = on_roomstart_i;
-this.on_roomend = on_roomend_i;
-this.on_animationend = on_animationend_i;
-this.on_draw = function() {
-if (this.visible == 1) {
-__handle_sprite__(this);
-with(this) {
-this.sprite=klocekS;
-myThis=this;
-subimg=0;
-przezro=1;
-
-grastraRTS.fowDraw(myThis,subimg,przezro);
-}
-}
-};
-}; var klocek = new __klocek();
-
-function __interfejs() {
-__instance_init__(this, interfejs, null, 1, 0, null, 1, 2);
-this.on_creation = on_creation_i;
-this.on_destroy = on_destroy_i;
-this.on_step = function() {
-with(this) {
-//console.log(mouse_x+" "+mouse_y);
-
-celownik_x=mouse_x;
-celownik_y=mouse_y;
-
-
-
-}
-};
-this.on_end_step = function() {
-with(this) {
-przechwycono_klik=-1;
-}
-};
-this.on_collision = on_collision_i;
-this.on_roomstart = on_roomstart_i;
-this.on_roomend = on_roomend_i;
-this.on_animationend = on_animationend_i;
-this.on_draw = function() {
-if (this.visible == 1) {
-__handle_sprite__(this);
-with(this) {
-draw_sprite_ext(celownikS, 0, celownik_x, celownik_y,1,1,0,0.5);
-}
-}
-};
-}; var interfejs = new __interfejs();
-
 
 
 /***********************************************************************
  * SCENES
  ***********************************************************************/
-function __FOWtest() { 
+function __tilesetTest() { 
 this.tiles = [
 [1000000,
-[ciemne,
-[0,0,96,96,0,0],
-[96,0,96,96,96,0],
-[192,0,96,96,192,0],
-[288,0,96,96,288,0],
-[384,0,96,96,384,0],
-[480,0,96,96,480,0],
-[576,0,96,96,576,0],
-[288,0,96,96,672,0],
-[384,0,96,96,768,0],
-[480,0,96,96,864,0],
-[480,288,96,96,960,0],
-[576,288,96,96,1056,0],
-[576,192,96,96,1152,0],
-[96,96,96,96,1248,0],
-[192,96,96,96,1344,0],
-[288,96,96,96,1440,0],
-[384,96,96,96,1536,0],
-[0,96,96,96,0,96],
-[96,96,96,96,96,96],
-[192,96,96,96,192,96],
-[288,96,96,96,288,96],
-[384,96,96,96,384,96],
-[480,96,96,96,480,96],
-[576,96,96,96,576,96],
-[0,96,96,96,0,192],
-[96,96,96,96,96,192],
-[192,96,96,96,192,192],
-[192,192,96,96,288,192],
-[288,192,96,96,384,192],
-[384,192,96,96,480,192],
-[480,192,96,96,576,192],
-[576,192,96,96,672,192],
-[576,96,96,96,672,96],
-[0,0,96,96,768,96],
-[96,96,96,96,768,96],
-[192,96,96,96,864,96],
-[288,96,96,96,960,96],
-[288,96,96,96,960,0],
-[288,0,96,96,960,0],
-[384,96,96,96,1056,96],
-[384,0,96,96,1056,0],
-[480,96,96,96,1152,96],
-[576,96,96,96,1248,96],
-[576,96,96,96,1344,96],
-[576,96,96,96,1280,96],
-[0,0,96,96,0,288],
-[96,0,96,96,96,288],
-[192,0,96,96,224,288],
-[192,0,96,96,192,288],
-[0,96,96,96,0,384],
-[96,96,96,96,96,384],
-[192,96,96,96,192,384],
-[0,192,96,96,0,480],
-[96,192,96,96,96,480],
-[192,192,96,96,192,480],
-[0,288,96,96,0,576],
-[96,288,96,96,96,576],
-[192,288,96,96,192,576],
-[288,288,96,96,288,576],
-[384,288,96,96,384,576],
-[480,288,96,96,480,576],
-[480,192,96,96,480,480],
-[384,192,96,96,384,480],
-[288,192,96,96,288,480],
-[0,0,800,600,960,832],
-[0,0,800,600,0,864],
-[0,0,800,600,0,640],
-[0,0,800,600,672,832],
-[0,0,800,600,672,448],
-[0,0,800,600,672,96],
-[0,0,800,600,1344,96],
-[0,0,800,600,1344,480],
-[0,0,800,600,256,288],
-[64,64,64,64,224,256],
-[64,64,64,64,224,608],
-[64,64,64,64,640,800],
-[64,64,64,64,704,800],
-[64,64,64,64,768,800],
-[128,128,64,64,800,800],
-[64,192,64,64,704,768],
-[128,256,64,64,768,768],
-[576,192,64,64,864,800],
-[576,128,64,64,928,800],
-[576,192,64,64,992,800],
-[448,192,64,64,1056,800],
-[512,128,64,64,1120,800],
-[512,128,64,64,1152,448],
-[576,128,64,64,1344,448],
-[576,192,64,64,1344,512],
-[512,192,64,64,1280,448],
-[576,64,64,64,1376,448],
-[448,192,64,64,1440,448],
-[512,192,64,64,1504,448],
-[576,256,64,64,1280,800],
-[576,320,64,64,1216,768],
-[576,320,64,64,1216,800],
-[640,256,64,64,1184,768],
-[640,256,64,64,1216,768],
-[640,128,64,64,1184,768]]]];
+[Izotileset,
+[0,0,128,64,0,0]],
+[pustkowie,
+[64,32,32,32,192,64],
+[64,32,32,32,224,64],
+[64,64,32,32,192,96],
+[32,64,32,32,160,96],
+[64,96,32,32,192,128],
+[64,96,32,32,224,160],
+[192,64,32,32,224,128],
+[224,96,32,32,256,160],
+[224,64,32,32,256,128],
+[192,192,32,32,192,160],
+[160,192,32,32,160,160],
+[192,224,32,32,160,128],
+[192,288,32,32,128,160],
+[192,256,32,32,128,128],
+[32,256,32,32,96,160],
+[0,288,32,32,64,160],
+[0,320,32,32,64,192],
+[224,352,32,32,160,256],
+[320,288,32,32,160,224],
+[288,224,32,32,128,224],
+[384,192,32,32,160,192],
+[352,160,32,32,128,192],
+[384,128,32,32,96,192],
+[448,128,32,32,192,192],
+[416,64,32,32,224,192],
+[384,32,32,32,192,224],
+[448,0,32,32,224,96],
+[640,0,32,32,224,32],
+[640,0,32,32,256,32],
+[608,128,32,32,256,64],
+[576,96,32,32,256,96],
+[480,128,32,32,96,128],
+[544,288,32,32,128,288],
+[512,288,32,32,96,288],
+[480,288,32,32,64,288],
+[608,288,32,32,128,320],
+[608,288,32,32,96,320],
+[608,288,32,32,64,320],
+[608,288,32,32,32,320],
+[608,288,32,32,32,288],
+[608,288,32,32,0,320],
+[608,288,32,32,0,288],
+[608,288,32,32,0,352],
+[608,288,32,32,32,352],
+[608,288,32,32,64,352],
+[608,288,32,32,96,352],
+[608,288,32,32,128,352],
+[608,288,32,32,160,352],
+[608,288,32,32,160,320],
+[608,288,32,32,160,288],
+[608,288,32,32,128,256],
+[608,288,32,32,96,256],
+[608,288,32,32,64,256],
+[608,288,32,32,32,256],
+[608,288,32,32,0,256],
+[608,288,32,32,32,224],
+[608,288,32,32,64,224],
+[608,288,32,32,96,224],
+[0,352,32,32,0,384],
+[32,352,32,32,32,384],
+[64,352,32,32,64,384],
+[0,0,64,64,320,0],
+[64,64,64,64,384,64],
+[128,128,64,64,448,128],
+[0,192,64,64,320,96],
+[0,192,64,64,320,160],
+[0,192,64,64,384,128],
+[0,256,64,64,320,64],
+[192,256,64,64,384,0],
+[256,192,64,64,448,0],
+[320,64,64,64,448,64],
+[576,192,64,64,448,192],
+[640,256,64,64,512,0],
+[640,256,64,64,512,64],
+[640,256,64,64,544,0],
+[640,256,64,64,544,64],
+[640,256,64,64,512,128],
+[640,256,64,64,544,128],
+[640,256,64,64,512,192],
+[640,256,64,64,544,192],
+[0,0,96,96,192,256],
+[96,96,96,96,288,256],
+[96,192,96,96,192,352],
+[192,192,96,96,288,352],
+[0,288,96,96,384,352],
+[0,288,96,96,384,256],
+[0,288,96,96,480,352],
+[96,192,96,96,384,256],
+[96,192,96,96,480,256],
+[96,192,96,96,224,160],
+[96,192,96,96,320,160],
+[96,192,96,96,416,160],
+[96,192,96,96,288,64],
+[96,192,96,96,256,0],
+[96,192,96,96,192,0],
+[96,192,96,96,128,0],
+[96,192,96,96,32,0],
+[96,192,96,96,0,0],
+[96,192,96,96,0,64],
+[96,192,96,96,96,64],
+[96,192,96,96,0,160]]]];
 this.objects = [
 ];
 this.start = function() {
-__room_start__(this, FOWtest, 1600, 1200, 30, 0, 0, 0, null, 0, 0, 0, 800, 600, null, 50, 50);
+__room_start__(this, tilesetTest, 640, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, null, 50, 50);
 };
 }
-var FOWtest = new __FOWtest();
-tu_scenes.push(FOWtest);
-tu_room_to_go = FOWtest;
+var tilesetTest = new __tilesetTest();
+tu_scenes.push(tilesetTest);
+tu_room_to_go = tilesetTest;
 
 
 /***********************************************************************
  * CUSTOM GLOBAL VARIABLES
  ***********************************************************************/
-celownik_x=0;
-celownik_y=0;
 
-podkomendny=-1;
-nrObiektu=0;
-
-przechwycono_klik=-1;
 
 /***********************************************************************
  * CUSTOM GLOBAL FUNCTIONS
  ***********************************************************************/
-/**
- * Created by Grastra on 2016-02-26.
- */
-
-"use strict";
-
-var grastraRTS;
-grastraRTS = {
-    fowDraw: function(myThis, subimg, przezro)
-    {
-        draw_sprite_ext(myThis.sprite, subimg, myThis.x, myThis.y, 1, 1, 0, przezro);
-
-        var skalaMapy = 8;
-        draw_sprite_ext(myThis.sprite, subimg, myThis.x / skalaMapy, myThis.y / skalaMapy, 1 / skalaMapy, 1 / skalaMapy, 0, przezro);
-
-
-        if (podkomendny == myThis.nrO) {
-            draw_sprite_ext(ramkaS, 0, myThis.x, myThis.y, 1, 1, 0, przezro);
-        }
-    },
-
-    ustawCelDla: function(dla, xx, yy) {
-        dla.punkt_docelowy_x = xx;
-        dla.punkt_docelowy_y = yy;
-    },
-
-    czyWybranoMnie: function(obiekt) {
-        if (mouse_check_pressed()) {
-            if (czyPunktWObiekcie(obiekt, celownik_x, celownik_y)) {
-                return true;
-            }
-        }
-        return false;
-    },
-
-    czyPunktWObiekcie: function(obiekt, xx, yy) {
-        if ((xx >= obiekt.x) && (yy >= obiekt.y) && (xx <= obiekt.x + obiekt.wys) && (yy <= obiekt.y + obiekt.szer)) {
-            return true;
-        }
-        return false;
-    },
-
-    ustawObiekt: function(obiekt, parametry) {
-        obiekt.nrO = nrObiektu;
-        nrObiektu++;
-
-        parametry = {};
-        var DEFAULT_VALUE_wys = 40;
-        var DEFAULT_VALUE_szer = 40;
-
-        parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
-
-        obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
-        obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
-        obiekt.sprite = testS;
-    }
-}
 
 
 
