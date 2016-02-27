@@ -1672,12 +1672,14 @@ przechwycono_klik=-1;
 var grastraRTS;
 grastraRTS = {
 
+    nrObiektu: 0,
+    obiektyGry: [],
     przechwycono_klik: -1,
     podkomendny: -1,
     skalaMapy: 8,
     domParametryTworzeniaObiektu : {
         wys : 32,
-        szer : 32,
+        szer : 32
     },
 
 
@@ -1721,8 +1723,9 @@ grastraRTS = {
     },
 
     ustawObiekt: function(obiekt, parametry) {
-        obiekt.nrO = nrObiektu;
-        nrObiektu++;
+
+        obiekt.nrO = this.nrObiektu;
+        this.nrObiektu++;
 
         parametry = typeof parametry === 'undefined' ? this.domParametryTworzeniaObiektu : parametry;
 
