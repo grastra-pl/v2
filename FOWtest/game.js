@@ -1632,7 +1632,14 @@ this.tiles = [
 [640,256,64,64,1216,768],
 [640,128,64,64,1184,768]]]];
 this.objects = [
-];
+[{o:interfejs, x:32, y:32}],
+[{o:test, x:96, y:64}],
+[{o:klocek, x:192, y:64}],
+[{o:klocek, x:192, y:128}],
+[{o:klocek, x:96, y:160}],
+[{o:test, x:288, y:96}],
+[{o:test, x:256, y:192}],
+[{o:test, x:128, y:224}]];
 this.start = function() {
 __room_start__(this, FOWtest, 1600, 1200, 30, 0, 0, 0, null, 0, 0, 0, 800, 600, null, 50, 50);
 };
@@ -1664,17 +1671,30 @@ przechwycono_klik=-1;
 
 var grastraRTS;
 grastraRTS = {
-    fowDraw: function(myThis, subimg, przezro)
-    {
+
+    przechwycono_klik: -1,
+    podkomendny: -1,
+    skalaMapy: 8,
+    domParametryTworzeniaObiektu : {
+        wys : 32,
+        szer : 32,
+    },
+
+
+    fowDraw: function(myThis, subimg, przezro) {
+        this.drawOnMiniMap(myThis, subimg, przezro);
+        this.drawOnMainMap(myThis, subimg, przezro);
+    },
+
+    drawOnMainMap: function(myThis, subimg, przezro) {
         draw_sprite_ext(myThis.sprite, subimg, myThis.x, myThis.y, 1, 1, 0, przezro);
-
-        var skalaMapy = 8;
-        draw_sprite_ext(myThis.sprite, subimg, myThis.x / skalaMapy, myThis.y / skalaMapy, 1 / skalaMapy, 1 / skalaMapy, 0, przezro);
-
-
-        if (podkomendny == myThis.nrO) {
+        if (this.podkomendny == myThis.nrO) {
             draw_sprite_ext(ramkaS, 0, myThis.x, myThis.y, 1, 1, 0, przezro);
         }
+    },
+
+    drawOnMiniMap: function(myThis, subimg, przezro) {
+        draw_sprite_ext(myThis.sprite, subimg, myThis.x / this.skalaMapy, myThis.y / this.skalaMapy, 1 / this.skalaMapy, 1 / this.skalaMapy, 0, przezro);
     },
 
     ustawCelDla: function(dla, xx, yy) {
@@ -1684,7 +1704,9 @@ grastraRTS = {
 
     czyWybranoMnie: function(obiekt) {
         if (mouse_check_pressed()) {
-            if (czyPunktWObiekcie(obiekt, celownik_x, celownik_y)) {
+            if (this.czyPunktWObiekcie(obiekt, celownik_x, celownik_y)) {
+                this.przechwycono_klik = obiekt.nrO;
+                this.podkomendny = obiekt.nrO;
                 return true;
             }
         }
@@ -1702,14 +1724,10 @@ grastraRTS = {
         obiekt.nrO = nrObiektu;
         nrObiektu++;
 
-        parametry = {};
-        var DEFAULT_VALUE_wys = 40;
-        var DEFAULT_VALUE_szer = 40;
+        parametry = typeof parametry === 'undefined' ? this.domParametryTworzeniaObiektu : parametry;
 
-        parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
-
-        obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
-        obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
+        obiekt.wys = typeof parametry.wys === 'undefined' ? this.domParametryTworzeniaObiektu.wys : parametry.wys;
+        obiekt.szer = typeof parametry.szer === 'undefined' ? this.domParametryTworzeniaObiektu.szer : parametry.szer;
         obiekt.sprite = testS;
     }
 }

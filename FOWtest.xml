@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="194" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>/**
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="212" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions>/**
  * Created by Grastra on 2016-02-26.
  */
 
@@ -6,17 +6,30 @@
 
 var grastraRTS;
 grastraRTS = {
-    fowDraw: function(myThis, subimg, przezro)
-    {
+
+    przechwycono_klik: -1,
+    podkomendny: -1,
+    skalaMapy: 8,
+    domParametryTworzeniaObiektu : {
+        wys : 32,
+        szer : 32,
+    },
+
+
+    fowDraw: function(myThis, subimg, przezro) {
+        this.drawOnMiniMap(myThis, subimg, przezro);
+        this.drawOnMainMap(myThis, subimg, przezro);
+    },
+
+    drawOnMainMap: function(myThis, subimg, przezro) {
         draw_sprite_ext(myThis.sprite, subimg, myThis.x, myThis.y, 1, 1, 0, przezro);
-
-        var skalaMapy = 8;
-        draw_sprite_ext(myThis.sprite, subimg, myThis.x / skalaMapy, myThis.y / skalaMapy, 1 / skalaMapy, 1 / skalaMapy, 0, przezro);
-
-
-        if (podkomendny == myThis.nrO) {
+        if (this.podkomendny == myThis.nrO) {
             draw_sprite_ext(ramkaS, 0, myThis.x, myThis.y, 1, 1, 0, przezro);
         }
+    },
+
+    drawOnMiniMap: function(myThis, subimg, przezro) {
+        draw_sprite_ext(myThis.sprite, subimg, myThis.x / this.skalaMapy, myThis.y / this.skalaMapy, 1 / this.skalaMapy, 1 / this.skalaMapy, 0, przezro);
     },
 
     ustawCelDla: function(dla, xx, yy) {
@@ -26,7 +39,9 @@ grastraRTS = {
 
     czyWybranoMnie: function(obiekt) {
         if (mouse_check_pressed()) {
-            if (czyPunktWObiekcie(obiekt, celownik_x, celownik_y)) {
+            if (this.czyPunktWObiekcie(obiekt, celownik_x, celownik_y)) {
+                this.przechwycono_klik = obiekt.nrO;
+                this.podkomendny = obiekt.nrO;
                 return true;
             }
         }
@@ -44,14 +59,10 @@ grastraRTS = {
         obiekt.nrO = nrObiektu;
         nrObiektu++;
 
-        parametry = {};
-        var DEFAULT_VALUE_wys = 40;
-        var DEFAULT_VALUE_szer = 40;
+        parametry = typeof parametry === 'undefined' ? this.domParametryTworzeniaObiektu : parametry;
 
-        parametry = typeof parametry === 'undefined' ? DEFAULT_VALUE_parametry : parametry;
-
-        obiekt.wys = typeof parametry.wys === 'undefined' ? DEFAULT_VALUE_wys : parametry.wys;
-        obiekt.szer = typeof parametry.szer === 'undefined' ? DEFAULT_VALUE_szer : parametry.szer;
+        obiekt.wys = typeof parametry.wys === 'undefined' ? this.domParametryTworzeniaObiektu.wys : parametry.wys;
+        obiekt.szer = typeof parametry.szer === 'undefined' ? this.domParametryTworzeniaObiektu.szer : parametry.szer;
         obiekt.sprite = testS;
     }
 }
@@ -61,7 +72,7 @@ celownik_y=0;
 podkomendny=-1;
 nrObiektu=0;
 
-przechwycono_klik=-1;</variables><comments/><sprites count="10"><sprite name="testS" centerx="0" centery="0" collisionshape="Box" collisionradius="20" collisionleft="0" collisionright="41" collisiontop="0" collisionbottom="41"/><sprite name="klocekS" centerx="0" centery="0" collisionshape="Box" collisionradius="16" collisionleft="0" collisionright="32" collisiontop="0" collisionbottom="32"/><sprite name="celownikS" centerx="14" centery="15" collisionshape="Box" collisionradius="14" collisionleft="0" collisionright="28" collisiontop="0" collisionbottom="31"/><sprite name="ramkaS" centerx="0" centery="0" collisionshape="Box" collisionradius="20" collisionleft="0" collisionright="40" collisiontop="0" collisionbottom="40"/><sprite name="glowna_bazaS" centerx="0" centery="0" collisionshape="Box" collisionradius="64" collisionleft="0" collisionright="128" collisiontop="0" collisionbottom="128"/><sprite name="fabrykiS" centerx="0" centery="0" collisionshape="Box" collisionradius="48" collisionleft="0" collisionright="96" collisiontop="0" collisionbottom="96"/><sprite name="elektrownieS" centerx="0" centery="0" collisionshape="Box" collisionradius="32" collisionleft="0" collisionright="64" collisiontop="0" collisionbottom="64"/><sprite name="jednostkiS" centerx="0" centery="0" collisionshape="Box" collisionradius="16" collisionleft="0" collisionright="32" collisiontop="0" collisionbottom="32"/><sprite name="wiezyczki_jednostekS" centerx="0" centery="0" collisionshape="Box" collisionradius="8" collisionleft="0" collisionright="16" collisiontop="0" collisionbottom="16"/><sprite name="punkty_minimapyS" centerx="0" centery="0" collisionshape="Box" collisionradius="4" collisionleft="0" collisionright="8" collisiontop="0" collisionbottom="8"/></sprites><frames count="10"><frame file="0" sprite="testS"/><frame file="0" sprite="klocekS"/><frame file="0" sprite="celownikS"/><frame file="0" sprite="ramkaS"/><frame file="0" sprite="glowna_bazaS"/><frame file="0" sprite="fabrykiS"/><frame file="0" sprite="elektrownieS"/><frame file="0" sprite="jednostkiS"/><frame file="0" sprite="wiezyczki_jednostekS"/><frame file="0" sprite="punkty_minimapyS"/></frames><sounds count="0"/><musics count="0"/><backgrounds count="1"><background name="ciemne" file="tlo_oo__20140818014548!phpzipeHj.jpg" tile="1" tileheight="64" tilewidth="64" tilexoffset="0" tileyoffset="0" tilexspace="0" tileyspace="0"/></backgrounds><fonts count="0"/><objects count="3"><object name="test" template="" prototype="1" scene="" sprite="testS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="klocek" template="" prototype="1" scene="" sprite="klocekS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="interfejs" template="" prototype="1" scene="" sprite="" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/></objects><scripts count="9"><script name="" object="" event="" parameter=""/><script name="scr_17" object="klocek" event="Draw" parameter="">this.sprite=klocekS;
+przechwycono_klik=-1;</variables><comments/><sprites count="10"><sprite name="testS" centerx="0" centery="0" collisionshape="Box" collisionradius="20" collisionleft="0" collisionright="41" collisiontop="0" collisionbottom="41"/><sprite name="klocekS" centerx="0" centery="0" collisionshape="Box" collisionradius="16" collisionleft="0" collisionright="32" collisiontop="0" collisionbottom="32"/><sprite name="celownikS" centerx="14" centery="15" collisionshape="Box" collisionradius="14" collisionleft="0" collisionright="28" collisiontop="0" collisionbottom="31"/><sprite name="ramkaS" centerx="0" centery="0" collisionshape="Box" collisionradius="20" collisionleft="0" collisionright="40" collisiontop="0" collisionbottom="40"/><sprite name="glowna_bazaS" centerx="0" centery="0" collisionshape="Box" collisionradius="64" collisionleft="0" collisionright="128" collisiontop="0" collisionbottom="128"/><sprite name="fabrykiS" centerx="0" centery="0" collisionshape="Box" collisionradius="48" collisionleft="0" collisionright="96" collisiontop="0" collisionbottom="96"/><sprite name="elektrownieS" centerx="0" centery="0" collisionshape="Box" collisionradius="32" collisionleft="0" collisionright="64" collisiontop="0" collisionbottom="64"/><sprite name="jednostkiS" centerx="0" centery="0" collisionshape="Box" collisionradius="16" collisionleft="0" collisionright="32" collisiontop="0" collisionbottom="32"/><sprite name="wiezyczki_jednostekS" centerx="0" centery="0" collisionshape="Box" collisionradius="8" collisionleft="0" collisionright="16" collisiontop="0" collisionbottom="16"/><sprite name="punkty_minimapyS" centerx="0" centery="0" collisionshape="Box" collisionradius="4" collisionleft="0" collisionright="8" collisiontop="0" collisionbottom="8"/></sprites><frames count="10"><frame file="0" sprite="testS"/><frame file="0" sprite="klocekS"/><frame file="0" sprite="celownikS"/><frame file="0" sprite="ramkaS"/><frame file="0" sprite="glowna_bazaS"/><frame file="0" sprite="fabrykiS"/><frame file="0" sprite="elektrownieS"/><frame file="0" sprite="jednostkiS"/><frame file="0" sprite="wiezyczki_jednostekS"/><frame file="0" sprite="punkty_minimapyS"/></frames><sounds count="0"/><musics count="0"/><backgrounds count="1"><background name="ciemne" file="tlo_oo__20140818014548!phpzipeHj.jpg" tile="1" tileheight="64" tilewidth="64" tilexoffset="0" tileyoffset="0" tilexspace="0" tileyspace="0"/></backgrounds><fonts count="0"/><objects count="11"><object name="test" template="" prototype="1" scene="" sprite="testS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="klocek" template="" prototype="1" scene="" sprite="klocekS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="interfejs" template="" prototype="1" scene="" sprite="" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="SceneObject205" template="interfejs" prototype="0" scene="FOWtest" sprite="" x="32" y="32" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject206" template="test" prototype="0" scene="FOWtest" sprite="testS" x="96" y="64" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject207" template="klocek" prototype="0" scene="FOWtest" sprite="klocekS" x="192" y="64" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject208" template="klocek" prototype="0" scene="FOWtest" sprite="klocekS" x="192" y="128" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject209" template="klocek" prototype="0" scene="FOWtest" sprite="klocekS" x="96" y="160" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject210" template="test" prototype="0" scene="FOWtest" sprite="testS" x="288" y="96" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject211" template="test" prototype="0" scene="FOWtest" sprite="testS" x="256" y="192" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/><object name="SceneObject212" template="test" prototype="0" scene="FOWtest" sprite="testS" x="128" y="224" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/></objects><scripts count="9"><script name="" object="" event="" parameter=""/><script name="scr_17" object="klocek" event="Draw" parameter="">this.sprite=klocekS;
 myThis=this;
 subimg=0;
 przezro=1;
