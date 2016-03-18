@@ -1,8 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="9" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions/><variables/><comments/><sprites count="2"><sprite name="podwozieS" centerx="0" centery="0" collisionshape="Box" collisionradius="48" collisionleft="0" collisionright="96" collisiontop="0" collisionbottom="96"/><sprite name="lufaS" centerx="0" centery="0" collisionshape="Box" collisionradius="16" collisionleft="0" collisionright="32" collisiontop="0" collisionbottom="32"/></sprites><frames count="2"><frame file="0" sprite="podwozieS"/><frame file="0" sprite="lufaS"/></frames><sounds count="0"/><musics count="0"/><backgrounds count="0"/><fonts count="0"/><objects count="2"><object name="czolg" template="" prototype="1" scene="" sprite="podwozieS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="SceneObject8" template="czolg" prototype="0" scene="scene_4" sprite="podwozieS" x="140" y="100" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/></objects><scripts count="1"><script name="scr_7" object="czolg" event="Draw" parameter="">
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="12" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions/><variables/><comments/><sprites count="2"><sprite name="podwozieS" centerx="48" centery="48" collisionshape="Box" collisionradius="48" collisionleft="0" collisionright="96" collisiontop="0" collisionbottom="96"/><sprite name="lufaS" centerx="16" centery="16" collisionshape="Box" collisionradius="16" collisionleft="0" collisionright="32" collisiontop="0" collisionbottom="32"/></sprites><frames count="2"><frame file="0" sprite="podwozieS"/><frame file="0" sprite="lufaS"/></frames><sounds count="0"/><musics count="0"/><backgrounds count="0"/><fonts count="0"/><objects count="2"><object name="czolg" template="" prototype="1" scene="" sprite="podwozieS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="SceneObject8" template="czolg" prototype="0" scene="scene_4" sprite="podwozieS" x="140" y="100" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/></objects><scripts count="3"><script name="scr_7" object="czolg" event="Draw" parameter="">
 draw_sprite_ext(podwozieS,0,x,y,1,1,0,1);
 
-draw_sprite_ext(lufaS,0,x,y,1,1,0,1);
-</script></scripts><scenes count="1"><scene name="scene_4" width="640" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_5" scene="scene_4" value="1000000"/></layers><tiles count="0"/><fns count="1"><fn name="function_9" params="" description="">destinationRotation = Math.Atan2(turret.Y - target.Y, turret.X - target.X) + Math.PI;
+draw_sprite_ext(lufaS,0,x,y,1,1,obrot_lufy,1);
+</script><script name="scr_11" object="czolg" event="Creation" parameter="">obrot_czolgu =0;
+obrot_lufy =0;
+
+predkosc_lufy = 1/20;</script><script name="scr_12" object="czolg" event="Step" parameter="">//obrot_lufy++;
+currentRotation = degtorad(obrot_lufy);
+rotationSpeed = predkosc_lufy;
+topRotation = 720;
+
+destinationRotation = Math.atan2(y - mouse_y, x - mouse_x) + Math.PI;
+
+if (abs(destinationRotation-currentRotation)&gt;rotationSpeed )
+{
+    if (destinationRotation &gt; currentRotation)
+    {
+        if (currentRotation &lt; destinationRotation - Math.PI)
+            currentRotation -= rotationSpeed;
+        else
+            currentRotation += rotationSpeed;
+    }
+    else if (destinationRotation  &lt; topRotation)
+    {
+        if (currentRotation &gt; destinationRotation + Math.PI)
+            currentRotation += rotationSpeed;
+        else
+            currentRotation -= rotationSpeed;
+    }
+
+    if (currentRotation &gt; Math.PI * 2 ) currentRotation = 0;
+    if (currentRotation &lt; 0) currentRotation = Math.PI * 2 ;
+}
+
+obrot_lufy = radtodeg(currentRotation);</script></scripts><scenes count="1"><scene name="scene_4" width="640" height="480" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="640" viewportheight="480" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_5" scene="scene_4" value="1000000"/></layers><tiles count="0"/><fns count="1"><fn name="function_9" params="" description="">destinationRotation = Math.Atan2(turret.Y - target.Y, turret.X - target.X) + Math.PI;
 
 if (destinationRotation != currentRotation)
 {

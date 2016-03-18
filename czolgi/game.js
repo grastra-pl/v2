@@ -1361,11 +1361,11 @@ tu_init();
  * SPRITES
  ***********************************************************************/
 function __podwozieS() { 
-__sprite_init__(this, podwozieS, 96, 96, 0, 0, 'Box', 48, 0, 96, 0, 96, ['img/podwozieS_0.png']);
+__sprite_init__(this, podwozieS, 96, 96, 48, 48, 'Box', 48, 0, 96, 0, 96, ['img/podwozieS_0.png']);
 }; var podwozieS = new __podwozieS();
 
 function __lufaS() { 
-__sprite_init__(this, lufaS, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/lufaS_0.png']);
+__sprite_init__(this, lufaS, 32, 32, 16, 16, 'Box', 16, 0, 32, 0, 32, ['img/lufaS_0.png']);
 }; var lufaS = new __lufaS();
 
 
@@ -1395,9 +1395,48 @@ __sprite_init__(this, lufaS, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/lufaS_
  ***********************************************************************/
 function __czolg() {
 __instance_init__(this, czolg, null, 1, 0, podwozieS, 1, 0);
-this.on_creation = on_creation_i;
+this.on_creation = function() {
+with(this) {
+obrot_czolgu =0;
+obrot_lufy =0;
+
+predkosc_lufy = 1/20;
+}
+};
 this.on_destroy = on_destroy_i;
-this.on_step = on_step_i;
+this.on_step = function() {
+with(this) {
+//obrot_lufy++;
+currentRotation = degtorad(obrot_lufy);
+rotationSpeed = predkosc_lufy;
+topRotation = 720;
+
+destinationRotation = Math.atan2(y - mouse_y, x - mouse_x) + Math.PI;
+
+if (abs(destinationRotation-currentRotation)>rotationSpeed )
+{
+    if (destinationRotation > currentRotation)
+    {
+        if (currentRotation < destinationRotation - Math.PI)
+            currentRotation -= rotationSpeed;
+        else
+            currentRotation += rotationSpeed;
+    }
+    else if (destinationRotation  < topRotation)
+    {
+        if (currentRotation > destinationRotation + Math.PI)
+            currentRotation += rotationSpeed;
+        else
+            currentRotation -= rotationSpeed;
+    }
+
+    if (currentRotation > Math.PI * 2 ) currentRotation = 0;
+    if (currentRotation < 0) currentRotation = Math.PI * 2 ;
+}
+
+obrot_lufy = radtodeg(currentRotation);
+}
+};
 this.on_end_step = on_end_step_i;
 this.on_collision = on_collision_i;
 this.on_roomstart = on_roomstart_i;
@@ -1410,7 +1449,7 @@ with(this) {
 
 draw_sprite_ext(podwozieS,0,x,y,1,1,0,1);
 
-draw_sprite_ext(lufaS,0,x,y,1,1,0,1);
+draw_sprite_ext(lufaS,0,x,y,1,1,obrot_lufy,1);
 
 }
 }
