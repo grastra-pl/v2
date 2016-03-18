@@ -1368,6 +1368,14 @@ function __lufaS() {
 __sprite_init__(this, lufaS, 32, 32, 16, 16, 'Box', 16, 0, 32, 0, 32, ['img/lufaS_0.png']);
 }; var lufaS = new __lufaS();
 
+function __podwozie_czolguS() { 
+__sprite_init__(this, podwozie_czolguS, 50, 24, 25, 12, 'Box', 25, 0, 50, 0, 24, ['img/podwozie_czolguS_0.png']);
+}; var podwozie_czolguS = new __podwozie_czolguS();
+
+function __wieza_czolguS() { 
+__sprite_init__(this, wieza_czolguS, 52, 19, 11, 9, 'Box', 26, 0, 52, 0, 19, ['img/wieza_czolguS_0.png']);
+}; var wieza_czolguS = new __wieza_czolguS();
+
 
 
 /***********************************************************************
@@ -1446,11 +1454,17 @@ this.on_draw = function() {
 if (this.visible == 1) {
 __handle_sprite__(this);
 with(this) {
-
+/*
 draw_sprite_ext(podwozieS,0,x,y,1,1,0,1);
 
 draw_sprite_ext(lufaS,0,x,y,1,1,obrot_lufy,1);
+*/
 
+
+
+draw_sprite_ext(podwozie_czolguS,0,x,y,1,1,0,1);
+
+draw_sprite_ext(wieza_czolguS,0,x,y,1,1,obrot_lufy,1);
 }
 }
 };

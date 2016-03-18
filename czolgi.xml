@@ -1,8 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="12" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions/><variables/><comments/><sprites count="2"><sprite name="podwozieS" centerx="48" centery="48" collisionshape="Box" collisionradius="48" collisionleft="0" collisionright="96" collisiontop="0" collisionbottom="96"/><sprite name="lufaS" centerx="16" centery="16" collisionshape="Box" collisionradius="16" collisionleft="0" collisionright="32" collisiontop="0" collisionbottom="32"/></sprites><frames count="2"><frame file="0" sprite="podwozieS"/><frame file="0" sprite="lufaS"/></frames><sounds count="0"/><musics count="0"/><backgrounds count="0"/><fonts count="0"/><objects count="2"><object name="czolg" template="" prototype="1" scene="" sprite="podwozieS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="SceneObject8" template="czolg" prototype="0" scene="scene_4" sprite="podwozieS" x="140" y="100" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/></objects><scripts count="3"><script name="scr_7" object="czolg" event="Draw" parameter="">
+<?xml version="1.0" encoding="UTF-8"?><tululoo version="130" uid="15" title="" advancedscriptmode="0" imgfolder="img" audfolder="aud"><functions/><variables/><comments/><sprites count="4"><sprite name="podwozieS" centerx="48" centery="48" collisionshape="Box" collisionradius="48" collisionleft="0" collisionright="96" collisiontop="0" collisionbottom="96"/><sprite name="lufaS" centerx="16" centery="16" collisionshape="Box" collisionradius="16" collisionleft="0" collisionright="32" collisiontop="0" collisionbottom="32"/><sprite name="podwozie_czolguS" centerx="25" centery="12" collisionshape="Box" collisionradius="25" collisionleft="0" collisionright="50" collisiontop="0" collisionbottom="24"/><sprite name="wieza_czolguS" centerx="11" centery="9" collisionshape="Box" collisionradius="26" collisionleft="0" collisionright="52" collisiontop="0" collisionbottom="19"/></sprites><frames count="4"><frame file="0" sprite="podwozieS"/><frame file="0" sprite="lufaS"/><frame file="0" sprite="podwozie_czolguS"/><frame file="0" sprite="wieza_czolguS"/></frames><sounds count="0"/><musics count="0"/><backgrounds count="0"/><fonts count="0"/><objects count="2"><object name="czolg" template="" prototype="1" scene="" sprite="podwozieS" x="0" y="0" visible="1" depth="0" collision="1" parent="" direction="0" image_angle="0"/><object name="SceneObject8" template="czolg" prototype="0" scene="scene_4" sprite="podwozieS" x="140" y="100" visible="0" depth="0" collision="0" parent="" direction="0" image_angle="0"/></objects><scripts count="3"><script name="scr_7" object="czolg" event="Draw" parameter="">/*
 draw_sprite_ext(podwozieS,0,x,y,1,1,0,1);
 
 draw_sprite_ext(lufaS,0,x,y,1,1,obrot_lufy,1);
-</script><script name="scr_11" object="czolg" event="Creation" parameter="">obrot_czolgu =0;
+*/
+
+
+
+draw_sprite_ext(podwozie_czolguS,0,x,y,1,1,0,1);
+
+draw_sprite_ext(wieza_czolguS,0,x,y,1,1,obrot_lufy,1);</script><script name="scr_11" object="czolg" event="Creation" parameter="">obrot_czolgu =0;
 obrot_lufy =0;
 
 predkosc_lufy = 1/20;</script><script name="scr_12" object="czolg" event="Step" parameter="">//obrot_lufy++;
