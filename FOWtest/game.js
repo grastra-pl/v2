@@ -1490,8 +1490,14 @@ grastraRTS.fowDraw(myThis,subimg,przezro);
 }; var klocek = new __klocek();
 
 function __interfejs() {
-__instance_init__(this, interfejs, null, 1, 0, null, 1, 2);
-this.on_creation = on_creation_i;
+__instance_init__(this, interfejs, null, 0, -12345, null, 0, 2);
+this.on_creation = function() {
+with(this) {
+this.mouseOn = false;
+this.xOffset = 0;
+this.yOffset = 0;
+}
+};
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
@@ -1500,12 +1506,39 @@ with(this) {
 celownik_x=mouse_x;
 celownik_y=mouse_y;
 
+if ( mouse_check_pressed() ) {
+	//this.xOffset = mouse_x - room_viewport_x;
+	//this.yOffset = mouse_y - room_viewport_y;
+	
+	this.xOffset = -room_viewport_x - mouse_x;
+	this.yOffset = -room_viewport_y - mouse_y;
+	
+	this.mouseOn = true;
+}
+
+if ( mouse_check() && this.mouseOn ) {
+	room_viewport_x = -mouse_x - this.xOffset;
+	room_viewport_y = -mouse_y - this.yOffset;
+}
+	
+
+if ( mouse_check_released() ) {
+	this.mouseOn = false;
+}
 
 
 }
 };
 this.on_end_step = function() {
 with(this) {
+if (mouse_check_pressed()) {
+	
+	if (-1 == przechwycono_klik) {
+	//	alert('w co klikasz baranie?');
+	}
+}
+
+
 przechwycono_klik=-1;
 }
 };

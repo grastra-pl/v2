@@ -1376,6 +1376,94 @@ function __wieza_czolguS() {
 __sprite_init__(this, wieza_czolguS, 52, 19, 11, 9, 'Box', 26, 0, 52, 0, 19, ['img/wieza_czolguS_0.png']);
 }; var wieza_czolguS = new __wieza_czolguS();
 
+function __wieza_pixelS() { 
+__sprite_init__(this, wieza_pixelS, 53, 39, 19, 19, 'Box', 26, 0, 53, 0, 39, ['img/wieza_pixelS_0.png']);
+}; var wieza_pixelS = new __wieza_pixelS();
+
+function __podstawa_czolguS() { 
+__sprite_init__(this, podstawa_czolguS, 63, 44, 31, 22, 'Box', 31, 0, 63, 0, 44, ['img/podstawa_czolguS_0.png']);
+}; var podstawa_czolguS = new __podstawa_czolguS();
+
+function __pisel_wieza2S() { 
+__sprite_init__(this, pisel_wieza2S, 53, 40, 20, 20, 'Box', 26, 0, 53, 0, 40, ['img/pisel_wieza2S_0.png']);
+}; var pisel_wieza2S = new __pisel_wieza2S();
+
+function __sym_T_S() { 
+__sprite_init__(this, sym_T_S, 50, 50, 0, 0, 'Box', 25, 0, 50, 0, 50, ['img/sym_T_S_0.png']);
+}; var sym_T_S = new __sym_T_S();
+
+function __litera_A_S() { 
+__sprite_init__(this, litera_A_S, 57, 47, 0, 0, 'Box', 28, 0, 57, 0, 47, ['img/litera_A_S_0.png']);
+}; var litera_A_S = new __litera_A_S();
+
+function __litera_Aa_S() { 
+__sprite_init__(this, litera_Aa_S, 46, 37, 0, 0, 'Box', 23, 0, 46, 0, 37, ['img/litera_Aa_S_0.png']);
+}; var litera_Aa_S = new __litera_Aa_S();
+
+function __Tankraft_NapisS() { 
+__sprite_init__(this, Tankraft_NapisS, 308, 84, 0, 0, 'Box', 154, 0, 308, 0, 84, ['img/Tankraft_NapisS_0.png']);
+}; var Tankraft_NapisS = new __Tankraft_NapisS();
+
+function __Tankraft_S() { 
+__sprite_init__(this, Tankraft_S, 614, 164, 0, 0, 'Box', 307, 0, 614, 0, 164, ['img/Tankraft_S_0.png']);
+}; var Tankraft_S = new __Tankraft_S();
+
+function __fabryka_czolgowS() { 
+__sprite_init__(this, fabryka_czolgowS, 182, 91, 0, 0, 'Box', 91, 0, 182, 0, 91, ['img/fabryka_czolgowS_0.png']);
+}; var fabryka_czolgowS = new __fabryka_czolgowS();
+
+function __fabryka_czolgowaS() { 
+__sprite_init__(this, fabryka_czolgowaS, 128, 83, 0, 0, 'Box', 64, 0, 128, 0, 83, ['img/fabryka_czolgowaS_0.png']);
+}; var fabryka_czolgowaS = new __fabryka_czolgowaS();
+
+function __fabrykNowaS() { 
+__sprite_init__(this, fabrykNowaS, 151, 101, 0, 0, 'Box', 75, 0, 151, 0, 101, ['img/fabrykNowaS_0.png']);
+}; var fabrykNowaS = new __fabrykNowaS();
+
+function __commandCenterS() { 
+__sprite_init__(this, commandCenterS, 143, 127, 0, 0, 'Box', 71, 0, 143, 0, 127, ['img/commandCenterS_0.png']);
+}; var commandCenterS = new __commandCenterS();
+
+function __traktor_S() { 
+__sprite_init__(this, traktor_S, 86, 47, 0, 0, 'Box', 43, 0, 86, 0, 47, ['img/traktor_S_0.png']);
+}; var traktor_S = new __traktor_S();
+
+function __spych_malyS() { 
+__sprite_init__(this, spych_malyS, 19, 31, 9, 23, 'Box', 9, 0, 19, 0, 31, ['img/spych_malyS_0.png']);
+}; var spych_malyS = new __spych_malyS();
+
+function __elektrownia_S() { 
+__sprite_init__(this, elektrownia_S, 141, 87, 0, 0, 'Box', 70, 0, 141, 0, 87, ['img/elektrownia_S_0.png']);
+}; var elektrownia_S = new __elektrownia_S();
+
+function __czolg_BL_S() { 
+__sprite_init__(this, czolg_BL_S, 60, 44, 30, 22, 'Box', 30, 0, 60, 0, 44, ['img/czolg_BL_S_0.png']);
+}; var czolg_BL_S = new __czolg_BL_S();
+
+function __wieza_BL_S() { 
+__sprite_init__(this, wieza_BL_S, 51, 38, 15, 19, 'Box', 25, 0, 51, 0, 38, ['img/wieza_BL_S_0.png']);
+}; var wieza_BL_S = new __wieza_BL_S();
+
+function __commandCenterBlS() { 
+__sprite_init__(this, commandCenterBlS, 143, 127, 0, 0, 'Box', 71, 0, 143, 0, 127, ['img/commandCenterBlS_0.png']);
+}; var commandCenterBlS = new __commandCenterBlS();
+
+function __fabryka_czolgowa_BLS() { 
+__sprite_init__(this, fabryka_czolgowa_BLS, 128, 83, 0, 0, 'Box', 64, 0, 128, 0, 83, ['img/fabryka_czolgowa_BLS_0.png']);
+}; var fabryka_czolgowa_BLS = new __fabryka_czolgowa_BLS();
+
+function __elektrownia_BLS() { 
+__sprite_init__(this, elektrownia_BLS, 141, 87, 0, 0, 'Box', 70, 0, 141, 0, 87, ['img/elektrownia_BLS_0.png']);
+}; var elektrownia_BLS = new __elektrownia_BLS();
+
+function __gasienica_S() { 
+__sprite_init__(this, gasienica_S, 35, 13, 0, 0, 'Box', 17, 0, 35, 0, 13, ['img/gasienica_S_0.png','img/gasienica_S_1.png','img/gasienica_S_2.png','img/gasienica_S_3.png','img/gasienica_S_4.png']);
+}; var gasienica_S = new __gasienica_S();
+
+function __sprite_122() { 
+__sprite_init__(this, sprite_122, 6, 10, 0, 0, 'Box', 3, 0, 6, 0, 10, ['img/sprite_122_0.png','img/sprite_122_1.png','img/sprite_122_2.png','img/sprite_122_3.png','img/sprite_122_4.png','img/sprite_122_5.png','img/sprite_122_6.png']);
+}; var sprite_122 = new __sprite_122();
+
 
 
 /***********************************************************************
@@ -1391,6 +1479,24 @@ __sprite_init__(this, wieza_czolguS, 52, 19, 11, 9, 'Box', 26, 0, 52, 0, 19, ['i
 /***********************************************************************
  * BACKGROUNDS
  ***********************************************************************/
+function __background_79() { 
+__background_init__(this, background_79, 'img/tlooou.png')}; var background_79 = new __background_79();
+
+function __background_86() { 
+__background_init__(this, background_86, 'img/tlodoczolgow.png')}; var background_86 = new __background_86();
+
+function __background_87() { 
+__background_init__(this, background_87, 'img/wlasneTlo2.png')}; var background_87 = new __background_87();
+
+function __background_88() { 
+__background_init__(this, background_88, 'img/wlasneTlo3.png')}; var background_88 = new __background_88();
+
+function __background_89() { 
+__background_init__(this, background_89, 'img/wlasneTlo4trawa.png')}; var background_89 = new __background_89();
+
+function __background_90() { 
+__background_init__(this, background_90, 'img/wlasneTlo5trawa2.png')}; var background_90 = new __background_90();
+
 
 
 /***********************************************************************
@@ -1402,21 +1508,21 @@ __sprite_init__(this, wieza_czolguS, 52, 19, 11, 9, 'Box', 26, 0, 52, 0, 19, ['i
  * OBJECTS
  ***********************************************************************/
 function __czolg() {
-__instance_init__(this, czolg, null, 1, 0, podwozieS, 1, 0);
+__instance_init__(this, czolg, null, 1, 0, podstawa_czolguS, 1, 0);
 this.on_creation = function() {
 with(this) {
-obrot_czolgu =0;
-obrot_lufy =0;
+this.obrot_czolgu =0;
+this.obrot_lufy =0;
 
-predkosc_lufy = 1/20;
+this.predkosc_lufy = 1/20;
 }
 };
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
 //obrot_lufy++;
-currentRotation = degtorad(obrot_lufy);
-rotationSpeed = predkosc_lufy;
+currentRotation = degtorad(this.obrot_lufy);
+rotationSpeed = this.predkosc_lufy;
 topRotation = 720;
 
 destinationRotation = Math.atan2(y - mouse_y, x - mouse_x) + Math.PI;
@@ -1442,7 +1548,7 @@ if (abs(destinationRotation-currentRotation)>rotationSpeed )
     if (currentRotation < 0) currentRotation = Math.PI * 2 ;
 }
 
-obrot_lufy = radtodeg(currentRotation);
+this.obrot_lufy = radtodeg(currentRotation);
 }
 };
 this.on_end_step = on_end_step_i;
@@ -1462,13 +1568,295 @@ draw_sprite_ext(lufaS,0,x,y,1,1,obrot_lufy,1);
 
 
 
-draw_sprite_ext(podwozie_czolguS,0,x,y,1,1,0,1);
+// draw_sprite_ext(podwozie_czolguS,0,x,y,1,1,0,1);
+draw_sprite_ext(podstawa_czolguS,0,x,y,1,1,0,1);
 
-draw_sprite_ext(wieza_czolguS,0,x,y,1,1,obrot_lufy,1);
+
+
+//draw_sprite_ext(wieza_czolguS,0,x,y,1,1,obrot_lufy,1);
+
+//draw_sprite_ext(wieza_pixelS,0,x,y,1,1,obrot_lufy,1);
+
+draw_sprite_ext(pisel_wieza2S,0,x,y,1,1,this.obrot_lufy,1);
 }
 }
 };
 }; var czolg = new __czolg();
+
+function __litera_T() {
+__instance_init__(this, litera_T, null, 1, 0, sym_T_S, 1, 1);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var litera_T = new __litera_T();
+
+function __litera_A() {
+__instance_init__(this, litera_A, null, 1, 0, litera_Aa_S, 1, 2);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var litera_A = new __litera_A();
+
+function __Tankraft_Napis() {
+__instance_init__(this, Tankraft_Napis, null, 1, 0, Tankraft_S, 1, 3);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var Tankraft_Napis = new __Tankraft_Napis();
+
+function __fabryka_czolgow() {
+__instance_init__(this, fabryka_czolgow, null, 1, 0, fabryka_czolgowS, 1, 4);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var fabryka_czolgow = new __fabryka_czolgow();
+
+function __fabryka_czolgowa() {
+__instance_init__(this, fabryka_czolgowa, null, 1, 0, fabryka_czolgowaS, 1, 5);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var fabryka_czolgowa = new __fabryka_czolgowa();
+
+function __fabrykaNowa() {
+__instance_init__(this, fabrykaNowa, null, 1, 0, fabrykNowaS, 1, 6);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var fabrykaNowa = new __fabrykaNowa();
+
+function __commandCenter() {
+__instance_init__(this, commandCenter, null, 1, 0, commandCenterS, 1, 7);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var commandCenter = new __commandCenter();
+
+function __spych() {
+__instance_init__(this, spych, null, 1, 0, spych_malyS, 1, 8);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var spych = new __spych();
+
+function __elektrownia() {
+__instance_init__(this, elektrownia, null, 1, 0, elektrownia_S, 1, 9);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var elektrownia = new __elektrownia();
+
+function __czolg_BLK() {
+__instance_init__(this, czolg_BLK, null, 1, 0, czolg_BL_S, 1, 11);
+this.on_creation = function() {
+with(this) {
+this.obrot_czolgu =0;
+this.obrot_lufy =0;
+
+this.predkosc_lufy = 1/20;
+}
+};
+this.on_destroy = on_destroy_i;
+this.on_step = function() {
+with(this) {
+//obrot_lufy++;
+currentRotation = degtorad(this.obrot_lufy);
+rotationSpeed = this.predkosc_lufy;
+topRotation = 720;
+
+destinationRotation = Math.atan2(y - mouse_y, x - mouse_x) + Math.PI;
+
+if (abs(destinationRotation-currentRotation)>rotationSpeed )
+{
+    if (destinationRotation > currentRotation)
+    {
+        if (currentRotation < destinationRotation - Math.PI)
+            currentRotation -= rotationSpeed;
+        else
+            currentRotation += rotationSpeed;
+    }
+    else if (destinationRotation  < topRotation)
+    {
+        if (currentRotation > destinationRotation + Math.PI)
+            currentRotation += rotationSpeed;
+        else
+            currentRotation -= rotationSpeed;
+    }
+
+    if (currentRotation > Math.PI * 2 ) currentRotation = 0;
+    if (currentRotation < 0) currentRotation = Math.PI * 2 ;
+}
+
+this.obrot_lufy = radtodeg(currentRotation);
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = function() {
+if (this.visible == 1) {
+__handle_sprite__(this);
+with(this) {
+/*
+draw_sprite_ext(podwozieS,0,x,y,1,1,0,1);
+
+draw_sprite_ext(lufaS,0,x,y,1,1,obrot_lufy,1);
+*/
+
+
+
+// draw_sprite_ext(podwozie_czolguS,0,x,y,1,1,0,1);
+//draw_sprite_ext(podstawa_czolguS,0,x,y,1,1,0,1);
+
+
+
+//draw_sprite_ext(wieza_czolguS,0,x,y,1,1,obrot_lufy,1);
+
+//draw_sprite_ext(wieza_pixelS,0,x,y,1,1,obrot_lufy,1);
+
+//draw_sprite_ext(pisel_wieza2S,0,x,y,1,1,this.obrot_lufy,1);
+
+
+draw_sprite_ext(czolg_BL_S,0,x,y,1,1,0,1);
+draw_sprite_ext(wieza_BL_S,0,x,y,1,1,this.obrot_lufy,1);
+}
+}
+};
+}; var czolg_BLK = new __czolg_BLK();
+
+function __commandCenterBL() {
+__instance_init__(this, commandCenterBL, null, 1, 0, commandCenterBlS, 1, 12);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var commandCenterBL = new __commandCenterBL();
+
+function __fabryka_czolgowa_BL() {
+__instance_init__(this, fabryka_czolgowa_BL, null, 1, 0, fabryka_czolgowa_BLS, 1, 23);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var fabryka_czolgowa_BL = new __fabryka_czolgowa_BL();
+
+function __elektrownia_BL() {
+__instance_init__(this, elektrownia_BL, null, 1, 0, elektrownia_BLS, 1, 25);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var elektrownia_BL = new __elektrownia_BL();
+
+function __gasienica() {
+__instance_init__(this, gasienica, null, 1, 0, gasienica_S, 1, 27);
+this.on_creation = function() {
+with(this) {
+this.offset = 0;
+this.szybkosc = 2;
+this.opoznienie = 20;
+this.akt_przesuniecie = 0;
+}
+};
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = function() {
+if (this.visible == 1) {
+__handle_sprite__(this);
+with(this) {
+nn = 7
+for (j=0; j<nn; j++) {
+	draw_sprite_ext(gasienica_S,(this.offset+j)%nn,x+j*30,y,1,1,0,1);
+}
+
+this.akt_przesuniecie += this.szybkosc;
+
+if (this.akt_przesuniecie>this.opoznienie) {
+	this.akt_przesuniecie = 0;
+	this.offset = (this.offset+1) % nn;
+}
+
+
+}
+}
+};
+}; var gasienica = new __gasienica();
 
 
 
@@ -1479,9 +1867,22 @@ function __scene_4() {
 this.tiles = [
 ];
 this.objects = [
-[{o:czolg, x:140, y:100}]];
+[{o:Tankraft_Napis, x:20, y:20}],
+[{o:commandCenterBL, x:480, y:180}],
+[{o:commandCenter, x:0, y:330}],
+[{o:fabryka_czolgowa, x:30, y:180}],
+[{o:elektrownia, x:180, y:390}],
+[{o:czolg, x:120, y:300}],
+[{o:czolg, x:210, y:360}],
+[{o:czolg, x:210, y:240}],
+[{o:czolg_BLK, x:540, y:360}],
+[{o:czolg_BLK, x:450, y:420}],
+[{o:czolg_BLK, x:420, y:210}],
+[{o:fabryka_czolgowa_BL, x:510, y:390}],
+[{o:elektrownia_BL, x:600, y:120}],
+[{o:gasienica, x:210, y:150}]];
 this.start = function() {
-__room_start__(this, scene_4, 640, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, null, 50, 50);
+__room_start__(this, scene_4, 640, 480, 30, 0, 0, 0, background_90.image, 0, 0, 0, 640, 480, null, 50, 50);
 };
 }
 var scene_4 = new __scene_4();
