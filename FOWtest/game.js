@@ -1441,7 +1441,6 @@ with(this) {
 if (grastraRTS.czyWybranoMnie(this)){
 	podkomendny=this.nrO;
 	przechwycono_klik=this.nrO;
-	alert('!');
 }
 }
 };
@@ -1497,6 +1496,52 @@ with(this) {
 this.mouseOn = false;
 this.xOffset = 0;
 this.yOffset = 0;
+
+
+var tresc="<style> ";
+tresc+=".info \n";
+tresc+="	{ \n";
+tresc+="position: absolute; top: 0px; left: 800px;\n";
+tresc+="min-width: 200px;\n";
+tresc+="max-width:  200px;\n";
+tresc+="min-height: 600px;\n";
+tresc+="max-height: 600px;\n";
+tresc+="background-color: red;\n";
+tresc+="}\n";
+tresc+="\n";
+tresc+=".picture\n";
+tresc+="{\n";
+tresc+="min-width: 100px;\n";
+tresc+="max-width:  100px;\n";
+tresc+="min-height: 300px;\n";
+tresc+="max-height: 300px;\n";
+tresc+="background-color: yellow;\n";
+tresc+="}\n";
+tresc+="</style>\n";
+tresc+="\n";
+tresc+="<div class='info'>\n";
+tresc+="Info\n";
+tresc+="<div class='picture'>Picture\n";
+tresc+="</div>\n";
+tresc+="</div>\n";
+
+var t_game = document.getElementById('tululoogame');
+var p_game = document.getElementById('punkty');
+
+	// jeśli obiekt punkty nie istnieje:
+	if (p_game===null)
+	{
+	
+	dedykacja = '[dedyk]';
+		var start_div = document.createElement('div');
+		var divIdName = 'start';
+		start_div.setAttribute('id',divIdName);
+		start_div.setAttribute('name',divIdName);
+		//start_div.setAttribute('style','position: absolute; top: 275px; left: 0px; width: 640px; background-color: transparent; font-size: 95px; color: black; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;');
+		start_div.innerHTML = tresc; //'Start'+dedykacja;
+		
+		t_game.appendChild(start_div);
+	}
 }
 };
 this.on_destroy = on_destroy_i;
