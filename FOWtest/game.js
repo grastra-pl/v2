@@ -1509,7 +1509,17 @@ tresc+="max-height: 600px;\n";
 tresc+="background-color: red;\n";
 tresc+="}\n";
 tresc+="\n";
-tresc+=".picture\n";
+tresc+=".nazwa\n";
+tresc+="{\n";
+tresc+="min-width: 100px;\n";
+tresc+="max-width:  100px;\n";
+tresc+="min-height: 50px;\n";
+tresc+="max-height: 50px;\n";
+tresc+="margin: 50px;\n";
+tresc+="font-size: 18px;\n";
+tresc+="background-color: yellow;\n";
+tresc+="}\n";
+tresc+=".obrazek\n";
 tresc+="{\n";
 tresc+="min-width: 100px;\n";
 tresc+="max-width:  100px;\n";
@@ -1521,7 +1531,9 @@ tresc+="</style>\n";
 tresc+="\n";
 tresc+="<div class='info'>\n";
 tresc+="Info\n";
-tresc+="<div class='picture'>Picture\n";
+tresc+="<div class='nazwa' id='nazwa'>Nazwa\n";
+tresc+="</div>\n";
+tresc+="<div class='obrazek'>Picture\n";
 tresc+="</div>\n";
 tresc+="</div>\n";
 
@@ -1572,6 +1584,8 @@ if (-1 == przechwycono_klik) {
 
 if ( mouse_check_released() ) {
 		this.mouseOn = false;
+		el_nazwa=document.getElementById('nazwa');
+		el_nazwa.innerHTML = 'released';
 }
 
 
