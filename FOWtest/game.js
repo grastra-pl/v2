@@ -1439,6 +1439,7 @@ this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
 if (grastraRTS.czyWybranoMnie(this)){
+	poprzedni_podkomendny = podkomendny;
 	podkomendny=this.nrO;
 	przechwycono_klik=this.nrO;
 }
@@ -1584,8 +1585,11 @@ if (-1 == przechwycono_klik) {
 
 if ( mouse_check_released() ) {
 		this.mouseOn = false;
-		el_nazwa=document.getElementById('nazwa');
-		el_nazwa.innerHTML = 'released';
+		if (poprzedni_podkomendny != podkomendny) {
+			el_nazwa=document.getElementById('nazwa');
+			el_nazwa.innerHTML = 'jednostka:' + podkomendny;
+		}
+		
 }
 
 
@@ -1753,6 +1757,7 @@ tu_room_to_go = FOWtest;
 celownik_x=0;
 celownik_y=0;
 
+poprzedni_podkomendny=-1;
 podkomendny=-1;
 nrObiektu=0;
 

@@ -72,6 +72,7 @@ grastraRTS = {
 </functions><variables>celownik_x=0;
 celownik_y=0;
 
+poprzedni_podkomendny=-1;
 podkomendny=-1;
 nrObiektu=0;
 
@@ -105,14 +106,18 @@ if (-1 == przechwycono_klik) {
 
 if ( mouse_check_released() ) {
 		this.mouseOn = false;
-		el_nazwa=document.getElementById('nazwa');
-		el_nazwa.innerHTML = 'released';
+		if (poprzedni_podkomendny != podkomendny) {
+			el_nazwa=document.getElementById('nazwa');
+			el_nazwa.innerHTML = 'jednostka:' + podkomendny;
+		}
+		
 }
 
 
 
 </script><script name="scr_22" object="interfejs" event="Draw" parameter="">draw_sprite_ext(celownikS, 0, celownik_x, celownik_y,1,1,0,0.5);
 </script><script name="scr_25" object="test" event="Step" parameter="">if (grastraRTS.czyWybranoMnie(this)){
+	poprzedni_podkomendny = podkomendny;
 	podkomendny=this.nrO;
 	przechwycono_klik=this.nrO;
 }</script><script name="" object="" event="" parameter=""/><script name="scr_29" object="test" event="Creation" parameter="">grastraRTS.ustawObiekt(this);</script><script name="scr_31" object="test" event="Draw" parameter="">
