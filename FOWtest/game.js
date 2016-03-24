@@ -1443,6 +1443,10 @@ if (grastraRTS.czyWybranoMnie(this)){
 	podkomendny=this.nrO;
 	przechwycono_klik=this.nrO;
 }
+
+if (this.punkt_docelowy_x != undefined) {
+	move_towards_point(this.punkt_docelowy_x, this.punkt_docelowy_y, 1);
+}
 }
 };
 this.on_end_step = on_end_step_i;
@@ -1526,6 +1530,7 @@ tresc+="min-width: 100px;\n";
 tresc+="max-width:  100px;\n";
 tresc+="min-height: 300px;\n";
 tresc+="max-height: 300px;\n";
+tresc+="margin: 50px;\n";
 tresc+="background-color: yellow;\n";
 tresc+="}\n";
 tresc+="</style>\n";
@@ -1603,6 +1608,11 @@ if (mouse_check_pressed()) {
 	
 	if (-1 == przechwycono_klik) {
 	//	alert('w co klikasz baranie?');
+		if (-1 != podkomendny) {
+			
+			grastraRTS.ustawCelDla(obiekty[podkomendny], celownik_x, celownik_y);
+
+		}
 	}
 }
 
@@ -1761,6 +1771,8 @@ poprzedni_podkomendny=-1;
 podkomendny=-1;
 nrObiektu=0;
 
+obiekty = [];
+
 przechwycono_klik=-1;
 
 /***********************************************************************
@@ -1828,6 +1840,7 @@ grastraRTS = {
     ustawObiekt: function(obiekt, parametry) {
 
         obiekt.nrO = this.nrObiektu;
+		obiekty[this.nrObiektu] = obiekt;
         this.nrObiektu++;
 
         parametry = typeof parametry === 'undefined' ? this.domParametryTworzeniaObiektu : parametry;
