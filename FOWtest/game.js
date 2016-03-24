@@ -1441,6 +1441,7 @@ with(this) {
 if (grastraRTS.czyWybranoMnie(this)){
 	podkomendny=this.nrO;
 	przechwycono_klik=this.nrO;
+	alert('!');
 }
 }
 };
@@ -1490,7 +1491,7 @@ grastraRTS.fowDraw(myThis,subimg,przezro);
 }; var klocek = new __klocek();
 
 function __interfejs() {
-__instance_init__(this, interfejs, null, 0, -12345, null, 0, 2);
+__instance_init__(this, interfejs, null, 1, -12345, null, 0, 2);
 this.on_creation = function() {
 with(this) {
 this.mouseOn = false;
@@ -1501,30 +1502,34 @@ this.yOffset = 0;
 this.on_destroy = on_destroy_i;
 this.on_step = function() {
 with(this) {
-//console.log(mouse_x+" "+mouse_y);
+celownik_x=mouse_x+room_viewport_x;
+celownik_y=mouse_y+room_viewport_y;
 
-celownik_x=mouse_x;
-celownik_y=mouse_y;
 
-if ( mouse_check_pressed() ) {
-	//this.xOffset = mouse_x - room_viewport_x;
-	//this.yOffset = mouse_y - room_viewport_y;
+
+if (-1 == przechwycono_klik) {
+	//	alert('w co klikasz baranie?');
+
+	if ( mouse_check_pressed() ) {
+		this.xOffset = -room_viewport_x - mouse_x;
+		this.yOffset = -room_viewport_y - mouse_y;	
+		this.mouseOn = true;
+	}
+
+	if ( mouse_check() && this.mouseOn ) {
+		room_viewport_x = -mouse_x - this.xOffset;
+		room_viewport_y = -mouse_y - this.yOffset;
+	}
+
 	
-	this.xOffset = -room_viewport_x - mouse_x;
-	this.yOffset = -room_viewport_y - mouse_y;
-	
-	this.mouseOn = true;
 }
 
-if ( mouse_check() && this.mouseOn ) {
-	room_viewport_x = -mouse_x - this.xOffset;
-	room_viewport_y = -mouse_y - this.yOffset;
-}
-	
 
 if ( mouse_check_released() ) {
-	this.mouseOn = false;
+		this.mouseOn = false;
 }
+
+
 
 
 }
@@ -1551,6 +1556,7 @@ if (this.visible == 1) {
 __handle_sprite__(this);
 with(this) {
 draw_sprite_ext(celownikS, 0, celownik_x, celownik_y,1,1,0,0.5);
+
 }
 }
 };
