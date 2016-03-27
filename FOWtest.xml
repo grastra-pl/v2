@@ -5,6 +5,75 @@
 "use strict";
 
 var grastraRTS;
+var grastraKomunikaty;
+
+grastraKomunikaty = {
+    utworzKomunikatBoczny: function() {
+        var tresc="&lt;style&gt; \n";
+        tresc+=".info \n";
+        tresc+="	{ \n";
+        tresc+="position: absolute; top: 0px; left: 800px;\n";
+        tresc+="min-width: 200px;\n";
+        tresc+="max-width:  200px;\n";
+        tresc+="min-height: 600px;\n";
+        tresc+="max-height: 600px;\n";
+        tresc+="background-color: red;\n";
+        tresc+="}\n";
+        tresc+="\n";
+        tresc+=".nazwa\n";
+        tresc+="{\n";
+        tresc+="min-width: 100px;\n";
+        tresc+="max-width:  100px;\n";
+        tresc+="min-height: 50px;\n";
+        tresc+="max-height: 50px;\n";
+        tresc+="margin: 50px;\n";
+        tresc+="font-size: 18px;\n";
+        tresc+="background-color: yellow;\n";
+        tresc+="}\n";
+        tresc+=".obrazek\n";
+        tresc+="{\n";
+        tresc+="min-width: 100px;\n";
+        tresc+="max-width:  100px;\n";
+        tresc+="min-height: 300px;\n";
+        tresc+="max-height: 300px;\n";
+        tresc+="margin: 50px;\n";
+        tresc+="background-color: yellow;\n";
+        tresc+="}\n";
+        tresc+="&lt;/style&gt;\n";
+        tresc+="\n";
+        tresc+="&lt;div class='info'&gt;\n";
+        tresc+="Info\n";
+        tresc+="&lt;div class='nazwa' id='nazwa'&gt;Nazwa\n";
+        tresc+="&lt;/div&gt;\n";
+        tresc+="&lt;div class='obrazek'&gt;Picture\n";
+        tresc+="&lt;/div&gt;\n";
+        tresc+="&lt;/div&gt;\n";
+
+        var t_game = document.getElementById('tululoogame');
+        var p_game = document.getElementById('punkty');
+
+        // jeśli obiekt punkty nie istnieje:
+        if (p_game===null)
+        {
+
+            var dedykacja = '[dedyk]';
+            var start_div = document.createElement('div');
+            var divIdName = 'start';
+            start_div.setAttribute('id',divIdName);
+            start_div.setAttribute('name',divIdName);
+            //start_div.setAttribute('style','position: absolute; top: 275px; left: 0px; width: 640px; background-color: transparent; font-size: 95px; color: black; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;');
+            start_div.innerHTML = tresc; //'Start'+dedykacja;
+
+            t_game.appendChild(start_div);
+        }
+    },
+
+    nazwijKomunikatBoczny(nazwa) {
+        var el_nazwa=document.getElementById('nazwa');
+        el_nazwa.innerHTML = nazwa;
+    }
+};
+
 grastraRTS = {
 
     nrObiektu: 0,
@@ -31,7 +100,7 @@ grastraRTS = {
     },
 
     drawOnMiniMap: function(myThis, subimg, przezro) {
-        draw_sprite_ext(myThis.sprite, subimg, myThis.x / this.skalaMapy, myThis.y / this.skalaMapy, 1 / this.skalaMapy, 1 / this.skalaMapy, 0, przezro);
+        draw_sprite_ext(myThis.sprite, subimg, myThis.x / this.skalaMapy + room_viewport_x, myThis.y / this.skalaMapy + room_viewport_y, 1 / this.skalaMapy, 1 / this.skalaMapy, 0, przezro);
     },
 
     ustawCelDla: function(dla, xx, yy) {
@@ -60,7 +129,7 @@ grastraRTS = {
     ustawObiekt: function(obiekt, parametry) {
 
         obiekt.nrO = this.nrObiektu;
-		obiekty[this.nrObiektu] = obiekt;
+        obiekty[this.nrObiektu] = obiekt;
         this.nrObiektu++;
 
         parametry = typeof parametry === 'undefined' ? this.domParametryTworzeniaObiektu : parametry;
@@ -68,8 +137,14 @@ grastraRTS = {
         obiekt.wys = typeof parametry.wys === 'undefined' ? this.domParametryTworzeniaObiektu.wys : parametry.wys;
         obiekt.szer = typeof parametry.szer === 'undefined' ? this.domParametryTworzeniaObiektu.szer : parametry.szer;
         obiekt.sprite = testS;
+    },
+
+    obsluzKlikniecie: function(obiekt, xx, yy) {
+        if (!this.czyPunktWObiekcie(obiekt,xx,yy)) {
+            this.ustawCelDla(obiekt,xx,yy);
+        }
     }
-}
+};
 </functions><variables>celownik_x=0;
 celownik_y=0;
 
@@ -110,8 +185,7 @@ if (-1 == przechwycono_klik) {
 if ( mouse_check_released() ) {
 		this.mouseOn = false;
 		if (poprzedni_podkomendny != podkomendny) {
-			el_nazwa=document.getElementById('nazwa');
-			el_nazwa.innerHTML = 'jednostka:' + podkomendny;
+			grastraKomunikaty.nazwijKomunikatBoczny('jednostka:' + podkomendny+'!');
 		}
 		
 }
@@ -149,61 +223,4 @@ przechwycono_klik=-1;</script><script name="" object="" event="" parameter=""/><
 this.xOffset = 0;
 this.yOffset = 0;
 
-
-var tresc="&lt;style&gt; ";
-tresc+=".info \n";
-tresc+="	{ \n";
-tresc+="position: absolute; top: 0px; left: 800px;\n";
-tresc+="min-width: 200px;\n";
-tresc+="max-width:  200px;\n";
-tresc+="min-height: 600px;\n";
-tresc+="max-height: 600px;\n";
-tresc+="background-color: red;\n";
-tresc+="}\n";
-tresc+="\n";
-tresc+=".nazwa\n";
-tresc+="{\n";
-tresc+="min-width: 100px;\n";
-tresc+="max-width:  100px;\n";
-tresc+="min-height: 50px;\n";
-tresc+="max-height: 50px;\n";
-tresc+="margin: 50px;\n";
-tresc+="font-size: 18px;\n";
-tresc+="background-color: yellow;\n";
-tresc+="}\n";
-tresc+=".obrazek\n";
-tresc+="{\n";
-tresc+="min-width: 100px;\n";
-tresc+="max-width:  100px;\n";
-tresc+="min-height: 300px;\n";
-tresc+="max-height: 300px;\n";
-tresc+="margin: 50px;\n";
-tresc+="background-color: yellow;\n";
-tresc+="}\n";
-tresc+="&lt;/style&gt;\n";
-tresc+="\n";
-tresc+="&lt;div class='info'&gt;\n";
-tresc+="Info\n";
-tresc+="&lt;div class='nazwa' id='nazwa'&gt;Nazwa\n";
-tresc+="&lt;/div&gt;\n";
-tresc+="&lt;div class='obrazek'&gt;Picture\n";
-tresc+="&lt;/div&gt;\n";
-tresc+="&lt;/div&gt;\n";
-
-var t_game = document.getElementById('tululoogame');
-var p_game = document.getElementById('punkty');
-
-	// jeśli obiekt punkty nie istnieje:
-	if (p_game===null)
-	{
-	
-	dedykacja = '[dedyk]';
-		var start_div = document.createElement('div');
-		var divIdName = 'start';
-		start_div.setAttribute('id',divIdName);
-		start_div.setAttribute('name',divIdName);
-		//start_div.setAttribute('style','position: absolute; top: 275px; left: 0px; width: 640px; background-color: transparent; font-size: 95px; color: black; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;');
-		start_div.innerHTML = tresc; //'Start'+dedykacja;
-		
-		t_game.appendChild(start_div);
-	}</script></scripts><scenes count="1"><scene name="FOWtest" width="1600" height="1200" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="800" viewportheight="600" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_7" scene="FOWtest" value="1000000"/></layers><tiles count="99"><tile name="tile_80" background="ciemne" width="96" height="96" x="0" y="0" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_81" background="ciemne" width="96" height="96" x="96" y="0" top="0" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_82" background="ciemne" width="96" height="96" x="192" y="0" top="0" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_83" background="ciemne" width="96" height="96" x="288" y="0" top="0" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_84" background="ciemne" width="96" height="96" x="384" y="0" top="0" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_85" background="ciemne" width="96" height="96" x="480" y="0" top="0" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_86" background="ciemne" width="96" height="96" x="576" y="0" top="0" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_87" background="ciemne" width="96" height="96" x="672" y="0" top="0" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_88" background="ciemne" width="96" height="96" x="768" y="0" top="0" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_89" background="ciemne" width="96" height="96" x="864" y="0" top="0" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_90" background="ciemne" width="96" height="96" x="960" y="0" top="288" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_91" background="ciemne" width="96" height="96" x="1056" y="0" top="288" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_92" background="ciemne" width="96" height="96" x="1152" y="0" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_93" background="ciemne" width="96" height="96" x="1248" y="0" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_94" background="ciemne" width="96" height="96" x="1344" y="0" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_95" background="ciemne" width="96" height="96" x="1440" y="0" top="96" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_96" background="ciemne" width="96" height="96" x="1536" y="0" top="96" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_97" background="ciemne" width="96" height="96" x="0" y="96" top="96" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_98" background="ciemne" width="96" height="96" x="96" y="96" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_99" background="ciemne" width="96" height="96" x="192" y="96" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_100" background="ciemne" width="96" height="96" x="288" y="96" top="96" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_101" background="ciemne" width="96" height="96" x="384" y="96" top="96" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_102" background="ciemne" width="96" height="96" x="480" y="96" top="96" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_103" background="ciemne" width="96" height="96" x="576" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_120" background="ciemne" width="96" height="96" x="0" y="192" top="96" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_121" background="ciemne" width="96" height="96" x="96" y="192" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_122" background="ciemne" width="96" height="96" x="192" y="192" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_123" background="ciemne" width="96" height="96" x="288" y="192" top="192" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_124" background="ciemne" width="96" height="96" x="384" y="192" top="192" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_125" background="ciemne" width="96" height="96" x="480" y="192" top="192" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_126" background="ciemne" width="96" height="96" x="576" y="192" top="192" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_127" background="ciemne" width="96" height="96" x="672" y="192" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_128" background="ciemne" width="96" height="96" x="672" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_129" background="ciemne" width="96" height="96" x="768" y="96" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_130" background="ciemne" width="96" height="96" x="768" y="96" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_131" background="ciemne" width="96" height="96" x="864" y="96" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_132" background="ciemne" width="96" height="96" x="960" y="96" top="96" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_133" background="ciemne" width="96" height="96" x="960" y="0" top="96" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_134" background="ciemne" width="96" height="96" x="960" y="0" top="0" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_135" background="ciemne" width="96" height="96" x="1056" y="96" top="96" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_136" background="ciemne" width="96" height="96" x="1056" y="0" top="0" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_137" background="ciemne" width="96" height="96" x="1152" y="96" top="96" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_138" background="ciemne" width="96" height="96" x="1248" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_139" background="ciemne" width="96" height="96" x="1344" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_140" background="ciemne" width="96" height="96" x="1280" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_141" background="ciemne" width="96" height="96" x="0" y="288" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_142" background="ciemne" width="96" height="96" x="96" y="288" top="0" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_143" background="ciemne" width="96" height="96" x="224" y="288" top="0" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_144" background="ciemne" width="96" height="96" x="192" y="288" top="0" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_145" background="ciemne" width="96" height="96" x="0" y="384" top="96" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_146" background="ciemne" width="96" height="96" x="96" y="384" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_147" background="ciemne" width="96" height="96" x="192" y="384" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_148" background="ciemne" width="96" height="96" x="0" y="480" top="192" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_149" background="ciemne" width="96" height="96" x="96" y="480" top="192" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_150" background="ciemne" width="96" height="96" x="192" y="480" top="192" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_151" background="ciemne" width="96" height="96" x="0" y="576" top="288" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_152" background="ciemne" width="96" height="96" x="96" y="576" top="288" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_153" background="ciemne" width="96" height="96" x="192" y="576" top="288" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_154" background="ciemne" width="96" height="96" x="288" y="576" top="288" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_155" background="ciemne" width="96" height="96" x="384" y="576" top="288" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_156" background="ciemne" width="96" height="96" x="480" y="576" top="288" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_157" background="ciemne" width="96" height="96" x="480" y="480" top="192" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_158" background="ciemne" width="96" height="96" x="384" y="480" top="192" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_159" background="ciemne" width="96" height="96" x="288" y="480" top="192" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_160" background="ciemne" width="800" height="600" x="960" y="832" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_161" background="ciemne" width="800" height="600" x="0" y="864" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_162" background="ciemne" width="800" height="600" x="0" y="640" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_163" background="ciemne" width="800" height="600" x="672" y="832" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_164" background="ciemne" width="800" height="600" x="672" y="448" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_165" background="ciemne" width="800" height="600" x="672" y="96" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_166" background="ciemne" width="800" height="600" x="1344" y="96" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_167" background="ciemne" width="800" height="600" x="1344" y="480" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_168" background="ciemne" width="800" height="600" x="256" y="288" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_169" background="ciemne" width="64" height="64" x="224" y="256" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_170" background="ciemne" width="64" height="64" x="224" y="608" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_171" background="ciemne" width="64" height="64" x="640" y="800" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_172" background="ciemne" width="64" height="64" x="704" y="800" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_173" background="ciemne" width="64" height="64" x="768" y="800" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_174" background="ciemne" width="64" height="64" x="800" y="800" top="128" left="128" depth="1000000" scene="FOWtest"/><tile name="tile_175" background="ciemne" width="64" height="64" x="704" y="768" top="192" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_176" background="ciemne" width="64" height="64" x="768" y="768" top="256" left="128" depth="1000000" scene="FOWtest"/><tile name="tile_177" background="ciemne" width="64" height="64" x="864" y="800" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_178" background="ciemne" width="64" height="64" x="928" y="800" top="128" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_179" background="ciemne" width="64" height="64" x="992" y="800" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_180" background="ciemne" width="64" height="64" x="1056" y="800" top="192" left="448" depth="1000000" scene="FOWtest"/><tile name="tile_181" background="ciemne" width="64" height="64" x="1120" y="800" top="128" left="512" depth="1000000" scene="FOWtest"/><tile name="tile_182" background="ciemne" width="64" height="64" x="1152" y="448" top="128" left="512" depth="1000000" scene="FOWtest"/><tile name="tile_183" background="ciemne" width="64" height="64" x="1344" y="448" top="128" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_184" background="ciemne" width="64" height="64" x="1344" y="512" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_185" background="ciemne" width="64" height="64" x="1280" y="448" top="192" left="512" depth="1000000" scene="FOWtest"/><tile name="tile_186" background="ciemne" width="64" height="64" x="1376" y="448" top="64" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_187" background="ciemne" width="64" height="64" x="1440" y="448" top="192" left="448" depth="1000000" scene="FOWtest"/><tile name="tile_188" background="ciemne" width="64" height="64" x="1504" y="448" top="192" left="512" depth="1000000" scene="FOWtest"/><tile name="tile_189" background="ciemne" width="64" height="64" x="1280" y="800" top="256" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_190" background="ciemne" width="64" height="64" x="1216" y="768" top="320" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_191" background="ciemne" width="64" height="64" x="1216" y="800" top="320" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_192" background="ciemne" width="64" height="64" x="1184" y="768" top="256" left="640" depth="1000000" scene="FOWtest"/><tile name="tile_193" background="ciemne" width="64" height="64" x="1216" y="768" top="256" left="640" depth="1000000" scene="FOWtest"/><tile name="tile_194" background="ciemne" width="64" height="64" x="1184" y="768" top="128" left="640" depth="1000000" scene="FOWtest"/></tiles><fns count="0"/></tululoo>
+grastraKomunikaty.utworzKomunikatBoczny();</script></scripts><scenes count="1"><scene name="FOWtest" width="1600" height="1200" speed="30" red="0" green="0" blue="0" background="" backgroundstretch="0" backgroundtilex="0" backgroundtiley="0" viewportwidth="800" viewportheight="600" viewportxborder="50" viewportyborder="50" viewportobject=""/></scenes><layers count="1"><layer name="layer_7" scene="FOWtest" value="1000000"/></layers><tiles count="99"><tile name="tile_80" background="ciemne" width="96" height="96" x="0" y="0" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_81" background="ciemne" width="96" height="96" x="96" y="0" top="0" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_82" background="ciemne" width="96" height="96" x="192" y="0" top="0" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_83" background="ciemne" width="96" height="96" x="288" y="0" top="0" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_84" background="ciemne" width="96" height="96" x="384" y="0" top="0" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_85" background="ciemne" width="96" height="96" x="480" y="0" top="0" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_86" background="ciemne" width="96" height="96" x="576" y="0" top="0" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_87" background="ciemne" width="96" height="96" x="672" y="0" top="0" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_88" background="ciemne" width="96" height="96" x="768" y="0" top="0" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_89" background="ciemne" width="96" height="96" x="864" y="0" top="0" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_90" background="ciemne" width="96" height="96" x="960" y="0" top="288" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_91" background="ciemne" width="96" height="96" x="1056" y="0" top="288" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_92" background="ciemne" width="96" height="96" x="1152" y="0" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_93" background="ciemne" width="96" height="96" x="1248" y="0" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_94" background="ciemne" width="96" height="96" x="1344" y="0" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_95" background="ciemne" width="96" height="96" x="1440" y="0" top="96" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_96" background="ciemne" width="96" height="96" x="1536" y="0" top="96" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_97" background="ciemne" width="96" height="96" x="0" y="96" top="96" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_98" background="ciemne" width="96" height="96" x="96" y="96" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_99" background="ciemne" width="96" height="96" x="192" y="96" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_100" background="ciemne" width="96" height="96" x="288" y="96" top="96" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_101" background="ciemne" width="96" height="96" x="384" y="96" top="96" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_102" background="ciemne" width="96" height="96" x="480" y="96" top="96" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_103" background="ciemne" width="96" height="96" x="576" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_120" background="ciemne" width="96" height="96" x="0" y="192" top="96" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_121" background="ciemne" width="96" height="96" x="96" y="192" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_122" background="ciemne" width="96" height="96" x="192" y="192" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_123" background="ciemne" width="96" height="96" x="288" y="192" top="192" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_124" background="ciemne" width="96" height="96" x="384" y="192" top="192" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_125" background="ciemne" width="96" height="96" x="480" y="192" top="192" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_126" background="ciemne" width="96" height="96" x="576" y="192" top="192" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_127" background="ciemne" width="96" height="96" x="672" y="192" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_128" background="ciemne" width="96" height="96" x="672" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_129" background="ciemne" width="96" height="96" x="768" y="96" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_130" background="ciemne" width="96" height="96" x="768" y="96" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_131" background="ciemne" width="96" height="96" x="864" y="96" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_132" background="ciemne" width="96" height="96" x="960" y="96" top="96" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_133" background="ciemne" width="96" height="96" x="960" y="0" top="96" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_134" background="ciemne" width="96" height="96" x="960" y="0" top="0" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_135" background="ciemne" width="96" height="96" x="1056" y="96" top="96" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_136" background="ciemne" width="96" height="96" x="1056" y="0" top="0" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_137" background="ciemne" width="96" height="96" x="1152" y="96" top="96" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_138" background="ciemne" width="96" height="96" x="1248" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_139" background="ciemne" width="96" height="96" x="1344" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_140" background="ciemne" width="96" height="96" x="1280" y="96" top="96" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_141" background="ciemne" width="96" height="96" x="0" y="288" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_142" background="ciemne" width="96" height="96" x="96" y="288" top="0" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_143" background="ciemne" width="96" height="96" x="224" y="288" top="0" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_144" background="ciemne" width="96" height="96" x="192" y="288" top="0" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_145" background="ciemne" width="96" height="96" x="0" y="384" top="96" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_146" background="ciemne" width="96" height="96" x="96" y="384" top="96" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_147" background="ciemne" width="96" height="96" x="192" y="384" top="96" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_148" background="ciemne" width="96" height="96" x="0" y="480" top="192" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_149" background="ciemne" width="96" height="96" x="96" y="480" top="192" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_150" background="ciemne" width="96" height="96" x="192" y="480" top="192" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_151" background="ciemne" width="96" height="96" x="0" y="576" top="288" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_152" background="ciemne" width="96" height="96" x="96" y="576" top="288" left="96" depth="1000000" scene="FOWtest"/><tile name="tile_153" background="ciemne" width="96" height="96" x="192" y="576" top="288" left="192" depth="1000000" scene="FOWtest"/><tile name="tile_154" background="ciemne" width="96" height="96" x="288" y="576" top="288" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_155" background="ciemne" width="96" height="96" x="384" y="576" top="288" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_156" background="ciemne" width="96" height="96" x="480" y="576" top="288" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_157" background="ciemne" width="96" height="96" x="480" y="480" top="192" left="480" depth="1000000" scene="FOWtest"/><tile name="tile_158" background="ciemne" width="96" height="96" x="384" y="480" top="192" left="384" depth="1000000" scene="FOWtest"/><tile name="tile_159" background="ciemne" width="96" height="96" x="288" y="480" top="192" left="288" depth="1000000" scene="FOWtest"/><tile name="tile_160" background="ciemne" width="800" height="600" x="960" y="832" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_161" background="ciemne" width="800" height="600" x="0" y="864" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_162" background="ciemne" width="800" height="600" x="0" y="640" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_163" background="ciemne" width="800" height="600" x="672" y="832" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_164" background="ciemne" width="800" height="600" x="672" y="448" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_165" background="ciemne" width="800" height="600" x="672" y="96" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_166" background="ciemne" width="800" height="600" x="1344" y="96" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_167" background="ciemne" width="800" height="600" x="1344" y="480" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_168" background="ciemne" width="800" height="600" x="256" y="288" top="0" left="0" depth="1000000" scene="FOWtest"/><tile name="tile_169" background="ciemne" width="64" height="64" x="224" y="256" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_170" background="ciemne" width="64" height="64" x="224" y="608" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_171" background="ciemne" width="64" height="64" x="640" y="800" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_172" background="ciemne" width="64" height="64" x="704" y="800" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_173" background="ciemne" width="64" height="64" x="768" y="800" top="64" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_174" background="ciemne" width="64" height="64" x="800" y="800" top="128" left="128" depth="1000000" scene="FOWtest"/><tile name="tile_175" background="ciemne" width="64" height="64" x="704" y="768" top="192" left="64" depth="1000000" scene="FOWtest"/><tile name="tile_176" background="ciemne" width="64" height="64" x="768" y="768" top="256" left="128" depth="1000000" scene="FOWtest"/><tile name="tile_177" background="ciemne" width="64" height="64" x="864" y="800" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_178" background="ciemne" width="64" height="64" x="928" y="800" top="128" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_179" background="ciemne" width="64" height="64" x="992" y="800" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_180" background="ciemne" width="64" height="64" x="1056" y="800" top="192" left="448" depth="1000000" scene="FOWtest"/><tile name="tile_181" background="ciemne" width="64" height="64" x="1120" y="800" top="128" left="512" depth="1000000" scene="FOWtest"/><tile name="tile_182" background="ciemne" width="64" height="64" x="1152" y="448" top="128" left="512" depth="1000000" scene="FOWtest"/><tile name="tile_183" background="ciemne" width="64" height="64" x="1344" y="448" top="128" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_184" background="ciemne" width="64" height="64" x="1344" y="512" top="192" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_185" background="ciemne" width="64" height="64" x="1280" y="448" top="192" left="512" depth="1000000" scene="FOWtest"/><tile name="tile_186" background="ciemne" width="64" height="64" x="1376" y="448" top="64" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_187" background="ciemne" width="64" height="64" x="1440" y="448" top="192" left="448" depth="1000000" scene="FOWtest"/><tile name="tile_188" background="ciemne" width="64" height="64" x="1504" y="448" top="192" left="512" depth="1000000" scene="FOWtest"/><tile name="tile_189" background="ciemne" width="64" height="64" x="1280" y="800" top="256" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_190" background="ciemne" width="64" height="64" x="1216" y="768" top="320" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_191" background="ciemne" width="64" height="64" x="1216" y="800" top="320" left="576" depth="1000000" scene="FOWtest"/><tile name="tile_192" background="ciemne" width="64" height="64" x="1184" y="768" top="256" left="640" depth="1000000" scene="FOWtest"/><tile name="tile_193" background="ciemne" width="64" height="64" x="1216" y="768" top="256" left="640" depth="1000000" scene="FOWtest"/><tile name="tile_194" background="ciemne" width="64" height="64" x="1184" y="768" top="128" left="640" depth="1000000" scene="FOWtest"/></tiles><fns count="0"/></tululoo>

@@ -1502,64 +1502,7 @@ this.mouseOn = false;
 this.xOffset = 0;
 this.yOffset = 0;
 
-
-var tresc="<style> ";
-tresc+=".info \n";
-tresc+="	{ \n";
-tresc+="position: absolute; top: 0px; left: 800px;\n";
-tresc+="min-width: 200px;\n";
-tresc+="max-width:  200px;\n";
-tresc+="min-height: 600px;\n";
-tresc+="max-height: 600px;\n";
-tresc+="background-color: red;\n";
-tresc+="}\n";
-tresc+="\n";
-tresc+=".nazwa\n";
-tresc+="{\n";
-tresc+="min-width: 100px;\n";
-tresc+="max-width:  100px;\n";
-tresc+="min-height: 50px;\n";
-tresc+="max-height: 50px;\n";
-tresc+="margin: 50px;\n";
-tresc+="font-size: 18px;\n";
-tresc+="background-color: yellow;\n";
-tresc+="}\n";
-tresc+=".obrazek\n";
-tresc+="{\n";
-tresc+="min-width: 100px;\n";
-tresc+="max-width:  100px;\n";
-tresc+="min-height: 300px;\n";
-tresc+="max-height: 300px;\n";
-tresc+="margin: 50px;\n";
-tresc+="background-color: yellow;\n";
-tresc+="}\n";
-tresc+="</style>\n";
-tresc+="\n";
-tresc+="<div class='info'>\n";
-tresc+="Info\n";
-tresc+="<div class='nazwa' id='nazwa'>Nazwa\n";
-tresc+="</div>\n";
-tresc+="<div class='obrazek'>Picture\n";
-tresc+="</div>\n";
-tresc+="</div>\n";
-
-var t_game = document.getElementById('tululoogame');
-var p_game = document.getElementById('punkty');
-
-	// jeśli obiekt punkty nie istnieje:
-	if (p_game===null)
-	{
-	
-	dedykacja = '[dedyk]';
-		var start_div = document.createElement('div');
-		var divIdName = 'start';
-		start_div.setAttribute('id',divIdName);
-		start_div.setAttribute('name',divIdName);
-		//start_div.setAttribute('style','position: absolute; top: 275px; left: 0px; width: 640px; background-color: transparent; font-size: 95px; color: black; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;');
-		start_div.innerHTML = tresc; //'Start'+dedykacja;
-		
-		t_game.appendChild(start_div);
-	}
+grastraKomunikaty.utworzKomunikatBoczny();
 }
 };
 this.on_destroy = on_destroy_i;
@@ -1591,8 +1534,7 @@ if (-1 == przechwycono_klik) {
 if ( mouse_check_released() ) {
 		this.mouseOn = false;
 		if (poprzedni_podkomendny != podkomendny) {
-			el_nazwa=document.getElementById('nazwa');
-			el_nazwa.innerHTML = 'jednostka:' + podkomendny;
+			grastraKomunikaty.nazwijKomunikatBoczny('jednostka:' + podkomendny+'!');
 		}
 		
 }
@@ -1785,6 +1727,75 @@ przechwycono_klik=-1;
 "use strict";
 
 var grastraRTS;
+var grastraKomunikaty;
+
+grastraKomunikaty = {
+    utworzKomunikatBoczny: function() {
+        var tresc="<style> \n";
+        tresc+=".info \n";
+        tresc+="	{ \n";
+        tresc+="position: absolute; top: 0px; left: 800px;\n";
+        tresc+="min-width: 200px;\n";
+        tresc+="max-width:  200px;\n";
+        tresc+="min-height: 600px;\n";
+        tresc+="max-height: 600px;\n";
+        tresc+="background-color: red;\n";
+        tresc+="}\n";
+        tresc+="\n";
+        tresc+=".nazwa\n";
+        tresc+="{\n";
+        tresc+="min-width: 100px;\n";
+        tresc+="max-width:  100px;\n";
+        tresc+="min-height: 50px;\n";
+        tresc+="max-height: 50px;\n";
+        tresc+="margin: 50px;\n";
+        tresc+="font-size: 18px;\n";
+        tresc+="background-color: yellow;\n";
+        tresc+="}\n";
+        tresc+=".obrazek\n";
+        tresc+="{\n";
+        tresc+="min-width: 100px;\n";
+        tresc+="max-width:  100px;\n";
+        tresc+="min-height: 300px;\n";
+        tresc+="max-height: 300px;\n";
+        tresc+="margin: 50px;\n";
+        tresc+="background-color: yellow;\n";
+        tresc+="}\n";
+        tresc+="</style>\n";
+        tresc+="\n";
+        tresc+="<div class='info'>\n";
+        tresc+="Info\n";
+        tresc+="<div class='nazwa' id='nazwa'>Nazwa\n";
+        tresc+="</div>\n";
+        tresc+="<div class='obrazek'>Picture\n";
+        tresc+="</div>\n";
+        tresc+="</div>\n";
+
+        var t_game = document.getElementById('tululoogame');
+        var p_game = document.getElementById('punkty');
+
+        // jeśli obiekt punkty nie istnieje:
+        if (p_game===null)
+        {
+
+            var dedykacja = '[dedyk]';
+            var start_div = document.createElement('div');
+            var divIdName = 'start';
+            start_div.setAttribute('id',divIdName);
+            start_div.setAttribute('name',divIdName);
+            //start_div.setAttribute('style','position: absolute; top: 275px; left: 0px; width: 640px; background-color: transparent; font-size: 95px; color: black; text-align: center; text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;');
+            start_div.innerHTML = tresc; //'Start'+dedykacja;
+
+            t_game.appendChild(start_div);
+        }
+    },
+
+    nazwijKomunikatBoczny(nazwa) {
+        var el_nazwa=document.getElementById('nazwa');
+        el_nazwa.innerHTML = nazwa;
+    }
+};
+
 grastraRTS = {
 
     nrObiektu: 0,
@@ -1811,7 +1822,7 @@ grastraRTS = {
     },
 
     drawOnMiniMap: function(myThis, subimg, przezro) {
-        draw_sprite_ext(myThis.sprite, subimg, myThis.x / this.skalaMapy, myThis.y / this.skalaMapy, 1 / this.skalaMapy, 1 / this.skalaMapy, 0, przezro);
+        draw_sprite_ext(myThis.sprite, subimg, myThis.x / this.skalaMapy + room_viewport_x, myThis.y / this.skalaMapy + room_viewport_y, 1 / this.skalaMapy, 1 / this.skalaMapy, 0, przezro);
     },
 
     ustawCelDla: function(dla, xx, yy) {
@@ -1840,7 +1851,7 @@ grastraRTS = {
     ustawObiekt: function(obiekt, parametry) {
 
         obiekt.nrO = this.nrObiektu;
-		obiekty[this.nrObiektu] = obiekt;
+        obiekty[this.nrObiektu] = obiekt;
         this.nrObiektu++;
 
         parametry = typeof parametry === 'undefined' ? this.domParametryTworzeniaObiektu : parametry;
@@ -1848,8 +1859,14 @@ grastraRTS = {
         obiekt.wys = typeof parametry.wys === 'undefined' ? this.domParametryTworzeniaObiektu.wys : parametry.wys;
         obiekt.szer = typeof parametry.szer === 'undefined' ? this.domParametryTworzeniaObiektu.szer : parametry.szer;
         obiekt.sprite = testS;
+    },
+
+    obsluzKlikniecie: function(obiekt, xx, yy) {
+        if (!this.czyPunktWObiekcie(obiekt,xx,yy)) {
+            this.ustawCelDla(obiekt,xx,yy);
+        }
     }
-}
+};
 
 
 
