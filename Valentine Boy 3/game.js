@@ -1656,7 +1656,7 @@ __audio_init__(this, GreenS, '', 'aud/greenS.mp3', '');
  * BACKGROUNDS
  ***********************************************************************/
 function __VALENTINE_TLO() { 
-__background_init__(this, VALENTINE_TLO, 'img/ValentineBoy3.png')}; var VALENTINE_TLO = new __VALENTINE_TLO();
+__background_init__(this, VALENTINE_TLO, 'img/VB3.png')}; var VALENTINE_TLO = new __VALENTINE_TLO();
 
 function __paniD() { 
 __background_init__(this, paniD, 'img/pani_diabel.png')}; var paniD = new __paniD();
@@ -5453,7 +5453,7 @@ this.objects = [
 this.start = function() {
 __room_start__(this, EkranStartowy, 640, 480, 30, 255, 0, 0, VALENTINE_TLO.image, 0, 0, 0, 640, 480, null, 50, 50);
 
-wersja="2.0.1.6";
+wersja="3.0.0.0";
 
 czy_inicjowac();
 
@@ -5496,7 +5496,7 @@ function inicjalizacja()
 		tytul_div.setAttribute('id',divIdName);
 		tytul_div.setAttribute('name',divIdName);
 		tytul_div.setAttribute('style','position: absolute; top: 375px; left: 485px; background-color: transparent;');
-		tytul_div.innerHTML = 'Grastra 2016<br><br>game code: Jimmy<br>music: Henry VIII<br><small style="font-size: 9px">v '+wersja+'</small>';
+		tytul_div.innerHTML = 'Grastra 2017<br><br>game code: Jimmy<br>music: Henry VIII<br><small style="font-size: 9px">v '+wersja+'</small>';
 		
 		
 		var punkty_div = document.createElement('div');
@@ -5504,7 +5504,7 @@ function inicjalizacja()
 
 		punkty_div.setAttribute('id',divIdName);
 		punkty_div.setAttribute('name',divIdName);
-		punkty_div.setAttribute('style','border: 2px solid; border-radius: 1em; position: absolute; top: 270px; left: 450px; background-color: red; color: white; padding: 1.5em;');
+		punkty_div.setAttribute('style','border: 2px solid; border-radius: 1em; position: absolute; top: 90px; left: 450px; background-color: red; color: white; padding: 1.5em;');
 
 		if (!((punkty>0) || (best_punkty>0)))
 		{
