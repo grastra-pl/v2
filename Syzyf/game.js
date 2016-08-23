@@ -1403,8 +1403,11 @@ with(this) {
 this.kierunek_kamienia='prawo';
 this.staczanie=false;
 this.szybkoscStaczania=0;
+this.licznikNieruchomosci=100;
+this.staczajGdyLicznikNieruchomosci=10;
 y=policzY(x);
 hudini = instance_create(0,0 ,HUD);
+
 
 
 }
@@ -1415,23 +1418,46 @@ with(this) {
 szybkoscSyzyfa = 1;
 
 if (!this.staczanie) {
+if (this.licznikNieruchomosci<100) {
+	this.licznikNieruchomosci++;
+}
 	if ( keyboard_check(vk_d) ) {
-		 x+= szybkoscSyzyfa 
+		if (this.kierunek_kamienia=='prawo') {
+		 x+= szybkoscSyzyfa;
+		 this.licznikNieruchomosci=0;
+		 }
+		// this.licznikNieruchomosci=100;
+		//this.staczajGdyLicznikNieruchomosci=10;
 	}
 
 	if ( keyboard_check(vk_a) ) {
+		if (this.kierunek_kamienia=='lewo') {
 		 x-= szybkoscSyzyfa;
+		 this.licznikNieruchomosci=0;
+		 }
 	}
 
-	
 	
 	if (czyKamienPrzekroczylPolowe(x,this.kierunek_kamienia)) {
 		this.staczanie=true;
 		punkty++;
 		kasa++;
 	}
+	
+	
+	
+	if (this.licznikNieruchomosci>this.staczajGdyLicznikNieruchomosci) {
+		this.licznikNieruchomosci=100;
+		this.staczanie=true;
+		if ('prawo'==this.kierunek_kamienia) {
+			this.kierunek_kamienia='lewo';
+		} else {
+			this.kierunek_kamienia='prawo';
+		}
+	}
+	
 } else {
-	if (this.kierunek_kamienia=='prawo') {
+	if ('prawo'==this.kierunek_kamienia) {
 		x += this.szybkoscStaczania;
 	} else {
 		x -= this.szybkoscStaczania;
