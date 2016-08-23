@@ -1364,9 +1364,9 @@ function __kamienS() {
 __sprite_init__(this, kamienS, 79, 80, 39, 40, 'Circle', 39, 0, 79, 0, 80, ['img/kamienS_0.png']);
 }; var kamienS = new __kamienS();
 
-function __góraS() { 
-__sprite_init__(this, góraS, 575, 304, 0, 0, 'Box', 287, 0, 575, 0, 304, ['img/góraS_0.png']);
-}; var góraS = new __góraS();
+function __goraS() { 
+__sprite_init__(this, goraS, 575, 304, 0, 0, 'Box', 287, 0, 575, 0, 304, ['img/goraS_0.png']);
+}; var goraS = new __goraS();
 
 
 
@@ -1493,8 +1493,8 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var kamien = new __kamien();
 
-function __góra() {
-__instance_init__(this, góra, null, 1, 0, góraS, 0, 1);
+function __gora() {
+__instance_init__(this, gora, null, 1, 0, goraS, 0, 1);
 this.on_creation = on_creation_i;
 this.on_destroy = on_destroy_i;
 this.on_step = on_step_i;
@@ -1504,7 +1504,7 @@ this.on_roomstart = on_roomstart_i;
 this.on_roomend = on_roomend_i;
 this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
-}; var góra = new __góra();
+}; var gora = new __gora();
 
 function __HUD() {
 __instance_init__(this, HUD, null, 1, 0, null, 1, 4);
@@ -1539,7 +1539,7 @@ function __SyzyfowePrace() {
 this.tiles = [
 ];
 this.objects = [
-[{o:góra, x:50, y:200}],
+[{o:gora, x:50, y:200}],
 [{o:kamien, x:60, y:180}]];
 this.start = function() {
 __room_start__(this, SyzyfowePrace, 640, 480, 30, 0, 0, 0, null, 0, 0, 0, 640, 480, null, 50, 50);
