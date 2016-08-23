@@ -1408,7 +1408,18 @@ this.staczajGdyLicznikNieruchomosci=10;
 y=policzY(x);
 hudini = instance_create(0,0 ,HUD);
 
+document.body.zacznijToczyc = false;
 
+document.body.addEventListener('touchstart', function(e){
+		 document.body.zacznijToczyc = true;
+		 e.preventDefault()
+    }, false);
+	
+document.body.addEventListener('touchend', function(e){
+        document.body.zacznijToczyc = false;
+        e.preventDefault()
+    }, false)
+ 
 
 }
 };
@@ -1421,6 +1432,19 @@ if (!this.staczanie) {
 if (this.licznikNieruchomosci<100) {
 	this.licznikNieruchomosci++;
 }
+
+	if (document.body.zacznijToczyc) {
+		if (this.kierunek_kamienia=='prawo') {
+		 x+= szybkoscSyzyfa;
+		 this.licznikNieruchomosci=0;
+		 }
+		 
+		 if (this.kierunek_kamienia=='lewo') {
+		 x-= szybkoscSyzyfa;
+		 this.licznikNieruchomosci=0;
+		 }
+	}
+	
 	if ( keyboard_check(vk_d) ) {
 		if (this.kierunek_kamienia=='prawo') {
 		 x+= szybkoscSyzyfa;
