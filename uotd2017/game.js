@@ -1368,6 +1368,10 @@ function __plec_maz() {
 __sprite_init__(this, plec_maz, 198, 111, 0, 0, 'Box', 99, 0, 198, 0, 111, ['img/plec_maz_0.png']);
 }; var plec_maz = new __plec_maz();
 
+function __sprite_para() { 
+__sprite_init__(this, sprite_para, 219, 395, 0, 0, 'Box', 109, 0, 219, 0, 395, ['img/sprite_para_0.png']);
+}; var sprite_para = new __sprite_para();
+
 
 
 /***********************************************************************
@@ -1393,6 +1397,45 @@ __sprite_init__(this, plec_maz, 198, 111, 0, 0, 'Box', 99, 0, 198, 0, 111, ['img
 /***********************************************************************
  * OBJECTS
  ***********************************************************************/
+function __wybor_m_o() {
+__instance_init__(this, wybor_m_o, null, 1, 0, plec_maz, 1, 0);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var wybor_m_o = new __wybor_m_o();
+
+function __wybor_k_o() {
+__instance_init__(this, wybor_k_o, null, 1, 0, plec_niewiasta, 1, 1);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var wybor_k_o = new __wybor_k_o();
+
+function __para_o() {
+__instance_init__(this, para_o, null, 1, 0, sprite_para, 1, 2);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var para_o = new __para_o();
+
 
 
 /***********************************************************************
@@ -1402,9 +1445,11 @@ function __wybor_plci() {
 this.tiles = [
 ];
 this.objects = [
-];
+[{o:para_o, x:288, y:192}],
+[{o:wybor_m_o, x:32, y:224}],
+[{o:wybor_k_o, x:544, y:224}]];
 this.start = function() {
-__room_start__(this, wybor_plci, 800, 600, 30, 0, 0, 0, null, 0, 0, 0, 800, 600, null, 50, 50);
+__room_start__(this, wybor_plci, 800, 600, 30, 64, 0, 0, null, 0, 0, 0, 800, 600, null, 50, 50);
 };
 }
 var wybor_plci = new __wybor_plci();
