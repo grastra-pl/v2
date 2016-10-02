@@ -1372,6 +1372,14 @@ function __sprite_para() {
 __sprite_init__(this, sprite_para, 219, 395, 0, 0, 'Box', 109, 0, 219, 0, 395, ['img/sprite_para_0.png']);
 }; var sprite_para = new __sprite_para();
 
+function __wybierz_plec() { 
+__sprite_init__(this, wybierz_plec, 190, 157, 0, 0, 'Box', 95, 0, 190, 0, 157, ['img/wybierz_plec_0.png']);
+}; var wybierz_plec = new __wybierz_plec();
+
+function __LoginButtonSprite() { 
+__sprite_init__(this, LoginButtonSprite, 158, 58, 0, 0, 'Box', 79, 0, 158, 0, 58, ['img/LoginButtonSprite_0.png']);
+}; var LoginButtonSprite = new __LoginButtonSprite();
+
 
 
 /***********************************************************************
@@ -1382,11 +1390,18 @@ __sprite_init__(this, sprite_para, 219, 395, 0, 0, 'Box', 109, 0, 219, 0, 395, [
 /***********************************************************************
  * MUSICS
  ***********************************************************************/
+function __bas() { 
+__audio_init__(this, bas, '', 'aud/Basso.mp3', '');
+}; var bas = new __bas();
+
 
 
 /***********************************************************************
  * BACKGROUNDS
  ***********************************************************************/
+function __ahha_background() { 
+__background_init__(this, ahha_background, 'img/ahhaału.png')}; var ahha_background = new __ahha_background();
+
 
 
 /***********************************************************************
@@ -1436,25 +1451,64 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var para_o = new __para_o();
 
+function __wybierz_plec_o() {
+__instance_init__(this, wybierz_plec_o, null, 1, 0, wybierz_plec, 1, 5);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var wybierz_plec_o = new __wybierz_plec_o();
+
+function __LoginButton() {
+__instance_init__(this, LoginButton, null, 1, 0, LoginButtonSprite, 1, 7);
+this.on_creation = on_creation_i;
+this.on_destroy = on_destroy_i;
+this.on_step = on_step_i;
+this.on_end_step = on_end_step_i;
+this.on_collision = on_collision_i;
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var LoginButton = new __LoginButton();
+
 
 
 /***********************************************************************
  * SCENES
  ***********************************************************************/
+function __LoginScreen() { 
+this.tiles = [
+];
+this.objects = [
+[{o:LoginButton, x:320, y:280}]];
+this.start = function() {
+__room_start__(this, LoginScreen, 800, 600, 30, 0, 0, 0, ahha_background.image, 0, 0, 0, 800, 600, null, 50, 50);
+
+sound_loop_2(bas);
+};
+}
+var LoginScreen = new __LoginScreen();
+tu_scenes.push(LoginScreen);
 function __wybor_plci() { 
 this.tiles = [
 ];
 this.objects = [
-[{o:para_o, x:288, y:192}],
 [{o:wybor_m_o, x:32, y:224}],
-[{o:wybor_k_o, x:544, y:224}]];
+[{o:wybor_k_o, x:544, y:224}],
+[{o:para_o, x:280, y:100}]];
 this.start = function() {
-__room_start__(this, wybor_plci, 800, 600, 30, 64, 0, 0, null, 0, 0, 0, 800, 600, null, 50, 50);
+__room_start__(this, wybor_plci, 800, 600, 30, 0, 0, 0, ahha_background.image, 0, 0, 0, 800, 600, null, 50, 50);
 };
 }
 var wybor_plci = new __wybor_plci();
 tu_scenes.push(wybor_plci);
-tu_room_to_go = wybor_plci;
+tu_room_to_go = LoginScreen;
 
 
 /***********************************************************************
@@ -1466,6 +1520,240 @@ tu_room_to_go = wybor_plci;
  * CUSTOM GLOBAL FUNCTIONS
  ***********************************************************************/
 
+function doliczPunkty_2(ile) { 
+punkty+=ile*(poziomu_nr+1);
+    /*
+    var pkt_game = document.getElementById('pkt');
+    // jeśli obiekt pkt istnieje:
+    
+    if (pkt_game!==null)
+    {	
+    pkt_game.innerHTML = punkty;	
+    }
+    */
+}
+function dodajZycie(ile) { 
+zycia+=ile;
+    
+    
+    if (ile<0)
+    {
+    zerujStanPosiadania();
+    }
+    
+    if (zycia>0)
+    {
+    if (ile<0)
+    {
+    room_restart();
+    }
+    }
+    else
+    {
+    
+    room_goto_first();
+    }
+}
+function letsStartGame() { 
+zerujStanPosiadania();
+    
+    room_goto_first();
+    
+    poziomu_nr=0;
+    kolejnyEtap();
+
+}
+function wyliczDno() { 
+return global.poziomLawy;
+}
+function dodajBron(ktora) { 
+posiadane_bronie[ktora]+=bronie[ktora][2];
+    wybrana_bron=ktora;
+}
+function wybuchGranatu(x,y) { 
+for (i=0;i<10;i++)
+    {
+    instance_create(x,y,kawalek);
+    }
+
+}
+function wybuchCzaszki(x,y) { 
+kule=[];
+    
+    for (var i=0;i<=360;i+=15) {
+    kule[i] = instance_create(x,y,pociskPistoletu);
+    kule[i].direction = i;
+    kule[i].speed = 20;
+    }
+}
+function tworzenieWroga(bossThis,rodzaj) { 
+bossThis.odliczStworzenie--;
+    if (bossThis.odliczStworzenie<0) {
+    bossThis.odliczStworzenie=global.czestotliwoscTworzenia;
+    wrog=instance_create(bossThis.x,bossThis.y+8,rodzaj);
+    }
+}
+function animacjaBosa(bossThis,bossType) { 
+var srodek=bossThis.x+bossType.width/2-miniLifeBarS.width/2;
+    draw_sprite_ext(miniLifeBarS ,0,srodek,bossThis.y-30,bossThis.zycie/100,1,0,0.75);
+    subimg=0;
+    if (bossThis.odliczStworzenie>global.czestotliwoscTworzenia-30) {
+    subimg=1;
+    if (bossThis.odliczStworzenie>global.czestotliwoscTworzenia-20) {
+    subimg=2;
+    if (bossThis.odliczStworzenie>global.czestotliwoscTworzenia-10) {
+    subimg=1;
+    }
+    }
+    }
+    if (bossType==glownyBossS) {
+    subimg=0;
+    }
+    draw_sprite_ext(bossType,subimg,bossThis.x,bossThis.y-30,1,1,0,1);
+}
+function wybieranieBroni() { 
+nowowybrana='';
+    if ( keyboard_check(vk_1)) {
+    nowowybrana= 'pistolet';
+    }
+    
+    if ( keyboard_check(vk_2)) {
+    nowowybrana='kalasz';
+    }
+    
+    if ( keyboard_check(vk_3)) {
+    nowowybrana='granat';
+    }
+    
+    if ( keyboard_check(vk_4)) {
+    nowowybrana='granatnik';
+    }
+    
+    
+    if ( keyboard_check(vk_5)) {
+    nowowybrana='rozwalacz';
+    }
+    
+    if (nowowybrana!='') {
+    if (posiadane_bronie[nowowybrana]>0) {
+    wybrana_bron=nowowybrana;
+    }
+    }
+
+}
+function ranaPotworowi(_this,_other,ile) { 
+if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_ou);
+    _this.zycie-=ile*2;
+    _other.instance_destroy();
+}
+function zabiciePotwora(_this,pkt) { 
+if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_potwor);
+    
+    expl = instance_create(_this.x+irandom(5)-3,_this.y +irandom(5)-3 ,explozja);
+    doliczPunkty(pkt);
+    
+
+}
+function wybuchRozwalacza(x,y) { 
+kule=[];
+    
+    for (var i=0;i<=360;i+=60) {
+    kule[i] = instance_create(x,y,odlamek);
+    kule[i].direction = i;
+    kule[i].speed = 30;
+    }
+}
+function sound_loop_2(a) { 
+
+    myAudio = a.audio
+    if (typeof myAudio.loop == 'boolean')
+    {
+    myAudio.loop = true;
+    }
+    else
+    {
+    myAudio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+    }, false);
+    }
+    myAudio.play();
+
+}
+function muzyka_on_off() { 
+muzyka_on_bool=!muzyka_on_bool;
+    
+    if (muzyka_on_bool) {
+    sound_loop_2(odgrywany_utwor);
+    } else {
+    wycisz_muzyke();
+    }
+
+}
+function ustaw_odgrywany_utwor(utwor) { 
+odgrywany_utwor=utwor;
+    if (muzyka_on_bool) {
+    wycisz_muzyke();
+    myAudio = odgrywany_utwor.audio
+    myAudio.currentTime=0;
+    sound_loop_2(odgrywany_utwor);
+    }
+}
+function wycisz_muzyke() { 
+sound_stop_all();
+}
+function przyblizIpomniejsz(obj,other) { 
+obj.x=(obj.x+other.x)/2;
+    obj.y=(obj.y+other.y)/2;
+    if (obj.image_yscale>0.1) {
+    obj.image_yscale-=0.1;
+    obj.image_yscale-=0.1;
+    }
+}
+function zerujStanPosiadania() { 
+moze_latac=false;
+    maPistolet=false;
+    
+    posiadane_bronie={
+    'pistolet':0,
+    'kalasz':0,
+    'granat':0,
+    'granatnik':0,
+    'rozwalacz':0
+    };
+    
+    wybrana_bron='';
+    
+    liczba_spelnionych=0;
+}
+function komunikatKoncowy(idn,tresc,pozX,pozY,wlk) { 
+// idn,tresc,pozX,pozY,wlk
+    var t_game = document.getElementById('tululoogame');
+    var dodawany_div = document.createElement('div');
+    
+    dodawany_div.setAttribute('id',idn);
+    dodawany_div.setAttribute('name',idn);
+    dodawany_div.setAttribute('style','position: absolute; top: '+pozY+'px; left: '+pozX+'px; font-size: '+wlk+'px; color: red; text-align: center;');
+    
+    dodawany_div.innerHTML = tresc;
+    
+    t_game.appendChild(dodawany_div);
+}
+function kolejnyEtap() { 
+jest_lawa = true;
+    jest_hud = true;
+    
+    punkty*=3;
+    gra_wstepna=0;
+    room_goto_next();
+    ustaw_odgrywany_utwor(Greensleeves);
+    poziomu_nr++;
+    if (typeof kongregate != 'undefined')
+    {
+    kongregate.stats.submit("circleOfHell",(poziomu_nr-1));
+    }
+
+}
 
 
 tu_gameloop = tu_loop;
