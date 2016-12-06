@@ -2167,6 +2167,10 @@ var p_game = document.getElementById('punkty');
 // jeśli obiekt punkty nie istnieje:
 
 /*
+
+możnaby dodać sklep po każdym etapie,
+w którym możnaby dokupić skoczność itp.
+
 if (p_game===null)
 {
 	var punkty_div = document.createElement('div');
