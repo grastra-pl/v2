@@ -1612,6 +1612,14 @@ function __blekitny() {
 __sprite_init__(this, blekitny, 32, 32, 0, 0, 'Box', 16, 0, 32, 0, 32, ['img/blekitny_0.png']);
 }; var blekitny = new __blekitny();
 
+function __sprite_klocek_przesowny() { 
+__sprite_init__(this, sprite_klocek_przesowny, 32, 32, 16, 16, 'Box', 16, 0, 32, 0, 32, ['img/sprite_klocek_przesowny_0.png']);
+}; var sprite_klocek_przesowny = new __sprite_klocek_przesowny();
+
+function __kula_sprite() { 
+__sprite_init__(this, kula_sprite, 36, 36, 18, 18, 'Box', 18, 0, 36, 0, 36, ['img/kula_sprite_0.png']);
+}; var kula_sprite = new __kula_sprite();
+
 
 
 /***********************************************************************
@@ -1733,6 +1741,8 @@ this.on_step = function() {
 with(this) {
 if 	(global.game_paused) return;
 
+
+var szybkosc_chodzenia = 4;
 wybieranieBroni();
 
 // wybrana_bron
@@ -1915,6 +1925,8 @@ if (gra_wstepna<=18)
 		|| ( place_meeting(x, y, tasma_lewo) != null)
 		|| ( place_meeting(x, y, klocek) != null)
 		|| ( place_meeting(x, y, klocek_ciemny) != null)
+		|| ( place_meeting(x, y, klocek_przes) != null)
+		|| ( place_meeting(x, y, kula) != null)
 		|| ( place_meeting(x, y, kladka) != null)
 		|| ( place_meeting(x, y, szybkaWinda) != null)
 		|| ( place_meeting(x, y, kongbigobj) != null)
@@ -1958,9 +1970,6 @@ if (gra_wstepna<=18)
 					y-=5;
 				}
 			}
-			
-			
-			
 		}
 	
 	if ((place_meeting(x, y, tasma_lewo) != null) || (place_meeting(x, y, tasma_prawo) != null))
@@ -1987,10 +1996,10 @@ if (gra_wstepna<=18)
 	if  ((!this.spada) || (moze_latac)) {
 	
 		if ( keyboard_check(vk_d) || keyboard_check(vk_right) )  {
-			x += 4;
+			x += szybkosc_chodzenia;
 			if (moze_latac)
 				{
-					x += 4;
+					x += szybkosc_chodzenia;
 				}
 			direction = 0;
 			image_index = 4 + floor((x % 32) / 8);
@@ -2010,13 +2019,30 @@ if (gra_wstepna<=18)
 					y -= 2;
 					x += 1;
 				}
+				
+			// przesuwanie klocka przewuwnego w prawo
+			if ( place_meeting(x, y, klocek_przes) != null)
+			{
+				obj= place_meeting(x, y, klocek_przes) ;
+				obj.ruch_poziomy = szybkosc_chodzenia;
+				x = xprevious;		
+			}
+			
+			// przesuwanie kuli w prawo
+			if ( place_meeting(x, y, kula) != null)
+			{
+				obj= place_meeting(x, y, kula) ;
+				obj.ruch_poziomy = szybkosc_chodzenia;
+				x = xprevious;		
+			}
+			
 		}
 
 		if ( keyboard_check(vk_a) || keyboard_check(vk_left) ) {
-			x -= 4;
+			x -= szybkosc_chodzenia;
 			if (moze_latac)
 				{
-					x -= 4;
+					x -= szybkosc_chodzenia;
 				}
 			direction = 180;
 			image_index = 0+ floor((x % 32 ) / 8);
@@ -2032,7 +2058,23 @@ if (gra_wstepna<=18)
 				x -= 1;
 			}
 			
-			 
+			 	
+			// przesuwanie klocka przewuwnego w lewo
+			if ( place_meeting(x, y, klocek_przes) != null)
+			{
+				obj= place_meeting(x, y, klocek_przes) ;
+				// obj.x-=2;
+				obj.ruch_poziomy = -szybkosc_chodzenia;
+				x = xprevious;		
+			}
+			
+			 // przesuwanie kuli w lewo
+			if ( place_meeting(x, y, kula) != null)
+			{
+				obj= place_meeting(x, y, kula) ;
+				obj.ruch_poziomy = -szybkosc_chodzenia;
+				x = xprevious;		
+			}
 
 		}
 	
@@ -5431,6 +5473,174 @@ this.on_animationend = on_animationend_i;
 this.on_draw = on_draw_i;
 }; var podloze_niebieskie = new __podloze_niebieskie();
 
+function __klocek_przes() {
+__instance_init__(this, klocek_przes, null, 1, 0, sprite_klocek_przesowny, 1, 3477);
+this.on_creation = function() {
+with(this) {
+this.air = 0;
+this.odlicz = 0;
+this.ruch_poziomy = 0;
+
+}
+};
+this.on_destroy = function() {
+with(this) {
+for (i=0;i<10;i++)
+{
+	instance_create(x,y,kawalek);
+}
+if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_bec);
+}
+};
+this.on_step = function() {
+with(this) {
+var nowy_y = y;
+
+if (y>wyliczDno())
+	{
+	instance_destroy();
+	}
+
+y += this.air;
+this.air++;
+ 
+ if (twardaKolizja(this, 0, this.air+2)) {
+				y = yprevious;
+				//y =111;
+				this.air = 0;	
+				this.odlicz = 0;
+}
+		
+
+if ( this.place_meeting(x, y + 34, klocek_przes) != null) {
+	if (this.odlicz>12) {
+		this.air = 0;
+	} else {
+		this.air = 2;
+		this.odlicz++;
+	}
+}
+		
+		
+		if (ruch_poziomy != 0)
+		{
+			x += ruch_poziomy;
+			ruch_poziomy = 0;
+			if (twardaKolizja(this,0,-10)) {
+				x = xprevious;
+			}
+		}
+
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, klocek_przes);
+if(this.other != null) {
+if (this != other) {
+	x -= ruch_poziomy;
+	ruch_poziomy=0;
+	other.x -= other.ruch_poziomy
+	other.ruch_poziomy=0;
+}
+
+}
+}
+};
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var klocek_przes = new __klocek_przes();
+
+function __kula() {
+__instance_init__(this, kula, null, 1, 0, kula_sprite, 1, 3485);
+this.on_creation = function() {
+with(this) {
+this.air = 0;
+this.odlicz = 0;
+this.ruch_poziomy = 0;
+
+}
+};
+this.on_destroy = function() {
+with(this) {
+for (i=0;i<10;i++)
+{
+	instance_create(x,y,kawalek);
+}
+if (dzwieki_on_bool && dzwieki_tylko_etapu) sound_play(snd_bec);
+}
+};
+this.on_step = function() {
+with(this) {
+var nowy_y = y;
+
+if (y>wyliczDno())
+	{
+	instance_destroy();
+	}
+
+y += this.air;
+this.air++;
+ 
+ if (twardaKolizja(this, 0, this.air+2)) {
+				y = yprevious;
+				//y =111;
+				this.air = 0;	
+				this.odlicz = 0;
+}
+		
+
+if ( this.place_meeting(x, y + 34, klocek_przes) != null) {
+	if (this.odlicz>12) {
+		this.air = 0;
+	} else {
+		this.air = 2;
+		this.odlicz++;
+	}
+}
+		
+		
+		if (ruch_poziomy != 0)
+		{
+			x += ruch_poziomy;
+			image_angle -= ruch_poziomy;
+			
+			if (twardaKolizja(this,0,-10)) {
+				x = xprevious;
+				ruch_poziomy = 0;
+			}
+			
+		}
+
+}
+};
+this.on_end_step = on_end_step_i;
+this.on_collision = function() {
+with(this) {
+this.other = this.place_meeting(this.x, this.y, kula);
+if(this.other != null) {
+if (this != other) {
+	x -= ruch_poziomy;
+	
+	other.x -= other.ruch_poziomy;
+	
+	var ruch_tymczasowy = ruch_poziomy
+	ruch_poziomy = other.ruch_poziomy;
+	other.ruch_poziomy = ruch_tymczasowy;
+}
+
+}
+}
+};
+this.on_roomstart = on_roomstart_i;
+this.on_roomend = on_roomend_i;
+this.on_animationend = on_animationend_i;
+this.on_draw = on_draw_i;
+}; var kula = new __kula();
+
 
 
 /***********************************************************************
@@ -5607,7 +5817,16 @@ this.objects = [
 [{o:podloze_niebieskie, x:96, y:288}],
 [{o:podloze_niebieskie, x:128, y:288}],
 [{o:egipska_krolewna, x:96, y:160}],
-[{o:filizanka_do_wziecia, x:0, y:64}]];
+[{o:filizanka_do_wziecia, x:0, y:64}],
+[{o:klocek_przes, x:460, y:220}],
+[{o:klocek_przes, x:380, y:240}],
+[{o:klocek_przes, x:320, y:220}],
+[{o:klocek_przes, x:260, y:240}],
+[{o:klocek_przes, x:320, y:40}],
+[{o:klocek_przes, x:260, y:40}],
+[{o:klocek_przes, x:140, y:40}],
+[{o:kula, x:440, y:60}],
+[{o:kula, x:300, y:100}]];
 this.start = function() {
 __room_start__(this, EtapWprowadzenia, 640, 480, 30, 0, 0, 0, krajobraz.image, 0, 0, 0, 640, 480, null, 50, 50);
 
@@ -9511,6 +9730,22 @@ if (typeof kongregate != 'undefined')
 		kongregate.stats.submit("circleOfHell",(poziomu_nr-1));
 	}
 
+}
+function twardaKolizja(badanyObiekt, offx, offy) { 
+return  (( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, podloze_ziemia) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, podloze_trawa) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, podloze_niebieskie) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, podloze_skos_lewy) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, podloze_skos_prawy) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, tasma_prawo) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, tasma_lewo) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, klocek) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, klocek_ciemny) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, kladka) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, szybkaWinda) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, kongbigobj) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, konggobj) != null)
+		) 
 }
 
 
