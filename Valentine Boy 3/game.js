@@ -2016,7 +2016,7 @@ if (gra_wstepna<=18)
 				
 			if (place_meeting(x, y+8, podloze_skos_lewy) != null)
 				{
-					y -= 2;
+					y -= 4;
 					x += 1;
 				}
 				
@@ -2054,7 +2054,7 @@ if (gra_wstepna<=18)
 			
 			if  (place_meeting(x, y+8, podloze_skos_prawy) != null)
 			{
-				y -= 2;
+				y -= 4;
 				x -= 1;
 			}
 			
@@ -5474,7 +5474,7 @@ this.on_draw = on_draw_i;
 }; var podloze_niebieskie = new __podloze_niebieskie();
 
 function __klocek_przes() {
-__instance_init__(this, klocek_przes, null, 1, 0, sprite_klocek_przesowny, 1, 3477);
+__instance_init__(this, klocek_przes, null, 1, 0, sprite_klocek_przesowny, 1, 3453);
 this.on_creation = function() {
 with(this) {
 this.air = 0;
@@ -5546,6 +5546,12 @@ if (this != other) {
 }
 
 }
+this.other = this.place_meeting(this.x, this.y, kula);
+if(this.other != null) {
+	other.x -= other.ruch_poziomy
+	other.ruch_poziomy=-other.ruch_poziomy;
+	instance_destroy();
+}
 }
 };
 this.on_roomstart = on_roomstart_i;
@@ -5555,7 +5561,7 @@ this.on_draw = on_draw_i;
 }; var klocek_przes = new __klocek_przes();
 
 function __kula() {
-__instance_init__(this, kula, null, 1, 0, kula_sprite, 1, 3485);
+__instance_init__(this, kula, null, 1, 0, kula_sprite, 1, 3454);
 this.on_creation = function() {
 with(this) {
 this.air = 0;
@@ -5585,7 +5591,7 @@ if (y>wyliczDno())
 y += this.air;
 this.air++;
  
- if (twardaKolizja(this, 0, this.air+2)) {
+ if (bardzoTwardaKolizja(this, 0, this.air+2)) {
 				y = yprevious;
 				//y =111;
 				this.air = 0;	
@@ -5632,6 +5638,32 @@ if (this != other) {
 	other.ruch_poziomy = ruch_tymczasowy;
 }
 
+}
+this.other = this.place_meeting(this.x, this.y, klocek_ciemny);
+if(this.other != null) {
+other.instance_destroy();
+ruch_poziomy = -ruch_poziomy;
+}
+this.other = this.place_meeting(this.x, this.y, klocek);
+if(this.other != null) {
+other.instance_destroy();
+ruch_poziomy = -ruch_poziomy;
+}
+this.other = this.place_meeting(this.x, this.y, podloze_skos_lewy);
+if(this.other != null) {
+if (ruch_poziomy>0) {
+	ruch_poziomy = 0;
+}
+ruch_poziomy -= 4;
+x -= 8;
+}
+this.other = this.place_meeting(this.x, this.y, podloze_skos_prawy);
+if(this.other != null) {
+if (ruch_poziomy<0) {
+	ruch_poziomy = 0;
+}
+ruch_poziomy += 4;
+x += 8;
 }
 }
 };
@@ -5776,57 +5808,135 @@ this.objects = [
 [{o:podloze_ziemia, x:0, y:112}],
 [{o:podloze_ziemia, x:16, y:112}],
 [{o:podloze_trawa, x:0, y:240}],
-[{o:podloze_ziemia, x:16, y:272}],
-[{o:podloze_trawa, x:0, y:288}],
 [{o:podloze_trawa, x:0, y:320}],
 [{o:podloze_trawa, x:0, y:352}],
 [{o:podloze_trawa, x:0, y:384}],
 [{o:podloze_trawa, x:0, y:416}],
 [{o:podloze_trawa, x:0, y:448}],
-[{o:podloze_trawa, x:160, y:240}],
-[{o:podloze_trawa, x:160, y:288}],
-[{o:podloze_trawa, x:160, y:320}],
-[{o:podloze_trawa, x:160, y:352}],
-[{o:podloze_trawa, x:160, y:384}],
 [{o:podloze_trawa, x:160, y:416}],
 [{o:podloze_trawa, x:160, y:448}],
-[{o:podloze_ziemia, x:160, y:272}],
 [{o:Walenty, x:608, y:256}],
-[{o:podloze_niebieskie, x:512, y:288}],
-[{o:podloze_niebieskie, x:480, y:272}],
-[{o:podloze_niebieskie, x:448, y:272}],
-[{o:podloze_niebieskie, x:416, y:272}],
-[{o:podloze_niebieskie, x:384, y:272}],
 [{o:podloze_niebieskie, x:544, y:304}],
 [{o:podloze_niebieskie, x:576, y:288}],
 [{o:podloze_niebieskie, x:608, y:288}],
-[{o:podloze_niebieskie, x:352, y:272}],
-[{o:podloze_niebieskie, x:320, y:272}],
-[{o:podloze_niebieskie, x:288, y:272}],
-[{o:podloze_niebieskie, x:256, y:272}],
-[{o:podloze_niebieskie, x:224, y:272}],
-[{o:podloze_niebieskie, x:192, y:272}],
-[{o:podloze_niebieskie, x:160, y:208}],
 [{o:podloze_niebieskie, x:128, y:208}],
 [{o:podloze_niebieskie, x:96, y:208}],
 [{o:podloze_niebieskie, x:64, y:208}],
 [{o:podloze_niebieskie, x:32, y:208}],
 [{o:podloze_niebieskie, x:0, y:208}],
-[{o:podloze_niebieskie, x:32, y:288}],
-[{o:podloze_niebieskie, x:64, y:288}],
-[{o:podloze_niebieskie, x:96, y:288}],
-[{o:podloze_niebieskie, x:128, y:288}],
 [{o:egipska_krolewna, x:96, y:160}],
 [{o:filizanka_do_wziecia, x:0, y:64}],
-[{o:klocek_przes, x:460, y:220}],
-[{o:klocek_przes, x:380, y:240}],
-[{o:klocek_przes, x:320, y:220}],
-[{o:klocek_przes, x:260, y:240}],
-[{o:klocek_przes, x:320, y:40}],
-[{o:klocek_przes, x:260, y:40}],
-[{o:klocek_przes, x:140, y:40}],
-[{o:kula, x:440, y:60}],
-[{o:kula, x:300, y:100}]];
+[{o:podloze_skos_prawy, x:32, y:272}],
+[{o:podloze_skos_prawy, x:48, y:288}],
+[{o:podloze_skos_prawy, x:64, y:304}],
+[{o:podloze_skos_prawy, x:80, y:320}],
+[{o:podloze_skos_prawy, x:128, y:368}],
+[{o:podloze_skos_prawy, x:144, y:384}],
+[{o:podloze_skos_prawy, x:160, y:400}],
+[{o:podloze_skos_prawy, x:192, y:416}],
+[{o:podloze_skos_prawy, x:208, y:432}],
+[{o:podloze_skos_prawy, x:224, y:448}],
+[{o:podloze_trawa, x:240, y:464}],
+[{o:podloze_trawa, x:272, y:464}],
+[{o:podloze_ziemia, x:304, y:464}],
+[{o:podloze_ziemia, x:320, y:464}],
+[{o:podloze_ziemia, x:336, y:464}],
+[{o:podloze_ziemia, x:224, y:464}],
+[{o:podloze_ziemia, x:208, y:464}],
+[{o:podloze_ziemia, x:208, y:448}],
+[{o:podloze_ziemia, x:192, y:448}],
+[{o:podloze_ziemia, x:192, y:464}],
+[{o:podloze_ziemia, x:192, y:432}],
+[{o:podloze_ziemia, x:144, y:400}],
+[{o:podloze_ziemia, x:144, y:416}],
+[{o:podloze_ziemia, x:144, y:432}],
+[{o:podloze_ziemia, x:144, y:448}],
+[{o:podloze_ziemia, x:144, y:464}],
+[{o:podloze_ziemia, x:128, y:464}],
+[{o:podloze_ziemia, x:128, y:448}],
+[{o:podloze_ziemia, x:128, y:432}],
+[{o:podloze_ziemia, x:128, y:416}],
+[{o:podloze_ziemia, x:128, y:400}],
+[{o:podloze_ziemia, x:128, y:384}],
+[{o:podloze_trawa, x:96, y:368}],
+[{o:podloze_trawa, x:96, y:400}],
+[{o:podloze_trawa, x:96, y:432}],
+[{o:podloze_trawa, x:96, y:448}],
+[{o:podloze_trawa, x:96, y:336}],
+[{o:podloze_trawa, x:0, y:288}],
+[{o:podloze_trawa, x:0, y:256}],
+[{o:podloze_ziemia, x:32, y:288}],
+[{o:podloze_ziemia, x:48, y:304}],
+[{o:podloze_ziemia, x:64, y:320}],
+[{o:podloze_ziemia, x:80, y:336}],
+[{o:podloze_ziemia, x:32, y:304}],
+[{o:podloze_ziemia, x:32, y:320}],
+[{o:podloze_ziemia, x:48, y:320}],
+[{o:podloze_ziemia, x:48, y:336}],
+[{o:podloze_ziemia, x:64, y:336}],
+[{o:podloze_ziemia, x:64, y:352}],
+[{o:podloze_ziemia, x:80, y:352}],
+[{o:podloze_ziemia, x:80, y:368}],
+[{o:podloze_ziemia, x:32, y:336}],
+[{o:podloze_ziemia, x:48, y:352}],
+[{o:podloze_ziemia, x:64, y:368}],
+[{o:podloze_ziemia, x:80, y:384}],
+[{o:podloze_ziemia, x:32, y:352}],
+[{o:podloze_ziemia, x:32, y:368}],
+[{o:podloze_ziemia, x:48, y:368}],
+[{o:podloze_ziemia, x:48, y:384}],
+[{o:podloze_ziemia, x:64, y:400}],
+[{o:podloze_ziemia, x:64, y:384}],
+[{o:podloze_ziemia, x:80, y:400}],
+[{o:podloze_ziemia, x:80, y:416}],
+[{o:podloze_ziemia, x:64, y:416}],
+[{o:podloze_ziemia, x:48, y:416}],
+[{o:podloze_ziemia, x:48, y:400}],
+[{o:podloze_ziemia, x:32, y:400}],
+[{o:podloze_ziemia, x:48, y:384}],
+[{o:podloze_ziemia, x:32, y:384}],
+[{o:podloze_ziemia, x:32, y:432}],
+[{o:podloze_ziemia, x:32, y:416}],
+[{o:podloze_ziemia, x:32, y:448}],
+[{o:podloze_ziemia, x:48, y:464}],
+[{o:podloze_ziemia, x:32, y:464}],
+[{o:podloze_ziemia, x:64, y:464}],
+[{o:podloze_ziemia, x:80, y:464}],
+[{o:podloze_ziemia, x:80, y:448}],
+[{o:podloze_ziemia, x:64, y:448}],
+[{o:podloze_ziemia, x:48, y:448}],
+[{o:podloze_ziemia, x:48, y:432}],
+[{o:podloze_ziemia, x:64, y:432}],
+[{o:podloze_ziemia, x:80, y:432}],
+[{o:podloze_trawa, x:352, y:448}],
+[{o:podloze_trawa, x:384, y:448}],
+[{o:podloze_trawa, x:416, y:448}],
+[{o:podloze_trawa, x:448, y:448}],
+[{o:podloze_trawa, x:480, y:448}],
+[{o:podloze_trawa, x:512, y:448}],
+[{o:podloze_trawa, x:544, y:448}],
+[{o:podloze_trawa, x:576, y:448}],
+[{o:podloze_trawa, x:608, y:448}],
+[{o:podloze_skos_lewy, x:480, y:160}],
+[{o:podloze_skos_lewy, x:464, y:176}],
+[{o:podloze_skos_lewy, x:448, y:192}],
+[{o:podloze_skos_lewy, x:432, y:208}],
+[{o:podloze_skos_lewy, x:416, y:224}],
+[{o:podloze_skos_lewy, x:400, y:240}],
+[{o:podloze_ziemia, x:384, y:256}],
+[{o:podloze_ziemia, x:368, y:256}],
+[{o:podloze_ziemia, x:352, y:256}],
+[{o:podloze_skos_prawy, x:160, y:208}],
+[{o:podloze_skos_prawy, x:176, y:224}],
+[{o:podloze_skos_prawy, x:192, y:240}],
+[{o:podloze_skos_prawy, x:208, y:256}],
+[{o:podloze_skos_prawy, x:224, y:272}],
+[{o:podloze_skos_prawy, x:240, y:288}],
+[{o:podloze_skos_prawy, x:256, y:304}],
+[{o:podloze_skos_prawy, x:272, y:320}],
+[{o:podloze_skos_prawy, x:288, y:336}],
+[{o:podloze_skos_prawy, x:304, y:352}],
+[{o:podloze_skos_prawy, x:320, y:368}]];
 this.start = function() {
 __room_start__(this, EtapWprowadzenia, 640, 480, 30, 0, 0, 0, krajobraz.image, 0, 0, 0, 640, 480, null, 50, 50);
 
@@ -9743,6 +9853,16 @@ return  (( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + of
 		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, klocek_ciemny) != null)
 		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, kladka) != null)
 		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, szybkaWinda) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, kongbigobj) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, konggobj) != null)
+		) 
+}
+function bardzoTwardaKolizja(badanyObiekt,offx,offy) { 
+return  (( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, podloze_ziemia) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, podloze_trawa) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, podloze_niebieskie) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, klocek) != null)
+		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, klocek_ciemny) != null)
 		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, kongbigobj) != null)
 		|| ( badanyObiekt.place_meeting(badanyObiekt.x + offx, badanyObiekt.y + offy, konggobj) != null)
 		) 
