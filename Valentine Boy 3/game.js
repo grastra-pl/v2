@@ -5474,7 +5474,7 @@ this.on_draw = on_draw_i;
 }; var podloze_niebieskie = new __podloze_niebieskie();
 
 function __klocek_przes() {
-__instance_init__(this, klocek_przes, null, 1, 0, sprite_klocek_przesowny, 1, 3453);
+__instance_init__(this, klocek_przes, null, 1, 0, sprite_klocek_przesowny, 1, 3445);
 this.on_creation = function() {
 with(this) {
 this.air = 0;
@@ -5561,7 +5561,7 @@ this.on_draw = on_draw_i;
 }; var klocek_przes = new __klocek_przes();
 
 function __kula() {
-__instance_init__(this, kula, null, 1, 0, kula_sprite, 1, 3454);
+__instance_init__(this, kula, null, 1, 0, kula_sprite, 1, 3446);
 this.on_creation = function() {
 with(this) {
 this.air = 0;
@@ -5614,9 +5614,9 @@ if ( this.place_meeting(x, y + 34, klocek_przes) != null) {
 			x += ruch_poziomy;
 			image_angle -= ruch_poziomy;
 			
-			if (twardaKolizja(this,0,-10)) {
+			if (bardzoTwardaKolizja(this,0,-10)) {
 				x = xprevious;
-				ruch_poziomy = 0;
+				ruch_poziomy = -ruch_poziomy;
 			}
 			
 		}
@@ -5652,18 +5652,25 @@ ruch_poziomy = -ruch_poziomy;
 this.other = this.place_meeting(this.x, this.y, podloze_skos_lewy);
 if(this.other != null) {
 if (ruch_poziomy>0) {
-	ruch_poziomy = 0;
+	// y += ruch_poziomy;
+	this.air = -ruch_poziomy;
+	x += 4;
+} else {
+	x -= 4;
 }
-ruch_poziomy -= 4;
-x -= 8;
+ruch_poziomy -= 2;
 }
 this.other = this.place_meeting(this.x, this.y, podloze_skos_prawy);
 if(this.other != null) {
 if (ruch_poziomy<0) {
-	ruch_poziomy = 0;
+	// y += ruch_poziomy;
+	this.air = ruch_poziomy;
+	x -= 4;
+} else {
+	x += 4;
 }
-ruch_poziomy += 4;
-x += 8;
+ruch_poziomy += 2;
+
 }
 }
 };
@@ -5699,7 +5706,7 @@ this.objects = [
 this.start = function() {
 __room_start__(this, EkranStartowy, 640, 480, 30, 255, 0, 0, VALENTINE_TLO.image, 0, 0, 0, 640, 480, null, 50, 50);
 
-wersja="3.0.0.0";
+wersja="3.0.0.0 alfa";
 
 czy_inicjowac();
 
@@ -5816,15 +5823,7 @@ this.objects = [
 [{o:podloze_trawa, x:160, y:416}],
 [{o:podloze_trawa, x:160, y:448}],
 [{o:Walenty, x:608, y:256}],
-[{o:podloze_niebieskie, x:544, y:304}],
-[{o:podloze_niebieskie, x:576, y:288}],
-[{o:podloze_niebieskie, x:608, y:288}],
-[{o:podloze_niebieskie, x:128, y:208}],
-[{o:podloze_niebieskie, x:96, y:208}],
-[{o:podloze_niebieskie, x:64, y:208}],
-[{o:podloze_niebieskie, x:32, y:208}],
 [{o:podloze_niebieskie, x:0, y:208}],
-[{o:egipska_krolewna, x:96, y:160}],
 [{o:filizanka_do_wziecia, x:0, y:64}],
 [{o:podloze_skos_prawy, x:32, y:272}],
 [{o:podloze_skos_prawy, x:48, y:288}],
@@ -5921,22 +5920,35 @@ this.objects = [
 [{o:podloze_skos_lewy, x:464, y:176}],
 [{o:podloze_skos_lewy, x:448, y:192}],
 [{o:podloze_skos_lewy, x:432, y:208}],
-[{o:podloze_skos_lewy, x:416, y:224}],
-[{o:podloze_skos_lewy, x:400, y:240}],
 [{o:podloze_ziemia, x:384, y:256}],
 [{o:podloze_ziemia, x:368, y:256}],
 [{o:podloze_ziemia, x:352, y:256}],
-[{o:podloze_skos_prawy, x:160, y:208}],
-[{o:podloze_skos_prawy, x:176, y:224}],
-[{o:podloze_skos_prawy, x:192, y:240}],
-[{o:podloze_skos_prawy, x:208, y:256}],
-[{o:podloze_skos_prawy, x:224, y:272}],
-[{o:podloze_skos_prawy, x:240, y:288}],
-[{o:podloze_skos_prawy, x:256, y:304}],
-[{o:podloze_skos_prawy, x:272, y:320}],
-[{o:podloze_skos_prawy, x:288, y:336}],
-[{o:podloze_skos_prawy, x:304, y:352}],
-[{o:podloze_skos_prawy, x:320, y:368}]];
+[{o:podloze_ziemia, x:336, y:256}],
+[{o:podloze_ziemia, x:320, y:256}],
+[{o:podloze_ziemia, x:304, y:256}],
+[{o:podloze_ziemia, x:288, y:256}],
+[{o:podloze_ziemia, x:272, y:256}],
+[{o:podloze_ziemia, x:256, y:256}],
+[{o:podloze_ziemia, x:240, y:256}],
+[{o:podloze_ziemia, x:224, y:256}],
+[{o:podloze_ziemia, x:208, y:256}],
+[{o:podloze_skos_lewy, x:336, y:448}],
+[{o:egipska_krolewna, x:160, y:64}],
+[{o:podloze_ziemia, x:144, y:128}],
+[{o:podloze_ziemia, x:160, y:128}],
+[{o:podloze_ziemia, x:176, y:128}],
+[{o:podloze_ziemia, x:192, y:128}],
+[{o:podloze_ziemia, x:208, y:128}],
+[{o:podloze_skos_lewy, x:608, y:288}],
+[{o:podloze_skos_lewy, x:624, y:272}],
+[{o:podloze_skos_lewy, x:592, y:304}],
+[{o:podloze_skos_lewy, x:576, y:320}],
+[{o:podloze_skos_lewy, x:560, y:336}],
+[{o:podloze_skos_lewy, x:416, y:224}],
+[{o:podloze_skos_lewy, x:400, y:240}],
+[{o:podloze_skos_lewy, x:496, y:144}],
+[{o:kladka, x:576, y:192}],
+[{o:kula, x:464, y:64}]];
 this.start = function() {
 __room_start__(this, EtapWprowadzenia, 640, 480, 30, 0, 0, 0, krajobraz.image, 0, 0, 0, 640, 480, null, 50, 50);
 
